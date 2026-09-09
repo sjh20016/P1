@@ -8,7 +8,7 @@ def vec(v):
 def godot(v):
     return [v[0],v[2],-v[1]]
 parts = ['[gd_scene load_steps=35 format=3]']
-resources = {'1':('PackedScene','scenes/maps/static_tower_forest.tscn'),'2':('PackedScene','scenes/player/player.tscn'),'3':('Script','scripts/game_controller.gd'),'4':('Script','scripts/destruction/destruction_manager.gd'),'5':('Script','scripts/destruction/impact_detector.gd'),'6':('Script','scripts/destruction/tentacle_sweep.gd'),'7':('Script','scripts/camera/camera_shake.gd'),'8':('Script','scripts/vfx/impact_vfx.gd'),'9':('Script','scripts/debug/game_hud.gd'),'10':('Script','scripts/debug/debug_draw.gd'),'11':('Script','scripts/vfx/impact_overlay.gd')}
+resources = {'1':('PackedScene','scenes/maps/destructible_tower_forest.scn'),'2':('PackedScene','scenes/player/player.tscn'),'3':('Script','scripts/game_controller.gd'),'4':('Script','scripts/destruction/destruction_manager.gd'),'5':('Script','scripts/destruction/impact_detector.gd'),'6':('Script','scripts/destruction/tentacle_sweep.gd'),'7':('Script','scripts/camera/camera_shake.gd'),'8':('Script','scripts/vfx/impact_vfx.gd'),'9':('Script','scripts/debug/game_hud.gd'),'10':('Script','scripts/debug/debug_draw.gd'),'11':('Script','scripts/vfx/impact_overlay.gd'),'12':('Script','scripts/destruction/destructible_segment.gd')}
 for i in range(1,15): resources[str(20+i)] = ('PackedScene',f'scenes/destruction/D{i:02d}.tscn')
 for id,(typ,path) in resources.items(): parts.append(f'[ext_resource type="{typ}" path="res://{path}" id="{id}"]')
 parts.append('''[sub_resource type="Environment" id="Env"]
@@ -89,14 +89,17 @@ script = ExtResource("9")
 script = ExtResource("11")
 [node name="LaunchDeck" type="StaticBody3D" parent="."]
 position = Vector3(0, 46, 10)
-[node name="Visual" type="MeshInstance3D" parent="LaunchDeck"]
+script = ExtResource("12")
+debris_at_hit = true
+local_bounds = AABB(-6, -0.5, -7, 12, 1, 14)
+[node name="IntactVisual" type="MeshInstance3D" parent="LaunchDeck"]
 mesh = SubResource("DeckMesh")
 [node name="Collision" type="CollisionShape3D" parent="LaunchDeck"]
 shape = SubResource("DeckShape")
-[node name="StripeL" type="MeshInstance3D" parent="LaunchDeck"]
+[node name="StripeL" type="MeshInstance3D" parent="LaunchDeck/IntactVisual"]
 position = Vector3(-4.8, 0.51, 0)
 mesh = SubResource("Stripe")
-[node name="StripeR" type="MeshInstance3D" parent="LaunchDeck"]
+[node name="StripeR" type="MeshInstance3D" parent="LaunchDeck/IntactVisual"]
 position = Vector3(4.8, 0.51, 0)
 mesh = SubResource("Stripe")
 [node name="LaunchSign" type="Label3D" parent="."]
@@ -132,12 +135,15 @@ for i,pos in enumerate(anchors):
     name='PracticeAnchor' if i==8 else f'Anchor{i}'
     parts.append(f'''[node name="{name}" type="StaticBody3D" parent="."]
 position = {vec(pos)}
-[node name="Ring" type="MeshInstance3D" parent="{name}"]
+script = ExtResource("12")
+local_bounds = AABB(-1.1, -1.1, -1.1, 2.2, 2.2, 2.2)
+debris_at_hit = true
+[node name="IntactVisual" type="MeshInstance3D" parent="{name}"]
 rotation_degrees = Vector3(90, 0, 0)
 mesh = SubResource("AnchorRing")
 [node name="Collision" type="CollisionShape3D" parent="{name}"]
 shape = SubResource("AnchorShape")
-[node name="Tag" type="Label3D" parent="{name}"]
+[node name="Tag" type="Label3D" parent="{name}/IntactVisual"]
 position = Vector3(0, 1.7, 0)
 text = "ANCHOR / {i+1:02d}"
 font_size = 36

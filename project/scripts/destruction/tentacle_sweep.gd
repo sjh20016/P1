@@ -41,6 +41,11 @@ func check_hook(hook: GrappleController, delta: float) -> void:
 		var d := inverse * hook.grapple_point
 		if SweepGeometry.swept_line_box(a, b, c, d, segment.local_bounds, sweep_radius):
 			var center := segment.global_transform * segment.local_bounds.get_center()
+			if segment.has_method("sweep_hit"):
+				var hit: Variant = segment.sweep_hit(hook.previous_start,hook.previous_end,player.global_position,hook.grapple_point,sweep_radius)
+				if hit == null:
+					continue
+				center = hit
 			if segment.break_segment(center, player.velocity.normalized(), player.velocity.length()):
 				cooldowns[segment.get_instance_id()] = target_cooldown
 				sweep_event_count += 1

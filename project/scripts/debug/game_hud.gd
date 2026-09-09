@@ -83,7 +83,7 @@ func _draw() -> void:
 	panel(Rect2(w-292,30,262,68),0.78)
 	text_at("DESTRUCTION",Vector2(w-275,53),11,MUTED)
 	text_at("%06d" % manager.score,Vector2(w-275,83),28)
-	text_at("%02d / 14" % manager.event_count,Vector2(w-120,83),17,ORANGE)
+	text_at("%03d CUTS" % manager.event_count,Vector2(w-145,83),17,ORANGE)
 	if session.menu_open:
 		draw_menu(view)
 		return
@@ -169,4 +169,4 @@ func draw_menu(view: Vector2) -> void:
 	text_at("SPACE    Jump from the launch deck",Vector2(x,y+296),12,MUTED)
 	text_at("R    Respawn    ·    F5    Restore all targets",Vector2(x,y+321),12,MUTED)
 	text_at("F3   Telemetry    ·    F11   Fullscreen",Vector2(x,y+346),12,MUTED)
-	text_at("FIXED BLENDER MAP / 14 BREAKABLE SEGMENTS / 48 DEBRIS LIMIT",Vector2(74,view.y-34),11,MUTED)
+	text_at("FIXED BLENDER MAP / FULL DESTRUCTION / 48 DEBRIS LIMIT",Vector2(74,view.y-34),11,MUTED)

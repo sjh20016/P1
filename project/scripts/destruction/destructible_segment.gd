@@ -5,6 +5,8 @@ extends StaticBody3D
 @export var destruction_threshold: float = 19.0
 @export var local_bounds: AABB = AABB(Vector3(-3, -2, -1), Vector3(6, 4, 2))
 @export var label: String = "FRACTURE"
+@export var debris_at_hit: bool = false
+@export var managed_by_building: bool = false
 var broken: bool = false
 var last_break_time: float = -100.0
 
@@ -30,7 +32,8 @@ func break_segment(hit_position: Vector3, hit_direction: Vector3, strength: floa
 	for child in get_children():
 		if child is CollisionShape3D:
 			child.set_deferred("disabled", true)
-	manager.emit_broken(broken_scene, global_transform, hit_position, hit_direction, strength)
+	var debris_transform := Transform3D(Basis.IDENTITY,hit_position) if debris_at_hit else global_transform
+	manager.emit_broken(broken_scene, debris_transform, hit_position, hit_direction, strength)
 	return true
 
 func restore() -> void:

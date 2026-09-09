@@ -13,7 +13,7 @@ func _enter_tree() -> void:
 	add_to_group("session")
 
 func _ready() -> void:
-	player.reset_performed.connect(func(): resets += 1)
+	player.reset_performed.connect(on_player_reset)
 	player.camera_rig.rotation = Vector3(-0.07, 0, 0)
 	get_tree().paused = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -23,6 +23,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	run_time += delta
 	$SweepSign.visible = not $D13.broken
+	$LaunchSign.visible = not $LaunchDeck.broken
+
+func on_player_reset() -> void:
+	resets += 1
+	if $LaunchDeck.broken:
+		$LaunchDeck.restore()
 
 func run_export_smoke() -> void:
 	begin()
@@ -66,8 +72,11 @@ func restart_run() -> void:
 	manager.score = 0
 	manager.event_count = 0
 	manager.last_hit_age = 100
+	for building: DestructibleBuilding in get_tree().get_nodes_in_group("buildings"):
+		building.restore()
 	for segment: DestructibleSegment in get_tree().get_nodes_in_group("destructible"):
-		segment.restore()
+		if not segment.managed_by_building and not segment is DestructibleBuilding:
+			segment.restore()
 	player.spawn_position = Vector3(0, 48, 12)
 	player.reset_player()
 	player.camera_rig.rotation = Vector3(-0.07, 0, 0)

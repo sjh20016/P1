@@ -1,5 +1,5 @@
 [gd_scene load_steps=35 format=3]
-[ext_resource type="PackedScene" path="res://scenes/maps/static_tower_forest.tscn" id="1"]
+[ext_resource type="PackedScene" path="res://scenes/maps/destructible_tower_forest.scn" id="1"]
 [ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="2"]
 [ext_resource type="Script" path="res://scripts/game_controller.gd" id="3"]
 [ext_resource type="Script" path="res://scripts/destruction/destruction_manager.gd" id="4"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://scripts/debug/game_hud.gd" id="9"]
 [ext_resource type="Script" path="res://scripts/debug/debug_draw.gd" id="10"]
 [ext_resource type="Script" path="res://scripts/vfx/impact_overlay.gd" id="11"]
+[ext_resource type="Script" path="res://scripts/destruction/destructible_segment.gd" id="12"]
 [ext_resource type="PackedScene" path="res://scenes/destruction/D01.tscn" id="21"]
 [ext_resource type="PackedScene" path="res://scenes/destruction/D02.tscn" id="22"]
 [ext_resource type="PackedScene" path="res://scenes/destruction/D03.tscn" id="23"]
@@ -102,14 +103,17 @@ script = ExtResource("9")
 script = ExtResource("11")
 [node name="LaunchDeck" type="StaticBody3D" parent="."]
 position = Vector3(0, 46, 10)
-[node name="Visual" type="MeshInstance3D" parent="LaunchDeck"]
+script = ExtResource("12")
+debris_at_hit = true
+local_bounds = AABB(-6, -0.5, -7, 12, 1, 14)
+[node name="IntactVisual" type="MeshInstance3D" parent="LaunchDeck"]
 mesh = SubResource("DeckMesh")
 [node name="Collision" type="CollisionShape3D" parent="LaunchDeck"]
 shape = SubResource("DeckShape")
-[node name="StripeL" type="MeshInstance3D" parent="LaunchDeck"]
+[node name="StripeL" type="MeshInstance3D" parent="LaunchDeck/IntactVisual"]
 position = Vector3(-4.8, 0.51, 0)
 mesh = SubResource("Stripe")
-[node name="StripeR" type="MeshInstance3D" parent="LaunchDeck"]
+[node name="StripeR" type="MeshInstance3D" parent="LaunchDeck/IntactVisual"]
 position = Vector3(4.8, 0.51, 0)
 mesh = SubResource("Stripe")
 [node name="LaunchSign" type="Label3D" parent="."]
@@ -177,12 +181,15 @@ billboard = 1
 
 [node name="Anchor0" type="StaticBody3D" parent="."]
 position = Vector3(-14.00000, 66.00000, -25.00000)
-[node name="Ring" type="MeshInstance3D" parent="Anchor0"]
+script = ExtResource("12")
+local_bounds = AABB(-1.1, -1.1, -1.1, 2.2, 2.2, 2.2)
+debris_at_hit = true
+[node name="IntactVisual" type="MeshInstance3D" parent="Anchor0"]
 rotation_degrees = Vector3(90, 0, 0)
 mesh = SubResource("AnchorRing")
 [node name="Collision" type="CollisionShape3D" parent="Anchor0"]
 shape = SubResource("AnchorShape")
-[node name="Tag" type="Label3D" parent="Anchor0"]
+[node name="Tag" type="Label3D" parent="Anchor0/IntactVisual"]
 position = Vector3(0, 1.7, 0)
 text = "ANCHOR / 01"
 font_size = 36
@@ -193,12 +200,15 @@ modulate = Color(0.56, 0.94, 0.8, 1)
 
 [node name="Anchor1" type="StaticBody3D" parent="."]
 position = Vector3(14.00000, 62.00000, -34.00000)
-[node name="Ring" type="MeshInstance3D" parent="Anchor1"]
+script = ExtResource("12")
+local_bounds = AABB(-1.1, -1.1, -1.1, 2.2, 2.2, 2.2)
+debris_at_hit = true
+[node name="IntactVisual" type="MeshInstance3D" parent="Anchor1"]
 rotation_degrees = Vector3(90, 0, 0)
 mesh = SubResource("AnchorRing")
 [node name="Collision" type="CollisionShape3D" parent="Anchor1"]
 shape = SubResource("AnchorShape")
-[node name="Tag" type="Label3D" parent="Anchor1"]
+[node name="Tag" type="Label3D" parent="Anchor1/IntactVisual"]
 position = Vector3(0, 1.7, 0)
 text = "ANCHOR / 02"
 font_size = 36
@@ -209,12 +219,15 @@ modulate = Color(0.56, 0.94, 0.8, 1)
 
 [node name="Anchor2" type="StaticBody3D" parent="."]
 position = Vector3(-14.00000, 58.00000, -83.00000)
-[node name="Ring" type="MeshInstance3D" parent="Anchor2"]
+script = ExtResource("12")
+local_bounds = AABB(-1.1, -1.1, -1.1, 2.2, 2.2, 2.2)
+debris_at_hit = true
+[node name="IntactVisual" type="MeshInstance3D" parent="Anchor2"]
 rotation_degrees = Vector3(90, 0, 0)
 mesh = SubResource("AnchorRing")
 [node name="Collision" type="CollisionShape3D" parent="Anchor2"]
 shape = SubResource("AnchorShape")
-[node name="Tag" type="Label3D" parent="Anchor2"]
+[node name="Tag" type="Label3D" parent="Anchor2/IntactVisual"]
 position = Vector3(0, 1.7, 0)
 text = "ANCHOR / 03"
 font_size = 36
@@ -225,12 +238,15 @@ modulate = Color(0.56, 0.94, 0.8, 1)
 
 [node name="Anchor3" type="StaticBody3D" parent="."]
 position = Vector3(13.00000, 60.00000, -99.00000)
-[node name="Ring" type="MeshInstance3D" parent="Anchor3"]
+script = ExtResource("12")
+local_bounds = AABB(-1.1, -1.1, -1.1, 2.2, 2.2, 2.2)
+debris_at_hit = true
+[node name="IntactVisual" type="MeshInstance3D" parent="Anchor3"]
 rotation_degrees = Vector3(90, 0, 0)
 mesh = SubResource("AnchorRing")
 [node name="Collision" type="CollisionShape3D" parent="Anchor3"]
 shape = SubResource("AnchorShape")
-[node name="Tag" type="Label3D" parent="Anchor3"]
+[node name="Tag" type="Label3D" parent="Anchor3/IntactVisual"]
 position = Vector3(0, 1.7, 0)
 text = "ANCHOR / 04"
 font_size = 36
@@ -241,12 +257,15 @@ modulate = Color(0.56, 0.94, 0.8, 1)
 
 [node name="Anchor4" type="StaticBody3D" parent="."]
 position = Vector3(-12.00000, 56.00000, -129.00000)
-[node name="Ring" type="MeshInstance3D" parent="Anchor4"]
+script = ExtResource("12")
+local_bounds = AABB(-1.1, -1.1, -1.1, 2.2, 2.2, 2.2)
+debris_at_hit = true
+[node name="IntactVisual" type="MeshInstance3D" parent="Anchor4"]
 rotation_degrees = Vector3(90, 0, 0)
 mesh = SubResource("AnchorRing")
 [node name="Collision" type="CollisionShape3D" parent="Anchor4"]
 shape = SubResource("AnchorShape")
-[node name="Tag" type="Label3D" parent="Anchor4"]
+[node name="Tag" type="Label3D" parent="Anchor4/IntactVisual"]
 position = Vector3(0, 1.7, 0)
 text = "ANCHOR / 05"
 font_size = 36
@@ -257,12 +276,15 @@ modulate = Color(0.56, 0.94, 0.8, 1)
 
 [node name="Anchor5" type="StaticBody3D" parent="."]
 position = Vector3(14.00000, 58.00000, -160.00000)
-[node name="Ring" type="MeshInstance3D" parent="Anchor5"]
+script = ExtResource("12")
+local_bounds = AABB(-1.1, -1.1, -1.1, 2.2, 2.2, 2.2)
+debris_at_hit = true
+[node name="IntactVisual" type="MeshInstance3D" parent="Anchor5"]
 rotation_degrees = Vector3(90, 0, 0)
 mesh = SubResource("AnchorRing")
 [node name="Collision" type="CollisionShape3D" parent="Anchor5"]
 shape = SubResource("AnchorShape")
-[node name="Tag" type="Label3D" parent="Anchor5"]
+[node name="Tag" type="Label3D" parent="Anchor5/IntactVisual"]
 position = Vector3(0, 1.7, 0)
 text = "ANCHOR / 06"
 font_size = 36
@@ -273,12 +295,15 @@ modulate = Color(0.56, 0.94, 0.8, 1)
 
 [node name="Anchor6" type="StaticBody3D" parent="."]
 position = Vector3(-12.00000, 58.00000, -189.00000)
-[node name="Ring" type="MeshInstance3D" parent="Anchor6"]
+script = ExtResource("12")
+local_bounds = AABB(-1.1, -1.1, -1.1, 2.2, 2.2, 2.2)
+debris_at_hit = true
+[node name="IntactVisual" type="MeshInstance3D" parent="Anchor6"]
 rotation_degrees = Vector3(90, 0, 0)
 mesh = SubResource("AnchorRing")
 [node name="Collision" type="CollisionShape3D" parent="Anchor6"]
 shape = SubResource("AnchorShape")
-[node name="Tag" type="Label3D" parent="Anchor6"]
+[node name="Tag" type="Label3D" parent="Anchor6/IntactVisual"]
 position = Vector3(0, 1.7, 0)
 text = "ANCHOR / 07"
 font_size = 36
@@ -289,12 +314,15 @@ modulate = Color(0.56, 0.94, 0.8, 1)
 
 [node name="Anchor7" type="StaticBody3D" parent="."]
 position = Vector3(13.00000, 70.00000, -222.00000)
-[node name="Ring" type="MeshInstance3D" parent="Anchor7"]
+script = ExtResource("12")
+local_bounds = AABB(-1.1, -1.1, -1.1, 2.2, 2.2, 2.2)
+debris_at_hit = true
+[node name="IntactVisual" type="MeshInstance3D" parent="Anchor7"]
 rotation_degrees = Vector3(90, 0, 0)
 mesh = SubResource("AnchorRing")
 [node name="Collision" type="CollisionShape3D" parent="Anchor7"]
 shape = SubResource("AnchorShape")
-[node name="Tag" type="Label3D" parent="Anchor7"]
+[node name="Tag" type="Label3D" parent="Anchor7/IntactVisual"]
 position = Vector3(0, 1.7, 0)
 text = "ANCHOR / 08"
 font_size = 36
@@ -305,12 +333,15 @@ modulate = Color(0.56, 0.94, 0.8, 1)
 
 [node name="PracticeAnchor" type="StaticBody3D" parent="."]
 position = Vector3(14.00000, 50.00000, -65.00000)
-[node name="Ring" type="MeshInstance3D" parent="PracticeAnchor"]
+script = ExtResource("12")
+local_bounds = AABB(-1.1, -1.1, -1.1, 2.2, 2.2, 2.2)
+debris_at_hit = true
+[node name="IntactVisual" type="MeshInstance3D" parent="PracticeAnchor"]
 rotation_degrees = Vector3(90, 0, 0)
 mesh = SubResource("AnchorRing")
 [node name="Collision" type="CollisionShape3D" parent="PracticeAnchor"]
 shape = SubResource("AnchorShape")
-[node name="Tag" type="Label3D" parent="PracticeAnchor"]
+[node name="Tag" type="Label3D" parent="PracticeAnchor/IntactVisual"]
 position = Vector3(0, 1.7, 0)
 text = "ANCHOR / 09"
 font_size = 36

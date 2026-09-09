@@ -38,6 +38,8 @@ func update_input(delta: float) -> void:
 			shoot()
 		if Input.is_action_just_released(action):
 			release()
+	if active and is_instance_valid(target) and target.collision_layer == 0 and target.has_method("resolve_grapple"):
+		target = target.resolve_grapple(grapple_point)
 	if active and (not is_instance_valid(target) or target.collision_layer == 0):
 		release()
 	if active:
