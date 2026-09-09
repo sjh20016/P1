@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3]
+[ext_resource type="Script" path="res://scripts/destruction/debris_piece.gd" id="1"]
+[sub_resource type="BoxMesh" id="Mesh"]
+size = Vector3(2.98, 1.98, 1.98)
+[sub_resource type="BoxShape3D" id="Shape"]
+size = Vector3(2.94, 1.94, 1.94)
+[sub_resource type="StandardMaterial3D" id="Mat"]
+albedo_color = Color(0.16, 0.19, 0.2, 1)
+roughness = 0.9
+[node name="BrokenBlock" type="Node3D"]
+
+[node name="Piece0" type="RigidBody3D" parent="."]
+position = Vector3(-1.5, -1, 0)
+script = ExtResource("1")
+mass = 4.0
+[node name="Visual" type="MeshInstance3D" parent="Piece0"]
+mesh = SubResource("Mesh")
+material_override = SubResource("Mat")
+[node name="Collision" type="CollisionShape3D" parent="Piece0"]
+shape = SubResource("Shape")
+
+[node name="Piece1" type="RigidBody3D" parent="."]
+position = Vector3(1.5, -1, 0)
+script = ExtResource("1")
+mass = 4.0
+[node name="Visual" type="MeshInstance3D" parent="Piece1"]
+mesh = SubResource("Mesh")
+material_override = SubResource("Mat")
+[node name="Collision" type="CollisionShape3D" parent="Piece1"]
+shape = SubResource("Shape")
+
+[node name="Piece2" type="RigidBody3D" parent="."]
+position = Vector3(-1.5, 1, 0)
+script = ExtResource("1")
+mass = 4.0
+[node name="Visual" type="MeshInstance3D" parent="Piece2"]
+mesh = SubResource("Mesh")
+material_override = SubResource("Mat")
+[node name="Collision" type="CollisionShape3D" parent="Piece2"]
+shape = SubResource("Shape")
+
+[node name="Piece3" type="RigidBody3D" parent="."]
+position = Vector3(1.5, 1, 0)
+script = ExtResource("1")
+mass = 4.0
+[node name="Visual" type="MeshInstance3D" parent="Piece3"]
+mesh = SubResource("Mesh")
+material_override = SubResource("Mat")
+[node name="Collision" type="CollisionShape3D" parent="Piece3"]
+shape = SubResource("Shape")
