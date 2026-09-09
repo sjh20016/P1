@@ -41,3 +41,9 @@ far = 1400.0
 script = ExtResource("3")
 [node name="Tentacle" type="MeshInstance3D" parent="LeftHook"]
 script = ExtResource("4")
+[node name="RightHook" type="Node3D" parent="."]
+script = ExtResource("3")
+action = &"hook_right"
+tint = Color(1, 0.56, 0.37, 1)
+[node name="Tentacle" type="MeshInstance3D" parent="RightHook"]
+script = ExtResource("4")
