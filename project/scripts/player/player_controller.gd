@@ -3,6 +3,7 @@ extends CharacterBody3D
 
 signal reset_performed
 signal motion_requested(motion: Vector3, incoming_velocity: Vector3)
+signal motion_completed(delta: float)
 @export var profile: MovementProfile = preload("res://assets/placeholders/movement.tres")
 @export var spawn_position: Vector3 = Vector3(0, 43, 18)
 @onready var camera_rig: Node3D = $CameraRig
@@ -53,6 +54,7 @@ func _physics_process(delta: float) -> void:
 	peak_speed = maxf(peak_speed, velocity.length())
 	motion_requested.emit(velocity * delta, velocity)
 	move_and_slide()
+	motion_completed.emit(delta)
 	if global_position.y < profile.reset_depth or not global_position.is_finite():
 		reset_player()
 
