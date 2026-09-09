@@ -16,3 +16,6 @@ func _process(_delta: float) -> void:
 	label.text = "RAVAGE / MOVEMENT LAB\nFPS  %d\nVelocity  %s\nSpeed  %.1f m/s\nLeft Hook  OFF\nRight Hook  OFF\nActive RigidBodies  0\n\nWASD move / Mouse look / SPACE jump\nR reset / F3 debug / ESC cursor" % [Engine.get_frames_per_second(), str(player.velocity.snapped(Vector3.ONE * 0.1)), player.velocity.length()]
 	for hook in player.hooks:
 		label.text += "\n%s: %s / length %.1f / rest %.1f / tension %.1f" % [hook.action, "ATTACHED" if hook.active else "FREE", hook.current_length, hook.rest_length, hook.tension]
+	var manager: DestructionManager = get_tree().get_first_node_in_group("destruction_manager")
+	if manager:
+		label.text += "\nRigidBodies %d / Events %d / Score %d" % [manager.active_debris.size(), manager.event_count, manager.score]

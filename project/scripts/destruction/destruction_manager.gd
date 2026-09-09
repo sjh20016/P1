@@ -59,9 +59,12 @@ func emit_broken(scene: PackedScene, transform_at_hit: Transform3D, hit: Vector3
 		piece.angular_velocity = Vector3(1.3 + index, -2.1 + index * 0.8, 1.7)
 		active_debris.append(piece)
 	peak_rigidbodies = maxi(peak_rigidbodies, active_debris.size())
-	get_tree().create_timer(debris_lifetime + 0.6, false).timeout.connect(func():
-		if is_instance_valid(broken):
-			broken.queue_free())
+	var cleanup := Timer.new()
+	cleanup.one_shot = true
+	cleanup.wait_time = debris_lifetime + 0.6
+	broken.add_child(cleanup)
+	cleanup.timeout.connect(broken.queue_free)
+	cleanup.start()
 	event_count += 1
 	last_impact_name = impact_profile(strength).name
 	score += roundi(strength * 10.0)
