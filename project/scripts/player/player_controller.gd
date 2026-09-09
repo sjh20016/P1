@@ -9,9 +9,13 @@ var controls_enabled: bool = true
 var external_acceleration: Vector3 = Vector3.ZERO
 var previous_position: Vector3
 var peak_speed: float = 0.0
+var hooks: Array[GrappleController] = []
 
 func _ready() -> void:
 	add_to_group("player")
+	for child in get_children():
+		if child is GrappleController:
+			hooks.append(child)
 	reset_player()
 
 func _physics_process(delta: float) -> void:
@@ -21,6 +25,13 @@ func _physics_process(delta: float) -> void:
 		reset_player()
 		return
 	previous_position = global_position
+	var hook_acceleration := Vector3.ZERO
+	for hook in hooks:
+		hook.update_input(delta)
+		hook_acceleration += hook.acceleration()
+	if not hooks.is_empty():
+		hook_acceleration = hook_acceleration.limit_length(hooks[0].profile.maximum_combined_force)
+	velocity += hook_acceleration * delta
 	var axis := Input.get_vector("left", "right", "forward", "back")
 	var direction: Vector3 = Basis(Vector3.UP, camera_rig.rotation.y) * Vector3(axis.x, 0, axis.y)
 	if is_on_floor():

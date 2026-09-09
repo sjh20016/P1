@@ -1,6 +1,8 @@
-[gd_scene load_steps=7 format=3]
+[gd_scene load_steps=9 format=3]
 [ext_resource type="Script" path="res://scripts/player/player_controller.gd" id="1"]
 [ext_resource type="Script" path="res://scripts/camera/camera_controller.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/player/grapple_controller.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/player/tentacle_visual.gd" id="4"]
 [sub_resource type="SphereShape3D" id="Shape"]
 radius = 0.72
 [sub_resource type="SphereMesh" id="Mesh"]
@@ -35,3 +37,7 @@ shape = SubResource("CameraShape")
 [node name="Camera3D" type="Camera3D" parent="CameraRig/SpringArm3D"]
 current = true
 far = 1400.0
+[node name="LeftHook" type="Node3D" parent="."]
+script = ExtResource("3")
+[node name="Tentacle" type="MeshInstance3D" parent="LeftHook"]
+script = ExtResource("4")
