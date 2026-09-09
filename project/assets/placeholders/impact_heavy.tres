@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ImpactProfile" load_steps=2 format=3]
+[ext_resource type="Script" path="res://scripts/destruction/impact_profile.gd" id="1"]
+[resource]
+script = ExtResource("1")
+name = "HEAVY"
+minimum_speed = 42.0
+camera_shake = 0.62
+shake_duration = 0.3
+hit_stop_duration = 0.052
+dust_count = 36
+chip_count = 52
+particle_speed = 24.0
+flash_opacity = 0.32
+sound_volume_db = -5.0

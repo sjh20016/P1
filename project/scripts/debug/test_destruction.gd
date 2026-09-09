@@ -18,6 +18,9 @@ func run() -> void:
 	var segment: DestructibleSegment = world.get_node("TestBlock")
 	var manager: DestructionManager = world.get_node("DestructionManager")
 	player.controls_enabled = false
+	check(manager.impact_profile(10).name == "SMALL", "low speed selects small response")
+	check(manager.impact_profile(30).name == "MEDIUM", "medium speed response")
+	check(manager.impact_profile(60).name == "HEAVY", "high speed selects stronger response")
 	check(not segment.break_segment(segment.global_position, Vector3.FORWARD, 10), "low speed cannot break")
 	check(segment.break_segment(segment.global_position, Vector3.FORWARD, 30), "medium speed swaps intact for prefab")
 	check(manager.active_debris.size() == 4, "exactly four rigid fragments")

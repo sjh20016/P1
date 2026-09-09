@@ -4,12 +4,23 @@ extends Node3D
 signal destruction_event(hit_position: Vector3, hit_direction: Vector3, strength: float)
 @export_range(6, 54, 1) var rigidbody_budget: int = 48
 @export var debris_lifetime: float = 4.5
+@export var small_impact: ImpactProfile = preload("res://assets/placeholders/impact_small.tres")
+@export var medium_impact: ImpactProfile = preload("res://assets/placeholders/impact_medium.tres")
+@export var heavy_impact: ImpactProfile = preload("res://assets/placeholders/impact_heavy.tres")
 var active_debris: Array[DebrisPiece] = []
 var event_count: int = 0
 var score: int = 0
 var last_hit_position: Vector3
 var last_hit_age: float = 100.0
 var peak_rigidbodies: int = 0
+var last_impact_name: String = ""
+
+func impact_profile(strength: float) -> ImpactProfile:
+	if strength >= heavy_impact.minimum_speed:
+		return heavy_impact
+	if strength >= medium_impact.minimum_speed:
+		return medium_impact
+	return small_impact
 
 func _ready() -> void:
 	add_to_group("destruction_manager")
@@ -52,6 +63,7 @@ func emit_broken(scene: PackedScene, transform_at_hit: Transform3D, hit: Vector3
 		if is_instance_valid(broken):
 			broken.queue_free())
 	event_count += 1
+	last_impact_name = impact_profile(strength).name
 	score += roundi(strength * 10.0)
 	last_hit_position = hit
 	last_hit_age = 0.0

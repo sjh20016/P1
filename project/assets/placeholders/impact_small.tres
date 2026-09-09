@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ImpactProfile" load_steps=2 format=3]
+[ext_resource type="Script" path="res://scripts/destruction/impact_profile.gd" id="1"]
+[resource]
+script = ExtResource("1")
+name = "SMALL"
+minimum_speed = 0.0
+camera_shake = 0.08
+shake_duration = 0.12
+hit_stop_duration = 0.0
+dust_count = 6
+chip_count = 8
+particle_speed = 6.0
+flash_opacity = 0.05
+sound_volume_db = -18.0
