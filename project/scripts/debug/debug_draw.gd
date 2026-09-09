@@ -36,8 +36,9 @@ func _process(_delta: float) -> void:
 		var point := h.grapple_point
 		line(point-Vector3.RIGHT, point+Vector3.RIGHT, h.tint)
 		line(point-Vector3.UP, point+Vector3.UP, h.tint)
-		line(h.previous_start, h.previous_end, Color.MAGENTA)
-		line(h.previous_start, player.global_position, Color.MAGENTA)
+		line(h.debug_previous_start, h.debug_previous_end, Color.MAGENTA)
+		line(h.debug_previous_start, player.global_position, Color.MAGENTA)
+		line(h.debug_previous_start, point, Color(0.7,0.4,0.9))
 		line(player.global_position, point, h.tint)
 	var manager: DestructionManager = get_tree().get_first_node_in_group("destruction_manager")
 	if is_instance_valid(manager) and manager.last_hit_age < 3:

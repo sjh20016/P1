@@ -42,11 +42,12 @@ material_override = SubResource("Mat")
 shape = SubResource("Shape")
 ''')
 (d/'broken_block.tscn').write_text('\n'.join(parts),encoding='utf-8')
-(root/'scenes/maps/destruction_lab.tscn').write_text('''[gd_scene load_steps=5 format=3]
+(root/'scenes/maps/destruction_lab.tscn').write_text('''[gd_scene load_steps=6 format=3]
 [ext_resource type="PackedScene" path="res://scenes/maps/graybox.tscn" id="1"]
 [ext_resource type="PackedScene" path="res://scenes/destruction/test_block.tscn" id="2"]
 [ext_resource type="Script" path="res://scripts/destruction/destruction_manager.gd" id="3"]
 [ext_resource type="Script" path="res://scripts/destruction/impact_detector.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/destruction/tentacle_sweep.gd" id="5"]
 [node name="DestructionLab" instance=ExtResource("1")]
 [node name="DestructionManager" type="Node3D" parent="."]
 script = ExtResource("3")
@@ -54,4 +55,6 @@ script = ExtResource("3")
 script = ExtResource("4")
 [node name="TestBlock" parent="." instance=ExtResource("2")]
 position = Vector3(0, 30, -10)
+[node name="TentacleSweep" type="Node" parent="Player"]
+script = ExtResource("5")
 ''',encoding='utf-8')

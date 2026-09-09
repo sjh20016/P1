@@ -1,0 +1,207 @@
+[gd_scene format=4]
+
+[ext_resource type="Script" path="res://scripts/destruction/debris_piece.gd" id="1_iy4p3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0anwp"]
+resource_name = "Chalk"
+cull_mode = 2
+albedo_color = Color(0.85430586, 0.85430586, 0.85430586, 1)
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_1dp2a"]
+_surfaces = [{
+"aabb": AABB(-6, -1.2, -1, 3.32, 2.4, 2),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgADAAAAAAAEAAEAAgAFAAMAAQAFAAIAAAADAAYABgADAAUAAAAGAAQAAQAHAAUABgAFAAcABAAHAAEABAAGAAcA"),
+"name": "Chalk",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAAAAAAClzgAA//8AAKXOAAAAAAAAAAD//wAAAAAAAAAA//8AAP////8AAAAAAAD/////AAD///////8AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_vlsl7"]
+resource_name = "D13_Beam_Fractured_Beam_Fragment_0"
+_surfaces = [{
+"aabb": AABB(-6, -1.2, -1, 3.32, 2.4, 2),
+"format": 34896613383,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_0anwp"),
+"name": "Chalk",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAAAA//+lzgAA/////6XOAAAAAP//AAAAAP////8AAP////////////8AAP////////////8AAP//AAD//wAAAAD///+//////////7+lzgAA////vwAA//////+/pc4AAP//vv//////AAC+/6XOAAAAAL7/////////vv+lzgAAAAD//wAA//8AAP//AAAAAAAA////////AAD//wAAAAAAAP+/AAD//////78AAAAA////vwAA//8AAP+//3//P/9//z//f/8//3//P/9//7//f/+//3//v/9//7//f/9//3//f/9//3//f/9/d7fxcHe38XB3t/Fwd7fxcP8//7//P/+//z//v/8//7//f////3////9/////f///")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_1dp2a")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_l18a5"]
+points = PackedVector3Array(-2.68, 1.2, 1, -2.68, 1.2, -1, -6, 1.2, 1, -3.3202114, -1.2, 1, -3.3202114, -1.2, -1, -6, 1.2, -1, -6, -1.2, 1, -6, -1.2, -1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_y2hm6"]
+_surfaces = [{
+"aabb": AABB(-3.32, -1.2, -1, 3.56, 2.4, 2),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgADAAAAAAAEAAEAAgAFAAMAAQAFAAIAAAADAAYABgADAAUAAAAGAAQAAQAHAAUABgAFAAcABAAHAAEABAAGAAcA"),
+"name": "Chalk",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAAAAAAD//wAA//8AAP//AAAAAAAABS7//wAAAAAAAAAA//8AAHrd//8AAAAABS7/////AAB63f////8AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_sh1te"]
+resource_name = "D13_Beam_Fractured_Beam_Fragment_1"
+_surfaces = [{
+"aabb": AABB(-3.32, -1.2, -1, 3.56, 2.4, 2),
+"format": 34896613383,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_0anwp"),
+"name": "Chalk",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAAAA/////wAA////////AAAAAP//AAAAAP////8FLv///////3rd//8AAP//et3///////8FLv//AAD//wAAAAD///+/et3//////7///wAA////vwUu//////+///8AAP//4/963f//AADj////AAAAAOP/et3/////4////wAAAAD//wUu//8AAP//AAAAAAAA//963f//AAD//wAAAAAAAMvCBS7/////y8IAAAAA///LwgUu//8AAMvC/3//P/9//z//f/8//3//P/9//7//f/+//3//v/9//7//f/9//3//f/9//3//f/9/oguZOaILmTmiC5k5oguZOf8//7//P/+//z//v/8//7+PfxXlj38V5Y9/FeWPfxXl")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_y2hm6")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_i0udk"]
+points = PackedVector3Array(-0.24019575, 1.2, 1, -0.24019575, 1.2, -1, -2.6802034, 1.2, 1, 0.24000001, -1.2, 1, 0.24000001, -1.2, -1, -2.6802034, 1.2, -1, -3.32, -1.2, 1, -3.32, -1.2, -1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_f8tvl"]
+_surfaces = [{
+"aabb": AABB(-0.24, -1.2, -1, 3.56, 2.4, 2),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgADAAAAAAAEAAEAAgAFAAMAAQAFAAIAAAADAAYABgADAAUAAAAGAAQAAQAHAAUABgAFAAcABAAHAAEABAAGAAcA"),
+"name": "Chalk",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("hCIAAAAAAAD50QAA//8AAPnRAAAAAAAAAAD//wAAAACEIgAA//8AAP////8AAAAAAAD/////AAD///////8AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_kgip0"]
+resource_name = "D13_Beam_Fractured_Beam_Fragment_2"
+_surfaces = [{
+"aabb": AABB(-0.24, -1.2, -1, 3.56, 2.4, 2),
+"format": 34896613383,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_0anwp"),
+"name": "Chalk",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("hCIAAAAA///50QAA//////nRAAAAAP//hCIAAP////8AAP////////////8AAP////////////8AAP//AAD//4QiAAD///+//////////7/50QAA////vwAA//////+/+dEAAP//vv//////AAC+//nRAAAAAL7/////////vv/50QAAAAD//wAA//8AAP//hCIAAAAA////////AAD//4QiAAAAAJjBAAD/////mMGEIgAA//+YwQAA//8AAJjB/3//P/9//z//f/8//3//P/9//7//f/+//3//v/9//7//f/9//3//f/9//3//f/9/d7fxcHe38XB3t/Fwd7fxcP8//7//P/+//z//v/8//79Rlcv/UZXL/1GVy/9Rlcv/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_f8tvl")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_gn8ck"]
+points = PackedVector3Array(3.32, 1.2, 1, 3.32, 1.2, -1, -0.24, 1.2, 1, 2.6798549, -1.2, 1, 2.6798549, -1.2, -1, -0.24, 1.2, -1, 0.23984729, -1.2, 1, 0.23984729, -1.2, -1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_n4js2"]
+_surfaces = [{
+"aabb": AABB(2.68, -1.2, -1, 3.32, 2.4, 2),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgADAAAAAAAEAAEAAgAFAAMAAQAFAAIAAAADAAYABgADAAUAAAAGAAQAAQAHAAUABgAFAAcABAAHAAEABAAGAAcA"),
+"name": "Chalk",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAAAAAAD//wAA//8AAP//AAAAAAAAWTH//wAAAAAAAAAA//8AAP////8AAAAAWTH/////AAD///////8AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_fbk2t"]
+resource_name = "D13_Beam_Fractured_Beam_Fragment_3"
+_surfaces = [{
+"aabb": AABB(2.68, -1.2, -1, 3.32, 2.4, 2),
+"format": 34896613383,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_0anwp"),
+"name": "Chalk",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAAAA/////wAA////////AAAAAP//AAAAAP////9ZMf////////////8AAP////////////9ZMf//AAD//wAAAAD///+//////////7///wAA////v1kx//////+///8AAP//////////AAD/////AAAAAP///////////////wAAAAD//1kx//8AAP//AAAAAAAA////////AAD//wAAAAAAAMvCWTH/////y8IAAAAA///Lwlkx//8AAMvC/3//P/9//z//f/8//3//P/9//7//f/+//3//v/9//7//f/9//3//f/9//3//f/9//7//f/+//3//v/9//7//f/8//7//P/+//z//v/8//7+PfxXlj38V5Y9/FeWPfxXl")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_n4js2")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ngj2t"]
+points = PackedVector3Array(6, 1.2, 1, 6, 1.2, -1, 3.3198864, 1.2, 1, 6, -1.2, 1, 6, -1.2, -1, 3.3198864, 1.2, -1, 2.68, -1.2, 1, 2.68, -1.2, -1)
+
+[node name="D13Broken" type="Node3D" unique_id=1029145443]
+
+[node name="Piece0" type="RigidBody3D" parent="." unique_id=124390224]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.34, 0, 0)
+collision_layer = 8
+mass = 4.0
+continuous_cd = true
+script = ExtResource("1_iy4p3")
+
+[node name="Visual" type="MeshInstance3D" parent="Piece0" unique_id=810118453]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.34, 0, 0)
+mesh = SubResource("ArrayMesh_vlsl7")
+
+[node name="@CollisionShape3D@420" type="CollisionShape3D" parent="Piece0" unique_id=1167950278]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.34, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_l18a5")
+
+[node name="Piece1" type="RigidBody3D" parent="." unique_id=105235493]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.54, 0, 0)
+collision_layer = 8
+mass = 4.0
+continuous_cd = true
+script = ExtResource("1_iy4p3")
+
+[node name="Visual" type="MeshInstance3D" parent="Piece1" unique_id=1865146632]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.54, 0, 0)
+mesh = SubResource("ArrayMesh_sh1te")
+
+[node name="@CollisionShape3D@421" type="CollisionShape3D" parent="Piece1" unique_id=209877658]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.54, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_i0udk")
+
+[node name="Piece2" type="RigidBody3D" parent="." unique_id=1375767700]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.54, 0, 0)
+collision_layer = 8
+mass = 4.0
+continuous_cd = true
+script = ExtResource("1_iy4p3")
+
+[node name="Visual" type="MeshInstance3D" parent="Piece2" unique_id=986762978]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.54, 0, 0)
+mesh = SubResource("ArrayMesh_kgip0")
+
+[node name="@CollisionShape3D@422" type="CollisionShape3D" parent="Piece2" unique_id=167876500]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.54, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_gn8ck")
+
+[node name="Piece3" type="RigidBody3D" parent="." unique_id=1602851334]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.34, 0, 0)
+collision_layer = 8
+mass = 4.0
+continuous_cd = true
+script = ExtResource("1_iy4p3")
+
+[node name="Visual" type="MeshInstance3D" parent="Piece3" unique_id=1754383054]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.34, 0, 0)
+mesh = SubResource("ArrayMesh_fbk2t")
+
+[node name="@CollisionShape3D@423" type="CollisionShape3D" parent="Piece3" unique_id=298933142]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.34, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_ngj2t")

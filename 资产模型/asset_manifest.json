@@ -1,0 +1,119 @@
+{
+  "units": "meters",
+  "basis": "Blender Z-up -> glTF Y-up",
+  "physics": "Not configured; visual assets and closed fragment meshes only.",
+  "assets": [
+    {
+      "id": "A01_Landing",
+      "role": "STATIC",
+      "notes": "Walking surface Z=0; wall connection along Y=+4.",
+      "file": "A01_Landing.glb",
+      "mesh_count": 3
+    },
+    {
+      "id": "A02_Bridgehead_Porch",
+      "role": "STATIC",
+      "notes": "Clear gate width 4.4 m; floor at Z=0.",
+      "file": "A02_Bridgehead_Porch.glb",
+      "mesh_count": 4
+    },
+    {
+      "id": "A03_Grapple_Socket",
+      "role": "STATIC_GRAPPLE",
+      "notes": "Anchor point (0,-2,0); wall lies in XZ.",
+      "file": "A03_Grapple_Socket.glb",
+      "mesh_count": 3
+    },
+    {
+      "id": "A04_StoneArch_Span12m",
+      "role": "STATIC",
+      "notes": "Deck endpoints (+/-6,0,0); arch drops 4 m below the deck.",
+      "file": "A04_StoneArch_Span12m.glb",
+      "mesh_count": 43
+    },
+    {
+      "id": "A05_Suspension_Span12m",
+      "role": "STATIC",
+      "notes": "Thin visual cable rods; use a deck-only collider later.",
+      "file": "A05_Suspension_Span12m.glb",
+      "mesh_count": 51
+    },
+    {
+      "id": "A06_Stair_With_Landing",
+      "role": "STATIC",
+      "notes": "Two flights, 8 risers each, 0.15 m riser, 2.4 m total rise. Intermediate landing.",
+      "file": "A06_Stair_With_Landing.glb",
+      "mesh_count": 17
+    },
+    {
+      "id": "D13_Beam_Intact",
+      "role": "DESTRUCTIBLE_INTACT",
+      "notes": "Replacement D13_Beam_Fractured, same origin, exactly 4 closed convex chunks.",
+      "file": "D13_Beam_Intact.glb",
+      "mesh_count": 1
+    },
+    {
+      "id": "D13_Beam_Fractured",
+      "role": "FRACTURED",
+      "notes": "4 local-space convex chunks. Apply the intact transform to the imported root.",
+      "file": "D13_Beam_Fractured.glb",
+      "mesh_count": 4
+    },
+    {
+      "id": "D14_HollowDrum_Fractured",
+      "role": "FRACTURED",
+      "notes": "6 convex wall chunks; central vertical void remains open. Radius 4.2 m, height 6 m.",
+      "file": "D14_HollowDrum_Fractured.glb",
+      "mesh_count": 6
+    },
+    {
+      "id": "D14_HollowDrum_Intact",
+      "role": "DESTRUCTIBLE_INTACT",
+      "notes": "Matches D14_HollowDrum_Fractured exactly; open top / bottom. Six joined wall solids.",
+      "file": "D14_HollowDrum_Intact.glb",
+      "mesh_count": 1
+    },
+    {
+      "id": "R01_Rubble",
+      "role": "DEBRIS",
+      "notes": "Closed convex visual chunk; no physics configured.",
+      "file": "R01_Rubble.glb",
+      "mesh_count": 1
+    },
+    {
+      "id": "R02_Rubble",
+      "role": "DEBRIS",
+      "notes": "Closed convex visual chunk; no physics configured.",
+      "file": "R02_Rubble.glb",
+      "mesh_count": 1
+    },
+    {
+      "id": "R03_Rubble",
+      "role": "DEBRIS",
+      "notes": "Closed convex visual chunk; no physics configured.",
+      "file": "R03_Rubble.glb",
+      "mesh_count": 1
+    },
+    {
+      "id": "R04_Rubble",
+      "role": "DEBRIS",
+      "notes": "Closed convex visual chunk; no physics configured.",
+      "file": "R04_Rubble.glb",
+      "mesh_count": 1
+    },
+    {
+      "id": "R05_Rubble",
+      "role": "DEBRIS",
+      "notes": "Closed convex visual chunk; no physics configured.",
+      "file": "R05_Rubble.glb",
+      "mesh_count": 1
+    },
+    {
+      "id": "R06_Rubble",
+      "role": "DEBRIS",
+      "notes": "Closed convex visual chunk; no physics configured.",
+      "file": "R06_Rubble.glb",
+      "mesh_count": 1
+    }
+  ]
+}

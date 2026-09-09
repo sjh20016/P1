@@ -19,6 +19,8 @@ var previous_end: Vector3
 var history_valid: bool = false
 var last_ray_end: Vector3
 var ray_flash: float = 0.0
+var debug_previous_start: Vector3
+var debug_previous_end: Vector3
 @onready var player: RavagePlayer = get_parent()
 @onready var camera: Camera3D = player.get_node("CameraRig/SpringArm3D/Camera3D")
 
@@ -103,6 +105,8 @@ func release() -> void:
 	cooldown = profile.reattach_cooldown
 
 func remember_segment() -> void:
+	debug_previous_start = previous_start
+	debug_previous_end = previous_end
 	previous_start = player.global_position
 	previous_end = grapple_point
 	history_valid = active

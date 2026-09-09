@@ -9,6 +9,7 @@ func _ready() -> void:
 	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 	material.albedo_color = hook.tint
 	material.no_depth_test = false
+	material.cull_mode = BaseMaterial3D.CULL_DISABLED
 	cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	top_level = true
 	global_transform = Transform3D.IDENTITY

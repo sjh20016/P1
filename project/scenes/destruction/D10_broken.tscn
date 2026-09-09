@@ -1,0 +1,297 @@
+[gd_scene format=4]
+
+[ext_resource type="Script" path="res://scripts/destruction/debris_piece.gd" id="1_q4gn8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_evx1k"]
+resource_name = "Chalk / WHITE_MASS"
+cull_mode = 2
+albedo_color = Color(0.86504203, 0.86504203, 0.86504203, 1)
+roughness = 0.86
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jdny8"]
+resource_name = "Fracture interior"
+cull_mode = 2
+albedo_color = Color(0.47312066, 0.47312066, 0.47312066, 1)
+roughness = 0.86
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ljdnp"]
+_surfaces = [{
+"aabb": AABB(-3.5, -5, -1.2, 7, 4.3, 2.4),
+"format": 34896613377,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAgABAAMAAgADAAQABAADAAUA"),
+"name": "Chalk / WHITE_MASS",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray("HJT/////AAD//wAA//8AAAAAAAD//wAA//8AAAAAAAAAAAAAAAAAAByU//8AAAAA")
+}, {
+"aabb": AABB(-3.5, -5, -1.2, 7, 4.3, 2.4),
+"format": 34896613377,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAwAEAAEAAwAFAAQA"),
+"name": "Fracture interior",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray("//8AAP//AAAclP//AAAAAP//AAAAAAAAHJT/////AAAAAAAAAAAAAAAAAAD//wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_t5gll"]
+resource_name = "D10_broken_D10_Shard_0"
+_surfaces = [{
+"aabb": AABB(-3.5, -5, -1.2, 7, 4.3, 2.4),
+"format": 34896613383,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgABgAJAAcA"),
+"material": SubResource("StandardMaterial3D_evx1k"),
+"name": "Chalk / WHITE_MASS",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 10,
+"vertex_data": PackedByteArray("HJT//////7///wAA////vwAAAAD///+/AAAAAAAA/////wAAAAD//xyU//8AAP//AAAAAP///////wAAAAD//wAAAAAAAP////8AAP//////f/9//3//f/9//3//P/+//z//v/8//7//f/8//3//P/9//z//f/8/")
+}, {
+"aabb": AABB(-3.5, -5, -1.2, 7, 4.3, 2.4),
+"format": 34896613383,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUA"),
+"material": SubResource("StandardMaterial3D_jdny8"),
+"name": "Fracture interior",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("//8AAP//U/0clP//AABT/f//AAAAAFP9HJT/////U/0clP////+n1wAAAAAAAKfXHJT//wAAp9cAAAAA//+n1y0giSotIIkqLSCJKi0giSp1ekHGdXpBxnV6QcZ1ekHG")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ljdnp")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6oh1e"]
+points = PackedVector3Array(0.54953, -0.6999998, 1.2, 3.5, -5, 1.2, 0.54953, -0.6999998, -1.2, -3.5, -5, 1.2, 3.5, -5, -1.2, -3.5, -5, -1.2)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ljp7o"]
+_surfaces = [{
+"aabb": AABB(0.55, -5, -1.2, 2.95, 10, 2.4),
+"format": 34896613377,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAgABAAMAAgADAAQABAADAAUA"),
+"name": "Chalk / WHITE_MASS",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray("AAAUbv//AAD///////8AAP//AAD//wAA/////wAAAAD//wAAAAAAAAAAFG4AAAAA")
+}, {
+"aabb": AABB(0.55, -5, -1.2, 2.95, 10, 2.4),
+"format": 34896613377,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAwAEAAEAAwAFAAQA"),
+"name": "Fracture interior",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray("////////AAAAABRuAAAAAP////8AAAAAAAAUbv//AAD//wAAAAAAAP//AAD//wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_xlgb8"]
+resource_name = "D10_broken_D10_Shard_1"
+_surfaces = [{
+"aabb": AABB(0.55, -5, -1.2, 2.95, 10, 2.4),
+"format": 34896613383,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgABgAJAAcA"),
+"material": SubResource("StandardMaterial3D_evx1k"),
+"name": "Chalk / WHITE_MASS",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 10,
+"vertex_data": PackedByteArray("AAAUbv///7//////////v///AAD///+///8AAAAA////////AAD//wAAFG4AAP////8AAP//////////AAD/////AAAAAP//////////////f/9//3//f/9//3//P/+//z//v/8//7//v/9//7//f/+//3//v/9/")
+}, {
+"aabb": AABB(0.55, -5, -1.2, 2.95, 10, 2.4),
+"format": 34896613383,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUA"),
+"material": SubResource("StandardMaterial3D_jdny8"),
+"name": "Fracture interior",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("////////ickAABRuAACJyf////8AAInJAAAUbv//ickAABRu//8sz///AAAAACzPAAAUbgAALM///wAA//8sz9998NTfffDU333w1N998NRvsmb8b7Jm/G+yZvxvsmb8")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ljp7o")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_pt7bs"]
+points = PackedVector3Array(0.55, -0.70086145, -1.2, 3.5, -5, -1.2, 0.55, -0.70086145, 1.2, 3.5, 5, -1.2, 3.5, -5, 1.2, 3.5, 5, 1.2)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_shqe7"]
+_surfaces = [{
+"aabb": AABB(-3.5, -0.7, -1.2, 7, 5.7, 2.4),
+"format": 34896613377,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAgABAAMAAgADAAQABAADAAUA"),
+"name": "Chalk / WHITE_MASS",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray("HJQAAP//AAAAAP////8AAP///////wAAAAD//wAAAAD/////AAAAAByUAAAAAAAA")
+}, {
+"aabb": AABB(-3.5, -0.7, -1.2, 7, 5.7, 2.4),
+"format": 34896613377,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAwAEAAEAAwAFAAQA"),
+"name": "Fracture interior",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray("AAD/////AAAclAAAAAAAAAAA//8AAAAAHJQAAP//AAD/////AAAAAP///////wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_awqy8"]
+resource_name = "D10_broken_D10_Shard_2"
+_surfaces = [{
+"aabb": AABB(-3.5, -0.7, -1.2, 7, 5.7, 2.4),
+"format": 34896613383,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgABgAJAAcA"),
+"material": SubResource("StandardMaterial3D_evx1k"),
+"name": "Chalk / WHITE_MASS",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 10,
+"vertex_data": PackedByteArray("HJQAAP///78AAP//////v/////////+//////wAA//8AAP//AAD//xyUAAAAAP////////////8AAP//AAD///////8AAP//AAD/////////f/9//3//f/9//3//P/+//z//v/8//7//f/+//3//v/9//7//f/+/")
+}, {
+"aabb": AABB(-3.5, -0.7, -1.2, 7, 5.7, 2.4),
+"format": 34896613383,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUA"),
+"material": SubResource("StandardMaterial3D_jdny8"),
+"name": "Fracture interior",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAD/////AtAclAAAAAAC0AAA//8AAALQHJQAAP//AtAclAAA//+N/v////8AAI3+HJQAAAAAjf7///////+N/lCzMfxQszH8ULMx/FCzMfySr9llkq/ZZZKv2WWSr9ll")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_shqe7")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_3qhw7"]
+points = PackedVector3Array(3.5, 5, 1.2, 3.5, 5, -1.2, -3.5, 5, 1.2, 0.54953, -0.7, 1.2, 0.54953, -0.7, -1.2, -3.5, 5, -1.2)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_uk7rw"]
+_surfaces = [{
+"aabb": AABB(-3.5, -5, -1.2, 4.05, 10, 2.4),
+"format": 34896613377,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAgABAAMAAgADAAQABAADAAUA"),
+"name": "Chalk / WHITE_MASS",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray("//8Ubv//AAAAAAAA//8AAAAA/////wAAAAAAAAAAAAAAAP//AAAAAP//FG4AAAAA")
+}, {
+"aabb": AABB(-3.5, -5, -1.2, 4.05, 10, 2.4),
+"format": 34896613377,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAwAEAAEAAwAFAAQA"),
+"name": "Fracture interior",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray("AAAAAP//AAD//xRuAAAAAAAAAAAAAAAA//8Ubv//AAAAAP//AAAAAAAA/////wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_qh3so"]
+resource_name = "D10_broken_D10_Shard_3"
+_surfaces = [{
+"aabb": AABB(-3.5, -5, -1.2, 4.05, 10, 2.4),
+"format": 34896613383,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgABgAJAAcA"),
+"material": SubResource("StandardMaterial3D_evx1k"),
+"name": "Chalk / WHITE_MASS",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 10,
+"vertex_data": PackedByteArray("//8Ubv///78AAAAA////vwAA//////+/AAD//wAA//8AAAAAAAD/////FG4AAP//AAD//////78AAAAAAAD/vwAA//8AAP+/AAAAAP///7//f/9//3//f/9//3//P/+//z//v/8//7//f////3////9/////f///")
+}, {
+"aabb": AABB(-3.5, -5, -1.2, 4.05, 10, 2.4),
+"format": 34896613383,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUA"),
+"material": SubResource("StandardMaterial3D_jdny8"),
+"name": "Fracture interior",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//d/v//xRuAAB3+wAAAAAAAHf7//8Ubv//d/v//xRu//8j/QAA//8AACP9//8UbgAAI/0AAP////8j/bCjpliwo6ZYsKOmWLCjplj2INYp9iDWKfYg1in2INYp")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_uk7rw")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_fbtwv"]
+points = PackedVector3Array(-3.5, -5, -1.2, -3.5, -5, 1.2, -3.5, 5, -1.2, 0.5500002, -0.70086145, -1.2, 0.5500002, -0.70086145, 1.2, -3.5, 5, 1.2)
+
+[node name="D10Broken" type="Node3D" unique_id=685660685]
+
+[node name="Piece0" type="RigidBody3D" parent="." unique_id=2036988290]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.85, 0)
+collision_layer = 8
+mass = 4.0
+continuous_cd = true
+script = ExtResource("1_q4gn8")
+
+[node name="Visual" type="MeshInstance3D" parent="Piece0" unique_id=1884766504]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.85, 0)
+mesh = SubResource("ArrayMesh_t5gll")
+
+[node name="@CollisionShape3D@405" type="CollisionShape3D" parent="Piece0" unique_id=1974445064]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.85, 0)
+shape = SubResource("ConvexPolygonShape3D_6oh1e")
+
+[node name="Piece1" type="RigidBody3D" parent="." unique_id=149010905]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.025, 0, 0)
+collision_layer = 8
+mass = 4.0
+continuous_cd = true
+script = ExtResource("1_q4gn8")
+
+[node name="Visual" type="MeshInstance3D" parent="Piece1" unique_id=1524485691]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.025, 0, 0)
+mesh = SubResource("ArrayMesh_xlgb8")
+
+[node name="@CollisionShape3D@406" type="CollisionShape3D" parent="Piece1" unique_id=1094927875]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.025, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_pt7bs")
+
+[node name="Piece2" type="RigidBody3D" parent="." unique_id=182609106]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1499999, 0)
+collision_layer = 8
+mass = 4.0
+continuous_cd = true
+script = ExtResource("1_q4gn8")
+
+[node name="Visual" type="MeshInstance3D" parent="Piece2" unique_id=741097139]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.1499999, 0)
+mesh = SubResource("ArrayMesh_awqy8")
+
+[node name="@CollisionShape3D@407" type="CollisionShape3D" parent="Piece2" unique_id=479120638]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.1499999, 0)
+shape = SubResource("ConvexPolygonShape3D_3qhw7")
+
+[node name="Piece3" type="RigidBody3D" parent="." unique_id=1248666361]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4749999, 0, 0)
+collision_layer = 8
+mass = 4.0
+continuous_cd = true
+script = ExtResource("1_q4gn8")
+
+[node name="Visual" type="MeshInstance3D" parent="Piece3" unique_id=876099009]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4749999, 0, 0)
+mesh = SubResource("ArrayMesh_qh3so")
+
+[node name="@CollisionShape3D@408" type="CollisionShape3D" parent="Piece3" unique_id=1319722031]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4749999, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_fbtwv")
