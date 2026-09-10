@@ -1,0 +1,11 @@
+{
+	"active_buildings": 358,
+	"broken_bands": 501,
+	"finite": true,
+	"fps": 29.0,
+	"frame_p50_ms": 33.425,
+	"frame_p95_ms": 372.679,
+	"ink": 0,
+	"remaining_destructibles": 4968,
+	"rigidbodies": 0
+}

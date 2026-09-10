@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="GrappleProfile" load_steps=2 format=3]
+[ext_resource type="Script" path="res://scripts/player/grapple_profile.gd" id="1"]
+[resource]
+script = ExtResource("1")
+movement_model = 2
+targeting_model = 2
+rest_ratio = 0.92
+spring_strength = 12.0
+damping = 2.8
+kick_speed = 19.0
+motor_acceleration = 42.0
+radial_correction = 0.85
+maximum_hook_force = 165.0
+maximum_combined_force = 230.0
+reel_speed = 25.0
+slingshot_boost = 13.0

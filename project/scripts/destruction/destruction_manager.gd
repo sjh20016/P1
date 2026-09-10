@@ -2,6 +2,7 @@ class_name DestructionManager
 extends Node3D
 
 signal destruction_event(hit_position: Vector3, hit_direction: Vector3, strength: float)
+signal impact_reported(context: Dictionary)
 @export_range(6, 54, 1) var rigidbody_budget: int = 48
 @export var debris_lifetime: float = 4.5
 @export var ink_art: bool = false
@@ -15,6 +16,14 @@ var last_hit_position: Vector3
 var last_hit_age: float = 100.0
 var peak_rigidbodies: int = 0
 var last_impact_name: String = ""
+var next_context: Dictionary = {}
+var last_context: Dictionary = {}
+
+func break_with_context(target, hit: Vector3, direction: Vector3, strength: float, context: Dictionary) -> bool:
+	next_context=context.duplicate()
+	var success:bool=target.break_segment(hit,direction,strength)
+	next_context.clear()
+	return success
 
 func impact_profile(strength: float) -> ImpactProfile:
 	if strength >= heavy_impact.minimum_speed:
@@ -34,6 +43,12 @@ func prune() -> void:
 	active_debris = active_debris.filter(func(piece): return is_instance_valid(piece) and not piece.is_queued_for_deletion())
 
 func emit_broken(scene: PackedScene, transform_at_hit: Transform3D, hit: Vector3, direction: Vector3, strength: float) -> void:
+	last_context=next_context.duplicate()
+	last_context["kind"]=last_context.get("kind","BREAK")
+	last_context["position"]=hit
+	last_context["direction"]=direction
+	last_context["strength"]=strength
+	next_context.clear()
 	var broken: Node3D = scene.instantiate()
 	if ink_art:
 		LivingInkArt.apply(broken)
@@ -58,7 +73,9 @@ func emit_broken(scene: PackedScene, transform_at_hit: Transform3D, hit: Vector3
 		var outward := (piece.global_position - hit).normalized()
 		if outward.length_squared() < 0.1:
 			outward = Vector3.UP
-		piece.linear_velocity = direction.normalized() * clampf(strength * 0.34, 8.0, 26.0) + outward * 7.0 + Vector3.UP * 4.0
+		var directional_scale:=0.48 if last_context.kind=="BODY" else 0.34
+		var spread:=4.0 if last_context.kind=="BODY" else 7.0
+		piece.linear_velocity = direction.normalized() * clampf(strength * directional_scale, 8.0, 32.0) + outward * spread + Vector3.UP * 4.0
 		piece.angular_velocity = Vector3(1.3 + index, -2.1 + index * 0.8, 1.7)
 		active_debris.append(piece)
 	peak_rigidbodies = maxi(peak_rigidbodies, active_debris.size())
@@ -74,6 +91,7 @@ func emit_broken(scene: PackedScene, transform_at_hit: Transform3D, hit: Vector3
 	last_hit_position = hit
 	last_hit_age = 0.0
 	destruction_event.emit(hit, direction, strength)
+	impact_reported.emit(last_context)
 
 func clear_debris() -> void:
 	for piece in active_debris:

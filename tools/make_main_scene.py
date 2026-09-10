@@ -7,8 +7,8 @@ def vec(v):
     return 'Vector3('+', '.join(f'{n:.5f}' for n in v)+')'
 def godot(v):
     return [v[0],v[2],-v[1]]
-parts = ['[gd_scene load_steps=38 format=3]']
-resources = {'1':('PackedScene','scenes/maps/destructible_tower_forest.scn'),'2':('PackedScene','scenes/player/player.tscn'),'3':('Script','scripts/game_controller.gd'),'4':('Script','scripts/destruction/destruction_manager.gd'),'5':('Script','scripts/destruction/impact_detector.gd'),'6':('Script','scripts/destruction/tentacle_sweep.gd'),'7':('Script','scripts/camera/camera_shake.gd'),'8':('Script','scripts/vfx/impact_vfx.gd'),'9':('Script','scripts/debug/game_hud.gd'),'10':('Script','scripts/debug/debug_draw.gd'),'11':('Script','scripts/vfx/impact_overlay.gd'),'12':('Script','scripts/destruction/destructible_segment.gd'),'13':('Script','scripts/player/ink_body.gd'),'14':('Script','scripts/vfx/ink_marks.gd'),'15':('PackedScene','scenes/destruction/ink_rubble.scn')}
+parts = ['[gd_scene load_steps=40 format=3]']
+resources = {'1':('PackedScene','scenes/maps/destructible_tower_forest.scn'),'2':('PackedScene','scenes/player/player.tscn'),'3':('Script','scripts/game_controller.gd'),'4':('Script','scripts/destruction/destruction_manager.gd'),'5':('Script','scripts/destruction/impact_detector.gd'),'6':('Script','scripts/destruction/tentacle_sweep.gd'),'7':('Script','scripts/camera/camera_shake.gd'),'8':('Script','scripts/vfx/impact_vfx.gd'),'9':('Script','scripts/debug/game_hud.gd'),'10':('Script','scripts/debug/debug_draw.gd'),'11':('Script','scripts/vfx/impact_overlay.gd'),'12':('Script','scripts/destruction/destructible_segment.gd'),'13':('Script','scripts/player/ink_body.gd'),'14':('Script','scripts/vfx/ink_marks.gd'),'15':('PackedScene','scenes/destruction/ink_rubble.scn'),'16':('Script','scripts/rnd/gameplay_telemetry.gd'),'17':('Script','scripts/vfx/grapple_feedback.gd')}
 for i in range(1,15): resources[str(20+i)] = ('PackedScene',f'scenes/destruction/D{i:02d}.tscn')
 for id,(typ,path) in resources.items(): parts.append(f'[ext_resource type="{typ}" path="res://{path}" id="{id}"]')
 parts.append('''[sub_resource type="Environment" id="Env"]
@@ -20,7 +20,7 @@ ambient_light_energy = 0.42
 tonemap_mode = 0
 fog_enabled = true
 fog_light_color = Color(0.97, 0.964, 0.944, 1)
-fog_density = 0.0028
+fog_density = 0.0032
 [sub_resource type="StandardMaterial3D" id="Mint"]
 shading_mode = 0
 albedo_color = Color(0.045, 0.045, 0.045, 1)
@@ -60,14 +60,20 @@ directional_shadow_max_distance = 210.0
 [node name="StaticTowerForest" parent="." instance=ExtResource("1")]
 [node name="Player" parent="." instance=ExtResource("2")]
 spawn_position = Vector3(0, 48, 12)
+fall_recovery_enabled = true
 [node name="ImpactDetector" type="Node" parent="Player"]
 script = ExtResource("5")
+momentum_response = true
 [node name="TentacleSweep" type="Node" parent="Player"]
 script = ExtResource("6")
+cut_speed_threshold = 20.0
+tension_threshold = 12.0
 [node name="CameraShake" type="Node" parent="Player"]
 script = ExtResource("7")
 [node name="InkBody" type="MeshInstance3D" parent="Player"]
 script = ExtResource("13")
+[node name="GrappleFeedback" type="Node" parent="Player"]
+script = ExtResource("17")
 [node name="DestructionManager" type="Node3D" parent="."]
 script = ExtResource("4")
 ink_art = true
@@ -75,6 +81,8 @@ ink_art = true
 script = ExtResource("14")
 [node name="ImpactVFX" type="Node3D" parent="."]
 script = ExtResource("8")
+[node name="Telemetry" type="Node" parent="."]
+script = ExtResource("16")
 [node name="DebugDraw" type="MeshInstance3D" parent="."]
 script = ExtResource("10")
 [node name="UI" type="CanvasLayer" parent="."]

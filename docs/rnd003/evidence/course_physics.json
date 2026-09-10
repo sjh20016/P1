@@ -1,0 +1,26 @@
+[
+	{
+		"crossbeam_cut": true,
+		"exit_speed": 66.7161254882813,
+		"finite": true,
+		"peak_rigidbodies": 8,
+		"physics_hz": 60,
+		"slashes": 2
+	},
+	{
+		"crossbeam_cut": true,
+		"exit_speed": 66.8042831420898,
+		"finite": true,
+		"peak_rigidbodies": 8,
+		"physics_hz": 90,
+		"slashes": 2
+	},
+	{
+		"crossbeam_cut": true,
+		"exit_speed": 66.9024200439453,
+		"finite": true,
+		"peak_rigidbodies": 8,
+		"physics_hz": 120,
+		"slashes": 2
+	}
+]

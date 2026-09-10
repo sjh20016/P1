@@ -50,7 +50,7 @@ func on_hook(hook: GrappleController, releasing: bool) -> void:
 		deposit(hit.position,hit.normal,hit.collider,0.35 if releasing else 0.8)
 
 func on_break(position_at_hit: Vector3,direction: Vector3,strength: float) -> void:
-	pending_impacts.append({"point":position_at_hit,"direction":direction,"strength":strength})
+	pending_impacts.append({"point":position_at_hit,"direction":direction,"strength":strength,"kind":manager.last_context.get("kind","BREAK")})
 	prune()
 
 func on_motion(delta: float) -> void:
@@ -77,11 +77,13 @@ func _physics_process(_delta: float) -> void:
 		var point: Vector3 = impact.point
 		for i in 12:
 			var angle := TAU*float(i)/12.0
-			var direction := Vector3(cos(angle),sin(angle)*0.75,sin(angle+0.8)).normalized()
+			var bias:Vector3=impact.direction*0.75 if impact.kind=="BODY" else Vector3.ZERO
+			var direction := (Vector3(cos(angle),sin(angle)*0.75,sin(angle+0.8))+bias).normalized()
 			var query := PhysicsRayQueryParameters3D.create(point+direction*0.12,point+direction*17.0,3,[player.get_rid()])
 			var hit := get_world_3d().direct_space_state.intersect_ray(query)
 			if not hit.is_empty():
-				deposit(hit.position,hit.normal,hit.collider,clampf(float(impact.strength)*0.035,0.9,2.3))
+				var slash:bool=impact.kind=="SLASH"
+				deposit(hit.position,hit.normal,hit.collider,0.35 if slash else clampf(float(impact.strength)*0.035,0.9,2.3),impact.direction*20.0)
 	pending_impacts.clear()
 
 func deposit(point: Vector3, normal: Vector3, target: Object, radius: float, stroke: Vector3 = Vector3.ZERO) -> bool:

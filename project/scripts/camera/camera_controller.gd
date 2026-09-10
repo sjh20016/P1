@@ -2,6 +2,7 @@ extends Node3D
 
 @export var sensitivity: float = 0.0022
 @export var base_fov: float = 76.0
+var impact_pulse: float = 0.0
 @onready var player: RavagePlayer = get_parent()
 @onready var camera: Camera3D = $SpringArm3D/Camera3D
 
@@ -18,4 +19,5 @@ func _unhandled_input(event: InputEvent) -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED else Input.MOUSE_MODE_CAPTURED
 
 func _process(delta: float) -> void:
-	camera.fov = lerpf(camera.fov, base_fov + minf(player.velocity.length() * 0.18, 12.0), 1.0 - exp(-5.0 * delta))
+	impact_pulse=move_toward(impact_pulse,0.0,delta*20.0)
+	camera.fov = lerpf(camera.fov, base_fov + minf(player.velocity.length() * 0.18, 12.0)+impact_pulse, 1.0 - exp(-9.0 * delta))

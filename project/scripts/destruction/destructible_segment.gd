@@ -7,6 +7,7 @@ extends StaticBody3D
 @export var label: String = "FRACTURE"
 @export var debris_at_hit: bool = false
 @export var managed_by_building: bool = false
+@export_enum("Light","Medium","Heavy") var structure_weight: int = 1
 var broken: bool = false
 var last_break_time: float = -100.0
 

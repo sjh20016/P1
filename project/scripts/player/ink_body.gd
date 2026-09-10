@@ -2,6 +2,7 @@ extends MeshInstance3D
 
 @export var tendril_count: int = 8
 @export var tendril_length: float = 1.55
+@export var core_size: float = 0.82
 var geometry := ImmediateMesh.new()
 var black := StandardMaterial3D.new()
 var pressure: float = 0.0
@@ -26,7 +27,7 @@ func _process(delta: float) -> void:
 	pressure = move_toward(pressure,0.0,delta*4.0)
 	var time := Time.get_ticks_msec()*0.001
 	var speed := player.velocity.length()
-	core.scale = Vector3(1.0+pressure*0.28,1.0-pressure*0.24,1.0+pressure*0.13)
+	core.scale = Vector3(1.0+pressure*0.28,1.0-pressure*0.24,1.0+pressure*0.13)*core_size
 	core.rotation.z = sin(time*1.8)*0.05 + player.velocity.x*0.0015
 	core.material_override.set_shader_parameter("motion",minf(speed/60.0,1.0))
 	geometry.clear_surfaces()

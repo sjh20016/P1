@@ -5,6 +5,10 @@ var menu_open: bool = true
 var run_time: float = 0.0
 var resets: int = 0
 var practice_mode: bool = false
+var movement_model: int = 2
+var course: Node3D
+var notice: String=""
+var notice_time: float=0.0
 @onready var player: RavagePlayer = $Player
 @onready var manager: DestructionManager = $DestructionManager
 
@@ -13,6 +17,7 @@ func _enter_tree() -> void:
 	add_to_group("session")
 
 func _ready() -> void:
+	set_movement_model(2)
 	for segment: DestructibleSegment in get_tree().get_nodes_in_group("destructible"):
 		if segment.name==&"LaunchDeck":
 			LivingInkArt.paper_mesh(segment.get_node("IntactVisual"))
@@ -26,9 +31,35 @@ func _ready() -> void:
 		call_deferred("run_export_smoke")
 
 func _process(delta: float) -> void:
+	notice_time=maxf(0,notice_time-delta)
 	run_time += delta
 	$SweepSign.visible = not $D13.broken
 	$LaunchSign.visible = not $LaunchDeck.broken
+
+func set_movement_model(model: int) -> void:
+	movement_model=clampi(model,0,2)
+	for hook in player.hooks:
+		hook.release()
+		hook.profile=load("res://assets/placeholders/grapple_m%02d.tres" % (movement_model+1))
+	notice=["M01 / PURE SPRING","M02 / RADIAL CONSTRAINT","M03 / HYBRID KICK + MOTOR"][movement_model]
+	notice_time=2.5
+	var telemetry:=get_node_or_null("Telemetry")
+	if telemetry: telemetry.event("model",{"model":movement_model+1})
+
+func save_telemetry() -> void:
+	var path:String=$Telemetry.save_run()
+	notice="RUN DATA SAVED" if not path.is_empty() else "SAVE FAILED"
+	notice_time=3.0
+
+func start_course() -> void:
+	restart_run()
+	course=load("res://scenes/rnd/course003.tscn").instantiate()
+	add_child(course)
+	course.start()
+
+func restart_active_run() -> void:
+	if is_instance_valid(course): start_course()
+	else: restart_run()
 
 func on_player_reset() -> void:
 	resets += 1
@@ -67,6 +98,19 @@ func run_export_smoke() -> void:
 	success = success and manager.active_debris.is_empty()
 	restart_run()
 	success = success and ink.marks.is_empty() and not is_instance_valid(tower.detailed)
+	start_course()
+	player.controls_enabled=false
+	player.global_position=Vector3(0,53,-53)
+	player.velocity=Vector3(0,0,-50)
+	await get_tree().physics_frame
+	player.controls_enabled=true
+	await get_tree().create_timer(0.65).timeout
+	var course_ok:bool=course.get_node("GateA").broken and player.global_position.z < -73 and player.hooks[0].profile.movement_model==2 and player.fall_recovery_enabled
+	success=success and course_ok
+	print("EXPORT COURSE hybrid=",movement_model==2," route_A=",course_ok)
+	if DisplayServer.get_name() != "headless":
+		await RenderingServer.frame_post_draw
+		get_viewport().get_texture().get_image().save_png(OS.get_executable_path().get_base_dir().path_join("smoke-course.png"))
 	print("EXPORT SMOKE RESULT ", "PASS" if success else "FAIL")
 	get_tree().quit(0 if success else 1)
 
@@ -87,6 +131,10 @@ func toggle_pause() -> void:
 			hook.release()
 
 func restart_run() -> void:
+	if is_instance_valid(course):
+		remove_child(course)
+		course.queue_free()
+		course=null
 	Engine.time_scale = 1.0
 	$ImpactVFX.stop_until = 0
 	manager.clear_debris()
@@ -99,9 +147,12 @@ func restart_run() -> void:
 		if not segment.managed_by_building and not segment is DestructibleBuilding:
 			segment.restore()
 	player.spawn_position = Vector3(0, 48, 12)
-	player.reset_player()
+	player.reset_player("new_run")
 	# Reset releases active hooks, which can stamp their former anchors. Clear afterwards.
 	$InkMarks.clear_marks()
+	$Telemetry.clear_run()
+	player.wall_experiment=false
+	player.controls_enabled=true
 	player.camera_rig.rotation = Vector3(-0.07, 0, 0)
 	player.peak_speed = 0
 	player.get_node("TentacleSweep").sweep_event_count = 0

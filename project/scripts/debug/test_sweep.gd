@@ -27,6 +27,8 @@ func run() -> void:
 	h.previous_end = Vector3(10,0,0)
 	h.history_valid = true
 	h.tension = 50
+	await physics_frame
+	await physics_frame
 	p.velocity = Vector3(0,5,0)
 	detector.check_hook(h, 0.1)
 	check(not target.broken, "slow tentacle cannot cut")

@@ -8,6 +8,7 @@ var stop_until: int = 0
 var sound: AudioStreamWAV
 var audio: AudioStreamPlayer
 var manager: DestructionManager
+var crack_audio: AudioStreamPlayer
 
 func _ready() -> void:
 	add_to_group("impact_vfx")
@@ -18,6 +19,9 @@ func _ready() -> void:
 	add_child(audio)
 	sound = preload("res://assets/placeholders/impact.wav")
 	audio.stream = sound
+	crack_audio=AudioStreamPlayer.new()
+	crack_audio.max_polyphony=3
+	add_child(crack_audio)
 	if DisplayServer.get_name() != "headless":
 		call_deferred("warm_particle_shaders")
 
@@ -49,11 +53,20 @@ func _process(delta: float) -> void:
 func play_impact(hit: Vector3, direction: Vector3, strength: float) -> void:
 	if not enabled:
 		return
-	var profile := manager.impact_profile(strength)
+	var profile:ImpactProfile=manager.impact_profile(strength).duplicate()
+	var slash:bool=manager.last_context.get("kind","")=="SLASH"
+	if slash:
+		profile.hit_stop_duration*=0.38
+		profile.camera_shake*=0.32
+		profile.flash_opacity*=0.3
+		profile.dust_count=6
+		profile.sound_volume_db-=4
 	flash = maxf(flash, profile.flash_opacity)
 	var player := get_tree().get_first_node_in_group("player")
 	if player.has_node("CameraShake"):
 		player.get_node("CameraShake").kick(profile)
+		player.get_node("CameraShake").directional_kick(direction,0.12 if slash else clampf(strength*0.006,0.12,0.4))
+	player.camera_rig.impact_pulse=maxf(player.camera_rig.impact_pulse,1.3 if slash else clampf(strength*0.07,1.6,4.5))
 	if profile.hit_stop_duration > 0 and stop_until == 0:
 		Engine.time_scale = profile.hit_stop_scale
 		stop_until = Time.get_ticks_msec() + roundi(profile.hit_stop_duration * 1000)
@@ -62,6 +75,9 @@ func play_impact(hit: Vector3, direction: Vector3, strength: float) -> void:
 	if DisplayServer.get_name() == "headless":
 		return
 	audio.play()
+	crack_audio.stream=preload("res://assets/placeholders/tentacle_slash.wav") if slash else preload("res://assets/placeholders/impact_crack.wav")
+	crack_audio.volume_db=-11 if slash else -13
+	crack_audio.play()
 	effect_roots = effect_roots.filter(func(v): return is_instance_valid(v) and not v.is_queued_for_deletion())
 	while effect_roots.size() >= max_effects:
 		var oldest: Node3D = effect_roots.pop_front()
@@ -88,7 +104,7 @@ func spawn_particles(parent: Node3D, direction: Vector3, profile: ImpactProfile,
 	particles.visibility_aabb = AABB(Vector3(-30,-30,-30), Vector3(60,60,60))
 	var process := ParticleProcessMaterial.new()
 	process.direction = (direction + Vector3.UP * 0.6).normalized()
-	process.spread = 110.0
+	process.spread = 52.0 if manager.last_context.get("kind","")=="BODY" else 95.0
 	process.initial_velocity_min = 2.0 if dust else 7.0
 	process.initial_velocity_max = profile.particle_speed * (0.4 if dust else 1.0)
 	process.gravity = Vector3(0, 1.0 if dust else -25.0, 0)

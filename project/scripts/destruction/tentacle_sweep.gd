@@ -6,12 +6,18 @@ extends Node
 @export var sweep_speed_threshold: float = 12.0
 @export var sweep_radius: float = 0.22
 @export var target_cooldown: float = 0.18
+@export var spatial_candidates: bool = true
 var sweep_event_count: int = 0
 var sweep_speed: float = 0.0
 var cooldowns: Dictionary = {}
+var candidate_count: int = 0
+var query_box := BoxShape3D.new()
+var query := PhysicsShapeQueryParameters3D.new()
 @onready var player: RavagePlayer = get_parent()
 
 func _ready() -> void:
+	query.shape=query_box
+	query.collision_mask=2
 	player.motion_completed.connect(check_sweeps)
 	player.reset_performed.connect(func(): cooldowns.clear())
 
@@ -31,7 +37,9 @@ func check_hook(hook: GrappleController, delta: float) -> void:
 	if player.velocity.length() < cut_speed_threshold or hook.tension < tension_threshold or sweep_speed < sweep_speed_threshold:
 		return
 	# Swept quad = two triangles. Target boxes are authored alongside collision shapes.
-	for segment: DestructibleSegment in get_tree().get_nodes_in_group("destructible"):
+	var candidates:=find_candidates(hook)
+	candidate_count=candidates.size()
+	for segment: DestructibleSegment in candidates:
 		if segment.broken or segment == hook.target or cooldowns.has(segment.get_instance_id()):
 			continue
 		var inverse := segment.global_transform.affine_inverse()
@@ -46,6 +54,29 @@ func check_hook(hook: GrappleController, delta: float) -> void:
 				if hit == null:
 					continue
 				center = hit
-			if segment.break_segment(center, player.velocity.normalized(), player.velocity.length()):
+			var manager: DestructionManager=get_tree().get_first_node_in_group("destruction_manager")
+			var direction:Vector3=(player.global_position-hook.previous_start).normalized()
+			var context:Dictionary={"kind":"SLASH","before":player.velocity.length(),"after":player.velocity.length(),"tension":hook.tension,"normal":(hook.grapple_point-player.global_position).cross(direction).normalized()}
+			if manager.break_with_context(segment,center,direction,player.velocity.length(),context):
 				cooldowns[segment.get_instance_id()] = target_cooldown
 				sweep_event_count += 1
+
+func find_candidates(hook: GrappleController) -> Array:
+	if not spatial_candidates:
+		return get_tree().get_nodes_in_group("destructible")
+	# The physics server prunes distant buildings before the exact swept-quad test.
+	var bounds:=AABB(hook.previous_start,Vector3.ZERO)
+	for point:Vector3 in [hook.previous_end,player.global_position,hook.grapple_point]:
+		bounds=bounds.expand(point)
+	bounds=bounds.grow(sweep_radius+0.05)
+	query_box.size=bounds.size
+	query.transform=Transform3D(Basis.IDENTITY,bounds.get_center())
+	var hits:=player.get_world_3d().direct_space_state.intersect_shape(query,1024)
+	# Dense overlap must remain correct instead of silently dropping the 1025th target.
+	if hits.size()>=1024:
+		return get_tree().get_nodes_in_group("destructible")
+	var candidates:Array=[]
+	for hit in hits:
+		var body:Node=hit.collider
+		if body is DestructibleSegment and not candidates.has(body): candidates.append(body)
+	return candidates

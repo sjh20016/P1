@@ -3,7 +3,7 @@ extends RefCounted
 static func install() -> void:
 	var keys := {"forward": KEY_W, "back": KEY_S, "left": KEY_A, "right": KEY_D,
 		"jump": KEY_SPACE, "reset": KEY_R, "debug": KEY_F3, "pause": KEY_ESCAPE,
-		"reel_in": KEY_Q, "reel_out": KEY_E, "restart": KEY_F5}
+		"reel_in": KEY_Q, "reel_out": KEY_E, "restart": KEY_F5, "wall_hold": KEY_SHIFT}
 	for action: String in keys:
 		if InputMap.has_action(action):
 			continue

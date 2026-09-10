@@ -16,16 +16,23 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	rope_mesh.clear_surfaces()
-	if not hook.active:
+	if not hook.active and hook.ray_flash<=0 and hook.release_flash<=0:
 		return
 	var start := hook.player.global_position + hook.player.camera_rig.global_basis.x * (-0.45 if hook.action == &"hook_left" else 0.45)
 	var end := hook.grapple_point
+	if hook.active:
+		end=start.lerp(end,clampf(hook.held_time/0.055,0.05,1.0))
+	elif hook.release_flash>0:
+		end=start.lerp(end,hook.release_flash/0.12)
+	else:
+		end=start+(hook.last_ray_end-start).normalized()*12.0*(hook.ray_flash/0.22)
 	var direction := (end - start).normalized()
 	var camera: Camera3D = hook.player.get_viewport().get_camera_3d()
 	var side := direction.cross(camera.global_position-start).normalized()
 	if side.length_squared() < 0.0001:
 		side = Vector3.RIGHT
-	var sag := minf(maxf(hook.rest_length - start.distance_to(end), 0.0) * 0.22, 3.0)
+	var sag := minf(maxf(hook.rest_length - start.distance_to(end), 0.0) * 0.22, 3.0) if hook.active else 0.0
+	sag*=1.0-clampf(hook.tension/hook.profile.maximum_hook_force,0.0,1.0)
 	rope_mesh.surface_begin(Mesh.PRIMITIVE_TRIANGLES, material)
 	for i in 18:
 		var t0 := float(i) / 18.0

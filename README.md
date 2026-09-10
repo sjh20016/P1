@@ -1,73 +1,66 @@
-# RAVAGE · Living Ink / Prototype 0.02
+# RAVAGE · MOMENTUM / IMPACT · 0.03
 
-Godot **4.7.2 Stable** / GDScript / Windows x64。固定 Blender 塔林中的双触手摆荡、分段破坏与黑白墨迹实验。
+Godot **4.7.2 Stable** / GDScript / Windows x64。黑色双触手生物在暖白 Blender 塔林中抓取、摆荡、撞穿与切断建筑。
 
-## 开始游戏
+## 直接开始
 
-解压 Windows 构建包，双击 **RAVAGE.exe**。本机可双击根目录的 **开始游戏.cmd**，或运行 `build/RAVAGE-0.02-Windows/RAVAGE.exe`。
-源工程为 `project/project.godot`，使用 Godot 4.7.2 打开后按 F5。
+本机双击根目录 **开始游戏.cmd**，或运行 `build/RAVAGE-0.03-Windows/RAVAGE.exe`。分发包解压后双击 **RAVAGE.exe**，不需要安装 Godot 或 Blender。
 
-开始菜单点击 **ENTER THE CANYON** 或按 Enter。建筑表面与黑色圆环都能抓取。塔身、桥梁、平台和抓取环均可破坏。
+按 **Enter** 进入八站实验路线。第一次先瞄准上方圆环抓取，再抓向写有 RAM 的墙面。松开保留速度，继续抓下一处。路线按约三分钟体验设计，实际用时由操作和重试决定，没有强制倒计时。F4 可进入自由塔林。
 
 | 操作 | 按键 |
 |---|---|
-| 相机 | 鼠标移动 |
-| 移动 / 空中微调 | WASD |
-| 左 / 右触手 | 按住鼠标左 / 右键；松开保持惯性 |
-| 收绳 / 放绳 | Q / E |
+| 视角 / 移动与空中微调 | 鼠标 / WASD |
+| 左右触手 | 按住鼠标左 / 右键；快速点按突进，松开飞行 |
+| 收绳蓄力 / 放绳 | Q / E；有效张力下 Q 蓄力，释放触手弹出 |
 | 跳跃 | Space |
-| 回到出生平台 | R，保留破坏、墨迹和分数；必要时恢复出生平台 |
-| 恢复地图与墨迹，重新开始 | F5 |
-| 扫击练习 | F2，重置一局，带初速和右钩进入演示位置，可立即接管 |
-| 调试 HUD / 线条 | F3 |
-| 暂停 | Esc |
-| 全屏 | F11 |
+| 回检查点 | R；保留破坏、墨迹与分数 |
+| 当前模式重新开始 | F5；恢复地图与墨迹 |
+| 自由塔林 / 八站路线 | F4 / F6 |
+| 扫切练习 | F2；带初速和已抓取的右钩，可立即接管 |
+| 移动算法比较 | 1 纯弹簧 / 2 径向摆锤 / 3 Hybrid（默认） |
+| 贴墙实验开关 | F7；低速近墙按 Shift 短停，Space 蹬出；最多停 0.45 秒 |
+| 保存遥测 / 调试 HUD | F8 / F3 |
+| 暂停 / 全屏 | Esc / F11 |
 
-跳下平台，瞄准上方建筑按住鼠标键，借下坠和 WASD 形成摆荡。松开后改抓另一侧。约 **19 m/s 的迎面撞击**可以破坏建筑段，42 m/s 以上触发较强反馈。绷紧触手在玩家速度至少 22 m/s 时扫过建筑段，也会造成破坏。
+身体撞击要求朝向墙面的速度至少 **26 m/s**。普通结构撞穿后保留大部分速度；斜撞主要损失法向速度。触手切割要求速度至少 **20 m/s**、足够张力和实际扫动；直接抓住目标不会凭空切掉它。
 
-## 0.02 内容
+切梁站：抓右上方远环，保持抓钩，向梁侧下方掠过，让绷紧触手扫过横梁。救援站：下坠后转头朝上方建筑或环抓取，不必在旧版高度线立即重来。普通建筑表面与黑色圆环都可抓，建筑、平台、桥梁和抓取环都可破坏。
 
-- 358 个 Blender 建筑物件，离线预制 **4,944 个可破坏段**。首次破坏时加载该建筑的分段表示；击中段消失，邻段继续支持碰撞与抓取。
-- 原有 14 个独立部件，加上出生平台和 9 个抓取环，总计还有 24 个独立破坏目标。
-- 暖白纸面建筑、浅灰明暗、白雾背景；黑色脉动核心、8 条不规则细触须、两条渐细的抓取触手。
-- 抓取、松钩、快速擦墙和破坏飞溅在真实表面留下墨迹。新墨有微弱湿润反光，约 7 秒后变哑光。
-- 墨迹最多保留 768 处，超额替换最旧记录。每 32 处为一个绘制批次，只上传变化批次。被破坏表面的墨迹随之清除，保留表面的墨迹继续存在。
-- 黑色暴露断面；复用用户提供的 R01–R04 碎石资产。每次 4 或 6 块大碎片，全场最多 48 个活跃刚体，约 4.5–4.8 秒回收。
-- 保留弹簧双钩、扫击、GPU 碎屑、短震屏、35/52 毫秒 Hit Stop、冲击声、速度线及计分。
+## 0.03 内容与范围
 
-大建筑采用约 24 米高的离线分段，破坏位置受这些段边界约束。新增建筑破坏使用代表性碎石，**没有逐体积还原所有碎块，也没有失去支撑后的整塔倒塌**。本版没有实时切网格、真实绳索、无限地图、敌人或流体模拟。
+- 新默认 Hybrid 抓钩：瞬间速度脉冲 + 持续拉力 + 绳长约束。中心未命中时辅助选择附近可见表面，危险坠落时有限提高宽容度。
+- 抓取发射 / 命中 / 张力 / 松钩声音、方向反冲、身体挤压、FOV 脉冲；身体重击与触手切割使用不同反馈强度。
+- 坠落宽限保留抓钩与空中控制。离开可救援区域、无法继续上升后回到检查点，另保留 -800 m 硬下限。
+- 固定八站路线测试撞墙捷径、切梁后新摆荡角度、暴露内部锚点、紧急救援与重型终点。一个作者指定檐板会在支撑被切断后倾斜下落。
+- 继承 **358 个 Blender 建筑、4,944 个离线破坏段**，另有 24 个基础独立目标；课程增加 12 个结构与 10 个可破坏抓取环。
+- 暖白纸面、黑色核心、8 条视觉触须、双渐细抓钩与方向性墨迹。最多 **768 处墨迹 / 24 绘制批次**，大碎片最多 **48 个活跃刚体**，约 4.5–4.8 秒回收。
 
-## 调参
+建筑按预制段产生缺口，新增大楼用代表性碎石反馈。整塔不会普遍失去支撑后倒塌；没有实时切网格、无限地图、敌人或流体。全部建筑进入分段状态时，本机 UHD 730 集显仍可能降到约 30–38 FPS，见验证记录。
 
-在 Inspector 中编辑 `assets/placeholders/movement.tres`、`grapple.tres` 和 `impact_*.tres` 调整移动、抓钩与冲击。Player/TentacleSweep 控制扫击阈值；DestructionManager 控制碎片预算和寿命；InkMarks 控制墨迹预算、干燥时间及擦痕采样间隔；Player/InkBody 控制视觉触须数量和长度。
+## 实验记录与数据
 
-纸面材质与核心视觉位于 `assets/placeholders/paper.tres`、`living_ink.tres` 和 `shaders/`。美术方向与技术范围见 `docs/ART_DIRECTION.zh-CN.md`。
+`docs/rnd003/` 提供 `CHANGELOG_RND_003.md`、`EXPERIMENTS_003.md`、`PLAYTEST_003.md`、`TECH_RADAR_003.md`。客观测试不替代真人对手感和重量的判断。
 
-F3 显示 FPS、速度、左右钩状态、绳长、张力、刚体与墨迹数量、破坏及扫击次数；调试线条使用辅助色以区分左右钩。
+F8 和正常路线完成会保存 JSON 到：
 
-## 验证与打包
+`%APPDATA%/Godot/app_userdata/RAVAGE — Momentum Impact 0.03/telemetry003/`
+
+记录抓取成功 / Miss、达速时间、平均 / 峰值速度、释放速度、救援、重置、撞击与切割。F3 打开后可用 F10 调试跳到下一站；这种运行标记为 assisted，并显示 STATION CHECK COMPLETE，不能与正常连续通关时间混用。
+
+## 源工程、调参与重现
+
+用 Godot 4.7.2 打开 `project/project.godot` 后按 F5。主要参数在 `assets/placeholders/grapple_m01.tres` 至 `grapple_m03.tres`、`movement.tres`、`impact_*.tres`；切割阈值位于 Player/TentacleSweep，碎片与墨迹预算在对应管理节点。课程由 `tools/make_course003.py` 离线生成，主场景由 `tools/make_main_scene.py` 生成。
 
 ```powershell
-./tools/run_checks.ps1
-./tools/run_checks.ps1 -Stress
+./tools/run_checks.ps1 -Rnd
+./tools/run_checks.ps1 -Rnd -Stress
 ./tools/build_windows.ps1
-./build/RAVAGE-0.02-Windows/RAVAGE.exe -- --smoke-test
+./build/RAVAGE-0.03-Windows/RAVAGE.exe -- --smoke-test
 ```
 
-验证记录见 `docs/VALIDATION.md`。开发测试与 GLB 导入中间资产不进入 Windows 发布包。正常双击程序进入菜单；`--smoke-test` 专供导出验证。
+`-Stress` 包含 21,600 次物理帧的长期循环。渲染与大量分段压力脚本保留在 `project/scripts/debug/capture_*.gd`。开发测试、截图脚本与原始 GLB 导入中间资产不进入 Windows 游戏包。
 
-本机 `.tools` 已准备官方 4.7.2 引擎及 Windows 模板，不提交 Git。在其他电脑重新导出时，安装同版本官方模板并调整导出预设中的自定义模板路径。
+本机 `.tools` 提供官方引擎与模板，不提交 Git；其他电脑需安装同版模板并调整导出预设路径。原 Blender 文件保留在 `资产模型`，离线资产工具在 `tools/` 和 `project/tools/`，运行游戏不依赖 Blender。
 
-## 资产管线与阶段
-
-原始文件位于 `资产模型`，未覆盖修改。以下工具均离线运行：
-
-1. `tools/export_tower_map.py`、`project/tools/bake_assets.gd`：原有地图与 14 组完整 / 破碎配对。
-2. `tools/export_destructible_world.py`：Blender 塔林分段、封口、稳定 ID 与清单。
-3. `project/tools/bake_ink_rubble.gd`：四块预制碎石及凸碰撞。
-4. `project/tools/bake_destructible_world.gd`：建筑完整表示、分段表示、碰撞与纸面 / 断面材质。
-5. `tools/make_main_scene.py`：固定主场景布局。
-
-游戏运行不需要 Blender。所有破坏经 `DestructibleSegment.break_segment()` 进入；玩家只提供移动信号，撞击探测器和扫击器独立判定。
-
-`checkpoint-0-movement` 至 `checkpoint-7-tower-map` 保留 0.01 开发阶段；`checkpoint-8-full-destruction` 保存全建筑破坏；后续水墨与发布阶段继续独立记录。灰盒和实验场保留，便于调试基础玩法。
+详细验证见 `docs/VALIDATION.md`；0.01 / 0.02 验证与本地构建继续保留。美术继承与限制见 `docs/ART_DIRECTION.zh-CN.md`，资产来源及引擎许可见 `docs/THIRD_PARTY.md`。
