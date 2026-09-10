@@ -11,4 +11,9 @@ Copy-Item -LiteralPath (Join-Path $repo 'README.md') -Destination (Join-Path $ou
 Copy-Item -LiteralPath (Join-Path $repo 'docs\THIRD_PARTY.md') -Destination $output
 Copy-Item -LiteralPath (Join-Path $repo 'docs\GODOT_LICENSE.txt') -Destination $output
 Copy-Item -LiteralPath (Join-Path $repo 'docs\GODOT_COPYRIGHT.txt') -Destination $output
+$guide = Join-Path $output 'docs'
+New-Item -ItemType Directory -Force -Path $guide | Out-Null
+foreach ($name in @('VALIDATION.md','VALIDATION-0.01.md','ART_DIRECTION.zh-CN.md','RELEASE_NOTES.zh-CN.md')) {
+    Copy-Item -LiteralPath (Join-Path $repo "docs\$name") -Destination $guide
+}
 Write-Output "BUILD: $output"
