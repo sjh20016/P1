@@ -5,7 +5,7 @@ from hashlib import sha256
 
 root = Path(__file__).resolve().parents[1]
 folder = root / 'build/RAVAGE-0.03-Windows'
-archive = folder.with_suffix('.zip')
+archive = folder.parent / (folder.name + '.zip')
 assert (folder / 'RAVAGE.exe').is_file(), 'Run build_windows.ps1 first'
 with ZipFile(archive, 'w', ZIP_DEFLATED, compresslevel=9) as z:
     for path in sorted(folder.rglob('*')):
