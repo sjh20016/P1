@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3]
+[gd_scene load_steps=38 format=3]
 [ext_resource type="PackedScene" path="res://scenes/maps/destructible_tower_forest.scn" id="1"]
 [ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="2"]
 [ext_resource type="Script" path="res://scripts/game_controller.gd" id="3"]
@@ -11,6 +11,9 @@
 [ext_resource type="Script" path="res://scripts/debug/debug_draw.gd" id="10"]
 [ext_resource type="Script" path="res://scripts/vfx/impact_overlay.gd" id="11"]
 [ext_resource type="Script" path="res://scripts/destruction/destructible_segment.gd" id="12"]
+[ext_resource type="Script" path="res://scripts/player/ink_body.gd" id="13"]
+[ext_resource type="Script" path="res://scripts/vfx/ink_marks.gd" id="14"]
+[ext_resource type="PackedScene" path="res://scenes/destruction/ink_rubble.scn" id="15"]
 [ext_resource type="PackedScene" path="res://scenes/destruction/D01.tscn" id="21"]
 [ext_resource type="PackedScene" path="res://scenes/destruction/D02.tscn" id="22"]
 [ext_resource type="PackedScene" path="res://scenes/destruction/D03.tscn" id="23"]
@@ -27,19 +30,19 @@
 [ext_resource type="PackedScene" path="res://scenes/destruction/D14.tscn" id="34"]
 [sub_resource type="Environment" id="Env"]
 background_mode = 1
-background_color = Color(0.025, 0.045, 0.06, 1)
+background_color = Color(0.97, 0.964, 0.944, 1)
 ambient_light_source = 3
 ambient_light_color = Color(0.57, 0.7, 0.76, 1)
 ambient_light_energy = 0.42
-tonemap_mode = 2
+tonemap_mode = 0
 fog_enabled = true
-fog_light_color = Color(0.10, 0.17, 0.20, 1)
-fog_density = 0.005
+fog_light_color = Color(0.97, 0.964, 0.944, 1)
+fog_density = 0.0028
 [sub_resource type="StandardMaterial3D" id="Mint"]
 shading_mode = 0
-albedo_color = Color(0.56, 0.94, 0.8, 1)
+albedo_color = Color(0.045, 0.045, 0.045, 1)
 [sub_resource type="StandardMaterial3D" id="DeckMat"]
-albedo_color = Color(0.21, 0.27, 0.29, 1)
+albedo_color = Color(0.97, 0.964, 0.944, 1)
 roughness = 0.8
 [sub_resource type="BoxMesh" id="DeckMesh"]
 size = Vector3(12, 1, 14)
@@ -80,11 +83,13 @@ script = ExtResource("5")
 script = ExtResource("6")
 [node name="CameraShake" type="Node" parent="Player"]
 script = ExtResource("7")
-[node name="CoreMark" type="MeshInstance3D" parent="Player"]
-position = Vector3(0, 0.55, 0.50)
-mesh = SubResource("CoreMark")
+[node name="InkBody" type="MeshInstance3D" parent="Player"]
+script = ExtResource("13")
 [node name="DestructionManager" type="Node3D" parent="."]
 script = ExtResource("4")
+ink_art = true
+[node name="InkMarks" type="MeshInstance3D" parent="."]
+script = ExtResource("14")
 [node name="ImpactVFX" type="Node3D" parent="."]
 script = ExtResource("8")
 [node name="DebugDraw" type="MeshInstance3D" parent="."]
@@ -105,6 +110,7 @@ script = ExtResource("11")
 position = Vector3(0, 46, 10)
 script = ExtResource("12")
 debris_at_hit = true
+broken_scene = ExtResource("15")
 local_bounds = AABB(-6, -0.5, -7, 12, 1, 14)
 [node name="IntactVisual" type="MeshInstance3D" parent="LaunchDeck"]
 mesh = SubResource("DeckMesh")
@@ -122,8 +128,8 @@ text = "DROP INTO THE CANYON
 HOLD A MOUSE BUTTON TO GRAB"
 font_size = 42
 pixel_size = 0.004
-outline_size = 2
-modulate = Color(0.56, 0.94, 0.8, 1)
+outline_size = 0
+modulate = Color(0.045, 0.045, 0.045, 1)
 billboard = 1
 no_depth_test = false
 
@@ -175,8 +181,8 @@ text = "SWEEP ZONE
 F2 TO PRACTICE"
 font_size = 48
 pixel_size = 0.013
-outline_size = 2
-modulate = Color(1, 0.6, 0.4, 1)
+outline_size = 0
+modulate = Color(0.045, 0.045, 0.045, 1)
 billboard = 1
 
 [node name="Anchor0" type="StaticBody3D" parent="."]
@@ -184,6 +190,7 @@ position = Vector3(-14.00000, 66.00000, -25.00000)
 script = ExtResource("12")
 local_bounds = AABB(-1.1, -1.1, -1.1, 2.2, 2.2, 2.2)
 debris_at_hit = true
+broken_scene = ExtResource("15")
 [node name="IntactVisual" type="MeshInstance3D" parent="Anchor0"]
 rotation_degrees = Vector3(90, 0, 0)
 mesh = SubResource("AnchorRing")
@@ -194,15 +201,16 @@ position = Vector3(0, 1.7, 0)
 text = "ANCHOR / 01"
 font_size = 36
 pixel_size = 0.012
-outline_size = 2
+outline_size = 0
 billboard = 1
-modulate = Color(0.56, 0.94, 0.8, 1)
+modulate = Color(0.045, 0.045, 0.045, 1)
 
 [node name="Anchor1" type="StaticBody3D" parent="."]
 position = Vector3(14.00000, 62.00000, -34.00000)
 script = ExtResource("12")
 local_bounds = AABB(-1.1, -1.1, -1.1, 2.2, 2.2, 2.2)
 debris_at_hit = true
+broken_scene = ExtResource("15")
 [node name="IntactVisual" type="MeshInstance3D" parent="Anchor1"]
 rotation_degrees = Vector3(90, 0, 0)
 mesh = SubResource("AnchorRing")
@@ -213,15 +221,16 @@ position = Vector3(0, 1.7, 0)
 text = "ANCHOR / 02"
 font_size = 36
 pixel_size = 0.012
-outline_size = 2
+outline_size = 0
 billboard = 1
-modulate = Color(0.56, 0.94, 0.8, 1)
+modulate = Color(0.045, 0.045, 0.045, 1)
 
 [node name="Anchor2" type="StaticBody3D" parent="."]
 position = Vector3(-14.00000, 58.00000, -83.00000)
 script = ExtResource("12")
 local_bounds = AABB(-1.1, -1.1, -1.1, 2.2, 2.2, 2.2)
 debris_at_hit = true
+broken_scene = ExtResource("15")
 [node name="IntactVisual" type="MeshInstance3D" parent="Anchor2"]
 rotation_degrees = Vector3(90, 0, 0)
 mesh = SubResource("AnchorRing")
@@ -232,15 +241,16 @@ position = Vector3(0, 1.7, 0)
 text = "ANCHOR / 03"
 font_size = 36
 pixel_size = 0.012
-outline_size = 2
+outline_size = 0
 billboard = 1
-modulate = Color(0.56, 0.94, 0.8, 1)
+modulate = Color(0.045, 0.045, 0.045, 1)
 
 [node name="Anchor3" type="StaticBody3D" parent="."]
 position = Vector3(13.00000, 60.00000, -99.00000)
 script = ExtResource("12")
 local_bounds = AABB(-1.1, -1.1, -1.1, 2.2, 2.2, 2.2)
 debris_at_hit = true
+broken_scene = ExtResource("15")
 [node name="IntactVisual" type="MeshInstance3D" parent="Anchor3"]
 rotation_degrees = Vector3(90, 0, 0)
 mesh = SubResource("AnchorRing")
@@ -251,15 +261,16 @@ position = Vector3(0, 1.7, 0)
 text = "ANCHOR / 04"
 font_size = 36
 pixel_size = 0.012
-outline_size = 2
+outline_size = 0
 billboard = 1
-modulate = Color(0.56, 0.94, 0.8, 1)
+modulate = Color(0.045, 0.045, 0.045, 1)
 
 [node name="Anchor4" type="StaticBody3D" parent="."]
 position = Vector3(-12.00000, 56.00000, -129.00000)
 script = ExtResource("12")
 local_bounds = AABB(-1.1, -1.1, -1.1, 2.2, 2.2, 2.2)
 debris_at_hit = true
+broken_scene = ExtResource("15")
 [node name="IntactVisual" type="MeshInstance3D" parent="Anchor4"]
 rotation_degrees = Vector3(90, 0, 0)
 mesh = SubResource("AnchorRing")
@@ -270,15 +281,16 @@ position = Vector3(0, 1.7, 0)
 text = "ANCHOR / 05"
 font_size = 36
 pixel_size = 0.012
-outline_size = 2
+outline_size = 0
 billboard = 1
-modulate = Color(0.56, 0.94, 0.8, 1)
+modulate = Color(0.045, 0.045, 0.045, 1)
 
 [node name="Anchor5" type="StaticBody3D" parent="."]
 position = Vector3(14.00000, 58.00000, -160.00000)
 script = ExtResource("12")
 local_bounds = AABB(-1.1, -1.1, -1.1, 2.2, 2.2, 2.2)
 debris_at_hit = true
+broken_scene = ExtResource("15")
 [node name="IntactVisual" type="MeshInstance3D" parent="Anchor5"]
 rotation_degrees = Vector3(90, 0, 0)
 mesh = SubResource("AnchorRing")
@@ -289,15 +301,16 @@ position = Vector3(0, 1.7, 0)
 text = "ANCHOR / 06"
 font_size = 36
 pixel_size = 0.012
-outline_size = 2
+outline_size = 0
 billboard = 1
-modulate = Color(0.56, 0.94, 0.8, 1)
+modulate = Color(0.045, 0.045, 0.045, 1)
 
 [node name="Anchor6" type="StaticBody3D" parent="."]
 position = Vector3(-12.00000, 58.00000, -189.00000)
 script = ExtResource("12")
 local_bounds = AABB(-1.1, -1.1, -1.1, 2.2, 2.2, 2.2)
 debris_at_hit = true
+broken_scene = ExtResource("15")
 [node name="IntactVisual" type="MeshInstance3D" parent="Anchor6"]
 rotation_degrees = Vector3(90, 0, 0)
 mesh = SubResource("AnchorRing")
@@ -308,15 +321,16 @@ position = Vector3(0, 1.7, 0)
 text = "ANCHOR / 07"
 font_size = 36
 pixel_size = 0.012
-outline_size = 2
+outline_size = 0
 billboard = 1
-modulate = Color(0.56, 0.94, 0.8, 1)
+modulate = Color(0.045, 0.045, 0.045, 1)
 
 [node name="Anchor7" type="StaticBody3D" parent="."]
 position = Vector3(13.00000, 70.00000, -222.00000)
 script = ExtResource("12")
 local_bounds = AABB(-1.1, -1.1, -1.1, 2.2, 2.2, 2.2)
 debris_at_hit = true
+broken_scene = ExtResource("15")
 [node name="IntactVisual" type="MeshInstance3D" parent="Anchor7"]
 rotation_degrees = Vector3(90, 0, 0)
 mesh = SubResource("AnchorRing")
@@ -327,15 +341,16 @@ position = Vector3(0, 1.7, 0)
 text = "ANCHOR / 08"
 font_size = 36
 pixel_size = 0.012
-outline_size = 2
+outline_size = 0
 billboard = 1
-modulate = Color(0.56, 0.94, 0.8, 1)
+modulate = Color(0.045, 0.045, 0.045, 1)
 
 [node name="PracticeAnchor" type="StaticBody3D" parent="."]
 position = Vector3(14.00000, 50.00000, -65.00000)
 script = ExtResource("12")
 local_bounds = AABB(-1.1, -1.1, -1.1, 2.2, 2.2, 2.2)
 debris_at_hit = true
+broken_scene = ExtResource("15")
 [node name="IntactVisual" type="MeshInstance3D" parent="PracticeAnchor"]
 rotation_degrees = Vector3(90, 0, 0)
 mesh = SubResource("AnchorRing")
@@ -346,6 +361,6 @@ position = Vector3(0, 1.7, 0)
 text = "ANCHOR / 09"
 font_size = 36
 pixel_size = 0.012
-outline_size = 2
+outline_size = 0
 billboard = 1
-modulate = Color(0.56, 0.94, 0.8, 1)
+modulate = Color(0.045, 0.045, 0.045, 1)

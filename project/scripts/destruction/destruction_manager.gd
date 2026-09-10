@@ -4,6 +4,7 @@ extends Node3D
 signal destruction_event(hit_position: Vector3, hit_direction: Vector3, strength: float)
 @export_range(6, 54, 1) var rigidbody_budget: int = 48
 @export var debris_lifetime: float = 4.5
+@export var ink_art: bool = false
 @export var small_impact: ImpactProfile = preload("res://assets/placeholders/impact_small.tres")
 @export var medium_impact: ImpactProfile = preload("res://assets/placeholders/impact_medium.tres")
 @export var heavy_impact: ImpactProfile = preload("res://assets/placeholders/impact_heavy.tres")
@@ -34,6 +35,8 @@ func prune() -> void:
 
 func emit_broken(scene: PackedScene, transform_at_hit: Transform3D, hit: Vector3, direction: Vector3, strength: float) -> void:
 	var broken: Node3D = scene.instantiate()
+	if ink_art:
+		LivingInkArt.apply(broken)
 	var pieces: Array[DebrisPiece] = []
 	for child in broken.get_children():
 		if child is DebrisPiece:

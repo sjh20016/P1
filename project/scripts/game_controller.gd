@@ -13,6 +13,11 @@ func _enter_tree() -> void:
 	add_to_group("session")
 
 func _ready() -> void:
+	for segment: DestructibleSegment in get_tree().get_nodes_in_group("destructible"):
+		if segment.name==&"LaunchDeck":
+			LivingInkArt.paper_mesh(segment.get_node("IntactVisual"))
+		elif not segment is DestructibleBuilding and not str(segment.name).contains("Anchor"):
+			LivingInkArt.apply(segment)
 	player.reset_performed.connect(on_player_reset)
 	player.camera_rig.rotation = Vector3(-0.07, 0, 0)
 	get_tree().paused = true
@@ -43,9 +48,25 @@ func run_export_smoke() -> void:
 	player.controls_enabled = false
 	for hook in player.hooks:
 		hook.release()
+	var tower: DestructibleBuilding = $StaticTowerForest/B250
+	var bounds := tower.section_bounds[24]
+	var face := tower.global_position+Vector3(bounds.get_center().x,bounds.get_center().y,bounds.end.z)
+	var query := PhysicsRayQueryParameters3D.create(face+Vector3.BACK*4,face+Vector3.FORWARD*4,3,[player.get_rid()])
+	var hit := get_world_3d().direct_space_state.intersect_ray(query)
+	var ink: InkMarks = $InkMarks
+	var stamp_ok := false
+	if not hit.is_empty():
+		stamp_ok = ink.deposit(hit.position,hit.normal,hit.collider,0.8)
+	var break_point := tower.global_transform*tower.section_bounds[25].get_center()
+	var world_ok := tower.break_segment(break_point,Vector3.BACK,55)
+	ink.prune()
+	success = success and stamp_ok and world_ok and tower.sections[25].broken and not tower.sections[24].broken and not ink.marks.is_empty()
+	print("EXPORT FULL WORLD break=",world_ok," ink=",stamp_ok)
 	await get_tree().create_timer(5.5).timeout
 	manager.prune()
 	success = success and manager.active_debris.is_empty()
+	restart_run()
+	success = success and ink.marks.is_empty() and not is_instance_valid(tower.detailed)
 	print("EXPORT SMOKE RESULT ", "PASS" if success else "FAIL")
 	get_tree().quit(0 if success else 1)
 
@@ -79,6 +100,8 @@ func restart_run() -> void:
 			segment.restore()
 	player.spawn_position = Vector3(0, 48, 12)
 	player.reset_player()
+	# Reset releases active hooks, which can stamp their former anchors. Clear afterwards.
+	$InkMarks.clear_marks()
 	player.camera_rig.rotation = Vector3(-0.07, 0, 0)
 	player.peak_speed = 0
 	player.get_node("TentacleSweep").sweep_event_count = 0

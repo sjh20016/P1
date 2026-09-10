@@ -1,10 +1,10 @@
 extends Control
 
-const INK := Color(0.032,0.051,0.063)
-const PAPER := Color(0.88,0.93,0.91)
-const MUTED := Color(0.52,0.64,0.65)
-const MINT := Color(0.56,0.94,0.79)
-const ORANGE := Color(1.0,0.56,0.36)
+const PANEL := Color(0.97,0.964,0.944)
+const TEXT := Color(0.025,0.025,0.026)
+const MUTED := Color(0.34,0.34,0.33)
+const ACCENT := Color(0.045,0.045,0.045)
+const STRONG := Color(0.005,0.005,0.005)
 var font: Font
 var session: Node3D
 var player: RavagePlayer
@@ -56,11 +56,11 @@ func _process(delta: float) -> void:
 		aim_clock = 0.05
 	queue_redraw()
 
-func text_at(value: String, position: Vector2, size: int = 16, color: Color = PAPER) -> void:
+func text_at(value: String, position: Vector2, size: int = 16, color: Color = TEXT) -> void:
 	draw_string(font, position, value, HORIZONTAL_ALIGNMENT_LEFT, -1, size, color)
 
 func panel(rect: Rect2, alpha: float = 0.88) -> void:
-	draw_style_box(box_style(Color(INK, alpha)), rect)
+	draw_style_box(box_style(Color(PANEL, alpha)), rect)
 
 func box_style(color: Color) -> StyleBoxFlat:
 	var style := StyleBoxFlat.new()
@@ -77,36 +77,37 @@ func _draw() -> void:
 	var h := view.y
 	var speed := player.velocity.length()
 	panel(Rect2(30,28,302,66),0.7)
-	draw_rect(Rect2(30,30,3,62), MINT)
+	draw_rect(Rect2(30,30,3,62), ACCENT)
 	text_at("R A V A G E", Vector2(46,57), 28)
-	text_at("TOWERFALL   /   PROTOTYPE 0.01", Vector2(46,81), 12, MUTED)
+	text_at("TOWERFALL   /   LIVING INK 0.02", Vector2(46,81), 12, MUTED)
 	panel(Rect2(w-292,30,262,68),0.78)
 	text_at("DESTRUCTION",Vector2(w-275,53),11,MUTED)
 	text_at("%06d" % manager.score,Vector2(w-275,83),28)
-	text_at("%03d CUTS" % manager.event_count,Vector2(w-145,83),17,ORANGE)
+	text_at("%03d CUTS" % manager.event_count,Vector2(w-145,83),17,STRONG)
 	if session.menu_open:
 		draw_menu(view)
 		return
 	var center := view * 0.5
 	var can_grab := not aim.is_empty()
-	var tint := MINT if can_grab else Color(PAPER,0.45)
+	var tint := ACCENT if can_grab else Color(TEXT,0.45)
+	draw_arc(center, 8, 0, TAU, 24, Color(PANEL,0.85), 3.2, true)
 	draw_arc(center, 8, 0, TAU, 24, tint, 1.2, true)
 	draw_circle(center, 1.8, tint)
 	for offset: Vector2 in [Vector2(-16,0),Vector2(16,0),Vector2(0,-16),Vector2(0,16)]:
 		draw_line(center+offset*0.8,center+offset,tint,1.2,true)
 	if can_grab:
-		text_at("%.0f m" % player.global_position.distance_to(aim.position),center+Vector2(18,5),12,MINT)
+		text_at("%.0f m" % player.global_position.distance_to(aim.position),center+Vector2(18,5),12,ACCENT)
 	var hint := "HOLD LMB / RMB TO ANCHOR    ·    RELEASE TO FLY"
 	if session.practice_mode:
 		hint = "SWEEP LAB   /   TAUT TENTACLE + SPEED = FRACTURE"
-	text_at(hint,Vector2(w*0.5-225,45),12,MINT)
+	text_at(hint,Vector2(w*0.5-225,45),12,ACCENT)
 	panel(Rect2(22,h-150,207,144),0.74)
 	panel(Rect2(w-277,h-92,255,82),0.74)
 	text_at("VELOCITY",Vector2(34,h-128),11,MUTED)
 	text_at("%02d" % roundi(speed),Vector2(30,h-58),68)
 	text_at("m/s",Vector2(131,h-59),16,MUTED)
 	draw_rect(Rect2(34,h-42,180,3),Color(MUTED,0.25))
-	draw_rect(Rect2(34,h-42,180*speed/player.profile.max_speed,3),ORANGE if speed>=42 else MINT)
+	draw_rect(Rect2(34,h-42,180*speed/player.profile.max_speed,3),STRONG if speed>=42 else ACCENT)
 	text_at("BREAK 19+    /    HEAVY 42+",Vector2(34,h-22),10,MUTED)
 	for i in player.hooks.size():
 		draw_hook(player.hooks[i],Vector2(w*0.5-232+i*240,h-112),i)
@@ -116,57 +117,58 @@ func _draw() -> void:
 	text_at("ESC  PAUSE   /   F11  FULLSCREEN",Vector2(w-260,h-26),10,MUTED)
 	if manager.last_hit_age < 1.5:
 		var alpha := clampf(1.5-manager.last_hit_age,0,1)
-		text_at(manager.last_impact_name + " / FRACTURE",Vector2(w*0.5-126,h*0.32),25,Color(ORANGE,alpha))
+		text_at(manager.last_impact_name + " / FRACTURE",Vector2(w*0.5-126,h*0.32),25,Color(STRONG,alpha))
 	if debug_enabled:
 		draw_debug()
 
 func draw_hook(hook: GrappleController, point: Vector2, index: int) -> void:
 	panel(Rect2(point,Vector2(224,67)),0.86)
-	draw_rect(Rect2(point,Vector2(3,67)),hook.tint)
+	draw_rect(Rect2(point,Vector2(3,67)),TEXT)
 	text_at("LMB / LEFT" if index==0 else "RMB / RIGHT",point+Vector2(15,21),11,MUTED)
-	text_at("TENSION" if hook.active and hook.tension>6 else ("SLACK" if hook.active else "READY"),point+Vector2(15,45),17,hook.tint)
+	text_at("TENSION" if hook.active and hook.tension>6 else ("SLACK" if hook.active else "READY"),point+Vector2(15,45),17,TEXT)
 	if hook.active:
-		text_at("%.0f m" % hook.current_length,point+Vector2(158,44),16,PAPER)
+		text_at("%.0f m" % hook.current_length,point+Vector2(158,44),16,TEXT)
 	draw_rect(Rect2(point+Vector2(15,55),Vector2(194,2)),Color(MUTED,0.2))
-	draw_rect(Rect2(point+Vector2(15,55),Vector2(194*hook.tension/hook.profile.maximum_hook_force,2)),hook.tint)
+	draw_rect(Rect2(point+Vector2(15,55),Vector2(194*hook.tension/hook.profile.maximum_hook_force,2)),TEXT)
 
 func draw_debug() -> void:
-	panel(Rect2(30,120,405,228),0.93)
-	text_at("TELEMETRY / F3",Vector2(46,145),13,MINT)
+	panel(Rect2(30,120,405,253),0.93)
+	text_at("TELEMETRY / F3",Vector2(46,145),13,ACCENT)
 	var lines: Array[String] = ["FPS %d  |  physics 120 Hz" % Engine.get_frames_per_second(),
 		"velocity " + str(player.velocity.snapped(Vector3.ONE*0.1)),
 		"speed %.2f / peak %.2f" % [player.velocity.length(),player.peak_speed],
 		"rigid %d / %d | peak %d" % [manager.active_debris.size(),manager.rigidbody_budget,manager.peak_rigidbodies],
-		"breaks %d | sweeps %d" % [manager.event_count,player.get_node("TentacleSweep").sweep_event_count]]
+		"breaks %d | sweeps %d" % [manager.event_count,player.get_node("TentacleSweep").sweep_event_count],
+		"ink %d / %d" % [session.get_node("InkMarks").marks.size(),session.get_node("InkMarks").mark_budget]]
 	for hook in player.hooks:
 		lines.append("%s %s len %.1f rest %.1f T %.1f" % ["L" if hook.action==&"hook_left" else "R","ON" if hook.active else "OFF",hook.current_length,hook.rest_length,hook.tension])
 	for i in lines.size():
-		text_at(lines[i],Vector2(46,173+i*23),13,PAPER)
+		text_at(lines[i],Vector2(46,173+i*23),13,TEXT)
 
 func draw_menu(view: Vector2) -> void:
-	draw_rect(Rect2(Vector2.ZERO,view),Color(0.018,0.031,0.04,0.6))
+	draw_rect(Rect2(Vector2.ZERO,view),Color(PANEL,0.48))
 	var origin := Vector2(72,view.y*0.23)
-	text_at("01 / KINETIC DESTRUCTION STUDY",origin,13,MINT)
-	text_at("THE CITY",origin+Vector2(0,79),68)
-	text_at("IS YOUR",origin+Vector2(0,151),68)
-	text_at("SLINGSHOT.",origin+Vector2(0,223),68,MINT)
+	text_at("02 / LIVING INK",origin,13,ACCENT)
+	text_at("A WHITE",origin+Vector2(0,79),68)
+	text_at("WORLD.",origin+Vector2(0,151),68)
+	text_at("YOUR SCARS.",origin+Vector2(0,223),68,ACCENT)
 	text_at("GRAB. SWING. RELEASE. SHATTER.",origin+Vector2(3,266),15)
-	text_at("A black core. Two tendrils. One finite canyon.",origin+Vector2(3,294),14,MUTED)
+	text_at("Every wall can break. Leave your ink behind.",origin+Vector2(3,294),14,MUTED)
 	start_button = Rect2(origin+Vector2(0,328),Vector2(236,53))
-	draw_rect(start_button,MINT)
-	text_at("RESUME  /  ENTER" if session.started else "ENTER THE CANYON",start_button.position+Vector2(20,33),17,INK)
+	draw_rect(start_button,ACCENT)
+	text_at("RESUME  /  ENTER" if session.started else "ENTER THE CANYON",start_button.position+Vector2(20,33),17,PANEL)
 	practice_button = Rect2(origin+Vector2(252,328),Vector2(215,53))
-	draw_rect(practice_button,Color(PAPER,0.09))
-	draw_rect(practice_button,Color(PAPER,0.4),false,1)
-	text_at("SWEEP LAB  /  F2",practice_button.position+Vector2(20,33),16,PAPER)
+	draw_rect(practice_button,Color(TEXT,0.09))
+	draw_rect(practice_button,Color(TEXT,0.4),false,1)
+	text_at("SWEEP LAB  /  F2",practice_button.position+Vector2(20,33),16,TEXT)
 	var x := view.x - 387
 	var y := view.y*0.35
-	text_at("FIELD GUIDE",Vector2(x,y),13,MINT)
-	var guide: Array[String] = ["01   AIM AT A WALL OR CYAN SOCKET","02   HOLD EITHER MOUSE BUTTON","03   STEER WITH WASD WHILE FALLING","04   RELEASE TO KEEP YOUR SPEED","05   HIT OR SWEEP THE ORANGE PANELS"]
+	text_at("FIELD GUIDE",Vector2(x,y),13,ACCENT)
+	var guide: Array[String] = ["01   AIM AT A WALL OR AN ANCHOR","02   HOLD EITHER MOUSE BUTTON","03   STEER WITH WASD WHILE FALLING","04   RELEASE TO KEEP YOUR SPEED","05   HIT OR SWEEP ANY BUILDING"]
 	for i in guide.size():
-		text_at(guide[i],Vector2(x,y+42+i*40),12,PAPER)
+		text_at(guide[i],Vector2(x,y+42+i*40),12,TEXT)
 	text_at("Q / E    Shorten / lengthen tendrils",Vector2(x,y+271),12,MUTED)
 	text_at("SPACE    Jump from the launch deck",Vector2(x,y+296),12,MUTED)
 	text_at("R    Respawn    ·    F5    Restore all targets",Vector2(x,y+321),12,MUTED)
 	text_at("F3   Telemetry    ·    F11   Fullscreen",Vector2(x,y+346),12,MUTED)
-	text_at("FIXED BLENDER MAP / FULL DESTRUCTION / 48 DEBRIS LIMIT",Vector2(74,view.y-34),11,MUTED)
+	text_at("LIVING INK / A FINITE CITY / LEAVE YOUR MARK",Vector2(74,view.y-34),11,MUTED)

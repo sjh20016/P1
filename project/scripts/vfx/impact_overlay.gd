@@ -23,6 +23,6 @@ func _draw() -> void:
 			var radius := 0.4 + fmod(Time.get_ticks_msec() * 0.0007 + i * 0.073, 0.15)
 			var a := view * 0.5 + direction * view * radius
 			var b := a + direction * (18 + speed * 0.65)
-			draw_line(a, b, Color(0.84,0.94,0.94,alpha), 1.5, true)
+			draw_line(a, b, Color(0.035,0.035,0.035,alpha), 1.2, true)
 	if is_instance_valid(vfx) and vfx.flash > 0:
 		draw_rect(Rect2(Vector2.ZERO, view), Color(1,1,1,vfx.flash))

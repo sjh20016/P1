@@ -1,7 +1,7 @@
 extends SceneTree
 
 const PART_SCRIPT = preload("res://scripts/destruction/destructible_segment.gd")
-const RUBBLE = preload("res://scenes/destruction/broken_block.tscn")
+const RUBBLE = preload("res://scenes/destruction/ink_rubble.scn")
 
 func _initialize() -> void:
 	call_deferred("bake")
@@ -32,6 +32,7 @@ func add_geometry(parent: Node3D, mesh: Mesh, visual_name: String) -> void:
 	var visual := MeshInstance3D.new()
 	visual.name = visual_name
 	visual.mesh = mesh
+	LivingInkArt.paper_mesh(visual)
 	visual.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	parent.add_child(visual)
 	var collision := CollisionShape3D.new()

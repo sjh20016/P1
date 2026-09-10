@@ -7,25 +7,25 @@ def vec(v):
     return 'Vector3('+', '.join(f'{n:.5f}' for n in v)+')'
 def godot(v):
     return [v[0],v[2],-v[1]]
-parts = ['[gd_scene load_steps=35 format=3]']
-resources = {'1':('PackedScene','scenes/maps/destructible_tower_forest.scn'),'2':('PackedScene','scenes/player/player.tscn'),'3':('Script','scripts/game_controller.gd'),'4':('Script','scripts/destruction/destruction_manager.gd'),'5':('Script','scripts/destruction/impact_detector.gd'),'6':('Script','scripts/destruction/tentacle_sweep.gd'),'7':('Script','scripts/camera/camera_shake.gd'),'8':('Script','scripts/vfx/impact_vfx.gd'),'9':('Script','scripts/debug/game_hud.gd'),'10':('Script','scripts/debug/debug_draw.gd'),'11':('Script','scripts/vfx/impact_overlay.gd'),'12':('Script','scripts/destruction/destructible_segment.gd')}
+parts = ['[gd_scene load_steps=38 format=3]']
+resources = {'1':('PackedScene','scenes/maps/destructible_tower_forest.scn'),'2':('PackedScene','scenes/player/player.tscn'),'3':('Script','scripts/game_controller.gd'),'4':('Script','scripts/destruction/destruction_manager.gd'),'5':('Script','scripts/destruction/impact_detector.gd'),'6':('Script','scripts/destruction/tentacle_sweep.gd'),'7':('Script','scripts/camera/camera_shake.gd'),'8':('Script','scripts/vfx/impact_vfx.gd'),'9':('Script','scripts/debug/game_hud.gd'),'10':('Script','scripts/debug/debug_draw.gd'),'11':('Script','scripts/vfx/impact_overlay.gd'),'12':('Script','scripts/destruction/destructible_segment.gd'),'13':('Script','scripts/player/ink_body.gd'),'14':('Script','scripts/vfx/ink_marks.gd'),'15':('PackedScene','scenes/destruction/ink_rubble.scn')}
 for i in range(1,15): resources[str(20+i)] = ('PackedScene',f'scenes/destruction/D{i:02d}.tscn')
 for id,(typ,path) in resources.items(): parts.append(f'[ext_resource type="{typ}" path="res://{path}" id="{id}"]')
 parts.append('''[sub_resource type="Environment" id="Env"]
 background_mode = 1
-background_color = Color(0.025, 0.045, 0.06, 1)
+background_color = Color(0.97, 0.964, 0.944, 1)
 ambient_light_source = 3
 ambient_light_color = Color(0.57, 0.7, 0.76, 1)
 ambient_light_energy = 0.42
-tonemap_mode = 2
+tonemap_mode = 0
 fog_enabled = true
-fog_light_color = Color(0.10, 0.17, 0.20, 1)
-fog_density = 0.005
+fog_light_color = Color(0.97, 0.964, 0.944, 1)
+fog_density = 0.0028
 [sub_resource type="StandardMaterial3D" id="Mint"]
 shading_mode = 0
-albedo_color = Color(0.56, 0.94, 0.8, 1)
+albedo_color = Color(0.045, 0.045, 0.045, 1)
 [sub_resource type="StandardMaterial3D" id="DeckMat"]
-albedo_color = Color(0.21, 0.27, 0.29, 1)
+albedo_color = Color(0.97, 0.964, 0.944, 1)
 roughness = 0.8
 [sub_resource type="BoxMesh" id="DeckMesh"]
 size = Vector3(12, 1, 14)
@@ -66,11 +66,13 @@ script = ExtResource("5")
 script = ExtResource("6")
 [node name="CameraShake" type="Node" parent="Player"]
 script = ExtResource("7")
-[node name="CoreMark" type="MeshInstance3D" parent="Player"]
-position = Vector3(0, 0.55, 0.50)
-mesh = SubResource("CoreMark")
+[node name="InkBody" type="MeshInstance3D" parent="Player"]
+script = ExtResource("13")
 [node name="DestructionManager" type="Node3D" parent="."]
 script = ExtResource("4")
+ink_art = true
+[node name="InkMarks" type="MeshInstance3D" parent="."]
+script = ExtResource("14")
 [node name="ImpactVFX" type="Node3D" parent="."]
 script = ExtResource("8")
 [node name="DebugDraw" type="MeshInstance3D" parent="."]
@@ -91,6 +93,7 @@ script = ExtResource("11")
 position = Vector3(0, 46, 10)
 script = ExtResource("12")
 debris_at_hit = true
+broken_scene = ExtResource("15")
 local_bounds = AABB(-6, -0.5, -7, 12, 1, 14)
 [node name="IntactVisual" type="MeshInstance3D" parent="LaunchDeck"]
 mesh = SubResource("DeckMesh")
@@ -107,8 +110,8 @@ position = Vector3(0, 48, 2)
 text = "DROP INTO THE CANYON\nHOLD A MOUSE BUTTON TO GRAB"
 font_size = 42
 pixel_size = 0.004
-outline_size = 2
-modulate = Color(0.56, 0.94, 0.8, 1)
+outline_size = 0
+modulate = Color(0.045, 0.045, 0.045, 1)
 billboard = 1
 no_depth_test = false
 ''')
@@ -126,8 +129,8 @@ position = Vector3(0, 41, -55)
 text = "SWEEP ZONE\nF2 TO PRACTICE"
 font_size = 48
 pixel_size = 0.013
-outline_size = 2
-modulate = Color(1, 0.6, 0.4, 1)
+outline_size = 0
+modulate = Color(0.045, 0.045, 0.045, 1)
 billboard = 1
 ''')
 anchors=[(-14,66,-25),(14,62,-34),(-14,58,-83),(13,60,-99),(-12,56,-129),(14,58,-160),(-12,58,-189),(13,70,-222),(14,50,-65)]
@@ -138,6 +141,7 @@ position = {vec(pos)}
 script = ExtResource("12")
 local_bounds = AABB(-1.1, -1.1, -1.1, 2.2, 2.2, 2.2)
 debris_at_hit = true
+broken_scene = ExtResource("15")
 [node name="IntactVisual" type="MeshInstance3D" parent="{name}"]
 rotation_degrees = Vector3(90, 0, 0)
 mesh = SubResource("AnchorRing")
@@ -148,9 +152,9 @@ position = Vector3(0, 1.7, 0)
 text = "ANCHOR / {i+1:02d}"
 font_size = 36
 pixel_size = 0.012
-outline_size = 2
+outline_size = 0
 billboard = 1
-modulate = Color(0.56, 0.94, 0.8, 1)
+modulate = Color(0.045, 0.045, 0.045, 1)
 ''')
 (ROOT/'project/scenes/maps/main.tscn').write_text('\n'.join(parts),encoding='utf-8')
 config=ROOT/'project/project.godot'

@@ -95,13 +95,14 @@ func spawn_particles(parent: Node3D, direction: Vector3, profile: ImpactProfile,
 	process.scale_min = 0.5 if dust else 0.08
 	process.scale_max = 1.5 if dust else 0.24
 	var gradient := Gradient.new()
-	gradient.colors = PackedColorArray([Color(0.5,0.6,0.6,0.35) if dust else Color(0.03,0.05,0.06,1), Color(0.5,0.6,0.6,0)])
+	gradient.colors = PackedColorArray([Color(0.04,0.04,0.04,0.20) if dust else Color(0.003,0.003,0.004,1), Color(0.04,0.04,0.04,0)])
 	var ramp := GradientTexture1D.new()
 	ramp.gradient = gradient
 	process.color_ramp = ramp
 	particles.process_material = process
 	var material := StandardMaterial3D.new()
 	material.vertex_color_use_as_albedo = true
+	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 	material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 	material.roughness = 1.0
 	var mesh: PrimitiveMesh

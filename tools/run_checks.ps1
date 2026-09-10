@@ -7,7 +7,7 @@ $logs = Join-Path $repo 'build'
 $version = & $engine --version
 if ($version -notmatch '^4\.7\.2\.stable') { throw "Godot 4.7.2 Stable required, found $version" }
 & $engine --headless --path $project --editor --import --quit *> (Join-Path $logs 'check-import.log')
-$tests = @('movement','grapple','destruction','sweep','vfx','lifecycle')
+$tests = @('movement','grapple','destruction','sweep','vfx','lifecycle','full_world','ink_marks')
 if ($Stress) { $tests += 'integration' }
 foreach ($test in $tests) {
     $log = Join-Path $logs "check-$test.log"
