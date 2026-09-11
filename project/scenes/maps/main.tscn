@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" path="res://scenes/destruction/ink_rubble.scn" id="15"]
 [ext_resource type="Script" path="res://scripts/rnd/gameplay_telemetry.gd" id="16"]
 [ext_resource type="Script" path="res://scripts/vfx/grapple_feedback.gd" id="17"]
+[ext_resource type="Font" path="res://assets/placeholders/ui_zh.tres" id="18"]
 [ext_resource type="PackedScene" path="res://scenes/destruction/D01.tscn" id="21"]
 [ext_resource type="PackedScene" path="res://scenes/destruction/D02.tscn" id="22"]
 [ext_resource type="PackedScene" path="res://scenes/destruction/D03.tscn" id="23"]
@@ -134,8 +135,9 @@ position = Vector3(4.8, 0.51, 0)
 mesh = SubResource("Stripe")
 [node name="LaunchSign" type="Label3D" parent="."]
 position = Vector3(0, 48, 2)
-text = "DROP INTO THE CANYON
-HOLD A MOUSE BUTTON TO GRAB"
+text = "跃入塔林
+按住鼠标左键或右键抓取"
+font = ExtResource("18")
 font_size = 42
 pixel_size = 0.004
 outline_size = 0
@@ -187,8 +189,9 @@ position = Vector3(0, 17, -155)
 label = "HOLLOW DRUM"
 [node name="SweepSign" type="Label3D" parent="."]
 position = Vector3(0, 41, -55)
-text = "SWEEP ZONE
-F2 TO PRACTICE"
+text = "扫切区域
+按 F2 进入练习"
+font = ExtResource("18")
 font_size = 48
 pixel_size = 0.013
 outline_size = 0
@@ -208,7 +211,8 @@ mesh = SubResource("AnchorRing")
 shape = SubResource("AnchorShape")
 [node name="Tag" type="Label3D" parent="Anchor0/IntactVisual"]
 position = Vector3(0, 1.7, 0)
-text = "ANCHOR / 01"
+text = "抓取点 / 01"
+font = ExtResource("18")
 font_size = 36
 pixel_size = 0.012
 outline_size = 0
@@ -228,7 +232,8 @@ mesh = SubResource("AnchorRing")
 shape = SubResource("AnchorShape")
 [node name="Tag" type="Label3D" parent="Anchor1/IntactVisual"]
 position = Vector3(0, 1.7, 0)
-text = "ANCHOR / 02"
+text = "抓取点 / 02"
+font = ExtResource("18")
 font_size = 36
 pixel_size = 0.012
 outline_size = 0
@@ -248,7 +253,8 @@ mesh = SubResource("AnchorRing")
 shape = SubResource("AnchorShape")
 [node name="Tag" type="Label3D" parent="Anchor2/IntactVisual"]
 position = Vector3(0, 1.7, 0)
-text = "ANCHOR / 03"
+text = "抓取点 / 03"
+font = ExtResource("18")
 font_size = 36
 pixel_size = 0.012
 outline_size = 0
@@ -268,7 +274,8 @@ mesh = SubResource("AnchorRing")
 shape = SubResource("AnchorShape")
 [node name="Tag" type="Label3D" parent="Anchor3/IntactVisual"]
 position = Vector3(0, 1.7, 0)
-text = "ANCHOR / 04"
+text = "抓取点 / 04"
+font = ExtResource("18")
 font_size = 36
 pixel_size = 0.012
 outline_size = 0
@@ -288,7 +295,8 @@ mesh = SubResource("AnchorRing")
 shape = SubResource("AnchorShape")
 [node name="Tag" type="Label3D" parent="Anchor4/IntactVisual"]
 position = Vector3(0, 1.7, 0)
-text = "ANCHOR / 05"
+text = "抓取点 / 05"
+font = ExtResource("18")
 font_size = 36
 pixel_size = 0.012
 outline_size = 0
@@ -308,7 +316,8 @@ mesh = SubResource("AnchorRing")
 shape = SubResource("AnchorShape")
 [node name="Tag" type="Label3D" parent="Anchor5/IntactVisual"]
 position = Vector3(0, 1.7, 0)
-text = "ANCHOR / 06"
+text = "抓取点 / 06"
+font = ExtResource("18")
 font_size = 36
 pixel_size = 0.012
 outline_size = 0
@@ -328,7 +337,8 @@ mesh = SubResource("AnchorRing")
 shape = SubResource("AnchorShape")
 [node name="Tag" type="Label3D" parent="Anchor6/IntactVisual"]
 position = Vector3(0, 1.7, 0)
-text = "ANCHOR / 07"
+text = "抓取点 / 07"
+font = ExtResource("18")
 font_size = 36
 pixel_size = 0.012
 outline_size = 0
@@ -348,7 +358,8 @@ mesh = SubResource("AnchorRing")
 shape = SubResource("AnchorShape")
 [node name="Tag" type="Label3D" parent="Anchor7/IntactVisual"]
 position = Vector3(0, 1.7, 0)
-text = "ANCHOR / 08"
+text = "抓取点 / 08"
+font = ExtResource("18")
 font_size = 36
 pixel_size = 0.012
 outline_size = 0
@@ -368,7 +379,8 @@ mesh = SubResource("AnchorRing")
 shape = SubResource("AnchorShape")
 [node name="Tag" type="Label3D" parent="PracticeAnchor/IntactVisual"]
 position = Vector3(0, 1.7, 0)
-text = "ANCHOR / 09"
+text = "抓取点 / 09"
+font = ExtResource("18")
 font_size = 36
 pixel_size = 0.012
 outline_size = 0

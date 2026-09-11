@@ -11,8 +11,8 @@ var proxy: MeshInstance3D
 var reaction_time: float=0.0
 var proxy_start:=Transform3D.IDENTITY
 var checkpoint:=Vector3(0,48,12)
-var stage_names:Array[String]=["01 / SNAP INTO SPEED","02 / RAM A SHORTCUT","03 / CHAIN YOUR GRAPPLES","04 / SWEEP THE CROSSBEAM","05 / OPEN THE INNER ROUTE","06 / DIVE AND RECOVER","07 / WALL LAUNCH LAB","08 / FINAL HEAVY IMPACT"]
-var hints:Array[String]=["Aim at the first ring. Tap to zip; hold to swing.","Release and hit the wall at 26+ m/s. Keep flying.","Alternate left and right hooks. Q reels and charges.","Grab the upper-right ring, then drop past the beam at 20+.","Break the front wall. An anchor is hidden inside.","Dive below the warning line. Grab to turn your fall around.","Optional: Shift holds briefly; Space kicks off the wall.","Charge with Q, release a hook, then ram the heavy gate."]
+var stage_names:Array[String]=["01 / 瞬间加速","02 / 撞开捷径","03 / 连续抓取","04 / 扫断横梁","05 / 打开内部通道","06 / 坠落与救援","07 / 贴墙蹬出实验","08 / 终点重击"]
+var hints:Array[String]=["瞄准第一个圆环。点按突进，按住摆荡。","松钩后以 26 米/秒以上撞向墙面，继续飞行。","交替使用左右触手，按 Q 收绳蓄力。","抓住右上方圆环，以 20 米/秒以上向梁侧下方掠过。","撞开正面的墙，内部藏着新的抓取点。","下坠越过警戒线，再次抓取，把下坠转为上升。","可选：低速近墙按 Shift 短暂停留，空格蹬出。","按 Q 收绳蓄力，松钩弹出，撞穿重型终点门。"]
 @onready var game:Node3D=get_parent()
 @onready var player:RavagePlayer=game.player
 @onready var telemetry:GameplayTelemetry=game.get_node("Telemetry")

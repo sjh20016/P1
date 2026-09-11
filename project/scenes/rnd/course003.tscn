@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" path="res://scenes/destruction/ink_rubble.scn" id="3"]
 [ext_resource type="Material" path="res://assets/placeholders/paper.tres" id="4"]
 [ext_resource type="Material" path="res://assets/placeholders/cut_ink.tres" id="5"]
+[ext_resource type="Font" path="res://assets/placeholders/ui_zh.tres" id="6"]
 [sub_resource type="BoxMesh" id="M_GateA"]
 size = Vector3(25, 22, 2)
 material = ExtResource("4")
@@ -157,7 +158,8 @@ local_bounds = AABB(-12.5, -11.0, -1.0, 25, 22, 2)
 mesh = SubResource("M_GateA")
 [node name="Guide" type="Label3D" parent="GateA/IntactVisual"]
 position = Vector3(0, 4, 1.06)
-text = "02 / RAM"
+text = "02 / 撞开"
+font = ExtResource("6")
 font_size = 64
 pixel_size = 0.022
 outline_size = 0
@@ -187,7 +189,8 @@ local_bounds = AABB(-12.5, -1.5, -1.5, 25, 3, 3)
 mesh = SubResource("M_GateB")
 [node name="Guide" type="Label3D" parent="GateB/IntactVisual"]
 position = Vector3(0, 0.75, 1.56)
-text = "04 / SEVER"
+text = "04 / 切断"
+font = ExtResource("6")
 font_size = 64
 pixel_size = 0.022
 outline_size = 0
@@ -217,7 +220,8 @@ local_bounds = AABB(-8.0, -9.0, -1.0, 16, 18, 2)
 mesh = SubResource("M_ShellFront")
 [node name="Guide" type="Label3D" parent="ShellFront/IntactVisual"]
 position = Vector3(0, 4, 1.06)
-text = "05 / OPEN"
+text = "05 / 通道"
+font = ExtResource("6")
 font_size = 64
 pixel_size = 0.022
 outline_size = 0
@@ -302,7 +306,8 @@ local_bounds = AABB(-12.0, -11.5, -1.5, 24, 23, 3)
 mesh = SubResource("M_FinalGate")
 [node name="Guide" type="Label3D" parent="FinalGate/IntactVisual"]
 position = Vector3(0, 4, 1.56)
-text = "08 / IMPACT"
+text = "08 / 重击"
+font = ExtResource("6")
 font_size = 64
 pixel_size = 0.022
 outline_size = 0

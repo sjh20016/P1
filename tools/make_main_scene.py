@@ -8,7 +8,7 @@ def vec(v):
 def godot(v):
     return [v[0],v[2],-v[1]]
 parts = ['[gd_scene load_steps=40 format=3]']
-resources = {'1':('PackedScene','scenes/maps/destructible_tower_forest.scn'),'2':('PackedScene','scenes/player/player.tscn'),'3':('Script','scripts/game_controller.gd'),'4':('Script','scripts/destruction/destruction_manager.gd'),'5':('Script','scripts/destruction/impact_detector.gd'),'6':('Script','scripts/destruction/tentacle_sweep.gd'),'7':('Script','scripts/camera/camera_shake.gd'),'8':('Script','scripts/vfx/impact_vfx.gd'),'9':('Script','scripts/debug/game_hud.gd'),'10':('Script','scripts/debug/debug_draw.gd'),'11':('Script','scripts/vfx/impact_overlay.gd'),'12':('Script','scripts/destruction/destructible_segment.gd'),'13':('Script','scripts/player/ink_body.gd'),'14':('Script','scripts/vfx/ink_marks.gd'),'15':('PackedScene','scenes/destruction/ink_rubble.scn'),'16':('Script','scripts/rnd/gameplay_telemetry.gd'),'17':('Script','scripts/vfx/grapple_feedback.gd')}
+resources = {'1':('PackedScene','scenes/maps/destructible_tower_forest.scn'),'2':('PackedScene','scenes/player/player.tscn'),'3':('Script','scripts/game_controller.gd'),'4':('Script','scripts/destruction/destruction_manager.gd'),'5':('Script','scripts/destruction/impact_detector.gd'),'6':('Script','scripts/destruction/tentacle_sweep.gd'),'7':('Script','scripts/camera/camera_shake.gd'),'8':('Script','scripts/vfx/impact_vfx.gd'),'9':('Script','scripts/debug/game_hud.gd'),'10':('Script','scripts/debug/debug_draw.gd'),'11':('Script','scripts/vfx/impact_overlay.gd'),'12':('Script','scripts/destruction/destructible_segment.gd'),'13':('Script','scripts/player/ink_body.gd'),'14':('Script','scripts/vfx/ink_marks.gd'),'15':('PackedScene','scenes/destruction/ink_rubble.scn'),'16':('Script','scripts/rnd/gameplay_telemetry.gd'),'17':('Script','scripts/vfx/grapple_feedback.gd'),'18':('Font','assets/placeholders/ui_zh.tres')}
 for i in range(1,15): resources[str(20+i)] = ('PackedScene',f'scenes/destruction/D{i:02d}.tscn')
 for id,(typ,path) in resources.items(): parts.append(f'[ext_resource type="{typ}" path="res://{path}" id="{id}"]')
 parts.append('''[sub_resource type="Environment" id="Env"]
@@ -115,7 +115,8 @@ position = Vector3(4.8, 0.51, 0)
 mesh = SubResource("Stripe")
 [node name="LaunchSign" type="Label3D" parent="."]
 position = Vector3(0, 48, 2)
-text = "DROP INTO THE CANYON\nHOLD A MOUSE BUTTON TO GRAB"
+text = "跃入塔林\n按住鼠标左键或右键抓取"
+font = ExtResource("18")
 font_size = 42
 pixel_size = 0.004
 outline_size = 0
@@ -134,7 +135,8 @@ position = Vector3(0, 17, -155)
 label = "HOLLOW DRUM"
 [node name="SweepSign" type="Label3D" parent="."]
 position = Vector3(0, 41, -55)
-text = "SWEEP ZONE\nF2 TO PRACTICE"
+text = "扫切区域\n按 F2 进入练习"
+font = ExtResource("18")
 font_size = 48
 pixel_size = 0.013
 outline_size = 0
@@ -157,7 +159,8 @@ mesh = SubResource("AnchorRing")
 shape = SubResource("AnchorShape")
 [node name="Tag" type="Label3D" parent="{name}/IntactVisual"]
 position = Vector3(0, 1.7, 0)
-text = "ANCHOR / {i+1:02d}"
+text = "抓取点 / {i+1:02d}"
+font = ExtResource("18")
 font_size = 36
 pixel_size = 0.012
 outline_size = 0

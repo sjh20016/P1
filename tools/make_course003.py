@@ -7,6 +7,7 @@ lines=['[gd_scene format=3]',
 '[ext_resource type="PackedScene" path="res://scenes/destruction/ink_rubble.scn" id="3"]',
 '[ext_resource type="Material" path="res://assets/placeholders/paper.tres" id="4"]',
 '[ext_resource type="Material" path="res://assets/placeholders/cut_ink.tres" id="5"]']
+lines.append('[ext_resource type="Font" path="res://assets/placeholders/ui_zh.tres" id="6"]')
 resources=[];nodes=[]
 def v(x):return 'Vector3('+', '.join(map(str,x))+')'
 def block(name,pos,size,weight=1):
@@ -15,8 +16,8 @@ def block(name,pos,size,weight=1):
  nodes.append(f'[node name="{name}" type="StaticBody3D" parent="."]\nposition = {v(pos)}\nscript = ExtResource("2")\nbroken_scene = ExtResource("3")\ndebris_at_hit = true\nstructure_weight = {weight}\nlocal_bounds = AABB({", ".join(map(str,lower+size))})')
  nodes.append(f'[node name="IntactVisual" type="MeshInstance3D" parent="{name}"]\nmesh = SubResource("M_{name}")')
  if name in {'GateA','GateB','ShellFront','FinalGate'}:
-  label={'GateA':'02 / RAM','GateB':'04 / SEVER','ShellFront':'05 / OPEN','FinalGate':'08 / IMPACT'}[name]
-  nodes.append(f'[node name="Guide" type="Label3D" parent="{name}/IntactVisual"]\nposition = {v((0,min(size[1]*.25,4),size[2]/2+.06))}\ntext = "{label}"\nfont_size = 64\npixel_size = 0.022\noutline_size = 0\nmodulate = Color(0.02, 0.02, 0.02, 1)\nno_depth_test = false')
+  label={'GateA':'02 / 撞开','GateB':'04 / 切断','ShellFront':'05 / 通道','FinalGate':'08 / 重击'}[name]
+  nodes.append(f'[node name="Guide" type="Label3D" parent="{name}/IntactVisual"]\nposition = {v((0,min(size[1]*.25,4),size[2]/2+.06))}\ntext = "{label}"\nfont = ExtResource("6")\nfont_size = 64\npixel_size = 0.022\noutline_size = 0\nmodulate = Color(0.02, 0.02, 0.02, 1)\nno_depth_test = false')
  nodes.append(f'[node name="Collision" type="CollisionShape3D" parent="{name}"]\nshape = SubResource("S_{name}")')
 def anchor(name,pos):
  resources.extend([f'[sub_resource type="TorusMesh" id="M_{name}"]\ninner_radius = 1.25\nouter_radius = 1.65\nrings = 24\nring_segments = 8\nmaterial = ExtResource("5")',f'[sub_resource type="SphereShape3D" id="S_{name}"]\nradius = 1.65'])

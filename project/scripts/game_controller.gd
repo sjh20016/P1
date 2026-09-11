@@ -41,14 +41,14 @@ func set_movement_model(model: int) -> void:
 	for hook in player.hooks:
 		hook.release()
 		hook.profile=load("res://assets/placeholders/grapple_m%02d.tres" % (movement_model+1))
-	notice=["M01 / PURE SPRING","M02 / RADIAL CONSTRAINT","M03 / HYBRID KICK + MOTOR"][movement_model]
+	notice=["M01 / 纯弹簧","M02 / 径向摆锤","M03 / 混合抓钩：爆发与持续拉力"][movement_model]
 	notice_time=2.5
 	var telemetry:=get_node_or_null("Telemetry")
 	if telemetry: telemetry.event("model",{"model":movement_model+1})
 
 func save_telemetry() -> void:
 	var path:String=$Telemetry.save_run()
-	notice="RUN DATA SAVED" if not path.is_empty() else "SAVE FAILED"
+	notice="本局数据已保存" if not path.is_empty() else "保存失败"
 	notice_time=3.0
 
 func start_course() -> void:

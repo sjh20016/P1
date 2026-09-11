@@ -46,3 +46,7 @@ EXPORT SMOKE RESULT PASS
 完整研发记录在 `rnd003/`。`rnd003/evidence` 保留 JSON 与摘要日志；本机 build/rnd003 保留全部截图、详细日志及测量。图形脚本为 capture_rnd003.gd、capture_course_stations003.gd、capture_segmented003.gd。
 
 原始 Blender 文件不变，Windows 包不含开发测试脚本和导入中间 GLB。0.02 与 0.01 的独立验证分别保存在 VALIDATION-0.02.md、VALIDATION-0.01.md。
+
+## 2026-09-11 中文界面补丁
+菜单、HUD、路线与场景标识改为中文，使用系统中文字库。实际渲染无缺字，独立 EXE 烟雾测试再次通过，错误日志为空。中文 EXE SHA-256：A5492F527DF0DCD3676EE74F5AD077D89AEA17B3C186E4E6D28BF5A97BF0F087。上方英文首版散列保留作历史记录。
+
