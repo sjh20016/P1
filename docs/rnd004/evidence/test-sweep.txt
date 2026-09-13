@@ -1,0 +1,4 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+SWEEP LAB grabbed=true pos=(37.07556, 10.46657, -40.41687) history=[{ "type": 1, "local_position": (7.380005, 12.17578, 4.406849), "depth": 0, "removed": 0, "severed": 1 }, { "type": 1, "local_position": (8.0, 11.0, 3.0), "depth": 0, "removed": 0, "severed": 2 }, { "type": 1, "local_position": (8.0, 9.0, 5.0), "depth": 0, "removed": 0, "severed": 3 }, { "type": 1, "local_position": (8.0, 9.0, 3.0), "depth": 0, "removed": 0, "severed": 1 }, { "type": 0, "local_position": (8.0, 4.598209, 8.400002), "depth": 0, "removed": 2, "severed": 0 }, { "type": 0, "local_position": (6.0, 5.239914, 8.341755), "depth": 0, "removed": 2, "severed": 0 }] macros=1
+CONSEQUENCE SWEEP RESULT failures=0

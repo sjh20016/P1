@@ -1,0 +1,15 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 - Build 32.0.101.7088 - Compatibility - Using Device: Intel - Intel(R) UHD Graphics 730
+
+CAPTURE 01-menu
+CAPTURE 02-breach-start
+CAPTURE 03-intact
+CAPTURE 04-ram
+CAPTURE 05-slash
+CAPTURE 06-domino-intact
+CAPTURE 07-delay
+CAPTURE 08-falling
+CAPTURE 09-secondary
+CAPTURE 10-ruin
+CAPTURE 11-contact-scar
+RENDER METRICS {"active_debris":0,"active_macros":0,"active_panels":765,"active_structural_towers":2,"chain_depth":1,"collisions":86,"fps":59.0,"physics_ms":0.952,"scars":27,"secondary_events":1,"static_ruins":1,"time":13.5099999999999}

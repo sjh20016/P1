@@ -7,6 +7,7 @@ var resets: int = 0
 var practice_mode: bool = false
 var movement_model: int = 2
 var course: Node3D
+var consequence:Node3D
 var notice: String=""
 var notice_time: float=0.0
 @onready var player: RavagePlayer = $Player
@@ -48,6 +49,7 @@ func set_movement_model(model: int) -> void:
 
 func save_telemetry() -> void:
 	var path:String=$Telemetry.save_run()
+	if is_instance_valid(consequence): path=consequence.save_run()
 	notice="本局数据已保存" if not path.is_empty() else "保存失败"
 	notice_time=3.0
 
@@ -57,8 +59,18 @@ func start_course() -> void:
 	add_child(course)
 	course.start()
 
+func start_consequence(which:int=0) -> void:
+	restart_run()
+	consequence=load("res://scripts/consequence/consequence_lab.gd").new()
+	add_child(consequence)
+	consequence.start(which)
+
+func next_consequence() -> void:
+	start_consequence(consequence.scenario+1 if is_instance_valid(consequence) else 0)
+
 func restart_active_run() -> void:
-	if is_instance_valid(course): start_course()
+	if is_instance_valid(consequence): start_consequence(consequence.scenario)
+	elif is_instance_valid(course): start_course()
 	else: restart_run()
 
 func on_player_reset() -> void:
@@ -111,8 +123,38 @@ func run_export_smoke() -> void:
 	if DisplayServer.get_name() != "headless":
 		await RenderingServer.frame_post_draw
 		get_viewport().get_texture().get_image().save_png(OS.get_executable_path().get_base_dir().path_join("smoke-course.png"))
+	success=await run_consequence_smoke() and success
 	print("EXPORT SMOKE RESULT ", "PASS" if success else "FAIL")
 	get_tree().quit(0 if success else 1)
+
+func run_consequence_smoke() -> bool:
+	start_consequence()
+	for i in 15: await get_tree().physics_frame
+	player.camera_rig.look_at(consequence.towers[0].global_position+Vector3(0,5,8.4))
+	Input.action_press("jump");Input.action_press("forward")
+	var success:bool=player.hooks[0].shoot()
+	var start:float=consequence.elapsed
+	while consequence.elapsed-start<4 and not consequence.exit_crossed:
+		if consequence.towers[0].damage_count>0 and player.hooks[0].active: player.hooks[0].release()
+		await get_tree().physics_frame
+	Input.action_release("jump");Input.action_release("forward")
+	success=success and consequence.entry_crossed and consequence.exit_crossed
+	print("EXPORT CONSEQUENCE breach=",consequence.exit_crossed," panels=",consequence.towers[0].panels.size())
+	start_consequence(2);player.controls_enabled=false
+	var tower=consequence.towers[1]
+	var event:=RavageDamageEvent.new();event.type=RavageDamageEvent.Type.SLASH;event.energy=55;event.direction=Vector3.RIGHT
+	event.position=tower.to_global(Vector3(0,0,8.4));manager.apply_damage(tower,event)
+	player.global_position=consequence.to_global(Vector3(17,8,-18))
+	player.camera_rig.look_at(tower.global_position+Vector3(0,-4,-8))
+	while consequence.elapsed<11: await get_tree().physics_frame
+	success=success and manager.secondary_events>0 and consequence.macros.active.is_empty() and not consequence.macros.ruins.is_empty()
+	print("EXPORT CONSEQUENCE secondary=",manager.secondary_events," ruins=",consequence.macros.ruins.size()," active=",consequence.macros.active.size())
+	if DisplayServer.get_name()!="headless":
+		await RenderingServer.frame_post_draw
+		get_viewport().get_texture().get_image().save_png(OS.get_executable_path().get_base_dir().path_join("smoke-consequence.png"))
+	restart_run()
+	for i in 8: await get_tree().physics_frame
+	return success
 
 func begin() -> void:
 	started = true
@@ -131,6 +173,13 @@ func toggle_pause() -> void:
 			hook.release()
 
 func restart_run() -> void:
+	if is_instance_valid(consequence):
+		consequence.scars.clear()
+		consequence.macros.clear()
+		remove_child(consequence);consequence.queue_free();consequence=null
+	if not is_equal_approx(player.get_node("CollisionShape3D").shape.radius,0.72):
+		var collider:SphereShape3D=player.get_node("CollisionShape3D").shape.duplicate()
+		collider.radius=0.72;player.get_node("CollisionShape3D").shape=collider
 	if is_instance_valid(course):
 		remove_child(course)
 		course.queue_free()
@@ -140,6 +189,7 @@ func restart_run() -> void:
 	manager.clear_debris()
 	manager.score = 0
 	manager.event_count = 0
+	manager.damage_events=0;manager.secondary_events=0;manager.deepest_chain=0
 	manager.last_hit_age = 100
 	for building: DestructibleBuilding in get_tree().get_nodes_in_group("buildings"):
 		building.restore()

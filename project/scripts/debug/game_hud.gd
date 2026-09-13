@@ -33,7 +33,7 @@ func _input(event: InputEvent) -> void:
 			KEY_ENTER:
 				if session.menu_open:
 					if session.started: session.begin()
-					else: session.start_course()
+					else: session.start_consequence()
 			KEY_F2:
 				session.sweep_practice()
 			KEY_F3:
@@ -41,14 +41,16 @@ func _input(event: InputEvent) -> void:
 			KEY_F5:
 				session.restart_active_run()
 			KEY_F4: session.restart_run()
-			KEY_F6: session.start_course()
+			KEY_F6: session.start_consequence()
+			KEY_F9: session.next_consequence()
 			KEY_F7:
 				player.wall_experiment=not player.wall_experiment
 				session.notice="贴墙实验已开启 / Shift 贴附，空格蹬出" if player.wall_experiment else "贴墙实验已关闭"
 				session.notice_time=3.0
 			KEY_F8: session.save_telemetry()
 			KEY_F10:
-				if debug_enabled and is_instance_valid(session.course): session.course.skip_station()
+				if is_instance_valid(session.course) and debug_enabled: session.course.skip_station()
+				else: session.start_course()
 			KEY_1: session.set_movement_model(0)
 			KEY_2: session.set_movement_model(1)
 			KEY_3: session.set_movement_model(2)
@@ -58,7 +60,7 @@ func _input(event: InputEvent) -> void:
 	if session.menu_open and event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		if start_button.has_point(event.position):
 			if session.started: session.begin()
-			else: session.start_course()
+			else: session.start_consequence()
 		elif practice_button.has_point(event.position):
 			session.sweep_practice()
 		get_viewport().set_input_as_handled()
@@ -93,7 +95,7 @@ func _draw() -> void:
 	panel(Rect2(30,28,302,66),0.7)
 	draw_rect(Rect2(30,30,3,62), ACCENT)
 	text_at("R A V A G E", Vector2(46,57), 28)
-	text_at("0.03   /   动量与冲击", Vector2(46,81), 12, MUTED)
+	text_at("0.04   /   破坏的后果", Vector2(46,81), 12, MUTED)
 	panel(Rect2(w-292,30,262,68),0.78)
 	text_at("破坏得分",Vector2(w-275,53),11,MUTED)
 	text_at("%06d" % manager.score,Vector2(w-275,83),28)
@@ -125,6 +127,7 @@ func _draw() -> void:
 		hint = "扫切练习 / 绷紧触手，高速掠过目标"
 	text_at(hint,Vector2(w*0.5-225,45),12,ACCENT)
 	if is_instance_valid(session.course): draw_course(view)
+	if is_instance_valid(session.consequence): draw_consequence(view)
 	if session.notice_time>0:
 		panel(Rect2(w*0.5-250,h-206,500,35),0.95)
 		text_at(session.notice,Vector2(w*0.5-233,h-183),13,TEXT)
@@ -143,7 +146,7 @@ func _draw() -> void:
 		draw_hook(player.hooks[i],Vector2(w*0.5-232+i*240,h-112),i)
 	text_at("WASD 移动　空格 跳跃　Q / E 收放绳",Vector2(w*0.5-222,h-25),11,MUTED)
 	text_at("R 回检查点 / F5 重新开始".to_upper(),Vector2(w-260,h-72),11,MUTED)
-	text_at("F6 测试路线 / F8 保存数据",Vector2(w-260,h-49),11,MUTED)
+	text_at("F6 后果实验 / F9 切换 / F8 保存",Vector2(w-260,h-49),11,MUTED)
 	text_at("F3 调试 / Esc 暂停",Vector2(w-260,h-26),10,MUTED)
 	if manager.last_hit_age < 1.5:
 		var alpha := clampf(1.5-manager.last_hit_age,0,1)
@@ -164,7 +167,7 @@ func draw_hook(hook: GrappleController, point: Vector2, index: int) -> void:
 	draw_rect(Rect2(point+Vector2(15,55),Vector2(194*hook.tension/hook.profile.maximum_hook_force,2)),TEXT)
 
 func draw_debug() -> void:
-	panel(Rect2(30,120,475,366),0.93)
+	panel(Rect2(30,140,475,420),0.93)
 	text_at("运行数据 / F3",Vector2(46,145),13,ACCENT)
 	var data:Dictionary=session.get_node("Telemetry").summary()
 	var lines: Array[String] = ["帧率 %d | 物理 %d Hz | M%02d" % [Engine.get_frames_per_second(),Engine.physics_ticks_per_second,session.movement_model+1],
@@ -180,21 +183,26 @@ func draw_debug() -> void:
 	lines.append("撞击 %d | 切断 %d | 平均减速 %.1f" % [data.body_impacts,data.tentacle_sweeps,data.average_impact_speed_loss])
 	lines.append("1 弹簧 / 2 摆锤 / 3 混合 / F8 保存")
 	lines.append("F7 贴墙实验 / F10 跳到下一站")
+	if is_instance_valid(session.consequence):
+		var d:Dictionary=session.consequence.snapshot()
+		lines.append("大块 %d / 6 · 废墟 %d · 伤痕 %d / 384" % [d.active_macros,d.static_ruins,d.scars])
+		lines.append("墙板 %d · 结构塔 %d · 物理 %.2f 毫秒" % [d.active_panels,d.active_structural_towers,d.physics_ms])
+		lines.append("二次伤害 %d · 深度 %d / 2 · 碰撞 %d" % [d.secondary_events,d.chain_depth,d.collisions])
 	for i in lines.size():
-		text_at(lines[i],Vector2(46,173+i*23),13,TEXT)
+		text_at(lines[i],Vector2(46,183+i*22),13,TEXT)
 
 func draw_menu(view: Vector2) -> void:
 	draw_rect(Rect2(Vector2.ZERO,view),Color(PANEL,0.48))
 	var origin := Vector2(72,view.y*0.23)
-	text_at("03 / 动量与冲击",origin,13,ACCENT)
-	text_at("抓得住。",origin+Vector2(0,79),68)
-	text_at("撞得响。",origin+Vector2(0,151),68)
-	text_at("继续飞。",origin+Vector2(0,223),68,ACCENT)
-	text_at("抓取。摆荡。释放。撞碎。",origin+Vector2(3,266),15)
-	text_at("瞬间发力，撞穿阻碍，保持高速。",origin+Vector2(3,294),14,MUTED)
+	text_at("04 / 破坏的后果",origin,13,ACCENT)
+	text_at("撞进去。",origin+Vector2(0,79),68)
+	text_at("留下伤。",origin+Vector2(0,151),68)
+	text_at("看它倒。",origin+Vector2(0,223),68,ACCENT)
+	text_at("洞口。切缝。倾倒。连锁。",origin+Vector2(3,266),15)
+	text_at("白塔保留伤痕，废墟改变下一条路线。",origin+Vector2(3,294),14,MUTED)
 	start_button = Rect2(origin+Vector2(0,328),Vector2(236,53))
 	draw_rect(start_button,ACCENT)
-	text_at("继续游戏 / Enter" if session.started else "进入测试路线 / Enter",start_button.position+Vector2(20,33),17,PANEL)
+	text_at("继续游戏 / Enter" if session.started else "进入后果实验 / Enter",start_button.position+Vector2(20,33),17,PANEL)
 	practice_button = Rect2(origin+Vector2(252,328),Vector2(215,53))
 	draw_rect(practice_button,Color(TEXT,0.09))
 	draw_rect(practice_button,Color(TEXT,0.4),false,1)
@@ -206,10 +214,20 @@ func draw_menu(view: Vector2) -> void:
 	for i in guide.size():
 		text_at(guide[i],Vector2(x,y+42+i*40),12,TEXT)
 	text_at("1 弹簧 / 2 摆锤 / 3 混合（默认）",Vector2(x,y+271),12,MUTED)
-	text_at("F4 自由塔林 / F6 重开路线",Vector2(x,y+296),12,MUTED)
+	text_at("F4 塔林 / F6 后果 / F9 下一实验",Vector2(x,y+296),12,MUTED)
 	text_at("R 回检查点 / F5 重开 / F8 保存数据",Vector2(x,y+321),12,MUTED)
 	text_at("F3 调试 / F7 贴墙实验 / F11 全屏",Vector2(x,y+346),12,MUTED)
-	text_at("动量与冲击 / 三分钟动作实验场",Vector2(74,view.y-34),11,MUTED)
+	text_at("破坏的后果 / 四个短实验 · F10 保留的 0.03 路线",Vector2(74,view.y-34),11,MUTED)
+
+func draw_consequence(view:Vector2) -> void:
+	var lab:Node3D=session.consequence
+	panel(Rect2(view.x*0.5-286,68,572,72),0.91)
+	text_at(lab.NAMES[lab.scenario],Vector2(view.x*0.5-269,93),17,TEXT)
+	text_at(lab.HINTS[lab.scenario],Vector2(view.x*0.5-269,115),10,MUTED)
+	var result:="已穿过空腔" if lab.exit_crossed else ("已进入塔内" if lab.entry_crossed else "保持速度，击穿外壳")
+	if lab.exit_grabbed: result="穿入 → 穿出 → 出口抓取已完成"
+	if lab.scenario==1 or lab.scenario==2: result="倒塌大块 %d · 静态残骸 %d · 二次破坏 %d" % [lab.macros.active.size(),lab.macros.ruins.size(),manager.secondary_events]
+	text_at(result+"  /  F9 下一实验",Vector2(view.x*0.5-269,131),10,TEXT)
 
 func draw_course(view: Vector2) -> void:
 	var course:Node3D=session.course

@@ -1,0 +1,45 @@
+{
+	"mesh_scar": {
+		"create_us": 76470,
+		"marks": 384,
+		"render_objects": 384,
+		"vertex_bytes": 456192
+	},
+	"renderer": "Windows",
+	"rigid_macro": [
+		{
+			"contacts": 2,
+			"position": "(-44.99985, 8.723052, -19.84646)",
+			"rotation": "(-1.436735, 3.141567, 3.141593)",
+			"sleeping": false,
+			"speed": 2.59227252006531
+		},
+		{
+			"contacts": 2,
+			"position": "(-0.000014, 8.982109, -19.97104)",
+			"rotation": "(-1.380852, -3.141584, 3.141584)",
+			"sleeping": false,
+			"speed": 2.23287749290466
+		},
+		{
+			"contacts": 2,
+			"position": "(45.0, 9.230511, -20.14974)",
+			"rotation": "(-1.32046, -3.141585, 3.141585)",
+			"sleeping": false,
+			"speed": 1.82470989227295
+		}
+	],
+	"texture_scar": {
+		"cpu_image_bytes": 4194304,
+		"draw_surfaces": 4,
+		"gpu_bytes_estimate": 4194304,
+		"marks": 384,
+		"moving_chunk_uv_remap_implemented": false,
+		"paint_upload_us": 1049646
+	},
+	"tween_macro": {
+		"final_y": -3.75,
+		"penetrates_foundation": true,
+		"secondary_contact_callback": false
+	}
+}

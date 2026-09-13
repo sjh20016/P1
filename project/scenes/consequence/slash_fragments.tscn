@@ -1,0 +1,23 @@
+[gd_scene format=3]
+[ext_resource type="Script" path="res://scripts/destruction/debris_piece.gd" id="script"]
+[ext_resource type="Material" path="res://assets/placeholders/paper.tres" id="paper"]
+[sub_resource type="BoxMesh" id="mesh"]
+size = Vector3(0.4, 0.8, 0.25)
+material = ExtResource("paper")
+[sub_resource type="BoxShape3D" id="shape"]
+size = Vector3(0.4, 0.8, 0.25)
+[node name="SlashFragments" type="Node3D"]
+[node name="A" type="RigidBody3D" parent="."]
+position = Vector3(-0.35, 0.1, 0)
+script = ExtResource("script")
+[node name="Visual" type="MeshInstance3D" parent="A"]
+mesh = SubResource("mesh")
+[node name="Collision" type="CollisionShape3D" parent="A"]
+shape = SubResource("shape")
+[node name="B" type="RigidBody3D" parent="."]
+position = Vector3(0.35, -0.1, 0)
+script = ExtResource("script")
+[node name="Visual" type="MeshInstance3D" parent="B"]
+mesh = SubResource("mesh")
+[node name="Collision" type="CollisionShape3D" parent="B"]
+shape = SubResource("shape")

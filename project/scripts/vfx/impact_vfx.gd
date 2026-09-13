@@ -55,17 +55,25 @@ func play_impact(hit: Vector3, direction: Vector3, strength: float) -> void:
 		return
 	var profile:ImpactProfile=manager.impact_profile(strength).duplicate()
 	var slash:bool=manager.last_context.get("kind","")=="SLASH"
+	var collapse:bool=manager.last_context.get("kind","")=="COLLAPSE"
 	if slash:
 		profile.hit_stop_duration*=0.38
 		profile.camera_shake*=0.32
 		profile.flash_opacity*=0.3
 		profile.dust_count=6
+		profile.chip_count=6
 		profile.sound_volume_db-=4
+	if collapse:
+		# The world keeps falling while the player flies; secondary contacts never retrigger global hit stop.
+		profile.hit_stop_duration=0
+		profile.camera_shake*=0.3
+		profile.flash_opacity=0
+		profile.dust_count=10
 	flash = maxf(flash, profile.flash_opacity)
 	var player := get_tree().get_first_node_in_group("player")
 	if player.has_node("CameraShake"):
 		player.get_node("CameraShake").kick(profile)
-		player.get_node("CameraShake").directional_kick(direction,0.12 if slash else clampf(strength*0.006,0.12,0.4))
+		player.get_node("CameraShake").directional_kick(direction,0.04 if collapse else (0.12 if slash else clampf(strength*0.006,0.12,0.4)))
 	player.camera_rig.impact_pulse=maxf(player.camera_rig.impact_pulse,1.3 if slash else clampf(strength*0.07,1.6,4.5))
 	if profile.hit_stop_duration > 0 and stop_until == 0:
 		Engine.time_scale = profile.hit_stop_scale

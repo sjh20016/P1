@@ -1,0 +1,13 @@
+{
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "exe_bytes": 168948016,
+  "exe_sha256": "67cf37094b3022198ac40fcfbd76fdb8aeb0bb205ddf7dd5c25c086afcee4a3c",
+  "regression_scripts": 19,
+  "regression_exit": 0,
+  "graphics_exit": 0,
+  "graphics_stderr_bytes": 0,
+  "performance_exit": 0,
+  "performance_stderr_bytes": 0,
+  "export_smoke_exit": 0,
+  "export_smoke_stderr_bytes": 0
+}

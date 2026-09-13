@@ -30,7 +30,10 @@ var held_time: float = 0.0
 var charge: float = 0.0
 var release_flash: float = 0.0
 var intentional_release: bool = false
-@onready var player: RavagePlayer = get_parent()
+# Keep the owner reference at the native body interface. A reciprocal script type
+# (RavagePlayer -> GrappleController -> RavagePlayer) survives until GDScript's
+# shutdown cycle cleanup in Godot 4.7.2, where script-list iteration can use freed memory.
+@onready var player: CharacterBody3D = get_parent()
 @onready var camera: Camera3D = player.get_node("CameraRig/SpringArm3D/Camera3D")
 
 func _ready() -> void:

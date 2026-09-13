@@ -18,7 +18,7 @@ func _process(_delta: float) -> void:
 	rope_mesh.clear_surfaces()
 	if not hook.active and hook.ray_flash<=0 and hook.release_flash<=0:
 		return
-	var start := hook.player.global_position + hook.player.camera_rig.global_basis.x * (-0.45 if hook.action == &"hook_left" else 0.45)
+	var start: Vector3 = hook.player.global_position + hook.player.camera_rig.global_basis.x * (-0.45 if hook.action == &"hook_left" else 0.45)
 	var end := hook.grapple_point
 	if hook.active:
 		end=start.lerp(end,clampf(hook.held_time/0.055,0.05,1.0))

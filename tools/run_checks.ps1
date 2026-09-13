@@ -1,4 +1,4 @@
-param([switch]$Stress, [switch]$Rnd)
+param([switch]$Stress, [switch]$Rnd, [switch]$Consequence)
 $ErrorActionPreference = 'Stop'
 $repo = Split-Path $PSScriptRoot -Parent
 $engine = Join-Path $repo '.tools\godot\Godot_v4.7.2-stable_win64_console.exe'
@@ -13,6 +13,7 @@ if ($LASTEXITCODE -ne 0 -or (Select-String -LiteralPath (Join-Path $logs 'check-
 }
 $tests = @('movement','grapple','destruction','sweep','vfx','lifecycle','full_world','ink_marks')
 if ($Rnd) { $tests += @('rnd_targeting','rnd_movement','rnd_impact_recovery','rnd_course') }
+if ($Consequence) { $tests += @('consequence_core','consequence_route','consequence_sweep','consequence_macro','consequence_stress','consequence_lifecycle') }
 if ($Stress) { $tests += 'integration' }
 foreach ($test in $tests) {
     $log = Join-Path $logs "check-$test.log"
