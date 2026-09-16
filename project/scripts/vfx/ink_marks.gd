@@ -50,6 +50,7 @@ func on_hook(hook: GrappleController, releasing: bool) -> void:
 		deposit(hit.position,hit.normal,hit.collider,0.35 if releasing else 0.8)
 
 func on_break(position_at_hit: Vector3,direction: Vector3,strength: float) -> void:
+	if manager.last_context.get("local_scars",false): return
 	pending_impacts.append({"point":position_at_hit,"direction":direction,"strength":strength,"kind":manager.last_context.get("kind","BREAK")})
 	prune()
 
@@ -87,6 +88,7 @@ func _physics_process(_delta: float) -> void:
 	pending_impacts.clear()
 
 func deposit(point: Vector3, normal: Vector3, target: Object, radius: float, stroke: Vector3 = Vector3.ZERO) -> bool:
+	if is_instance_valid(target) and (target.has_method("grapple_anchor") or target.has_method("anchor_valid")): return false
 	if not target is StaticBody3D or target.collision_layer==0 or not point.is_finite() or normal.length_squared()<0.5:
 		return false
 	# Training rings have spherical aim assists; do not paint the empty space inside them.

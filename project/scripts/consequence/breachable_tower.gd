@@ -91,26 +91,29 @@ func receive_damage(event) -> Dictionary:
 			scars.deposit(panel,event,local_hit,panel.face_normal,extent)
 	var local_hit:=to_local(event.position)
 	var bond_broken:=false
+	var bond_changed:=false
 	if structural and graph.nodes[closest.chunk_id].get("active",true):
 		for i in graph.bonds.size():
 			var bond:Dictionary=graph.bonds[i]
 			if absf(local_hit.y-float(bond.seam_y))<=3.1:
+				var before:float=bond.health
 				var scale:=2.4 if event.type==RavageDamageEvent.Type.SLASH else (1.0 if event.type==RavageDamageEvent.Type.PULL else 0.65)
 				if graph.weaken(i,event.energy*scale): bond_broken=true
+				bond_changed=bond_changed or before>float(bond.health)
 		if bond_broken:
 			for component:Array in graph.detached_components():
 				graph.detach(component)
 				for id:int in component: detached_chunks.append(id)
 				var macro_manager=get_tree().get_first_node_in_group("macro_manager")
 				if macro_manager: macro_manager.detach_component(self,component,event)
-	var changed:bool=removed>0 or severed>0 or bond_broken or event.type==RavageDamageEvent.Type.PULL
+	var changed:bool=removed>0 or severed>0 or bond_changed
 	if changed:
 		damage_count+=1
 		if damage_history.size()>=64: damage_history.pop_front()
 		damage_history.append({"type":event.type,"local_position":local_hit,"depth":event.depth,"removed":removed,"severed":severed})
 		var manager=get_tree().get_first_node_in_group("destruction_manager")
 		manager.emit_broken(broken_scene,Transform3D(Basis.IDENTITY,event.position),event.position,event.direction,event.energy)
-	return {"changed":changed,"removed":removed,"severed":severed,"scar_type":event.type,"bond_broken":bond_broken,"remaining":intact_panel_count()}
+	return {"changed":changed,"removed":removed,"severed":severed,"scar_type":event.type,"bond_broken":bond_broken,"remaining":intact_panel_count(),"local_scars":true}
 
 func intact_panel_count() -> int:
 	var count:=0

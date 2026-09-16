@@ -11,6 +11,7 @@ func run() -> void:
 	var p: RavagePlayer = scene.get_node("Player")
 	p.controls_enabled = false
 	var segment: DestructibleSegment = scene.get_node("TestBlock")
+	p.global_position=segment.global_position+Vector3.BACK*8
 	segment.break_segment(segment.global_position, Vector3.FORWARD, 60)
 	var engaged := Engine.time_scale < 1.0
 	var wall_deadline := Time.get_ticks_msec() + 130

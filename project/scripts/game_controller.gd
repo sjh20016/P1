@@ -1,5 +1,6 @@
 extends Node3D
 
+@export var load_legacy_on_start:bool=true
 var started: bool = false
 var menu_open: bool = true
 var run_time: float = 0.0
@@ -8,6 +9,7 @@ var practice_mode: bool = false
 var movement_model: int = 2
 var course: Node3D
 var consequence:Node3D
+var open_zone:Node3D
 var notice: String=""
 var notice_time: float=0.0
 @onready var player: RavagePlayer = $Player
@@ -18,6 +20,7 @@ func _enter_tree() -> void:
 	add_to_group("session")
 
 func _ready() -> void:
+	if load_legacy_on_start: ensure_legacy_world()
 	set_movement_model(2)
 	for segment: DestructibleSegment in get_tree().get_nodes_in_group("destructible"):
 		if segment.name==&"LaunchDeck":
@@ -30,6 +33,8 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if OS.get_cmdline_user_args().has("--smoke-test"):
 		call_deferred("run_export_smoke")
+	elif OS.get_cmdline_user_args().has("--open-smoke"):
+		call_deferred("run_open_export_smoke")
 
 func _process(delta: float) -> void:
 	notice_time=maxf(0,notice_time-delta)
@@ -50,26 +55,33 @@ func set_movement_model(model: int) -> void:
 func save_telemetry() -> void:
 	var path:String=$Telemetry.save_run()
 	if is_instance_valid(consequence): path=consequence.save_run()
+	if is_instance_valid(open_zone): path=open_zone.save_run()
 	notice="本局数据已保存" if not path.is_empty() else "保存失败"
 	notice_time=3.0
 
 func start_course() -> void:
-	restart_run()
+	restart_run(load_legacy_on_start)
 	course=load("res://scenes/rnd/course003.tscn").instantiate()
 	add_child(course)
 	course.start()
 
 func start_consequence(which:int=0) -> void:
-	restart_run()
+	restart_run(load_legacy_on_start)
 	consequence=load("res://scripts/consequence/consequence_lab.gd").new()
 	add_child(consequence)
 	consequence.start(which)
+
+func start_open() -> void:
+	restart_run(false)
+	open_zone=load("res://scripts/open/open_zone.gd").new()
+	add_child(open_zone)
 
 func next_consequence() -> void:
 	start_consequence(consequence.scenario+1 if is_instance_valid(consequence) else 0)
 
 func restart_active_run() -> void:
-	if is_instance_valid(consequence): start_consequence(consequence.scenario)
+	if is_instance_valid(open_zone): start_open()
+	elif is_instance_valid(consequence): start_consequence(consequence.scenario)
 	elif is_instance_valid(course): start_course()
 	else: restart_run()
 
@@ -124,6 +136,7 @@ func run_export_smoke() -> void:
 		await RenderingServer.frame_post_draw
 		get_viewport().get_texture().get_image().save_png(OS.get_executable_path().get_base_dir().path_join("smoke-course.png"))
 	success=await run_consequence_smoke() and success
+	success=await run_open_smoke() and success
 	print("EXPORT SMOKE RESULT ", "PASS" if success else "FAIL")
 	get_tree().quit(0 if success else 1)
 
@@ -156,6 +169,46 @@ func run_consequence_smoke() -> bool:
 	for i in 8: await get_tree().physics_frame
 	return success
 
+func run_open_export_smoke() -> void:
+	var success:bool=await run_open_smoke()
+	print("EXPORT OPEN RESULT ","PASS" if success else "FAIL")
+	get_tree().quit(0 if success else 1)
+
+func run_open_smoke() -> bool:
+	start_open()
+	while open_zone.loading: await get_tree().process_frame
+	player.controls_enabled=false
+	var tower=open_zone.towers[0]
+	player.global_position=tower.to_global(Vector3(0,0,14))
+	open_zone.update_interest(true)
+	for i in 3: await get_tree().physics_frame
+	player.velocity=Vector3(0,0,-60);player.controls_enabled=true
+	for i in 75: await get_tree().physics_frame
+	player.controls_enabled=false
+	var breach:bool=tower.state.revision>=2 and tower.to_local(player.global_position).z< -10 and tower.state.boost_used
+	var structural=open_zone.towers[7]
+	player.global_position=structural.to_global(Vector3(-18,8,12));open_zone.update_interest(true)
+	for i in 3: await get_tree().physics_frame
+	var event:=RavageDamageEvent.new();event.energy=55;event.type=RavageDamageEvent.Type.SLASH;event.direction=Vector3.RIGHT
+	event.position=structural.to_global(Vector3(0,-6,8.4));manager.apply_damage(structural,event)
+	var deadline:float=open_zone.elapsed+12
+	while open_zone.elapsed<deadline and (not open_zone.active.is_empty() or not open_zone.pending.is_empty()): await get_tree().physics_frame
+	var chain:bool=open_zone.chains>0 and open_zone.towers[13].state.revision>0 and open_zone.active.is_empty() and not open_zone.ruins.is_empty()
+	var signature:String=tower.state.signature()
+	player.global_position=open_zone.to_global(Vector3(340,0,-300));open_zone.update_interest(true)
+	for i in 3: await get_tree().physics_frame
+	player.global_position=tower.to_global(Vector3(0,0,18));open_zone.update_interest(true)
+	for i in 3: await get_tree().physics_frame
+	var query:=PhysicsRayQueryParameters3D.create(tower.to_global(Vector3(0,0,12)),tower.to_global(Vector3(0,0,6)),3,[player.get_rid()])
+	var revisit:bool=signature==tower.state.signature() and get_world_3d().direct_space_state.intersect_ray(query).is_empty()
+	print("EXPORT OPEN buildings=",open_zone.towers.size()," breach_boost=",breach," chain_ruin=",chain," revisit=",revisit)
+	if DisplayServer.get_name()!="headless":
+		player.global_position=structural.to_global(Vector3(-34,20,28))
+		player.camera_rig.look_at(structural.global_position+Vector3(0,-4,-14))
+		await RenderingServer.frame_post_draw
+		get_viewport().get_texture().get_image().save_png(OS.get_executable_path().get_base_dir().path_join("smoke-open.png"))
+	return breach and chain and revisit
+
 func begin() -> void:
 	started = true
 	menu_open = false
@@ -171,8 +224,29 @@ func toggle_pause() -> void:
 	if menu_open:
 		for hook in player.hooks:
 			hook.release()
+		if is_instance_valid(open_zone): open_zone.dual_pull.cancel()
 
-func restart_run() -> void:
+func ensure_legacy_world() -> void:
+	if $StaticTowerForest.get_child_count()>0: return
+	var placeholder:Node3D=$StaticTowerForest
+	remove_child(placeholder);placeholder.queue_free()
+	var forest=load("res://scenes/maps/destructible_tower_forest.scn").instantiate()
+	forest.name="StaticTowerForest";add_child(forest)
+
+func unload_legacy_world() -> void:
+	if $StaticTowerForest.get_child_count()==0: return
+	for hook in player.hooks: hook.release()
+	var forest:Node3D=$StaticTowerForest
+	remove_child(forest);forest.queue_free()
+	var placeholder:=Node3D.new();placeholder.name="StaticTowerForest";add_child(placeholder)
+
+func restart_run(legacy_world:bool=true) -> void:
+	if is_instance_valid(open_zone):
+		remove_child(open_zone);open_zone.queue_free();open_zone=null
+	if legacy_world: ensure_legacy_world()
+	else: unload_legacy_world()
+	player.collision_mask=3
+	$StaticTowerForest.show()
 	if is_instance_valid(consequence):
 		consequence.scars.clear()
 		consequence.macros.clear()
@@ -188,6 +262,7 @@ func restart_run() -> void:
 	$ImpactVFX.stop_until = 0
 	manager.clear_debris()
 	manager.score = 0
+	manager.reset_feedback()
 	manager.event_count = 0
 	manager.damage_events=0;manager.secondary_events=0;manager.deepest_chain=0
 	manager.last_hit_age = 100

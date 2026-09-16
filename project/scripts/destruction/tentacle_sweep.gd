@@ -40,7 +40,13 @@ func check_hook(hook: GrappleController, delta: float) -> void:
 	var candidates:=find_candidates(hook)
 	candidate_count=candidates.size()
 	for segment: DestructibleSegment in candidates:
-		if segment.broken or segment == hook.target or cooldowns.has(segment.get_instance_id()):
+		var recipient=segment.tower_ref.get_ref() if segment.get("tower_ref") is WeakRef else segment
+		if not is_instance_valid(recipient): continue
+		# Shared cooldown per tower face and height band; opposite walls remain independent.
+		var key:String=str(recipient.get_instance_id())
+		if segment.get("face_normal") is Vector3:
+			key+=str(segment.face_normal)+str(floori(segment.position.y/2.0))
+		if segment.broken or segment == hook.target or cooldowns.has(key):
 			continue
 		var inverse := segment.global_transform.affine_inverse()
 		var a := inverse * hook.previous_start
@@ -58,7 +64,7 @@ func check_hook(hook: GrappleController, delta: float) -> void:
 			var direction:Vector3=(player.global_position-hook.previous_start).normalized()
 			var context:Dictionary={"kind":"SLASH","before":player.velocity.length(),"after":player.velocity.length(),"tension":hook.tension,"normal":(hook.grapple_point-player.global_position).cross(direction).normalized()}
 			if manager.break_with_context(segment,center,direction,player.velocity.length(),context):
-				cooldowns[segment.get_instance_id()] = target_cooldown
+				cooldowns[key] = target_cooldown
 				sweep_event_count += 1
 
 func find_candidates(hook: GrappleController) -> Array:

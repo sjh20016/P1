@@ -1,4 +1,4 @@
-param([switch]$Stress, [switch]$Rnd, [switch]$Consequence)
+param([switch]$Stress, [switch]$Rnd, [switch]$Consequence, [switch]$Open, [switch]$Pull)
 $ErrorActionPreference = 'Stop'
 $repo = Split-Path $PSScriptRoot -Parent
 $engine = Join-Path $repo '.tools\godot\Godot_v4.7.2-stable_win64_console.exe'
@@ -15,6 +15,8 @@ $tests = @('movement','grapple','destruction','sweep','vfx','lifecycle','full_wo
 if ($Rnd) { $tests += @('rnd_targeting','rnd_movement','rnd_impact_recovery','rnd_course') }
 if ($Consequence) { $tests += @('consequence_core','consequence_route','consequence_sweep','consequence_macro','consequence_stress','consequence_lifecycle') }
 if ($Stress) { $tests += 'integration' }
+if ($Open) { $tests += @('feedback005','open006') }
+if ($Pull) { $tests += 'dual_pull007' }
 foreach ($test in $tests) {
     $log = Join-Path $logs "check-$test.log"
     & $engine --headless --path $project --script "res://scripts/debug/test_$test.gd" *> $log

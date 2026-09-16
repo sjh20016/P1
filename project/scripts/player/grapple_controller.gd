@@ -57,6 +57,8 @@ func update_input(delta: float) -> void:
 		target = target.resolve_grapple(grapple_point)
 	if active and (not is_instance_valid(target) or target.collision_layer == 0):
 		release()
+	if active and target.has_method("anchor_valid") and not target.anchor_valid(grapple_point):
+		release()
 	if active:
 		held_time += delta
 		var reel := Input.get_axis("reel_in", "reel_out")
@@ -88,7 +90,7 @@ func attach_to(point: Vector3, body: StaticBody3D) -> bool:
 	if distance > profile.maximum_rope_length or distance < 0.5:
 		return false
 	grapple_point = point
-	target = body
+	target = body.grapple_anchor() if body.has_method("grapple_anchor") else body
 	rest_length = clampf(distance * profile.rest_ratio, profile.minimum_rope_length, profile.maximum_rope_length)
 	active = true
 	tension = 0.0

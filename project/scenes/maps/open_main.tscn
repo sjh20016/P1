@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/maps/main.tscn" id="1"]
+
+[node name="Ravage" instance=ExtResource("1")]
+load_legacy_on_start = false

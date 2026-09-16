@@ -1,10 +1,13 @@
-"""Package an already exported 0.04 build and verify every compressed entry."""
+"""Package an exported version and verify every compressed entry."""
 from pathlib import Path
+import sys
 from zipfile import ZipFile, ZIP_DEFLATED
 from hashlib import sha256
 
 root = Path(__file__).resolve().parents[1]
-folder = root / 'build/RAVAGE-0.04-Windows'
+version = sys.argv[1] if len(sys.argv)>1 else '0.07'
+assert version in ('0.04','0.05','0.06','0.07')
+folder = root / f'build/RAVAGE-{version}-Windows'
 archive = folder.parent / (folder.name + '.zip')
 assert (folder / 'RAVAGE.exe').is_file(), 'Run build_windows.ps1 first'
 with ZipFile(archive, 'w', ZIP_DEFLATED, compresslevel=9) as z:

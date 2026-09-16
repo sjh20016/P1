@@ -64,7 +64,8 @@ func probe(hook, direction: Vector3) -> Dictionary:
 	var start:Vector3 = hook.camera.global_position
 	# Camera setback must not reduce the player's usable grapple range.
 	var reach:float = hook.profile.maximum_rope_length+start.distance_to(hook.player.global_position)
-	var query := PhysicsRayQueryParameters3D.create(start,start+direction*reach,3,[hook.player.get_rid()])
+	# Moving macro chunks block sight even though they cannot be grappled.
+	var query := PhysicsRayQueryParameters3D.create(start,start+direction*reach,hook.player.collision_mask,[hook.player.get_rid()])
 	var space:PhysicsDirectSpaceState3D = hook.get_world_3d().direct_space_state
 	var hit := space.intersect_ray(query)
 	if hit.is_empty() or not hit.collider is StaticBody3D:
@@ -76,7 +77,7 @@ func probe(hook, direction: Vector3) -> Dictionary:
 		return reject("OUT OF REACH")
 	if offset.dot(-hook.camera.global_basis.z) < 0.5:
 		return reject("BEHIND YOU")
-	var sight := PhysicsRayQueryParameters3D.create(hook.player.global_position,hit.position-hit.normal*0.04,3,[hook.player.get_rid()])
+	var sight := PhysicsRayQueryParameters3D.create(hook.player.global_position,hit.position-hit.normal*0.04,hook.player.collision_mask,[hook.player.get_rid()])
 	var obstruction := space.intersect_ray(sight)
 	if not obstruction.is_empty() and (obstruction.collider!=hit.collider or obstruction.position.distance_to(hit.position)>0.35):
 		return reject("HAND BLOCKED")
