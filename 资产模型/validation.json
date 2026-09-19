@@ -1,0 +1,85 @@
+{
+  "status": "PASS",
+  "imports": [
+    {
+      "asset": "A01_Landing",
+      "fresh_import": "PASS",
+      "meshes": 3
+    },
+    {
+      "asset": "A02_Bridgehead_Porch",
+      "fresh_import": "PASS",
+      "meshes": 4
+    },
+    {
+      "asset": "A03_Grapple_Socket",
+      "fresh_import": "PASS",
+      "meshes": 3
+    },
+    {
+      "asset": "A04_StoneArch_Span12m",
+      "fresh_import": "PASS",
+      "meshes": 43
+    },
+    {
+      "asset": "A05_Suspension_Span12m",
+      "fresh_import": "PASS",
+      "meshes": 51
+    },
+    {
+      "asset": "A06_Stair_With_Landing",
+      "fresh_import": "PASS",
+      "meshes": 17
+    },
+    {
+      "asset": "D13_Beam_Intact",
+      "fresh_import": "PASS",
+      "meshes": 1
+    },
+    {
+      "asset": "D13_Beam_Fractured",
+      "fresh_import": "PASS",
+      "meshes": 4
+    },
+    {
+      "asset": "D14_HollowDrum_Fractured",
+      "fresh_import": "PASS",
+      "meshes": 6
+    },
+    {
+      "asset": "D14_HollowDrum_Intact",
+      "fresh_import": "PASS",
+      "meshes": 1
+    },
+    {
+      "asset": "R01_Rubble",
+      "fresh_import": "PASS",
+      "meshes": 1
+    },
+    {
+      "asset": "R02_Rubble",
+      "fresh_import": "PASS",
+      "meshes": 1
+    },
+    {
+      "asset": "R03_Rubble",
+      "fresh_import": "PASS",
+      "meshes": 1
+    },
+    {
+      "asset": "R04_Rubble",
+      "fresh_import": "PASS",
+      "meshes": 1
+    },
+    {
+      "asset": "R05_Rubble",
+      "fresh_import": "PASS",
+      "meshes": 1
+    },
+    {
+      "asset": "R06_Rubble",
+      "fresh_import": "PASS",
+      "meshes": 1
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+[
+	{
+		"angle": 0.0,
+		"before": 50.0,
+		"no_loss": 50.0,
+		"normal_response_speed": 45.0,
+		"normal_retention": 0.9,
+		"tangent_retention": 0.99,
+		"uniform_82_percent": 41.0,
+		"weight": 0
+	},
+	{
+		"angle": 0.0,
+		"before": 50.0,
+		"no_loss": 50.0,
+		"normal_response_speed": 41.0,
+		"normal_retention": 0.82,
+		"tangent_retention": 0.99,
+		"uniform_82_percent": 41.0,
+		"weight": 1
+	},
+	{
+		"angle": 0.0,
+		"before": 50.0,
+		"no_loss": 50.0,
+		"normal_response_speed": 34.0,
+		"normal_retention": 0.68,
+		"tangent_retention": 0.99,
+		"uniform_82_percent": 41.0,
+		"weight": 2
+	},
+	{
+		"angle": 30.0,
+		"before": 50.0,
+		"no_loss": 50.0,
+		"normal_response_speed": 46.1661415100098,
+		"normal_retention": 0.899999982380668,
+		"tangent_retention": 0.99,
+		"uniform_82_percent": 41.0,
+		"weight": 0
+	},
+	{
+		"angle": 30.0,
+		"before": 50.0,
+		"no_loss": 50.0,
+		"normal_response_speed": 43.2817802429199,
+		"normal_retention": 0.820000021143199,
+		"tangent_retention": 0.99,
+		"uniform_82_percent": 41.0,
+		"weight": 1
+	},
+	{
+		"angle": 30.0,
+		"before": 50.0,
+		"no_loss": 50.0,
+		"normal_response_speed": 38.4650802612305,
+		"normal_retention": 0.680000022905132,
+		"tangent_retention": 0.99,
+		"uniform_82_percent": 41.0,
+		"weight": 2
+	},
+	{
+		"angle": 60.0,
+		"before": 50.0,
+		"no_loss": 50.0,
+		"normal_response_speed": 48.4142265319824,
+		"normal_retention": 0.9,
+		"tangent_retention": 0.99,
+		"uniform_82_percent": 41.0,
+		"weight": 0
+	},
+	{
+		"angle": 60.0,
+		"before": 50.0,
+		"no_loss": 50.0,
+		"normal_response_speed": 47.5177612304688,
+		"normal_retention": 0.82,
+		"tangent_retention": 0.99,
+		"uniform_82_percent": 41.0,
+		"weight": 1
+	},
+	{
+		"angle": 60.0,
+		"before": 50.0,
+		"no_loss": 50.0,
+		"normal_response_speed": 46.116024017334,
+		"normal_retention": 0.68,
+		"tangent_retention": 0.99,
+		"uniform_82_percent": 41.0,
+		"weight": 2
+	}
+]

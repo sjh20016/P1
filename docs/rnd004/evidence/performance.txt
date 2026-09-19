@@ -1,0 +1,6 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 - Build 32.0.101.7088 - Compatibility - Using Device: Intel - Intel(R) UHD Graphics 730
+
+PERFORMANCE domino frames=719 final={"active_debris":0,"active_macros":0,"active_panels":765,"active_structural_towers":2,"chain_depth":1,"collisions":87,"fps":60.0,"physics_ms":0.824,"scars":27,"secondary_events":1,"static_ruins":1,"time":14.0133333333332}
+PERFORMANCE all_panels_and_scars frames=717 final={"active_debris":0,"active_macros":0,"active_panels":1152,"active_structural_towers":2,"chain_depth":0,"collisions":0,"fps":60.0,"physics_ms":0.786,"scars":384,"secondary_events":0,"static_ruins":0,"time":14.0166666666665}
+PERFORMANCE two_macro_burst frames=718 final={"active_debris":0,"active_macros":0,"active_panels":757,"active_structural_towers":2,"chain_depth":1,"collisions":182,"fps":60.0,"physics_ms":0.725,"scars":55,"secondary_events":7,"static_ruins":2,"time":14.0133333333332}

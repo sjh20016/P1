@@ -1,0 +1,56 @@
+[gd_scene format=3]
+[ext_resource type="Material" path="res://assets/consequence/wall.tres" id="paper"]
+[ext_resource type="PackedScene" path="res://scenes/destruction/ink_rubble.scn" id="rubble"]
+[ext_resource type="Script" path="res://scripts/consequence/breachable_tower.gd" id="tower"]
+[ext_resource type="PackedScene" path="res://scenes/consequence/tower_panels.tscn" id="panels"]
+[sub_resource type="BoxMesh" id="Mesh0"]
+size = Vector3(16, 24, 0.8)
+material = ExtResource("paper")
+[sub_resource type="BoxShape3D" id="Shape0"]
+size = Vector3(16, 24, 0.8)
+[sub_resource type="BoxMesh" id="Mesh1"]
+size = Vector3(16, 24, 0.8)
+material = ExtResource("paper")
+[sub_resource type="BoxShape3D" id="Shape1"]
+size = Vector3(16, 24, 0.8)
+[sub_resource type="BoxMesh" id="Mesh2"]
+size = Vector3(0.8, 24, 16)
+material = ExtResource("paper")
+[sub_resource type="BoxShape3D" id="Shape2"]
+size = Vector3(0.8, 24, 16)
+[sub_resource type="BoxMesh" id="Mesh3"]
+size = Vector3(0.8, 24, 16)
+material = ExtResource("paper")
+[sub_resource type="BoxShape3D" id="Shape3"]
+size = Vector3(0.8, 24, 16)
+[node name="BreachableTower" type="StaticBody3D"]
+script = ExtResource("tower")
+panels_scene = ExtResource("panels")
+broken_scene = ExtResource("rubble")
+metadata_path = "res://assets/consequence/tower_metadata.json"
+local_bounds = AABB(-8.4, -12, -8.4, 16.8, 24, 16.8)
+[node name="IntactVisual" type="Node3D" parent="."]
+[node name="Wall0" type="MeshInstance3D" parent="IntactVisual"]
+position = Vector3(0, 0, 8)
+mesh = SubResource("Mesh0")
+[node name="Collision0" type="CollisionShape3D" parent="."]
+position = Vector3(0, 0, 8)
+shape = SubResource("Shape0")
+[node name="Wall1" type="MeshInstance3D" parent="IntactVisual"]
+position = Vector3(0, 0, -8)
+mesh = SubResource("Mesh1")
+[node name="Collision1" type="CollisionShape3D" parent="."]
+position = Vector3(0, 0, -8)
+shape = SubResource("Shape1")
+[node name="Wall2" type="MeshInstance3D" parent="IntactVisual"]
+position = Vector3(8, 0, 0)
+mesh = SubResource("Mesh2")
+[node name="Collision2" type="CollisionShape3D" parent="."]
+position = Vector3(8, 0, 0)
+shape = SubResource("Shape2")
+[node name="Wall3" type="MeshInstance3D" parent="IntactVisual"]
+position = Vector3(-8, 0, 0)
+mesh = SubResource("Mesh3")
+[node name="Collision3" type="CollisionShape3D" parent="."]
+position = Vector3(-8, 0, 0)
+shape = SubResource("Shape3")

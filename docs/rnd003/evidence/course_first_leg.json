@@ -1,0 +1,141 @@
+{
+	"events": [
+		{
+			"event": "course_start",
+			"position": [
+				0.0,
+				48.0,
+				12.0
+			],
+			"seconds": 0.0
+		},
+		{
+			"distance": 41.0716552734375,
+			"event": "attach",
+			"position": [
+				0.0,
+				47.2200775146484,
+				12.0
+			],
+			"seconds": 1.45,
+			"selection": "CENTER / VISIBLE",
+			"speed": 19.0
+		},
+		{
+			"event": "fire",
+			"position": [
+				0.0,
+				47.2200775146484,
+				12.0
+			],
+			"seconds": 1.45,
+			"success": true
+		},
+		{
+			"action": "RELEASE",
+			"charge": 0.0,
+			"event": "release",
+			"position": [
+				0.0,
+				53.5212364196777,
+				-7.53875827789307
+			],
+			"seconds": 2.15,
+			"speed": 39.8932456970215
+		},
+		{
+			"distance": 41.7121086120605,
+			"event": "attach",
+			"position": [
+				0.0,
+				55.0263710021973,
+				-22.2879199981689
+			],
+			"seconds": 2.53333333333333,
+			"selection": "CENTER / VISIBLE",
+			"speed": 45.6632881164551
+		},
+		{
+			"event": "fire",
+			"position": [
+				0.0,
+				55.0263710021973,
+				-22.2879199981689
+			],
+			"seconds": 2.53333333333333,
+			"success": true
+		},
+		{
+			"event": "course_stage",
+			"position": [
+				0.0,
+				53.7955017089844,
+				-36.8465538024902
+			],
+			"seconds": 2.81666666666666,
+			"stage": 1,
+			"time": 2.81764333333333
+		},
+		{
+			"after": 57.6095428466797,
+			"before": 69.5539245605469,
+			"event": "body",
+			"normal_speed": 67.9955368041992,
+			"position": [
+				0.0,
+				49.0964851379395,
+				-62.9631118774414
+			],
+			"seconds": 3.22499999999999
+		},
+		{
+			"action": "RELEASE",
+			"charge": 0.0,
+			"event": "release",
+			"position": [
+				0.0,
+				48.9756965637207,
+				-63.4277496337891
+			],
+			"seconds": 3.23333333333332,
+			"speed": 57.6095428466797
+		},
+		{
+			"event": "course_stage",
+			"position": [
+				0.0,
+				45.8828125,
+				-73.6329498291016
+			],
+			"seconds": 3.41733333333332,
+			"stage": 2,
+			"time": 3.424854
+		}
+	],
+	"summary": {
+		"average_grapple_distance": 41.391881942749,
+		"average_impact_speed": 69.5539245605469,
+		"average_impact_speed_loss": 11.9443817138672,
+		"average_speed": 31.3178325551566,
+		"body_impacts": 1,
+		"fall_recoveries": 0,
+		"first_grapple_time": 1.45,
+		"miss_rate": 0.0,
+		"model": 3,
+		"peak_speed": 69.5456619262695,
+		"physics_hz": 120,
+		"release_speeds": [
+			39.8932456970215,
+			57.6095428466797
+		],
+		"resets": 0,
+		"seconds": 4.20066666666666,
+		"shots": 2,
+		"successful_grapples": 2,
+		"tentacle_sweeps": 0,
+		"time_above_30": 2.38399999999999,
+		"time_to_20_after_first_grapple": 0.0499999999999998,
+		"time_to_30_after_first_grapple": 0.374999999999999,
+		"version": "0.03"
+	}
+}

@@ -1,0 +1,166 @@
+{
+  "source": "build\\rnd006\\marathon.json",
+  "workload": {
+    "audio": "default",
+    "final": {
+      "activation_max_us": 1888,
+      "build_max_us": 504,
+      "buildings": 36,
+      "chains": 3,
+      "complete": true,
+      "debris": 16,
+      "draw_calls": 96.0,
+      "macros": 0,
+      "memory": 74956431,
+      "near": 25,
+      "nodes": 1070.0,
+      "pending": 0,
+      "physics_ms": 0.914,
+      "ruins": 3,
+      "scar_instances": 524,
+      "seams": 3,
+      "seconds": 300.591666666558,
+      "surfaces": 284,
+      "visited": 36
+    },
+    "movement": "scripted continuous flight at 65 m/s; damage via production entry",
+    "revisits": 190,
+    "state_failures": 0,
+    "visits": 226,
+    "wall_seconds": 300.008
+  },
+  "definition": "1% low = 1000 / mean(slowest 1% frame durations); all durations are wall-clock rendered frames",
+  "frames": 17731,
+  "wall_seconds_sampled": 300.007825,
+  "mean_fps": 59.10179176159822,
+  "one_percent_low_fps": 44.56671637441249,
+  "p50_ms": 16.88,
+  "p95_ms": 18.22,
+  "p99_ms": 19.06,
+  "worst_ms": 166.399,
+  "frames_over_33ms": 8,
+  "frames_over_50ms": 3,
+  "first_minute": {
+    "nodes": {
+      "min": 508.0,
+      "max": 943.0
+    },
+    "memory": {
+      "min": 69422792,
+      "max": 72728699
+    },
+    "surfaces": {
+      "min": 36,
+      "max": 230
+    },
+    "macros": {
+      "min": 0,
+      "max": 1
+    },
+    "ruins": {
+      "min": 0,
+      "max": 3
+    },
+    "scar_instances": {
+      "min": 0,
+      "max": 213
+    },
+    "draw_calls": {
+      "min": 57.0,
+      "max": 182.0
+    },
+    "physics_ms": {
+      "min": 0.132,
+      "max": 4.101
+    }
+  },
+  "last_minute": {
+    "nodes": {
+      "min": 745.0,
+      "max": 1245.0
+    },
+    "memory": {
+      "min": 73366121,
+      "max": 75604297
+    },
+    "surfaces": {
+      "min": 137,
+      "max": 382
+    },
+    "macros": {
+      "min": 0,
+      "max": 0
+    },
+    "ruins": {
+      "min": 3,
+      "max": 3
+    },
+    "scar_instances": {
+      "min": 474,
+      "max": 524
+    },
+    "draw_calls": {
+      "min": 58.0,
+      "max": 177.0
+    },
+    "physics_ms": {
+      "min": 0.688,
+      "max": 2.343
+    }
+  },
+  "peak": {
+    "nodes": {
+      "min": 508.0,
+      "max": 1480.0
+    },
+    "memory": {
+      "min": 69422792,
+      "max": 75899975
+    },
+    "surfaces": {
+      "min": 36,
+      "max": 501
+    },
+    "macros": {
+      "min": 0,
+      "max": 1
+    },
+    "ruins": {
+      "min": 0,
+      "max": 3
+    },
+    "scar_instances": {
+      "min": 0,
+      "max": 524
+    },
+    "draw_calls": {
+      "min": 50.0,
+      "max": 193.0
+    },
+    "physics_ms": {
+      "min": 0.132,
+      "max": 4.101
+    }
+  },
+  "final": {
+    "activation_max_us": 1888,
+    "build_max_us": 504,
+    "buildings": 36,
+    "chains": 3,
+    "complete": true,
+    "debris": 16,
+    "draw_calls": 96.0,
+    "macros": 0,
+    "memory": 74522611,
+    "near": 25,
+    "nodes": 1070.0,
+    "pending": 0,
+    "physics_ms": 0.914,
+    "ruins": 3,
+    "scar_instances": 524,
+    "seams": 3,
+    "seconds": 300.591666666558,
+    "surfaces": 284,
+    "visited": 36
+  }
+}

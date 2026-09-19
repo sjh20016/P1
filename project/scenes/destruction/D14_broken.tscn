@@ -1,0 +1,305 @@
+[gd_scene format=4]
+
+[ext_resource type="Script" path="res://scripts/destruction/debris_piece.gd" id="1_4kidk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xhsqi"]
+resource_name = "Chalk"
+cull_mode = 2
+albedo_color = Color(0.85430586, 0.85430586, 0.85430586, 1)
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_dp5cl"]
+_surfaces = [{
+"aabb": AABB(1.6, -3, -3.6373067, 2.6, 6, 3.6373067),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgADAAAAAAAEAAEAAgAFAAMAAQAFAAIAAAADAAYABgADAAUAAAAGAAQAAQAHAAUABgAFAAcABAAHAAEABAAGAAcA"),
+"name": "Chalk",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAPM8AAD//wAA//8AADoxAAAAAAAAAAD///M8AACJnQAA//8AADox//8AAAAAiZ3/////AAD///////8AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_up8v0"]
+resource_name = "D14_HollowDrum_Fractured_Drum_Fragment_0"
+_surfaces = [{
+"aabb": AABB(1.6, -3, -3.6373067, 2.6, 6, 3.6373067),
+"format": 34896613383,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_xhsqi"),
+"name": "Chalk",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAPM8/////wAA/////zoxAAAAAP//iZ0AAP////+Jnf///////zox//8AAP////////////8AAP//8zz//4mdAAD///+//////////7///wAA////v4md//////+///8AAP//SPo6Mf//AABI+joxAAAAAEj6////////SPo6MQAAAADL1QAA///zPMvVAAAAAPM8y9U6Mf//AADL1QAAAADzPAisiZ3/////CKyJnQAA//8IrAAA///zPAis/3//P/9//z//f/8//3//P/9//7//f/+//3//v/9//7//f/9//3//f/9//3//f/9/d8p2dXfKdnV3ynZ1d8p2dTFxpegxcaXoMXGl6DFxpejwclHc8HJR3PByUdzwclHc")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_dp5cl")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_qc0i2"]
+points = PackedVector3Array(4.2, 3, 0, 3.1998043, 3, 0, 4.2, -3, 0, 2.0998435, 3, -3.6373067, 1.6, 3, -2.771417, 3.1998043, -3, 0, 2.0998435, -3, -3.6373067, 1.6, -3, -2.771417)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_n1pmx"]
+_surfaces = [{
+"aabb": AABB(-2.1, -3, -3.6373067, 4.2, 6, 0.86602545),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgADAAAAAAAEAAEAAgAFAAMAAQAFAAIAAAADAAYABgADAAUAAAAGAAQAAQAHAAUABgAFAAcABAAHAAEABAAGAAcA"),
+"name": "Chalk",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("eR4AAP//AAD//wAAAAAAAAAAAAAAAAAAeR7/////AACF4QAA//8AAAAA//8AAAAAheH/////AAD/////AAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_btrg4"]
+resource_name = "D14_HollowDrum_Fractured_Drum_Fragment_1"
+_surfaces = [{
+"aabb": AABB(-2.1, -3, -3.6373067, 4.2, 6, 0.86602545),
+"format": 34896613383,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_xhsqi"),
+"name": "Chalk",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("eR4AAP///////wAAAAD//wAAAAAAAP//heEAAP////+F4f///////wAA//8AAP///////wAA//95Hv///////4XhAAD//xb2/////wAAFvb//wAAAAAW9oXh/////xb2//8AAAAA//8AAP//AAD//wAAAAAAAP///////wAA//8AAAAAAAAIrHke/////wiseR4AAP//CKwAAP//AAAIrHkeAAD///+/heH//////7+F4QAA////v3ke//////+//3//P/9//z//f/8//3//P/9//7//f/+//3//v/9//7+KrLJ5iqyyeYqssnmKrLJ5/z//v/8//7//P/+//z//v/ByUdzwclHc8HJR3PByUdz/f/9//3//f/9//3//f/9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_n1pmx")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_qlbbx"]
+points = PackedVector3Array(-2.1, -3, -3.6373067, -1.6000782, -3, -2.7712812, -2.1, 3, -3.6373067, 2.1, -3, -3.6373067, 1.5996673, -3, -2.7712812, -1.6000782, 3, -2.7712812, 2.1, 3, -3.6373067, 1.5996673, 3, -2.7712812)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_3al8s"]
+_surfaces = [{
+"aabb": AABB(-4.2, -3, -3.6373067, 2.6, 6, 3.6373067),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgADAAAAAAAEAAEAAgAFAAMAAQAFAAIAAAADAAYABgADAAUAAAAGAAQAAQAHAAUABgAFAAcABAAHAAEABAAGAAcA"),
+"name": "Chalk",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("dWIAAP//AADEzgAAAAAAAAAAAAD//wAAdWL/////AAD//wAA8zwAAAAA/////wAA//////M8AADEzv//AAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_n4tbi"]
+resource_name = "D14_HollowDrum_Fractured_Drum_Fragment_2"
+_surfaces = [{
+"aabb": AABB(-4.2, -3, -3.6373067, 2.6, 6, 3.6373067),
+"format": 34896613383,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_xhsqi"),
+"name": "Chalk",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("dWIAAP/////EzgAAAAD//wAAAAD///////8AAPM8////////8zz//wAA////////xM7//wAA//91Yv//////////AADzPEj6xM7//wAASPrEzgAAAABI+v/////zPEj6xM4AAAAAy9UAAP/////L1QAAAAD//8vVxM7//wAAy9UAAAAA////v3Vi//////+/dWIAAP///78AAP//////v3ViAAD//xb2//////M8Fvb//wAA8zwW9nVi/////xb2/3//P/9//z//f/8//3//P/9//7//f/+//3//v/9//793ynZ1d8p2dXfKdnV3ynZ1MXGl6DFxpegxcaXoMXGl6P9//3//f/9//3//f/9//3+KrLJ5iqyyeYqssnmKrLJ5")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_3al8s")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_niu3s"]
+points = PackedVector3Array(-3.2000585, 3, 0, -4.2, 3, 0, -3.2000585, -3, 0, -1.5999999, 3, -2.771417, -2.100098, 3, -3.6373067, -4.2, -3, 0, -1.5999999, -3, -2.771417, -2.100098, -3, -3.6373067)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_j2mfg"]
+_surfaces = [{
+"aabb": AABB(-4.2, -3, -5.1435165e-16, 2.6, 6, 3.6373067),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgADAAAAAAAEAAEAAgAFAAMAAQAFAAIAAAADAAYABgADAAUAAAAGAAQAAQAHAAUABgAFAAcABAAHAAEABAAGAAcA"),
+"name": "Chalk",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("//8AAAvDAAAAAAAAAAAAAMTOAAD//wAA/////wvDAAB1YgAAAAAAAMTO/////wAAdWL//wAAAAAAAP//AAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_b52o8"]
+resource_name = "D14_HollowDrum_Fractured_Drum_Fragment_3"
+_surfaces = [{
+"aabb": AABB(-4.2, -3, -5.1435165e-16, 2.6, 6, 3.6373067),
+"format": 34896613383,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_xhsqi"),
+"name": "Chalk",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("//8AAAvD//8AAAAAAAD//8TOAAD/////dWIAAAAA//91Yv//AAD//8TO////////AAD//wAA////////C8P//3ViAAAAAP//AAD//wAA//8AAAAAAAD//3Vi//8AAP//AAAAAAAACKzEzv////8IrMTOAAD//wisAAD//wAACKzEzgAA//8W9v////8Lwxb2//8AAAvDFvbEzv////8W9v//AAALw0j6dWL//wAASPp1YgAAAABI+v////8Lw0j6/3//P/9//z//f/8//3//P/9//7//f/+//3//v/9//7//P/+//z//v/8//7//P/+/8HJR3PByUdzwclHc8HJR3IqssnmKrLJ5iqyyeYqssnl3ynZ1d8p2dXfKdnV3ynZ1")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_j2mfg")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ndeox"]
+points = PackedVector3Array(-2.100098, 3, 3.6373067, -1.5999999, 3, 2.771061, -4.2, 3, -5.1435165e-16, -2.100098, -3, 3.6373067, -1.5999999, -3, 2.771061, -3.2000585, 3, -5.1435165e-16, -4.2, -3, -5.1435165e-16, -3.2000585, -3, -5.1435165e-16)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_kx6df"]
+_surfaces = [{
+"aabb": AABB(-2.1, -3, 2.7712812, 4.2, 6, 0.86602545),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgADAAAAAAAEAAEAAgAFAAMAAQAFAAIAAAADAAYABgADAAUAAAAGAAQAAQAHAAUABgAFAAcABAAHAAEABAAGAAcA"),
+"name": "Chalk",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("heEAAAAAAAAAAAAA//8AAP//AAD//wAAheH//wAAAAB5HgAAAAAAAP///////wAAeR7//wAAAAAAAP////8AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_020ha"]
+resource_name = "D14_HollowDrum_Fractured_Drum_Fragment_4"
+_surfaces = [{
+"aabb": AABB(-2.1, -3, 2.7712812, 4.2, 6, 0.86602545),
+"format": 34896613383,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_xhsqi"),
+"name": "Chalk",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("heEAAAAA//8AAAAA////////AAD/////eR4AAAAA//95Hv//AAD/////////////AAD///////+F4f//AAD//3keAAAAAMvVAAD/////y9UAAAAA///L1Xke//8AAMvVAAAAAP///7//////////v///AAD///+/AAD//////7///wAA//9I+oXh//8AAEj6heEAAAAASPr///////9I+oXhAAAAAP//eR7//wAA//95HgAAAAD//4Xh//8AAP///3//P/9//z//f/8//3//P/9//7//f/+//3//v/9//78xcaXoMXGl6DFxpegxcaXo/3//f/9//3//f/9//3//f3fKdnV3ynZ1d8p2dXfKdnX/P/+//z//v/8//7//P/+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_kx6df")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_y3f4b"]
+points = PackedVector3Array(-2.1, -3, 3.6373067, -1.6000782, -3, 2.7712812, 2.1, -3, 3.6373067, -2.1, 3, 3.6373067, -1.6000782, 3, 2.7712812, 1.5996673, -3, 2.7712812, 2.1, 3, 3.6373067, 1.5996673, 3, 2.7712812)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_dyjn8"]
+_surfaces = [{
+"aabb": AABB(1.6, -3, 7.8377393e-16, 2.6, 6, 3.6373067),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgADAAAAAAAEAAEAAgAFAAMAAQAFAAIAAAADAAYABgADAAUAAAAGAAQAAQAHAAUABgAFAAcABAAHAAEABAAGAAcA"),
+"name": "Chalk",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("iZ0AAAAAAAA6MQAA//8AAP//AAAAAAAAiZ3//wAAAAAAAAAAC8MAAP////8AAAAAAAD//wvDAAA6Mf////8AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_1nw7l"]
+resource_name = "D14_HollowDrum_Fractured_Drum_Fragment_5"
+_surfaces = [{
+"aabb": AABB(1.6, -3, 7.8377393e-16, 2.6, 6, 3.6373067),
+"format": 34896613383,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_xhsqi"),
+"name": "Chalk",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("iZ0AAAAA//86MQAA////////AAAAAP//AAAAAAvD//8AAP//C8P///////8AAP//OjH///////+Jnf//AAD//wAAAAALwwisOjH/////CKw6MQAA//8IrAAA//8LwwisOjEAAP//Fvb/////AAAW9v//AAAAABb2OjH/////Fvb//wAAAAD//4md//8AAP//iZ0AAAAA////////AAD//4mdAAAAAMvVAAD//wvDy9UAAAAAC8PL1Ymd//8AAMvV/3//P/9//z//f/8//3//P/9//7//f/+//3//v/9//7/wclHc8HJR3PByUdzwclHciqyyeYqssnmKrLJ5iqyyef8//7//P/+//z//v/8//78xcaXoMXGl6DFxpegxcaXo")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_dyjn8")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_1fly2"]
+points = PackedVector3Array(2.0998435, 3, 3.6373067, 1.6, 3, 2.771061, 2.0998435, -3, 3.6373067, 4.2, 3, 7.8377393e-16, 3.1998043, 3, 7.8377393e-16, 1.6, -3, 2.771061, 4.2, -3, 7.8377393e-16, 3.1998043, -3, 7.8377393e-16)
+
+[node name="D14Broken" type="Node3D" unique_id=1151819419]
+
+[node name="Piece0" type="RigidBody3D" parent="." unique_id=246713541]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9, 0, -1.8186533)
+collision_layer = 8
+mass = 4.0
+continuous_cd = true
+script = ExtResource("1_4kidk")
+
+[node name="Visual" type="MeshInstance3D" parent="Piece0" unique_id=69177235]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9, 0, 1.8186533)
+mesh = SubResource("ArrayMesh_up8v0")
+
+[node name="@CollisionShape3D@425" type="CollisionShape3D" parent="Piece0" unique_id=637624232]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9, 0, 1.8186533)
+shape = SubResource("ConvexPolygonShape3D_qc0i2")
+
+[node name="Piece1" type="RigidBody3D" parent="." unique_id=640838186]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.204294)
+collision_layer = 8
+mass = 4.0
+continuous_cd = true
+script = ExtResource("1_4kidk")
+
+[node name="Visual" type="MeshInstance3D" parent="Piece1" unique_id=877927088]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.204294)
+mesh = SubResource("ArrayMesh_btrg4")
+
+[node name="@CollisionShape3D@426" type="CollisionShape3D" parent="Piece1" unique_id=359634049]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.204294)
+shape = SubResource("ConvexPolygonShape3D_qlbbx")
+
+[node name="Piece2" type="RigidBody3D" parent="." unique_id=1356436393]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8999999, 0, -1.8186533)
+collision_layer = 8
+mass = 4.0
+continuous_cd = true
+script = ExtResource("1_4kidk")
+
+[node name="Visual" type="MeshInstance3D" parent="Piece2" unique_id=1994744939]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8999999, 0, 1.8186533)
+mesh = SubResource("ArrayMesh_n4tbi")
+
+[node name="@CollisionShape3D@427" type="CollisionShape3D" parent="Piece2" unique_id=1850669866]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8999999, 0, 1.8186533)
+shape = SubResource("ConvexPolygonShape3D_niu3s")
+
+[node name="Piece3" type="RigidBody3D" parent="." unique_id=1924200453]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8999999, 0, 1.8186533)
+collision_layer = 8
+mass = 4.0
+continuous_cd = true
+script = ExtResource("1_4kidk")
+
+[node name="Visual" type="MeshInstance3D" parent="Piece3" unique_id=152938096]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8999999, 0, -1.8186533)
+mesh = SubResource("ArrayMesh_b52o8")
+
+[node name="@CollisionShape3D@428" type="CollisionShape3D" parent="Piece3" unique_id=1527802924]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8999999, 0, -1.8186533)
+shape = SubResource("ConvexPolygonShape3D_ndeox")
+
+[node name="Piece4" type="RigidBody3D" parent="." unique_id=1592730457]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.204294)
+collision_layer = 8
+mass = 4.0
+continuous_cd = true
+script = ExtResource("1_4kidk")
+
+[node name="Visual" type="MeshInstance3D" parent="Piece4" unique_id=1527747831]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.204294)
+mesh = SubResource("ArrayMesh_020ha")
+
+[node name="@CollisionShape3D@429" type="CollisionShape3D" parent="Piece4" unique_id=1990120528]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.204294)
+shape = SubResource("ConvexPolygonShape3D_y3f4b")
+
+[node name="Piece5" type="RigidBody3D" parent="." unique_id=144816155]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9, 0, 1.8186533)
+collision_layer = 8
+mass = 4.0
+continuous_cd = true
+script = ExtResource("1_4kidk")
+
+[node name="Visual" type="MeshInstance3D" parent="Piece5" unique_id=1763096658]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9, 0, -1.8186533)
+mesh = SubResource("ArrayMesh_1nw7l")
+
+[node name="@CollisionShape3D@430" type="CollisionShape3D" parent="Piece5" unique_id=1210785895]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9, 0, -1.8186533)
+shape = SubResource("ConvexPolygonShape3D_1fly2")

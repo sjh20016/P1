@@ -1,0 +1,4633 @@
+[gd_scene format=3]
+[ext_resource type="Material" path="res://assets/consequence/wall.tres" id="paper"]
+[ext_resource type="PackedScene" path="res://scenes/destruction/ink_rubble.scn" id="rubble"]
+[ext_resource type="Script" path="res://scripts/consequence/consequence_panel.gd" id="panel"]
+[sub_resource type="BoxMesh" id="Mesh0"]
+size = Vector3(2, 2, 0.8)
+material = ExtResource("paper")
+[sub_resource type="BoxShape3D" id="Shape0"]
+size = Vector3(2, 2, 0.8)
+[sub_resource type="BoxMesh" id="Mesh1"]
+size = Vector3(2, 2, 0.8)
+material = ExtResource("paper")
+[sub_resource type="BoxShape3D" id="Shape1"]
+size = Vector3(2, 2, 0.8)
+[sub_resource type="BoxMesh" id="Mesh2"]
+size = Vector3(0.8, 2, 2)
+material = ExtResource("paper")
+[sub_resource type="BoxShape3D" id="Shape2"]
+size = Vector3(0.8, 2, 2)
+[sub_resource type="BoxMesh" id="Mesh3"]
+size = Vector3(0.8, 2, 2)
+material = ExtResource("paper")
+[sub_resource type="BoxShape3D" id="Shape3"]
+size = Vector3(0.8, 2, 2)
+[node name="Panels" type="Node3D"]
+[node name="P000" type="StaticBody3D" parent="."]
+position = Vector3(-7, -11, 8)
+script = ExtResource("panel")
+panel_id = 0
+chunk_id = 0
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P000"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P000"]
+shape = SubResource("Shape0")
+[node name="P001" type="StaticBody3D" parent="."]
+position = Vector3(-5, -11, 8)
+script = ExtResource("panel")
+panel_id = 1
+chunk_id = 0
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P001"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P001"]
+shape = SubResource("Shape0")
+[node name="P002" type="StaticBody3D" parent="."]
+position = Vector3(-3, -11, 8)
+script = ExtResource("panel")
+panel_id = 2
+chunk_id = 0
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P002"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P002"]
+shape = SubResource("Shape0")
+[node name="P003" type="StaticBody3D" parent="."]
+position = Vector3(-1, -11, 8)
+script = ExtResource("panel")
+panel_id = 3
+chunk_id = 0
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P003"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P003"]
+shape = SubResource("Shape0")
+[node name="P004" type="StaticBody3D" parent="."]
+position = Vector3(1, -11, 8)
+script = ExtResource("panel")
+panel_id = 4
+chunk_id = 0
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P004"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P004"]
+shape = SubResource("Shape0")
+[node name="P005" type="StaticBody3D" parent="."]
+position = Vector3(3, -11, 8)
+script = ExtResource("panel")
+panel_id = 5
+chunk_id = 0
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P005"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P005"]
+shape = SubResource("Shape0")
+[node name="P006" type="StaticBody3D" parent="."]
+position = Vector3(5, -11, 8)
+script = ExtResource("panel")
+panel_id = 6
+chunk_id = 0
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P006"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P006"]
+shape = SubResource("Shape0")
+[node name="P007" type="StaticBody3D" parent="."]
+position = Vector3(7, -11, 8)
+script = ExtResource("panel")
+panel_id = 7
+chunk_id = 0
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P007"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P007"]
+shape = SubResource("Shape0")
+[node name="P008" type="StaticBody3D" parent="."]
+position = Vector3(-7, -9, 8)
+script = ExtResource("panel")
+panel_id = 8
+chunk_id = 0
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P008"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P008"]
+shape = SubResource("Shape0")
+[node name="P009" type="StaticBody3D" parent="."]
+position = Vector3(-5, -9, 8)
+script = ExtResource("panel")
+panel_id = 9
+chunk_id = 0
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P009"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P009"]
+shape = SubResource("Shape0")
+[node name="P010" type="StaticBody3D" parent="."]
+position = Vector3(-3, -9, 8)
+script = ExtResource("panel")
+panel_id = 10
+chunk_id = 0
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P010"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P010"]
+shape = SubResource("Shape0")
+[node name="P011" type="StaticBody3D" parent="."]
+position = Vector3(-1, -9, 8)
+script = ExtResource("panel")
+panel_id = 11
+chunk_id = 0
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P011"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P011"]
+shape = SubResource("Shape0")
+[node name="P012" type="StaticBody3D" parent="."]
+position = Vector3(1, -9, 8)
+script = ExtResource("panel")
+panel_id = 12
+chunk_id = 0
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P012"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P012"]
+shape = SubResource("Shape0")
+[node name="P013" type="StaticBody3D" parent="."]
+position = Vector3(3, -9, 8)
+script = ExtResource("panel")
+panel_id = 13
+chunk_id = 0
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P013"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P013"]
+shape = SubResource("Shape0")
+[node name="P014" type="StaticBody3D" parent="."]
+position = Vector3(5, -9, 8)
+script = ExtResource("panel")
+panel_id = 14
+chunk_id = 0
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P014"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P014"]
+shape = SubResource("Shape0")
+[node name="P015" type="StaticBody3D" parent="."]
+position = Vector3(7, -9, 8)
+script = ExtResource("panel")
+panel_id = 15
+chunk_id = 0
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P015"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P015"]
+shape = SubResource("Shape0")
+[node name="P016" type="StaticBody3D" parent="."]
+position = Vector3(-7, -7, 8)
+script = ExtResource("panel")
+panel_id = 16
+chunk_id = 0
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P016"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P016"]
+shape = SubResource("Shape0")
+[node name="P017" type="StaticBody3D" parent="."]
+position = Vector3(-5, -7, 8)
+script = ExtResource("panel")
+panel_id = 17
+chunk_id = 0
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P017"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P017"]
+shape = SubResource("Shape0")
+[node name="P018" type="StaticBody3D" parent="."]
+position = Vector3(-3, -7, 8)
+script = ExtResource("panel")
+panel_id = 18
+chunk_id = 0
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P018"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P018"]
+shape = SubResource("Shape0")
+[node name="P019" type="StaticBody3D" parent="."]
+position = Vector3(-1, -7, 8)
+script = ExtResource("panel")
+panel_id = 19
+chunk_id = 0
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P019"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P019"]
+shape = SubResource("Shape0")
+[node name="P020" type="StaticBody3D" parent="."]
+position = Vector3(1, -7, 8)
+script = ExtResource("panel")
+panel_id = 20
+chunk_id = 0
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P020"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P020"]
+shape = SubResource("Shape0")
+[node name="P021" type="StaticBody3D" parent="."]
+position = Vector3(3, -7, 8)
+script = ExtResource("panel")
+panel_id = 21
+chunk_id = 0
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P021"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P021"]
+shape = SubResource("Shape0")
+[node name="P022" type="StaticBody3D" parent="."]
+position = Vector3(5, -7, 8)
+script = ExtResource("panel")
+panel_id = 22
+chunk_id = 0
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P022"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P022"]
+shape = SubResource("Shape0")
+[node name="P023" type="StaticBody3D" parent="."]
+position = Vector3(7, -7, 8)
+script = ExtResource("panel")
+panel_id = 23
+chunk_id = 0
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P023"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P023"]
+shape = SubResource("Shape0")
+[node name="P024" type="StaticBody3D" parent="."]
+position = Vector3(-7, -5, 8)
+script = ExtResource("panel")
+panel_id = 24
+chunk_id = 1
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P024"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P024"]
+shape = SubResource("Shape0")
+[node name="P025" type="StaticBody3D" parent="."]
+position = Vector3(-5, -5, 8)
+script = ExtResource("panel")
+panel_id = 25
+chunk_id = 1
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P025"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P025"]
+shape = SubResource("Shape0")
+[node name="P026" type="StaticBody3D" parent="."]
+position = Vector3(-3, -5, 8)
+script = ExtResource("panel")
+panel_id = 26
+chunk_id = 1
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P026"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P026"]
+shape = SubResource("Shape0")
+[node name="P027" type="StaticBody3D" parent="."]
+position = Vector3(-1, -5, 8)
+script = ExtResource("panel")
+panel_id = 27
+chunk_id = 1
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P027"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P027"]
+shape = SubResource("Shape0")
+[node name="P028" type="StaticBody3D" parent="."]
+position = Vector3(1, -5, 8)
+script = ExtResource("panel")
+panel_id = 28
+chunk_id = 1
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P028"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P028"]
+shape = SubResource("Shape0")
+[node name="P029" type="StaticBody3D" parent="."]
+position = Vector3(3, -5, 8)
+script = ExtResource("panel")
+panel_id = 29
+chunk_id = 1
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P029"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P029"]
+shape = SubResource("Shape0")
+[node name="P030" type="StaticBody3D" parent="."]
+position = Vector3(5, -5, 8)
+script = ExtResource("panel")
+panel_id = 30
+chunk_id = 1
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P030"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P030"]
+shape = SubResource("Shape0")
+[node name="P031" type="StaticBody3D" parent="."]
+position = Vector3(7, -5, 8)
+script = ExtResource("panel")
+panel_id = 31
+chunk_id = 1
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P031"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P031"]
+shape = SubResource("Shape0")
+[node name="P032" type="StaticBody3D" parent="."]
+position = Vector3(-7, -3, 8)
+script = ExtResource("panel")
+panel_id = 32
+chunk_id = 1
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P032"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P032"]
+shape = SubResource("Shape0")
+[node name="P033" type="StaticBody3D" parent="."]
+position = Vector3(-5, -3, 8)
+script = ExtResource("panel")
+panel_id = 33
+chunk_id = 1
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P033"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P033"]
+shape = SubResource("Shape0")
+[node name="P034" type="StaticBody3D" parent="."]
+position = Vector3(-3, -3, 8)
+script = ExtResource("panel")
+panel_id = 34
+chunk_id = 1
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P034"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P034"]
+shape = SubResource("Shape0")
+[node name="P035" type="StaticBody3D" parent="."]
+position = Vector3(-1, -3, 8)
+script = ExtResource("panel")
+panel_id = 35
+chunk_id = 1
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P035"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P035"]
+shape = SubResource("Shape0")
+[node name="P036" type="StaticBody3D" parent="."]
+position = Vector3(1, -3, 8)
+script = ExtResource("panel")
+panel_id = 36
+chunk_id = 1
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P036"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P036"]
+shape = SubResource("Shape0")
+[node name="P037" type="StaticBody3D" parent="."]
+position = Vector3(3, -3, 8)
+script = ExtResource("panel")
+panel_id = 37
+chunk_id = 1
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P037"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P037"]
+shape = SubResource("Shape0")
+[node name="P038" type="StaticBody3D" parent="."]
+position = Vector3(5, -3, 8)
+script = ExtResource("panel")
+panel_id = 38
+chunk_id = 1
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P038"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P038"]
+shape = SubResource("Shape0")
+[node name="P039" type="StaticBody3D" parent="."]
+position = Vector3(7, -3, 8)
+script = ExtResource("panel")
+panel_id = 39
+chunk_id = 1
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P039"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P039"]
+shape = SubResource("Shape0")
+[node name="P040" type="StaticBody3D" parent="."]
+position = Vector3(-7, -1, 8)
+script = ExtResource("panel")
+panel_id = 40
+chunk_id = 1
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P040"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P040"]
+shape = SubResource("Shape0")
+[node name="P041" type="StaticBody3D" parent="."]
+position = Vector3(-5, -1, 8)
+script = ExtResource("panel")
+panel_id = 41
+chunk_id = 1
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P041"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P041"]
+shape = SubResource("Shape0")
+[node name="P042" type="StaticBody3D" parent="."]
+position = Vector3(-3, -1, 8)
+script = ExtResource("panel")
+panel_id = 42
+chunk_id = 1
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P042"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P042"]
+shape = SubResource("Shape0")
+[node name="P043" type="StaticBody3D" parent="."]
+position = Vector3(-1, -1, 8)
+script = ExtResource("panel")
+panel_id = 43
+chunk_id = 1
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P043"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P043"]
+shape = SubResource("Shape0")
+[node name="P044" type="StaticBody3D" parent="."]
+position = Vector3(1, -1, 8)
+script = ExtResource("panel")
+panel_id = 44
+chunk_id = 1
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P044"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P044"]
+shape = SubResource("Shape0")
+[node name="P045" type="StaticBody3D" parent="."]
+position = Vector3(3, -1, 8)
+script = ExtResource("panel")
+panel_id = 45
+chunk_id = 1
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P045"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P045"]
+shape = SubResource("Shape0")
+[node name="P046" type="StaticBody3D" parent="."]
+position = Vector3(5, -1, 8)
+script = ExtResource("panel")
+panel_id = 46
+chunk_id = 1
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P046"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P046"]
+shape = SubResource("Shape0")
+[node name="P047" type="StaticBody3D" parent="."]
+position = Vector3(7, -1, 8)
+script = ExtResource("panel")
+panel_id = 47
+chunk_id = 1
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P047"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P047"]
+shape = SubResource("Shape0")
+[node name="P048" type="StaticBody3D" parent="."]
+position = Vector3(-7, 1, 8)
+script = ExtResource("panel")
+panel_id = 48
+chunk_id = 2
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P048"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P048"]
+shape = SubResource("Shape0")
+[node name="P049" type="StaticBody3D" parent="."]
+position = Vector3(-5, 1, 8)
+script = ExtResource("panel")
+panel_id = 49
+chunk_id = 2
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P049"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P049"]
+shape = SubResource("Shape0")
+[node name="P050" type="StaticBody3D" parent="."]
+position = Vector3(-3, 1, 8)
+script = ExtResource("panel")
+panel_id = 50
+chunk_id = 2
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P050"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P050"]
+shape = SubResource("Shape0")
+[node name="P051" type="StaticBody3D" parent="."]
+position = Vector3(-1, 1, 8)
+script = ExtResource("panel")
+panel_id = 51
+chunk_id = 2
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P051"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P051"]
+shape = SubResource("Shape0")
+[node name="P052" type="StaticBody3D" parent="."]
+position = Vector3(1, 1, 8)
+script = ExtResource("panel")
+panel_id = 52
+chunk_id = 2
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P052"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P052"]
+shape = SubResource("Shape0")
+[node name="P053" type="StaticBody3D" parent="."]
+position = Vector3(3, 1, 8)
+script = ExtResource("panel")
+panel_id = 53
+chunk_id = 2
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P053"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P053"]
+shape = SubResource("Shape0")
+[node name="P054" type="StaticBody3D" parent="."]
+position = Vector3(5, 1, 8)
+script = ExtResource("panel")
+panel_id = 54
+chunk_id = 2
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P054"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P054"]
+shape = SubResource("Shape0")
+[node name="P055" type="StaticBody3D" parent="."]
+position = Vector3(7, 1, 8)
+script = ExtResource("panel")
+panel_id = 55
+chunk_id = 2
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P055"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P055"]
+shape = SubResource("Shape0")
+[node name="P056" type="StaticBody3D" parent="."]
+position = Vector3(-7, 3, 8)
+script = ExtResource("panel")
+panel_id = 56
+chunk_id = 2
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P056"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P056"]
+shape = SubResource("Shape0")
+[node name="P057" type="StaticBody3D" parent="."]
+position = Vector3(-5, 3, 8)
+script = ExtResource("panel")
+panel_id = 57
+chunk_id = 2
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P057"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P057"]
+shape = SubResource("Shape0")
+[node name="P058" type="StaticBody3D" parent="."]
+position = Vector3(-3, 3, 8)
+script = ExtResource("panel")
+panel_id = 58
+chunk_id = 2
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P058"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P058"]
+shape = SubResource("Shape0")
+[node name="P059" type="StaticBody3D" parent="."]
+position = Vector3(-1, 3, 8)
+script = ExtResource("panel")
+panel_id = 59
+chunk_id = 2
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P059"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P059"]
+shape = SubResource("Shape0")
+[node name="P060" type="StaticBody3D" parent="."]
+position = Vector3(1, 3, 8)
+script = ExtResource("panel")
+panel_id = 60
+chunk_id = 2
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P060"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P060"]
+shape = SubResource("Shape0")
+[node name="P061" type="StaticBody3D" parent="."]
+position = Vector3(3, 3, 8)
+script = ExtResource("panel")
+panel_id = 61
+chunk_id = 2
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P061"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P061"]
+shape = SubResource("Shape0")
+[node name="P062" type="StaticBody3D" parent="."]
+position = Vector3(5, 3, 8)
+script = ExtResource("panel")
+panel_id = 62
+chunk_id = 2
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P062"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P062"]
+shape = SubResource("Shape0")
+[node name="P063" type="StaticBody3D" parent="."]
+position = Vector3(7, 3, 8)
+script = ExtResource("panel")
+panel_id = 63
+chunk_id = 2
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P063"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P063"]
+shape = SubResource("Shape0")
+[node name="P064" type="StaticBody3D" parent="."]
+position = Vector3(-7, 5, 8)
+script = ExtResource("panel")
+panel_id = 64
+chunk_id = 2
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P064"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P064"]
+shape = SubResource("Shape0")
+[node name="P065" type="StaticBody3D" parent="."]
+position = Vector3(-5, 5, 8)
+script = ExtResource("panel")
+panel_id = 65
+chunk_id = 2
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P065"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P065"]
+shape = SubResource("Shape0")
+[node name="P066" type="StaticBody3D" parent="."]
+position = Vector3(-3, 5, 8)
+script = ExtResource("panel")
+panel_id = 66
+chunk_id = 2
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P066"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P066"]
+shape = SubResource("Shape0")
+[node name="P067" type="StaticBody3D" parent="."]
+position = Vector3(-1, 5, 8)
+script = ExtResource("panel")
+panel_id = 67
+chunk_id = 2
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P067"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P067"]
+shape = SubResource("Shape0")
+[node name="P068" type="StaticBody3D" parent="."]
+position = Vector3(1, 5, 8)
+script = ExtResource("panel")
+panel_id = 68
+chunk_id = 2
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P068"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P068"]
+shape = SubResource("Shape0")
+[node name="P069" type="StaticBody3D" parent="."]
+position = Vector3(3, 5, 8)
+script = ExtResource("panel")
+panel_id = 69
+chunk_id = 2
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P069"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P069"]
+shape = SubResource("Shape0")
+[node name="P070" type="StaticBody3D" parent="."]
+position = Vector3(5, 5, 8)
+script = ExtResource("panel")
+panel_id = 70
+chunk_id = 2
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P070"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P070"]
+shape = SubResource("Shape0")
+[node name="P071" type="StaticBody3D" parent="."]
+position = Vector3(7, 5, 8)
+script = ExtResource("panel")
+panel_id = 71
+chunk_id = 2
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P071"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P071"]
+shape = SubResource("Shape0")
+[node name="P072" type="StaticBody3D" parent="."]
+position = Vector3(-7, 7, 8)
+script = ExtResource("panel")
+panel_id = 72
+chunk_id = 3
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P072"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P072"]
+shape = SubResource("Shape0")
+[node name="P073" type="StaticBody3D" parent="."]
+position = Vector3(-5, 7, 8)
+script = ExtResource("panel")
+panel_id = 73
+chunk_id = 3
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P073"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P073"]
+shape = SubResource("Shape0")
+[node name="P074" type="StaticBody3D" parent="."]
+position = Vector3(-3, 7, 8)
+script = ExtResource("panel")
+panel_id = 74
+chunk_id = 3
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P074"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P074"]
+shape = SubResource("Shape0")
+[node name="P075" type="StaticBody3D" parent="."]
+position = Vector3(-1, 7, 8)
+script = ExtResource("panel")
+panel_id = 75
+chunk_id = 3
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P075"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P075"]
+shape = SubResource("Shape0")
+[node name="P076" type="StaticBody3D" parent="."]
+position = Vector3(1, 7, 8)
+script = ExtResource("panel")
+panel_id = 76
+chunk_id = 3
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P076"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P076"]
+shape = SubResource("Shape0")
+[node name="P077" type="StaticBody3D" parent="."]
+position = Vector3(3, 7, 8)
+script = ExtResource("panel")
+panel_id = 77
+chunk_id = 3
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P077"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P077"]
+shape = SubResource("Shape0")
+[node name="P078" type="StaticBody3D" parent="."]
+position = Vector3(5, 7, 8)
+script = ExtResource("panel")
+panel_id = 78
+chunk_id = 3
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P078"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P078"]
+shape = SubResource("Shape0")
+[node name="P079" type="StaticBody3D" parent="."]
+position = Vector3(7, 7, 8)
+script = ExtResource("panel")
+panel_id = 79
+chunk_id = 3
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P079"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P079"]
+shape = SubResource("Shape0")
+[node name="P080" type="StaticBody3D" parent="."]
+position = Vector3(-7, 9, 8)
+script = ExtResource("panel")
+panel_id = 80
+chunk_id = 3
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P080"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P080"]
+shape = SubResource("Shape0")
+[node name="P081" type="StaticBody3D" parent="."]
+position = Vector3(-5, 9, 8)
+script = ExtResource("panel")
+panel_id = 81
+chunk_id = 3
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P081"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P081"]
+shape = SubResource("Shape0")
+[node name="P082" type="StaticBody3D" parent="."]
+position = Vector3(-3, 9, 8)
+script = ExtResource("panel")
+panel_id = 82
+chunk_id = 3
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P082"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P082"]
+shape = SubResource("Shape0")
+[node name="P083" type="StaticBody3D" parent="."]
+position = Vector3(-1, 9, 8)
+script = ExtResource("panel")
+panel_id = 83
+chunk_id = 3
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P083"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P083"]
+shape = SubResource("Shape0")
+[node name="P084" type="StaticBody3D" parent="."]
+position = Vector3(1, 9, 8)
+script = ExtResource("panel")
+panel_id = 84
+chunk_id = 3
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P084"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P084"]
+shape = SubResource("Shape0")
+[node name="P085" type="StaticBody3D" parent="."]
+position = Vector3(3, 9, 8)
+script = ExtResource("panel")
+panel_id = 85
+chunk_id = 3
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P085"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P085"]
+shape = SubResource("Shape0")
+[node name="P086" type="StaticBody3D" parent="."]
+position = Vector3(5, 9, 8)
+script = ExtResource("panel")
+panel_id = 86
+chunk_id = 3
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P086"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P086"]
+shape = SubResource("Shape0")
+[node name="P087" type="StaticBody3D" parent="."]
+position = Vector3(7, 9, 8)
+script = ExtResource("panel")
+panel_id = 87
+chunk_id = 3
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P087"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P087"]
+shape = SubResource("Shape0")
+[node name="P088" type="StaticBody3D" parent="."]
+position = Vector3(-7, 11, 8)
+script = ExtResource("panel")
+panel_id = 88
+chunk_id = 3
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P088"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P088"]
+shape = SubResource("Shape0")
+[node name="P089" type="StaticBody3D" parent="."]
+position = Vector3(-5, 11, 8)
+script = ExtResource("panel")
+panel_id = 89
+chunk_id = 3
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P089"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P089"]
+shape = SubResource("Shape0")
+[node name="P090" type="StaticBody3D" parent="."]
+position = Vector3(-3, 11, 8)
+script = ExtResource("panel")
+panel_id = 90
+chunk_id = 3
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P090"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P090"]
+shape = SubResource("Shape0")
+[node name="P091" type="StaticBody3D" parent="."]
+position = Vector3(-1, 11, 8)
+script = ExtResource("panel")
+panel_id = 91
+chunk_id = 3
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P091"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P091"]
+shape = SubResource("Shape0")
+[node name="P092" type="StaticBody3D" parent="."]
+position = Vector3(1, 11, 8)
+script = ExtResource("panel")
+panel_id = 92
+chunk_id = 3
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P092"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P092"]
+shape = SubResource("Shape0")
+[node name="P093" type="StaticBody3D" parent="."]
+position = Vector3(3, 11, 8)
+script = ExtResource("panel")
+panel_id = 93
+chunk_id = 3
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P093"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P093"]
+shape = SubResource("Shape0")
+[node name="P094" type="StaticBody3D" parent="."]
+position = Vector3(5, 11, 8)
+script = ExtResource("panel")
+panel_id = 94
+chunk_id = 3
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P094"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P094"]
+shape = SubResource("Shape0")
+[node name="P095" type="StaticBody3D" parent="."]
+position = Vector3(7, 11, 8)
+script = ExtResource("panel")
+panel_id = 95
+chunk_id = 3
+face_normal = Vector3(0, 0, 1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P095"]
+mesh = SubResource("Mesh0")
+[node name="Collision" type="CollisionShape3D" parent="P095"]
+shape = SubResource("Shape0")
+[node name="P096" type="StaticBody3D" parent="."]
+position = Vector3(-7, -11, -8)
+script = ExtResource("panel")
+panel_id = 96
+chunk_id = 0
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P096"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P096"]
+shape = SubResource("Shape1")
+[node name="P097" type="StaticBody3D" parent="."]
+position = Vector3(-5, -11, -8)
+script = ExtResource("panel")
+panel_id = 97
+chunk_id = 0
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P097"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P097"]
+shape = SubResource("Shape1")
+[node name="P098" type="StaticBody3D" parent="."]
+position = Vector3(-3, -11, -8)
+script = ExtResource("panel")
+panel_id = 98
+chunk_id = 0
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P098"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P098"]
+shape = SubResource("Shape1")
+[node name="P099" type="StaticBody3D" parent="."]
+position = Vector3(-1, -11, -8)
+script = ExtResource("panel")
+panel_id = 99
+chunk_id = 0
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P099"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P099"]
+shape = SubResource("Shape1")
+[node name="P100" type="StaticBody3D" parent="."]
+position = Vector3(1, -11, -8)
+script = ExtResource("panel")
+panel_id = 100
+chunk_id = 0
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P100"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P100"]
+shape = SubResource("Shape1")
+[node name="P101" type="StaticBody3D" parent="."]
+position = Vector3(3, -11, -8)
+script = ExtResource("panel")
+panel_id = 101
+chunk_id = 0
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P101"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P101"]
+shape = SubResource("Shape1")
+[node name="P102" type="StaticBody3D" parent="."]
+position = Vector3(5, -11, -8)
+script = ExtResource("panel")
+panel_id = 102
+chunk_id = 0
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P102"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P102"]
+shape = SubResource("Shape1")
+[node name="P103" type="StaticBody3D" parent="."]
+position = Vector3(7, -11, -8)
+script = ExtResource("panel")
+panel_id = 103
+chunk_id = 0
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P103"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P103"]
+shape = SubResource("Shape1")
+[node name="P104" type="StaticBody3D" parent="."]
+position = Vector3(-7, -9, -8)
+script = ExtResource("panel")
+panel_id = 104
+chunk_id = 0
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P104"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P104"]
+shape = SubResource("Shape1")
+[node name="P105" type="StaticBody3D" parent="."]
+position = Vector3(-5, -9, -8)
+script = ExtResource("panel")
+panel_id = 105
+chunk_id = 0
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P105"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P105"]
+shape = SubResource("Shape1")
+[node name="P106" type="StaticBody3D" parent="."]
+position = Vector3(-3, -9, -8)
+script = ExtResource("panel")
+panel_id = 106
+chunk_id = 0
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P106"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P106"]
+shape = SubResource("Shape1")
+[node name="P107" type="StaticBody3D" parent="."]
+position = Vector3(-1, -9, -8)
+script = ExtResource("panel")
+panel_id = 107
+chunk_id = 0
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P107"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P107"]
+shape = SubResource("Shape1")
+[node name="P108" type="StaticBody3D" parent="."]
+position = Vector3(1, -9, -8)
+script = ExtResource("panel")
+panel_id = 108
+chunk_id = 0
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P108"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P108"]
+shape = SubResource("Shape1")
+[node name="P109" type="StaticBody3D" parent="."]
+position = Vector3(3, -9, -8)
+script = ExtResource("panel")
+panel_id = 109
+chunk_id = 0
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P109"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P109"]
+shape = SubResource("Shape1")
+[node name="P110" type="StaticBody3D" parent="."]
+position = Vector3(5, -9, -8)
+script = ExtResource("panel")
+panel_id = 110
+chunk_id = 0
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P110"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P110"]
+shape = SubResource("Shape1")
+[node name="P111" type="StaticBody3D" parent="."]
+position = Vector3(7, -9, -8)
+script = ExtResource("panel")
+panel_id = 111
+chunk_id = 0
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P111"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P111"]
+shape = SubResource("Shape1")
+[node name="P112" type="StaticBody3D" parent="."]
+position = Vector3(-7, -7, -8)
+script = ExtResource("panel")
+panel_id = 112
+chunk_id = 0
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P112"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P112"]
+shape = SubResource("Shape1")
+[node name="P113" type="StaticBody3D" parent="."]
+position = Vector3(-5, -7, -8)
+script = ExtResource("panel")
+panel_id = 113
+chunk_id = 0
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P113"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P113"]
+shape = SubResource("Shape1")
+[node name="P114" type="StaticBody3D" parent="."]
+position = Vector3(-3, -7, -8)
+script = ExtResource("panel")
+panel_id = 114
+chunk_id = 0
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P114"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P114"]
+shape = SubResource("Shape1")
+[node name="P115" type="StaticBody3D" parent="."]
+position = Vector3(-1, -7, -8)
+script = ExtResource("panel")
+panel_id = 115
+chunk_id = 0
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P115"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P115"]
+shape = SubResource("Shape1")
+[node name="P116" type="StaticBody3D" parent="."]
+position = Vector3(1, -7, -8)
+script = ExtResource("panel")
+panel_id = 116
+chunk_id = 0
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P116"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P116"]
+shape = SubResource("Shape1")
+[node name="P117" type="StaticBody3D" parent="."]
+position = Vector3(3, -7, -8)
+script = ExtResource("panel")
+panel_id = 117
+chunk_id = 0
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P117"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P117"]
+shape = SubResource("Shape1")
+[node name="P118" type="StaticBody3D" parent="."]
+position = Vector3(5, -7, -8)
+script = ExtResource("panel")
+panel_id = 118
+chunk_id = 0
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P118"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P118"]
+shape = SubResource("Shape1")
+[node name="P119" type="StaticBody3D" parent="."]
+position = Vector3(7, -7, -8)
+script = ExtResource("panel")
+panel_id = 119
+chunk_id = 0
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P119"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P119"]
+shape = SubResource("Shape1")
+[node name="P120" type="StaticBody3D" parent="."]
+position = Vector3(-7, -5, -8)
+script = ExtResource("panel")
+panel_id = 120
+chunk_id = 1
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P120"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P120"]
+shape = SubResource("Shape1")
+[node name="P121" type="StaticBody3D" parent="."]
+position = Vector3(-5, -5, -8)
+script = ExtResource("panel")
+panel_id = 121
+chunk_id = 1
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P121"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P121"]
+shape = SubResource("Shape1")
+[node name="P122" type="StaticBody3D" parent="."]
+position = Vector3(-3, -5, -8)
+script = ExtResource("panel")
+panel_id = 122
+chunk_id = 1
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P122"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P122"]
+shape = SubResource("Shape1")
+[node name="P123" type="StaticBody3D" parent="."]
+position = Vector3(-1, -5, -8)
+script = ExtResource("panel")
+panel_id = 123
+chunk_id = 1
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P123"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P123"]
+shape = SubResource("Shape1")
+[node name="P124" type="StaticBody3D" parent="."]
+position = Vector3(1, -5, -8)
+script = ExtResource("panel")
+panel_id = 124
+chunk_id = 1
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P124"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P124"]
+shape = SubResource("Shape1")
+[node name="P125" type="StaticBody3D" parent="."]
+position = Vector3(3, -5, -8)
+script = ExtResource("panel")
+panel_id = 125
+chunk_id = 1
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P125"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P125"]
+shape = SubResource("Shape1")
+[node name="P126" type="StaticBody3D" parent="."]
+position = Vector3(5, -5, -8)
+script = ExtResource("panel")
+panel_id = 126
+chunk_id = 1
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P126"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P126"]
+shape = SubResource("Shape1")
+[node name="P127" type="StaticBody3D" parent="."]
+position = Vector3(7, -5, -8)
+script = ExtResource("panel")
+panel_id = 127
+chunk_id = 1
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P127"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P127"]
+shape = SubResource("Shape1")
+[node name="P128" type="StaticBody3D" parent="."]
+position = Vector3(-7, -3, -8)
+script = ExtResource("panel")
+panel_id = 128
+chunk_id = 1
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P128"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P128"]
+shape = SubResource("Shape1")
+[node name="P129" type="StaticBody3D" parent="."]
+position = Vector3(-5, -3, -8)
+script = ExtResource("panel")
+panel_id = 129
+chunk_id = 1
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P129"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P129"]
+shape = SubResource("Shape1")
+[node name="P130" type="StaticBody3D" parent="."]
+position = Vector3(-3, -3, -8)
+script = ExtResource("panel")
+panel_id = 130
+chunk_id = 1
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P130"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P130"]
+shape = SubResource("Shape1")
+[node name="P131" type="StaticBody3D" parent="."]
+position = Vector3(-1, -3, -8)
+script = ExtResource("panel")
+panel_id = 131
+chunk_id = 1
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P131"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P131"]
+shape = SubResource("Shape1")
+[node name="P132" type="StaticBody3D" parent="."]
+position = Vector3(1, -3, -8)
+script = ExtResource("panel")
+panel_id = 132
+chunk_id = 1
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P132"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P132"]
+shape = SubResource("Shape1")
+[node name="P133" type="StaticBody3D" parent="."]
+position = Vector3(3, -3, -8)
+script = ExtResource("panel")
+panel_id = 133
+chunk_id = 1
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P133"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P133"]
+shape = SubResource("Shape1")
+[node name="P134" type="StaticBody3D" parent="."]
+position = Vector3(5, -3, -8)
+script = ExtResource("panel")
+panel_id = 134
+chunk_id = 1
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P134"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P134"]
+shape = SubResource("Shape1")
+[node name="P135" type="StaticBody3D" parent="."]
+position = Vector3(7, -3, -8)
+script = ExtResource("panel")
+panel_id = 135
+chunk_id = 1
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P135"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P135"]
+shape = SubResource("Shape1")
+[node name="P136" type="StaticBody3D" parent="."]
+position = Vector3(-7, -1, -8)
+script = ExtResource("panel")
+panel_id = 136
+chunk_id = 1
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P136"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P136"]
+shape = SubResource("Shape1")
+[node name="P137" type="StaticBody3D" parent="."]
+position = Vector3(-5, -1, -8)
+script = ExtResource("panel")
+panel_id = 137
+chunk_id = 1
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P137"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P137"]
+shape = SubResource("Shape1")
+[node name="P138" type="StaticBody3D" parent="."]
+position = Vector3(-3, -1, -8)
+script = ExtResource("panel")
+panel_id = 138
+chunk_id = 1
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P138"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P138"]
+shape = SubResource("Shape1")
+[node name="P139" type="StaticBody3D" parent="."]
+position = Vector3(-1, -1, -8)
+script = ExtResource("panel")
+panel_id = 139
+chunk_id = 1
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P139"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P139"]
+shape = SubResource("Shape1")
+[node name="P140" type="StaticBody3D" parent="."]
+position = Vector3(1, -1, -8)
+script = ExtResource("panel")
+panel_id = 140
+chunk_id = 1
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P140"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P140"]
+shape = SubResource("Shape1")
+[node name="P141" type="StaticBody3D" parent="."]
+position = Vector3(3, -1, -8)
+script = ExtResource("panel")
+panel_id = 141
+chunk_id = 1
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P141"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P141"]
+shape = SubResource("Shape1")
+[node name="P142" type="StaticBody3D" parent="."]
+position = Vector3(5, -1, -8)
+script = ExtResource("panel")
+panel_id = 142
+chunk_id = 1
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P142"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P142"]
+shape = SubResource("Shape1")
+[node name="P143" type="StaticBody3D" parent="."]
+position = Vector3(7, -1, -8)
+script = ExtResource("panel")
+panel_id = 143
+chunk_id = 1
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P143"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P143"]
+shape = SubResource("Shape1")
+[node name="P144" type="StaticBody3D" parent="."]
+position = Vector3(-7, 1, -8)
+script = ExtResource("panel")
+panel_id = 144
+chunk_id = 2
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P144"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P144"]
+shape = SubResource("Shape1")
+[node name="P145" type="StaticBody3D" parent="."]
+position = Vector3(-5, 1, -8)
+script = ExtResource("panel")
+panel_id = 145
+chunk_id = 2
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P145"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P145"]
+shape = SubResource("Shape1")
+[node name="P146" type="StaticBody3D" parent="."]
+position = Vector3(-3, 1, -8)
+script = ExtResource("panel")
+panel_id = 146
+chunk_id = 2
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P146"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P146"]
+shape = SubResource("Shape1")
+[node name="P147" type="StaticBody3D" parent="."]
+position = Vector3(-1, 1, -8)
+script = ExtResource("panel")
+panel_id = 147
+chunk_id = 2
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P147"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P147"]
+shape = SubResource("Shape1")
+[node name="P148" type="StaticBody3D" parent="."]
+position = Vector3(1, 1, -8)
+script = ExtResource("panel")
+panel_id = 148
+chunk_id = 2
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P148"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P148"]
+shape = SubResource("Shape1")
+[node name="P149" type="StaticBody3D" parent="."]
+position = Vector3(3, 1, -8)
+script = ExtResource("panel")
+panel_id = 149
+chunk_id = 2
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P149"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P149"]
+shape = SubResource("Shape1")
+[node name="P150" type="StaticBody3D" parent="."]
+position = Vector3(5, 1, -8)
+script = ExtResource("panel")
+panel_id = 150
+chunk_id = 2
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P150"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P150"]
+shape = SubResource("Shape1")
+[node name="P151" type="StaticBody3D" parent="."]
+position = Vector3(7, 1, -8)
+script = ExtResource("panel")
+panel_id = 151
+chunk_id = 2
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P151"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P151"]
+shape = SubResource("Shape1")
+[node name="P152" type="StaticBody3D" parent="."]
+position = Vector3(-7, 3, -8)
+script = ExtResource("panel")
+panel_id = 152
+chunk_id = 2
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P152"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P152"]
+shape = SubResource("Shape1")
+[node name="P153" type="StaticBody3D" parent="."]
+position = Vector3(-5, 3, -8)
+script = ExtResource("panel")
+panel_id = 153
+chunk_id = 2
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P153"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P153"]
+shape = SubResource("Shape1")
+[node name="P154" type="StaticBody3D" parent="."]
+position = Vector3(-3, 3, -8)
+script = ExtResource("panel")
+panel_id = 154
+chunk_id = 2
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P154"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P154"]
+shape = SubResource("Shape1")
+[node name="P155" type="StaticBody3D" parent="."]
+position = Vector3(-1, 3, -8)
+script = ExtResource("panel")
+panel_id = 155
+chunk_id = 2
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P155"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P155"]
+shape = SubResource("Shape1")
+[node name="P156" type="StaticBody3D" parent="."]
+position = Vector3(1, 3, -8)
+script = ExtResource("panel")
+panel_id = 156
+chunk_id = 2
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P156"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P156"]
+shape = SubResource("Shape1")
+[node name="P157" type="StaticBody3D" parent="."]
+position = Vector3(3, 3, -8)
+script = ExtResource("panel")
+panel_id = 157
+chunk_id = 2
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P157"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P157"]
+shape = SubResource("Shape1")
+[node name="P158" type="StaticBody3D" parent="."]
+position = Vector3(5, 3, -8)
+script = ExtResource("panel")
+panel_id = 158
+chunk_id = 2
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P158"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P158"]
+shape = SubResource("Shape1")
+[node name="P159" type="StaticBody3D" parent="."]
+position = Vector3(7, 3, -8)
+script = ExtResource("panel")
+panel_id = 159
+chunk_id = 2
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P159"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P159"]
+shape = SubResource("Shape1")
+[node name="P160" type="StaticBody3D" parent="."]
+position = Vector3(-7, 5, -8)
+script = ExtResource("panel")
+panel_id = 160
+chunk_id = 2
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P160"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P160"]
+shape = SubResource("Shape1")
+[node name="P161" type="StaticBody3D" parent="."]
+position = Vector3(-5, 5, -8)
+script = ExtResource("panel")
+panel_id = 161
+chunk_id = 2
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P161"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P161"]
+shape = SubResource("Shape1")
+[node name="P162" type="StaticBody3D" parent="."]
+position = Vector3(-3, 5, -8)
+script = ExtResource("panel")
+panel_id = 162
+chunk_id = 2
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P162"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P162"]
+shape = SubResource("Shape1")
+[node name="P163" type="StaticBody3D" parent="."]
+position = Vector3(-1, 5, -8)
+script = ExtResource("panel")
+panel_id = 163
+chunk_id = 2
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P163"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P163"]
+shape = SubResource("Shape1")
+[node name="P164" type="StaticBody3D" parent="."]
+position = Vector3(1, 5, -8)
+script = ExtResource("panel")
+panel_id = 164
+chunk_id = 2
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P164"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P164"]
+shape = SubResource("Shape1")
+[node name="P165" type="StaticBody3D" parent="."]
+position = Vector3(3, 5, -8)
+script = ExtResource("panel")
+panel_id = 165
+chunk_id = 2
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P165"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P165"]
+shape = SubResource("Shape1")
+[node name="P166" type="StaticBody3D" parent="."]
+position = Vector3(5, 5, -8)
+script = ExtResource("panel")
+panel_id = 166
+chunk_id = 2
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P166"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P166"]
+shape = SubResource("Shape1")
+[node name="P167" type="StaticBody3D" parent="."]
+position = Vector3(7, 5, -8)
+script = ExtResource("panel")
+panel_id = 167
+chunk_id = 2
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P167"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P167"]
+shape = SubResource("Shape1")
+[node name="P168" type="StaticBody3D" parent="."]
+position = Vector3(-7, 7, -8)
+script = ExtResource("panel")
+panel_id = 168
+chunk_id = 3
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P168"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P168"]
+shape = SubResource("Shape1")
+[node name="P169" type="StaticBody3D" parent="."]
+position = Vector3(-5, 7, -8)
+script = ExtResource("panel")
+panel_id = 169
+chunk_id = 3
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P169"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P169"]
+shape = SubResource("Shape1")
+[node name="P170" type="StaticBody3D" parent="."]
+position = Vector3(-3, 7, -8)
+script = ExtResource("panel")
+panel_id = 170
+chunk_id = 3
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P170"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P170"]
+shape = SubResource("Shape1")
+[node name="P171" type="StaticBody3D" parent="."]
+position = Vector3(-1, 7, -8)
+script = ExtResource("panel")
+panel_id = 171
+chunk_id = 3
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P171"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P171"]
+shape = SubResource("Shape1")
+[node name="P172" type="StaticBody3D" parent="."]
+position = Vector3(1, 7, -8)
+script = ExtResource("panel")
+panel_id = 172
+chunk_id = 3
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P172"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P172"]
+shape = SubResource("Shape1")
+[node name="P173" type="StaticBody3D" parent="."]
+position = Vector3(3, 7, -8)
+script = ExtResource("panel")
+panel_id = 173
+chunk_id = 3
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P173"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P173"]
+shape = SubResource("Shape1")
+[node name="P174" type="StaticBody3D" parent="."]
+position = Vector3(5, 7, -8)
+script = ExtResource("panel")
+panel_id = 174
+chunk_id = 3
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P174"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P174"]
+shape = SubResource("Shape1")
+[node name="P175" type="StaticBody3D" parent="."]
+position = Vector3(7, 7, -8)
+script = ExtResource("panel")
+panel_id = 175
+chunk_id = 3
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P175"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P175"]
+shape = SubResource("Shape1")
+[node name="P176" type="StaticBody3D" parent="."]
+position = Vector3(-7, 9, -8)
+script = ExtResource("panel")
+panel_id = 176
+chunk_id = 3
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P176"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P176"]
+shape = SubResource("Shape1")
+[node name="P177" type="StaticBody3D" parent="."]
+position = Vector3(-5, 9, -8)
+script = ExtResource("panel")
+panel_id = 177
+chunk_id = 3
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P177"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P177"]
+shape = SubResource("Shape1")
+[node name="P178" type="StaticBody3D" parent="."]
+position = Vector3(-3, 9, -8)
+script = ExtResource("panel")
+panel_id = 178
+chunk_id = 3
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P178"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P178"]
+shape = SubResource("Shape1")
+[node name="P179" type="StaticBody3D" parent="."]
+position = Vector3(-1, 9, -8)
+script = ExtResource("panel")
+panel_id = 179
+chunk_id = 3
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P179"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P179"]
+shape = SubResource("Shape1")
+[node name="P180" type="StaticBody3D" parent="."]
+position = Vector3(1, 9, -8)
+script = ExtResource("panel")
+panel_id = 180
+chunk_id = 3
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P180"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P180"]
+shape = SubResource("Shape1")
+[node name="P181" type="StaticBody3D" parent="."]
+position = Vector3(3, 9, -8)
+script = ExtResource("panel")
+panel_id = 181
+chunk_id = 3
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P181"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P181"]
+shape = SubResource("Shape1")
+[node name="P182" type="StaticBody3D" parent="."]
+position = Vector3(5, 9, -8)
+script = ExtResource("panel")
+panel_id = 182
+chunk_id = 3
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P182"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P182"]
+shape = SubResource("Shape1")
+[node name="P183" type="StaticBody3D" parent="."]
+position = Vector3(7, 9, -8)
+script = ExtResource("panel")
+panel_id = 183
+chunk_id = 3
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P183"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P183"]
+shape = SubResource("Shape1")
+[node name="P184" type="StaticBody3D" parent="."]
+position = Vector3(-7, 11, -8)
+script = ExtResource("panel")
+panel_id = 184
+chunk_id = 3
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P184"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P184"]
+shape = SubResource("Shape1")
+[node name="P185" type="StaticBody3D" parent="."]
+position = Vector3(-5, 11, -8)
+script = ExtResource("panel")
+panel_id = 185
+chunk_id = 3
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P185"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P185"]
+shape = SubResource("Shape1")
+[node name="P186" type="StaticBody3D" parent="."]
+position = Vector3(-3, 11, -8)
+script = ExtResource("panel")
+panel_id = 186
+chunk_id = 3
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P186"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P186"]
+shape = SubResource("Shape1")
+[node name="P187" type="StaticBody3D" parent="."]
+position = Vector3(-1, 11, -8)
+script = ExtResource("panel")
+panel_id = 187
+chunk_id = 3
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P187"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P187"]
+shape = SubResource("Shape1")
+[node name="P188" type="StaticBody3D" parent="."]
+position = Vector3(1, 11, -8)
+script = ExtResource("panel")
+panel_id = 188
+chunk_id = 3
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P188"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P188"]
+shape = SubResource("Shape1")
+[node name="P189" type="StaticBody3D" parent="."]
+position = Vector3(3, 11, -8)
+script = ExtResource("panel")
+panel_id = 189
+chunk_id = 3
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P189"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P189"]
+shape = SubResource("Shape1")
+[node name="P190" type="StaticBody3D" parent="."]
+position = Vector3(5, 11, -8)
+script = ExtResource("panel")
+panel_id = 190
+chunk_id = 3
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P190"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P190"]
+shape = SubResource("Shape1")
+[node name="P191" type="StaticBody3D" parent="."]
+position = Vector3(7, 11, -8)
+script = ExtResource("panel")
+panel_id = 191
+chunk_id = 3
+face_normal = Vector3(0, 0, -1)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-1.0, -1.0, -0.4, 2, 2, 0.8)
+[node name="IntactVisual" type="MeshInstance3D" parent="P191"]
+mesh = SubResource("Mesh1")
+[node name="Collision" type="CollisionShape3D" parent="P191"]
+shape = SubResource("Shape1")
+[node name="P192" type="StaticBody3D" parent="."]
+position = Vector3(8, -11, -7)
+script = ExtResource("panel")
+panel_id = 192
+chunk_id = 0
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P192"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P192"]
+shape = SubResource("Shape2")
+[node name="P193" type="StaticBody3D" parent="."]
+position = Vector3(8, -11, -5)
+script = ExtResource("panel")
+panel_id = 193
+chunk_id = 0
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P193"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P193"]
+shape = SubResource("Shape2")
+[node name="P194" type="StaticBody3D" parent="."]
+position = Vector3(8, -11, -3)
+script = ExtResource("panel")
+panel_id = 194
+chunk_id = 0
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P194"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P194"]
+shape = SubResource("Shape2")
+[node name="P195" type="StaticBody3D" parent="."]
+position = Vector3(8, -11, -1)
+script = ExtResource("panel")
+panel_id = 195
+chunk_id = 0
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P195"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P195"]
+shape = SubResource("Shape2")
+[node name="P196" type="StaticBody3D" parent="."]
+position = Vector3(8, -11, 1)
+script = ExtResource("panel")
+panel_id = 196
+chunk_id = 0
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P196"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P196"]
+shape = SubResource("Shape2")
+[node name="P197" type="StaticBody3D" parent="."]
+position = Vector3(8, -11, 3)
+script = ExtResource("panel")
+panel_id = 197
+chunk_id = 0
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P197"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P197"]
+shape = SubResource("Shape2")
+[node name="P198" type="StaticBody3D" parent="."]
+position = Vector3(8, -11, 5)
+script = ExtResource("panel")
+panel_id = 198
+chunk_id = 0
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P198"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P198"]
+shape = SubResource("Shape2")
+[node name="P199" type="StaticBody3D" parent="."]
+position = Vector3(8, -11, 7)
+script = ExtResource("panel")
+panel_id = 199
+chunk_id = 0
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P199"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P199"]
+shape = SubResource("Shape2")
+[node name="P200" type="StaticBody3D" parent="."]
+position = Vector3(8, -9, -7)
+script = ExtResource("panel")
+panel_id = 200
+chunk_id = 0
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P200"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P200"]
+shape = SubResource("Shape2")
+[node name="P201" type="StaticBody3D" parent="."]
+position = Vector3(8, -9, -5)
+script = ExtResource("panel")
+panel_id = 201
+chunk_id = 0
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P201"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P201"]
+shape = SubResource("Shape2")
+[node name="P202" type="StaticBody3D" parent="."]
+position = Vector3(8, -9, -3)
+script = ExtResource("panel")
+panel_id = 202
+chunk_id = 0
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P202"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P202"]
+shape = SubResource("Shape2")
+[node name="P203" type="StaticBody3D" parent="."]
+position = Vector3(8, -9, -1)
+script = ExtResource("panel")
+panel_id = 203
+chunk_id = 0
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P203"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P203"]
+shape = SubResource("Shape2")
+[node name="P204" type="StaticBody3D" parent="."]
+position = Vector3(8, -9, 1)
+script = ExtResource("panel")
+panel_id = 204
+chunk_id = 0
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P204"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P204"]
+shape = SubResource("Shape2")
+[node name="P205" type="StaticBody3D" parent="."]
+position = Vector3(8, -9, 3)
+script = ExtResource("panel")
+panel_id = 205
+chunk_id = 0
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P205"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P205"]
+shape = SubResource("Shape2")
+[node name="P206" type="StaticBody3D" parent="."]
+position = Vector3(8, -9, 5)
+script = ExtResource("panel")
+panel_id = 206
+chunk_id = 0
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P206"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P206"]
+shape = SubResource("Shape2")
+[node name="P207" type="StaticBody3D" parent="."]
+position = Vector3(8, -9, 7)
+script = ExtResource("panel")
+panel_id = 207
+chunk_id = 0
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P207"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P207"]
+shape = SubResource("Shape2")
+[node name="P208" type="StaticBody3D" parent="."]
+position = Vector3(8, -7, -7)
+script = ExtResource("panel")
+panel_id = 208
+chunk_id = 0
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P208"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P208"]
+shape = SubResource("Shape2")
+[node name="P209" type="StaticBody3D" parent="."]
+position = Vector3(8, -7, -5)
+script = ExtResource("panel")
+panel_id = 209
+chunk_id = 0
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P209"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P209"]
+shape = SubResource("Shape2")
+[node name="P210" type="StaticBody3D" parent="."]
+position = Vector3(8, -7, -3)
+script = ExtResource("panel")
+panel_id = 210
+chunk_id = 0
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P210"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P210"]
+shape = SubResource("Shape2")
+[node name="P211" type="StaticBody3D" parent="."]
+position = Vector3(8, -7, -1)
+script = ExtResource("panel")
+panel_id = 211
+chunk_id = 0
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P211"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P211"]
+shape = SubResource("Shape2")
+[node name="P212" type="StaticBody3D" parent="."]
+position = Vector3(8, -7, 1)
+script = ExtResource("panel")
+panel_id = 212
+chunk_id = 0
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P212"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P212"]
+shape = SubResource("Shape2")
+[node name="P213" type="StaticBody3D" parent="."]
+position = Vector3(8, -7, 3)
+script = ExtResource("panel")
+panel_id = 213
+chunk_id = 0
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P213"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P213"]
+shape = SubResource("Shape2")
+[node name="P214" type="StaticBody3D" parent="."]
+position = Vector3(8, -7, 5)
+script = ExtResource("panel")
+panel_id = 214
+chunk_id = 0
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P214"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P214"]
+shape = SubResource("Shape2")
+[node name="P215" type="StaticBody3D" parent="."]
+position = Vector3(8, -7, 7)
+script = ExtResource("panel")
+panel_id = 215
+chunk_id = 0
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P215"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P215"]
+shape = SubResource("Shape2")
+[node name="P216" type="StaticBody3D" parent="."]
+position = Vector3(8, -5, -7)
+script = ExtResource("panel")
+panel_id = 216
+chunk_id = 1
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P216"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P216"]
+shape = SubResource("Shape2")
+[node name="P217" type="StaticBody3D" parent="."]
+position = Vector3(8, -5, -5)
+script = ExtResource("panel")
+panel_id = 217
+chunk_id = 1
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P217"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P217"]
+shape = SubResource("Shape2")
+[node name="P218" type="StaticBody3D" parent="."]
+position = Vector3(8, -5, -3)
+script = ExtResource("panel")
+panel_id = 218
+chunk_id = 1
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P218"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P218"]
+shape = SubResource("Shape2")
+[node name="P219" type="StaticBody3D" parent="."]
+position = Vector3(8, -5, -1)
+script = ExtResource("panel")
+panel_id = 219
+chunk_id = 1
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P219"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P219"]
+shape = SubResource("Shape2")
+[node name="P220" type="StaticBody3D" parent="."]
+position = Vector3(8, -5, 1)
+script = ExtResource("panel")
+panel_id = 220
+chunk_id = 1
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P220"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P220"]
+shape = SubResource("Shape2")
+[node name="P221" type="StaticBody3D" parent="."]
+position = Vector3(8, -5, 3)
+script = ExtResource("panel")
+panel_id = 221
+chunk_id = 1
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P221"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P221"]
+shape = SubResource("Shape2")
+[node name="P222" type="StaticBody3D" parent="."]
+position = Vector3(8, -5, 5)
+script = ExtResource("panel")
+panel_id = 222
+chunk_id = 1
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P222"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P222"]
+shape = SubResource("Shape2")
+[node name="P223" type="StaticBody3D" parent="."]
+position = Vector3(8, -5, 7)
+script = ExtResource("panel")
+panel_id = 223
+chunk_id = 1
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P223"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P223"]
+shape = SubResource("Shape2")
+[node name="P224" type="StaticBody3D" parent="."]
+position = Vector3(8, -3, -7)
+script = ExtResource("panel")
+panel_id = 224
+chunk_id = 1
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P224"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P224"]
+shape = SubResource("Shape2")
+[node name="P225" type="StaticBody3D" parent="."]
+position = Vector3(8, -3, -5)
+script = ExtResource("panel")
+panel_id = 225
+chunk_id = 1
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P225"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P225"]
+shape = SubResource("Shape2")
+[node name="P226" type="StaticBody3D" parent="."]
+position = Vector3(8, -3, -3)
+script = ExtResource("panel")
+panel_id = 226
+chunk_id = 1
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P226"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P226"]
+shape = SubResource("Shape2")
+[node name="P227" type="StaticBody3D" parent="."]
+position = Vector3(8, -3, -1)
+script = ExtResource("panel")
+panel_id = 227
+chunk_id = 1
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P227"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P227"]
+shape = SubResource("Shape2")
+[node name="P228" type="StaticBody3D" parent="."]
+position = Vector3(8, -3, 1)
+script = ExtResource("panel")
+panel_id = 228
+chunk_id = 1
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P228"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P228"]
+shape = SubResource("Shape2")
+[node name="P229" type="StaticBody3D" parent="."]
+position = Vector3(8, -3, 3)
+script = ExtResource("panel")
+panel_id = 229
+chunk_id = 1
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P229"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P229"]
+shape = SubResource("Shape2")
+[node name="P230" type="StaticBody3D" parent="."]
+position = Vector3(8, -3, 5)
+script = ExtResource("panel")
+panel_id = 230
+chunk_id = 1
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P230"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P230"]
+shape = SubResource("Shape2")
+[node name="P231" type="StaticBody3D" parent="."]
+position = Vector3(8, -3, 7)
+script = ExtResource("panel")
+panel_id = 231
+chunk_id = 1
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P231"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P231"]
+shape = SubResource("Shape2")
+[node name="P232" type="StaticBody3D" parent="."]
+position = Vector3(8, -1, -7)
+script = ExtResource("panel")
+panel_id = 232
+chunk_id = 1
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P232"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P232"]
+shape = SubResource("Shape2")
+[node name="P233" type="StaticBody3D" parent="."]
+position = Vector3(8, -1, -5)
+script = ExtResource("panel")
+panel_id = 233
+chunk_id = 1
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P233"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P233"]
+shape = SubResource("Shape2")
+[node name="P234" type="StaticBody3D" parent="."]
+position = Vector3(8, -1, -3)
+script = ExtResource("panel")
+panel_id = 234
+chunk_id = 1
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P234"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P234"]
+shape = SubResource("Shape2")
+[node name="P235" type="StaticBody3D" parent="."]
+position = Vector3(8, -1, -1)
+script = ExtResource("panel")
+panel_id = 235
+chunk_id = 1
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P235"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P235"]
+shape = SubResource("Shape2")
+[node name="P236" type="StaticBody3D" parent="."]
+position = Vector3(8, -1, 1)
+script = ExtResource("panel")
+panel_id = 236
+chunk_id = 1
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P236"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P236"]
+shape = SubResource("Shape2")
+[node name="P237" type="StaticBody3D" parent="."]
+position = Vector3(8, -1, 3)
+script = ExtResource("panel")
+panel_id = 237
+chunk_id = 1
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P237"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P237"]
+shape = SubResource("Shape2")
+[node name="P238" type="StaticBody3D" parent="."]
+position = Vector3(8, -1, 5)
+script = ExtResource("panel")
+panel_id = 238
+chunk_id = 1
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P238"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P238"]
+shape = SubResource("Shape2")
+[node name="P239" type="StaticBody3D" parent="."]
+position = Vector3(8, -1, 7)
+script = ExtResource("panel")
+panel_id = 239
+chunk_id = 1
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P239"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P239"]
+shape = SubResource("Shape2")
+[node name="P240" type="StaticBody3D" parent="."]
+position = Vector3(8, 1, -7)
+script = ExtResource("panel")
+panel_id = 240
+chunk_id = 2
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P240"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P240"]
+shape = SubResource("Shape2")
+[node name="P241" type="StaticBody3D" parent="."]
+position = Vector3(8, 1, -5)
+script = ExtResource("panel")
+panel_id = 241
+chunk_id = 2
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P241"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P241"]
+shape = SubResource("Shape2")
+[node name="P242" type="StaticBody3D" parent="."]
+position = Vector3(8, 1, -3)
+script = ExtResource("panel")
+panel_id = 242
+chunk_id = 2
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P242"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P242"]
+shape = SubResource("Shape2")
+[node name="P243" type="StaticBody3D" parent="."]
+position = Vector3(8, 1, -1)
+script = ExtResource("panel")
+panel_id = 243
+chunk_id = 2
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P243"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P243"]
+shape = SubResource("Shape2")
+[node name="P244" type="StaticBody3D" parent="."]
+position = Vector3(8, 1, 1)
+script = ExtResource("panel")
+panel_id = 244
+chunk_id = 2
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P244"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P244"]
+shape = SubResource("Shape2")
+[node name="P245" type="StaticBody3D" parent="."]
+position = Vector3(8, 1, 3)
+script = ExtResource("panel")
+panel_id = 245
+chunk_id = 2
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P245"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P245"]
+shape = SubResource("Shape2")
+[node name="P246" type="StaticBody3D" parent="."]
+position = Vector3(8, 1, 5)
+script = ExtResource("panel")
+panel_id = 246
+chunk_id = 2
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P246"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P246"]
+shape = SubResource("Shape2")
+[node name="P247" type="StaticBody3D" parent="."]
+position = Vector3(8, 1, 7)
+script = ExtResource("panel")
+panel_id = 247
+chunk_id = 2
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P247"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P247"]
+shape = SubResource("Shape2")
+[node name="P248" type="StaticBody3D" parent="."]
+position = Vector3(8, 3, -7)
+script = ExtResource("panel")
+panel_id = 248
+chunk_id = 2
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P248"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P248"]
+shape = SubResource("Shape2")
+[node name="P249" type="StaticBody3D" parent="."]
+position = Vector3(8, 3, -5)
+script = ExtResource("panel")
+panel_id = 249
+chunk_id = 2
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P249"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P249"]
+shape = SubResource("Shape2")
+[node name="P250" type="StaticBody3D" parent="."]
+position = Vector3(8, 3, -3)
+script = ExtResource("panel")
+panel_id = 250
+chunk_id = 2
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P250"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P250"]
+shape = SubResource("Shape2")
+[node name="P251" type="StaticBody3D" parent="."]
+position = Vector3(8, 3, -1)
+script = ExtResource("panel")
+panel_id = 251
+chunk_id = 2
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P251"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P251"]
+shape = SubResource("Shape2")
+[node name="P252" type="StaticBody3D" parent="."]
+position = Vector3(8, 3, 1)
+script = ExtResource("panel")
+panel_id = 252
+chunk_id = 2
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P252"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P252"]
+shape = SubResource("Shape2")
+[node name="P253" type="StaticBody3D" parent="."]
+position = Vector3(8, 3, 3)
+script = ExtResource("panel")
+panel_id = 253
+chunk_id = 2
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P253"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P253"]
+shape = SubResource("Shape2")
+[node name="P254" type="StaticBody3D" parent="."]
+position = Vector3(8, 3, 5)
+script = ExtResource("panel")
+panel_id = 254
+chunk_id = 2
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P254"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P254"]
+shape = SubResource("Shape2")
+[node name="P255" type="StaticBody3D" parent="."]
+position = Vector3(8, 3, 7)
+script = ExtResource("panel")
+panel_id = 255
+chunk_id = 2
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P255"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P255"]
+shape = SubResource("Shape2")
+[node name="P256" type="StaticBody3D" parent="."]
+position = Vector3(8, 5, -7)
+script = ExtResource("panel")
+panel_id = 256
+chunk_id = 2
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P256"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P256"]
+shape = SubResource("Shape2")
+[node name="P257" type="StaticBody3D" parent="."]
+position = Vector3(8, 5, -5)
+script = ExtResource("panel")
+panel_id = 257
+chunk_id = 2
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P257"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P257"]
+shape = SubResource("Shape2")
+[node name="P258" type="StaticBody3D" parent="."]
+position = Vector3(8, 5, -3)
+script = ExtResource("panel")
+panel_id = 258
+chunk_id = 2
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P258"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P258"]
+shape = SubResource("Shape2")
+[node name="P259" type="StaticBody3D" parent="."]
+position = Vector3(8, 5, -1)
+script = ExtResource("panel")
+panel_id = 259
+chunk_id = 2
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P259"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P259"]
+shape = SubResource("Shape2")
+[node name="P260" type="StaticBody3D" parent="."]
+position = Vector3(8, 5, 1)
+script = ExtResource("panel")
+panel_id = 260
+chunk_id = 2
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P260"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P260"]
+shape = SubResource("Shape2")
+[node name="P261" type="StaticBody3D" parent="."]
+position = Vector3(8, 5, 3)
+script = ExtResource("panel")
+panel_id = 261
+chunk_id = 2
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P261"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P261"]
+shape = SubResource("Shape2")
+[node name="P262" type="StaticBody3D" parent="."]
+position = Vector3(8, 5, 5)
+script = ExtResource("panel")
+panel_id = 262
+chunk_id = 2
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P262"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P262"]
+shape = SubResource("Shape2")
+[node name="P263" type="StaticBody3D" parent="."]
+position = Vector3(8, 5, 7)
+script = ExtResource("panel")
+panel_id = 263
+chunk_id = 2
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P263"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P263"]
+shape = SubResource("Shape2")
+[node name="P264" type="StaticBody3D" parent="."]
+position = Vector3(8, 7, -7)
+script = ExtResource("panel")
+panel_id = 264
+chunk_id = 3
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P264"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P264"]
+shape = SubResource("Shape2")
+[node name="P265" type="StaticBody3D" parent="."]
+position = Vector3(8, 7, -5)
+script = ExtResource("panel")
+panel_id = 265
+chunk_id = 3
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P265"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P265"]
+shape = SubResource("Shape2")
+[node name="P266" type="StaticBody3D" parent="."]
+position = Vector3(8, 7, -3)
+script = ExtResource("panel")
+panel_id = 266
+chunk_id = 3
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P266"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P266"]
+shape = SubResource("Shape2")
+[node name="P267" type="StaticBody3D" parent="."]
+position = Vector3(8, 7, -1)
+script = ExtResource("panel")
+panel_id = 267
+chunk_id = 3
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P267"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P267"]
+shape = SubResource("Shape2")
+[node name="P268" type="StaticBody3D" parent="."]
+position = Vector3(8, 7, 1)
+script = ExtResource("panel")
+panel_id = 268
+chunk_id = 3
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P268"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P268"]
+shape = SubResource("Shape2")
+[node name="P269" type="StaticBody3D" parent="."]
+position = Vector3(8, 7, 3)
+script = ExtResource("panel")
+panel_id = 269
+chunk_id = 3
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P269"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P269"]
+shape = SubResource("Shape2")
+[node name="P270" type="StaticBody3D" parent="."]
+position = Vector3(8, 7, 5)
+script = ExtResource("panel")
+panel_id = 270
+chunk_id = 3
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P270"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P270"]
+shape = SubResource("Shape2")
+[node name="P271" type="StaticBody3D" parent="."]
+position = Vector3(8, 7, 7)
+script = ExtResource("panel")
+panel_id = 271
+chunk_id = 3
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P271"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P271"]
+shape = SubResource("Shape2")
+[node name="P272" type="StaticBody3D" parent="."]
+position = Vector3(8, 9, -7)
+script = ExtResource("panel")
+panel_id = 272
+chunk_id = 3
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P272"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P272"]
+shape = SubResource("Shape2")
+[node name="P273" type="StaticBody3D" parent="."]
+position = Vector3(8, 9, -5)
+script = ExtResource("panel")
+panel_id = 273
+chunk_id = 3
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P273"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P273"]
+shape = SubResource("Shape2")
+[node name="P274" type="StaticBody3D" parent="."]
+position = Vector3(8, 9, -3)
+script = ExtResource("panel")
+panel_id = 274
+chunk_id = 3
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P274"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P274"]
+shape = SubResource("Shape2")
+[node name="P275" type="StaticBody3D" parent="."]
+position = Vector3(8, 9, -1)
+script = ExtResource("panel")
+panel_id = 275
+chunk_id = 3
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P275"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P275"]
+shape = SubResource("Shape2")
+[node name="P276" type="StaticBody3D" parent="."]
+position = Vector3(8, 9, 1)
+script = ExtResource("panel")
+panel_id = 276
+chunk_id = 3
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P276"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P276"]
+shape = SubResource("Shape2")
+[node name="P277" type="StaticBody3D" parent="."]
+position = Vector3(8, 9, 3)
+script = ExtResource("panel")
+panel_id = 277
+chunk_id = 3
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P277"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P277"]
+shape = SubResource("Shape2")
+[node name="P278" type="StaticBody3D" parent="."]
+position = Vector3(8, 9, 5)
+script = ExtResource("panel")
+panel_id = 278
+chunk_id = 3
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P278"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P278"]
+shape = SubResource("Shape2")
+[node name="P279" type="StaticBody3D" parent="."]
+position = Vector3(8, 9, 7)
+script = ExtResource("panel")
+panel_id = 279
+chunk_id = 3
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P279"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P279"]
+shape = SubResource("Shape2")
+[node name="P280" type="StaticBody3D" parent="."]
+position = Vector3(8, 11, -7)
+script = ExtResource("panel")
+panel_id = 280
+chunk_id = 3
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P280"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P280"]
+shape = SubResource("Shape2")
+[node name="P281" type="StaticBody3D" parent="."]
+position = Vector3(8, 11, -5)
+script = ExtResource("panel")
+panel_id = 281
+chunk_id = 3
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P281"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P281"]
+shape = SubResource("Shape2")
+[node name="P282" type="StaticBody3D" parent="."]
+position = Vector3(8, 11, -3)
+script = ExtResource("panel")
+panel_id = 282
+chunk_id = 3
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P282"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P282"]
+shape = SubResource("Shape2")
+[node name="P283" type="StaticBody3D" parent="."]
+position = Vector3(8, 11, -1)
+script = ExtResource("panel")
+panel_id = 283
+chunk_id = 3
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P283"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P283"]
+shape = SubResource("Shape2")
+[node name="P284" type="StaticBody3D" parent="."]
+position = Vector3(8, 11, 1)
+script = ExtResource("panel")
+panel_id = 284
+chunk_id = 3
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P284"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P284"]
+shape = SubResource("Shape2")
+[node name="P285" type="StaticBody3D" parent="."]
+position = Vector3(8, 11, 3)
+script = ExtResource("panel")
+panel_id = 285
+chunk_id = 3
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P285"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P285"]
+shape = SubResource("Shape2")
+[node name="P286" type="StaticBody3D" parent="."]
+position = Vector3(8, 11, 5)
+script = ExtResource("panel")
+panel_id = 286
+chunk_id = 3
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P286"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P286"]
+shape = SubResource("Shape2")
+[node name="P287" type="StaticBody3D" parent="."]
+position = Vector3(8, 11, 7)
+script = ExtResource("panel")
+panel_id = 287
+chunk_id = 3
+face_normal = Vector3(1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P287"]
+mesh = SubResource("Mesh2")
+[node name="Collision" type="CollisionShape3D" parent="P287"]
+shape = SubResource("Shape2")
+[node name="P288" type="StaticBody3D" parent="."]
+position = Vector3(-8, -11, -7)
+script = ExtResource("panel")
+panel_id = 288
+chunk_id = 0
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P288"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P288"]
+shape = SubResource("Shape3")
+[node name="P289" type="StaticBody3D" parent="."]
+position = Vector3(-8, -11, -5)
+script = ExtResource("panel")
+panel_id = 289
+chunk_id = 0
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P289"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P289"]
+shape = SubResource("Shape3")
+[node name="P290" type="StaticBody3D" parent="."]
+position = Vector3(-8, -11, -3)
+script = ExtResource("panel")
+panel_id = 290
+chunk_id = 0
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P290"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P290"]
+shape = SubResource("Shape3")
+[node name="P291" type="StaticBody3D" parent="."]
+position = Vector3(-8, -11, -1)
+script = ExtResource("panel")
+panel_id = 291
+chunk_id = 0
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P291"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P291"]
+shape = SubResource("Shape3")
+[node name="P292" type="StaticBody3D" parent="."]
+position = Vector3(-8, -11, 1)
+script = ExtResource("panel")
+panel_id = 292
+chunk_id = 0
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P292"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P292"]
+shape = SubResource("Shape3")
+[node name="P293" type="StaticBody3D" parent="."]
+position = Vector3(-8, -11, 3)
+script = ExtResource("panel")
+panel_id = 293
+chunk_id = 0
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P293"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P293"]
+shape = SubResource("Shape3")
+[node name="P294" type="StaticBody3D" parent="."]
+position = Vector3(-8, -11, 5)
+script = ExtResource("panel")
+panel_id = 294
+chunk_id = 0
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P294"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P294"]
+shape = SubResource("Shape3")
+[node name="P295" type="StaticBody3D" parent="."]
+position = Vector3(-8, -11, 7)
+script = ExtResource("panel")
+panel_id = 295
+chunk_id = 0
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P295"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P295"]
+shape = SubResource("Shape3")
+[node name="P296" type="StaticBody3D" parent="."]
+position = Vector3(-8, -9, -7)
+script = ExtResource("panel")
+panel_id = 296
+chunk_id = 0
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P296"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P296"]
+shape = SubResource("Shape3")
+[node name="P297" type="StaticBody3D" parent="."]
+position = Vector3(-8, -9, -5)
+script = ExtResource("panel")
+panel_id = 297
+chunk_id = 0
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P297"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P297"]
+shape = SubResource("Shape3")
+[node name="P298" type="StaticBody3D" parent="."]
+position = Vector3(-8, -9, -3)
+script = ExtResource("panel")
+panel_id = 298
+chunk_id = 0
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P298"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P298"]
+shape = SubResource("Shape3")
+[node name="P299" type="StaticBody3D" parent="."]
+position = Vector3(-8, -9, -1)
+script = ExtResource("panel")
+panel_id = 299
+chunk_id = 0
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P299"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P299"]
+shape = SubResource("Shape3")
+[node name="P300" type="StaticBody3D" parent="."]
+position = Vector3(-8, -9, 1)
+script = ExtResource("panel")
+panel_id = 300
+chunk_id = 0
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P300"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P300"]
+shape = SubResource("Shape3")
+[node name="P301" type="StaticBody3D" parent="."]
+position = Vector3(-8, -9, 3)
+script = ExtResource("panel")
+panel_id = 301
+chunk_id = 0
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P301"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P301"]
+shape = SubResource("Shape3")
+[node name="P302" type="StaticBody3D" parent="."]
+position = Vector3(-8, -9, 5)
+script = ExtResource("panel")
+panel_id = 302
+chunk_id = 0
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P302"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P302"]
+shape = SubResource("Shape3")
+[node name="P303" type="StaticBody3D" parent="."]
+position = Vector3(-8, -9, 7)
+script = ExtResource("panel")
+panel_id = 303
+chunk_id = 0
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P303"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P303"]
+shape = SubResource("Shape3")
+[node name="P304" type="StaticBody3D" parent="."]
+position = Vector3(-8, -7, -7)
+script = ExtResource("panel")
+panel_id = 304
+chunk_id = 0
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P304"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P304"]
+shape = SubResource("Shape3")
+[node name="P305" type="StaticBody3D" parent="."]
+position = Vector3(-8, -7, -5)
+script = ExtResource("panel")
+panel_id = 305
+chunk_id = 0
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P305"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P305"]
+shape = SubResource("Shape3")
+[node name="P306" type="StaticBody3D" parent="."]
+position = Vector3(-8, -7, -3)
+script = ExtResource("panel")
+panel_id = 306
+chunk_id = 0
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P306"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P306"]
+shape = SubResource("Shape3")
+[node name="P307" type="StaticBody3D" parent="."]
+position = Vector3(-8, -7, -1)
+script = ExtResource("panel")
+panel_id = 307
+chunk_id = 0
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P307"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P307"]
+shape = SubResource("Shape3")
+[node name="P308" type="StaticBody3D" parent="."]
+position = Vector3(-8, -7, 1)
+script = ExtResource("panel")
+panel_id = 308
+chunk_id = 0
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P308"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P308"]
+shape = SubResource("Shape3")
+[node name="P309" type="StaticBody3D" parent="."]
+position = Vector3(-8, -7, 3)
+script = ExtResource("panel")
+panel_id = 309
+chunk_id = 0
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P309"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P309"]
+shape = SubResource("Shape3")
+[node name="P310" type="StaticBody3D" parent="."]
+position = Vector3(-8, -7, 5)
+script = ExtResource("panel")
+panel_id = 310
+chunk_id = 0
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P310"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P310"]
+shape = SubResource("Shape3")
+[node name="P311" type="StaticBody3D" parent="."]
+position = Vector3(-8, -7, 7)
+script = ExtResource("panel")
+panel_id = 311
+chunk_id = 0
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P311"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P311"]
+shape = SubResource("Shape3")
+[node name="P312" type="StaticBody3D" parent="."]
+position = Vector3(-8, -5, -7)
+script = ExtResource("panel")
+panel_id = 312
+chunk_id = 1
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P312"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P312"]
+shape = SubResource("Shape3")
+[node name="P313" type="StaticBody3D" parent="."]
+position = Vector3(-8, -5, -5)
+script = ExtResource("panel")
+panel_id = 313
+chunk_id = 1
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P313"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P313"]
+shape = SubResource("Shape3")
+[node name="P314" type="StaticBody3D" parent="."]
+position = Vector3(-8, -5, -3)
+script = ExtResource("panel")
+panel_id = 314
+chunk_id = 1
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P314"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P314"]
+shape = SubResource("Shape3")
+[node name="P315" type="StaticBody3D" parent="."]
+position = Vector3(-8, -5, -1)
+script = ExtResource("panel")
+panel_id = 315
+chunk_id = 1
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P315"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P315"]
+shape = SubResource("Shape3")
+[node name="P316" type="StaticBody3D" parent="."]
+position = Vector3(-8, -5, 1)
+script = ExtResource("panel")
+panel_id = 316
+chunk_id = 1
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P316"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P316"]
+shape = SubResource("Shape3")
+[node name="P317" type="StaticBody3D" parent="."]
+position = Vector3(-8, -5, 3)
+script = ExtResource("panel")
+panel_id = 317
+chunk_id = 1
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P317"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P317"]
+shape = SubResource("Shape3")
+[node name="P318" type="StaticBody3D" parent="."]
+position = Vector3(-8, -5, 5)
+script = ExtResource("panel")
+panel_id = 318
+chunk_id = 1
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P318"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P318"]
+shape = SubResource("Shape3")
+[node name="P319" type="StaticBody3D" parent="."]
+position = Vector3(-8, -5, 7)
+script = ExtResource("panel")
+panel_id = 319
+chunk_id = 1
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P319"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P319"]
+shape = SubResource("Shape3")
+[node name="P320" type="StaticBody3D" parent="."]
+position = Vector3(-8, -3, -7)
+script = ExtResource("panel")
+panel_id = 320
+chunk_id = 1
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P320"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P320"]
+shape = SubResource("Shape3")
+[node name="P321" type="StaticBody3D" parent="."]
+position = Vector3(-8, -3, -5)
+script = ExtResource("panel")
+panel_id = 321
+chunk_id = 1
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P321"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P321"]
+shape = SubResource("Shape3")
+[node name="P322" type="StaticBody3D" parent="."]
+position = Vector3(-8, -3, -3)
+script = ExtResource("panel")
+panel_id = 322
+chunk_id = 1
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P322"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P322"]
+shape = SubResource("Shape3")
+[node name="P323" type="StaticBody3D" parent="."]
+position = Vector3(-8, -3, -1)
+script = ExtResource("panel")
+panel_id = 323
+chunk_id = 1
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P323"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P323"]
+shape = SubResource("Shape3")
+[node name="P324" type="StaticBody3D" parent="."]
+position = Vector3(-8, -3, 1)
+script = ExtResource("panel")
+panel_id = 324
+chunk_id = 1
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P324"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P324"]
+shape = SubResource("Shape3")
+[node name="P325" type="StaticBody3D" parent="."]
+position = Vector3(-8, -3, 3)
+script = ExtResource("panel")
+panel_id = 325
+chunk_id = 1
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P325"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P325"]
+shape = SubResource("Shape3")
+[node name="P326" type="StaticBody3D" parent="."]
+position = Vector3(-8, -3, 5)
+script = ExtResource("panel")
+panel_id = 326
+chunk_id = 1
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P326"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P326"]
+shape = SubResource("Shape3")
+[node name="P327" type="StaticBody3D" parent="."]
+position = Vector3(-8, -3, 7)
+script = ExtResource("panel")
+panel_id = 327
+chunk_id = 1
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P327"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P327"]
+shape = SubResource("Shape3")
+[node name="P328" type="StaticBody3D" parent="."]
+position = Vector3(-8, -1, -7)
+script = ExtResource("panel")
+panel_id = 328
+chunk_id = 1
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P328"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P328"]
+shape = SubResource("Shape3")
+[node name="P329" type="StaticBody3D" parent="."]
+position = Vector3(-8, -1, -5)
+script = ExtResource("panel")
+panel_id = 329
+chunk_id = 1
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P329"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P329"]
+shape = SubResource("Shape3")
+[node name="P330" type="StaticBody3D" parent="."]
+position = Vector3(-8, -1, -3)
+script = ExtResource("panel")
+panel_id = 330
+chunk_id = 1
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P330"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P330"]
+shape = SubResource("Shape3")
+[node name="P331" type="StaticBody3D" parent="."]
+position = Vector3(-8, -1, -1)
+script = ExtResource("panel")
+panel_id = 331
+chunk_id = 1
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P331"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P331"]
+shape = SubResource("Shape3")
+[node name="P332" type="StaticBody3D" parent="."]
+position = Vector3(-8, -1, 1)
+script = ExtResource("panel")
+panel_id = 332
+chunk_id = 1
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P332"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P332"]
+shape = SubResource("Shape3")
+[node name="P333" type="StaticBody3D" parent="."]
+position = Vector3(-8, -1, 3)
+script = ExtResource("panel")
+panel_id = 333
+chunk_id = 1
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P333"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P333"]
+shape = SubResource("Shape3")
+[node name="P334" type="StaticBody3D" parent="."]
+position = Vector3(-8, -1, 5)
+script = ExtResource("panel")
+panel_id = 334
+chunk_id = 1
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P334"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P334"]
+shape = SubResource("Shape3")
+[node name="P335" type="StaticBody3D" parent="."]
+position = Vector3(-8, -1, 7)
+script = ExtResource("panel")
+panel_id = 335
+chunk_id = 1
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P335"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P335"]
+shape = SubResource("Shape3")
+[node name="P336" type="StaticBody3D" parent="."]
+position = Vector3(-8, 1, -7)
+script = ExtResource("panel")
+panel_id = 336
+chunk_id = 2
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P336"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P336"]
+shape = SubResource("Shape3")
+[node name="P337" type="StaticBody3D" parent="."]
+position = Vector3(-8, 1, -5)
+script = ExtResource("panel")
+panel_id = 337
+chunk_id = 2
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P337"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P337"]
+shape = SubResource("Shape3")
+[node name="P338" type="StaticBody3D" parent="."]
+position = Vector3(-8, 1, -3)
+script = ExtResource("panel")
+panel_id = 338
+chunk_id = 2
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P338"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P338"]
+shape = SubResource("Shape3")
+[node name="P339" type="StaticBody3D" parent="."]
+position = Vector3(-8, 1, -1)
+script = ExtResource("panel")
+panel_id = 339
+chunk_id = 2
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P339"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P339"]
+shape = SubResource("Shape3")
+[node name="P340" type="StaticBody3D" parent="."]
+position = Vector3(-8, 1, 1)
+script = ExtResource("panel")
+panel_id = 340
+chunk_id = 2
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P340"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P340"]
+shape = SubResource("Shape3")
+[node name="P341" type="StaticBody3D" parent="."]
+position = Vector3(-8, 1, 3)
+script = ExtResource("panel")
+panel_id = 341
+chunk_id = 2
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P341"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P341"]
+shape = SubResource("Shape3")
+[node name="P342" type="StaticBody3D" parent="."]
+position = Vector3(-8, 1, 5)
+script = ExtResource("panel")
+panel_id = 342
+chunk_id = 2
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P342"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P342"]
+shape = SubResource("Shape3")
+[node name="P343" type="StaticBody3D" parent="."]
+position = Vector3(-8, 1, 7)
+script = ExtResource("panel")
+panel_id = 343
+chunk_id = 2
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P343"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P343"]
+shape = SubResource("Shape3")
+[node name="P344" type="StaticBody3D" parent="."]
+position = Vector3(-8, 3, -7)
+script = ExtResource("panel")
+panel_id = 344
+chunk_id = 2
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P344"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P344"]
+shape = SubResource("Shape3")
+[node name="P345" type="StaticBody3D" parent="."]
+position = Vector3(-8, 3, -5)
+script = ExtResource("panel")
+panel_id = 345
+chunk_id = 2
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P345"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P345"]
+shape = SubResource("Shape3")
+[node name="P346" type="StaticBody3D" parent="."]
+position = Vector3(-8, 3, -3)
+script = ExtResource("panel")
+panel_id = 346
+chunk_id = 2
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P346"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P346"]
+shape = SubResource("Shape3")
+[node name="P347" type="StaticBody3D" parent="."]
+position = Vector3(-8, 3, -1)
+script = ExtResource("panel")
+panel_id = 347
+chunk_id = 2
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P347"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P347"]
+shape = SubResource("Shape3")
+[node name="P348" type="StaticBody3D" parent="."]
+position = Vector3(-8, 3, 1)
+script = ExtResource("panel")
+panel_id = 348
+chunk_id = 2
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P348"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P348"]
+shape = SubResource("Shape3")
+[node name="P349" type="StaticBody3D" parent="."]
+position = Vector3(-8, 3, 3)
+script = ExtResource("panel")
+panel_id = 349
+chunk_id = 2
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P349"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P349"]
+shape = SubResource("Shape3")
+[node name="P350" type="StaticBody3D" parent="."]
+position = Vector3(-8, 3, 5)
+script = ExtResource("panel")
+panel_id = 350
+chunk_id = 2
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P350"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P350"]
+shape = SubResource("Shape3")
+[node name="P351" type="StaticBody3D" parent="."]
+position = Vector3(-8, 3, 7)
+script = ExtResource("panel")
+panel_id = 351
+chunk_id = 2
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P351"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P351"]
+shape = SubResource("Shape3")
+[node name="P352" type="StaticBody3D" parent="."]
+position = Vector3(-8, 5, -7)
+script = ExtResource("panel")
+panel_id = 352
+chunk_id = 2
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P352"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P352"]
+shape = SubResource("Shape3")
+[node name="P353" type="StaticBody3D" parent="."]
+position = Vector3(-8, 5, -5)
+script = ExtResource("panel")
+panel_id = 353
+chunk_id = 2
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P353"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P353"]
+shape = SubResource("Shape3")
+[node name="P354" type="StaticBody3D" parent="."]
+position = Vector3(-8, 5, -3)
+script = ExtResource("panel")
+panel_id = 354
+chunk_id = 2
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P354"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P354"]
+shape = SubResource("Shape3")
+[node name="P355" type="StaticBody3D" parent="."]
+position = Vector3(-8, 5, -1)
+script = ExtResource("panel")
+panel_id = 355
+chunk_id = 2
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P355"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P355"]
+shape = SubResource("Shape3")
+[node name="P356" type="StaticBody3D" parent="."]
+position = Vector3(-8, 5, 1)
+script = ExtResource("panel")
+panel_id = 356
+chunk_id = 2
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P356"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P356"]
+shape = SubResource("Shape3")
+[node name="P357" type="StaticBody3D" parent="."]
+position = Vector3(-8, 5, 3)
+script = ExtResource("panel")
+panel_id = 357
+chunk_id = 2
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P357"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P357"]
+shape = SubResource("Shape3")
+[node name="P358" type="StaticBody3D" parent="."]
+position = Vector3(-8, 5, 5)
+script = ExtResource("panel")
+panel_id = 358
+chunk_id = 2
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P358"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P358"]
+shape = SubResource("Shape3")
+[node name="P359" type="StaticBody3D" parent="."]
+position = Vector3(-8, 5, 7)
+script = ExtResource("panel")
+panel_id = 359
+chunk_id = 2
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P359"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P359"]
+shape = SubResource("Shape3")
+[node name="P360" type="StaticBody3D" parent="."]
+position = Vector3(-8, 7, -7)
+script = ExtResource("panel")
+panel_id = 360
+chunk_id = 3
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P360"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P360"]
+shape = SubResource("Shape3")
+[node name="P361" type="StaticBody3D" parent="."]
+position = Vector3(-8, 7, -5)
+script = ExtResource("panel")
+panel_id = 361
+chunk_id = 3
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P361"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P361"]
+shape = SubResource("Shape3")
+[node name="P362" type="StaticBody3D" parent="."]
+position = Vector3(-8, 7, -3)
+script = ExtResource("panel")
+panel_id = 362
+chunk_id = 3
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P362"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P362"]
+shape = SubResource("Shape3")
+[node name="P363" type="StaticBody3D" parent="."]
+position = Vector3(-8, 7, -1)
+script = ExtResource("panel")
+panel_id = 363
+chunk_id = 3
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P363"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P363"]
+shape = SubResource("Shape3")
+[node name="P364" type="StaticBody3D" parent="."]
+position = Vector3(-8, 7, 1)
+script = ExtResource("panel")
+panel_id = 364
+chunk_id = 3
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P364"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P364"]
+shape = SubResource("Shape3")
+[node name="P365" type="StaticBody3D" parent="."]
+position = Vector3(-8, 7, 3)
+script = ExtResource("panel")
+panel_id = 365
+chunk_id = 3
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P365"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P365"]
+shape = SubResource("Shape3")
+[node name="P366" type="StaticBody3D" parent="."]
+position = Vector3(-8, 7, 5)
+script = ExtResource("panel")
+panel_id = 366
+chunk_id = 3
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P366"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P366"]
+shape = SubResource("Shape3")
+[node name="P367" type="StaticBody3D" parent="."]
+position = Vector3(-8, 7, 7)
+script = ExtResource("panel")
+panel_id = 367
+chunk_id = 3
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P367"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P367"]
+shape = SubResource("Shape3")
+[node name="P368" type="StaticBody3D" parent="."]
+position = Vector3(-8, 9, -7)
+script = ExtResource("panel")
+panel_id = 368
+chunk_id = 3
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P368"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P368"]
+shape = SubResource("Shape3")
+[node name="P369" type="StaticBody3D" parent="."]
+position = Vector3(-8, 9, -5)
+script = ExtResource("panel")
+panel_id = 369
+chunk_id = 3
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P369"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P369"]
+shape = SubResource("Shape3")
+[node name="P370" type="StaticBody3D" parent="."]
+position = Vector3(-8, 9, -3)
+script = ExtResource("panel")
+panel_id = 370
+chunk_id = 3
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P370"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P370"]
+shape = SubResource("Shape3")
+[node name="P371" type="StaticBody3D" parent="."]
+position = Vector3(-8, 9, -1)
+script = ExtResource("panel")
+panel_id = 371
+chunk_id = 3
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P371"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P371"]
+shape = SubResource("Shape3")
+[node name="P372" type="StaticBody3D" parent="."]
+position = Vector3(-8, 9, 1)
+script = ExtResource("panel")
+panel_id = 372
+chunk_id = 3
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P372"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P372"]
+shape = SubResource("Shape3")
+[node name="P373" type="StaticBody3D" parent="."]
+position = Vector3(-8, 9, 3)
+script = ExtResource("panel")
+panel_id = 373
+chunk_id = 3
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P373"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P373"]
+shape = SubResource("Shape3")
+[node name="P374" type="StaticBody3D" parent="."]
+position = Vector3(-8, 9, 5)
+script = ExtResource("panel")
+panel_id = 374
+chunk_id = 3
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P374"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P374"]
+shape = SubResource("Shape3")
+[node name="P375" type="StaticBody3D" parent="."]
+position = Vector3(-8, 9, 7)
+script = ExtResource("panel")
+panel_id = 375
+chunk_id = 3
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P375"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P375"]
+shape = SubResource("Shape3")
+[node name="P376" type="StaticBody3D" parent="."]
+position = Vector3(-8, 11, -7)
+script = ExtResource("panel")
+panel_id = 376
+chunk_id = 3
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P376"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P376"]
+shape = SubResource("Shape3")
+[node name="P377" type="StaticBody3D" parent="."]
+position = Vector3(-8, 11, -5)
+script = ExtResource("panel")
+panel_id = 377
+chunk_id = 3
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P377"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P377"]
+shape = SubResource("Shape3")
+[node name="P378" type="StaticBody3D" parent="."]
+position = Vector3(-8, 11, -3)
+script = ExtResource("panel")
+panel_id = 378
+chunk_id = 3
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P378"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P378"]
+shape = SubResource("Shape3")
+[node name="P379" type="StaticBody3D" parent="."]
+position = Vector3(-8, 11, -1)
+script = ExtResource("panel")
+panel_id = 379
+chunk_id = 3
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P379"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P379"]
+shape = SubResource("Shape3")
+[node name="P380" type="StaticBody3D" parent="."]
+position = Vector3(-8, 11, 1)
+script = ExtResource("panel")
+panel_id = 380
+chunk_id = 3
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P380"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P380"]
+shape = SubResource("Shape3")
+[node name="P381" type="StaticBody3D" parent="."]
+position = Vector3(-8, 11, 3)
+script = ExtResource("panel")
+panel_id = 381
+chunk_id = 3
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P381"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P381"]
+shape = SubResource("Shape3")
+[node name="P382" type="StaticBody3D" parent="."]
+position = Vector3(-8, 11, 5)
+script = ExtResource("panel")
+panel_id = 382
+chunk_id = 3
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P382"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P382"]
+shape = SubResource("Shape3")
+[node name="P383" type="StaticBody3D" parent="."]
+position = Vector3(-8, 11, 7)
+script = ExtResource("panel")
+panel_id = 383
+chunk_id = 3
+face_normal = Vector3(-1, 0, 0)
+broken_scene = ExtResource("rubble")
+local_bounds = AABB(-0.4, -1.0, -1.0, 0.8, 2, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="P383"]
+mesh = SubResource("Mesh3")
+[node name="Collision" type="CollisionShape3D" parent="P383"]
+shape = SubResource("Shape3")

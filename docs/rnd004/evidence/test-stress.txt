@@ -1,0 +1,14 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS macro overflow becomes ruin at budget 4
+PASS macro peak obeys budget 4
+PASS scar FIFO cap remains bounded at budget 4
+PASS macro overflow becomes ruin at budget 6
+PASS macro peak obeys budget 6
+PASS scar FIFO cap remains bounded at budget 6
+PASS macro overflow becomes ruin at budget 8
+PASS macro peak obeys budget 8
+PASS scar FIFO cap remains bounded at budget 8
+PASS COLLAPSE at depth 2 is accepted
+PASS depth 3 cannot modify geometry or extend chain
+CONSEQUENCE STRESS RESULT failures=0

@@ -1,0 +1,11 @@
+{
+  "version": "0.02",
+  "tag": "v0.0.2",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "gameplay_commit": "6a03b45",
+  "archive": "RAVAGE-0.02-Windows.zip",
+  "bytes": 72191134,
+  "sha256": "5003fd43cc7ff011700d067f9b2ee8fea6e3d47f6c3f3a6b06b25a91f5ac3882",
+  "archive_crc_test": "PASS",
+  "export_smoke": "PASS"
+}

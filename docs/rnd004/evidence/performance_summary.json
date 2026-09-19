@@ -1,0 +1,103 @@
+[
+  {
+    "scenario": "domino",
+    "frames": 719,
+    "mean_fps": 59.74661286978604,
+    "frame_p50_ms": 16.685,
+    "frame_p95_ms": 19.291,
+    "frame_max_ms": 46.151,
+    "frames_over_33ms": 1,
+    "physics_max_ms": 11.018,
+    "macro_activation_us": [
+      3738
+    ],
+    "panel_activation_us": [
+      0,
+      11710,
+      7521
+    ],
+    "peak_macros": 1,
+    "peak_debris_sampled": 6,
+    "final": {
+      "active_debris": 0,
+      "active_macros": 0,
+      "active_panels": 765,
+      "active_structural_towers": 2,
+      "chain_depth": 1,
+      "collisions": 87,
+      "fps": 60.0,
+      "physics_ms": 0.824,
+      "scars": 27,
+      "secondary_events": 1,
+      "static_ruins": 1,
+      "time": 14.0133333333332
+    }
+  },
+  {
+    "scenario": "all_panels_and_scars",
+    "frames": 717,
+    "mean_fps": 59.74486692018378,
+    "frame_p50_ms": 16.698,
+    "frame_p95_ms": 17.556,
+    "frame_max_ms": 69.004,
+    "frames_over_33ms": 1,
+    "physics_max_ms": 1.416,
+    "macro_activation_us": [],
+    "panel_activation_us": [
+      7490,
+      4877,
+      7220
+    ],
+    "peak_macros": 0,
+    "peak_debris_sampled": 0,
+    "final": {
+      "active_debris": 0,
+      "active_macros": 0,
+      "active_panels": 1152,
+      "active_structural_towers": 2,
+      "chain_depth": 0,
+      "collisions": 0,
+      "fps": 60.0,
+      "physics_ms": 0.786,
+      "scars": 384,
+      "secondary_events": 0,
+      "static_ruins": 0,
+      "time": 14.0166666666665
+    }
+  },
+  {
+    "scenario": "two_macro_burst",
+    "frames": 718,
+    "mean_fps": 59.678978628359296,
+    "frame_p50_ms": 16.697000000000003,
+    "frame_p95_ms": 19.374,
+    "frame_max_ms": 46.133,
+    "frames_over_33ms": 2,
+    "physics_max_ms": 12.38,
+    "macro_activation_us": [
+      1476,
+      1507
+    ],
+    "panel_activation_us": [
+      0,
+      11139,
+      4873
+    ],
+    "peak_macros": 2,
+    "peak_debris_sampled": 32,
+    "final": {
+      "active_debris": 0,
+      "active_macros": 0,
+      "active_panels": 757,
+      "active_structural_towers": 2,
+      "chain_depth": 1,
+      "collisions": 182,
+      "fps": 60.0,
+      "physics_ms": 0.725,
+      "scars": 55,
+      "secondary_events": 7,
+      "static_ruins": 2,
+      "time": 14.0133333333332
+    }
+  }
+]

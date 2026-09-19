@@ -1,0 +1,15 @@
+MOVEMENT RESULT failures=0
+GRAPPLE RESULT failures=0
+DESTRUCTION RESULT failures=0
+SWEEP RESULT failures=0
+VFX RESULT failures=0
+LIFECYCLE RESULT three load/free cycles completed
+FULL WORLD RESULT failures=0 buildings=358 sections=4944
+INK MARKS RESULT failures=0
+RND TARGETING RESULT failures=0
+RND MOVEMENT RESULT failures=0
+RND IMPACT RECOVERY RESULT failures=0
+RND COURSE RESULT failures=0
+INTEGRATION METRICS peak_speed=55.9034080505371 max_rigidbodies=40 max_ink=241 events=243 bad_frames=0
+INTEGRATION RESULT failures=0
+ALL CHECKS PASSED

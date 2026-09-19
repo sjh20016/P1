@@ -1,0 +1,23 @@
+MOVEMENT RESULT failures=0
+GRAPPLE RESULT failures=0
+DESTRUCTION RESULT failures=0
+SWEEP RESULT failures=0
+VFX RESULT failures=0
+LIFECYCLE RESULT three load/free cycles completed
+FULL WORLD RESULT failures=0 buildings=358 sections=4944
+INK MARKS RESULT failures=0
+RND TARGETING RESULT failures=0
+RND MOVEMENT RESULT failures=0
+RND IMPACT RECOVERY RESULT failures=0
+RND COURSE RESULT failures=0
+CONSEQUENCE CORE RESULT failures=0
+ROUTE METRICS position=(0.0, -11.56076, -12.04238) speed=37.4930038452148 events=2
+CONSEQUENCE ROUTE RESULT failures=0
+CONSEQUENCE SWEEP RESULT failures=0
+MACRO METRICS {"active_debris":0,"active_macros":0,"active_panels":765,"active_structural_towers":2,"chain_depth":1,"collisions":87,"fps":145.0,"physics_ms":0.371,"scars":27,"secondary_events":1,"static_ruins":1,"time":13.0049999999999}
+CONSEQUENCE MACRO RESULT failures=0
+CONSEQUENCE STRESS RESULT failures=0
+CONSEQUENCE LIFECYCLE RESULT PASS
+INTEGRATION METRICS peak_speed=55.9034080505371 max_rigidbodies=38 max_ink=241 events=243 bad_frames=0
+INTEGRATION RESULT failures=0
+ALL CHECKS PASSED

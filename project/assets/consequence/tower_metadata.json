@@ -1,0 +1,9972 @@
+{
+  "version": 4,
+  "interior_width": 15.2,
+  "panel_step": 2,
+  "chunks": [
+    {
+      "id": 0,
+      "support": true,
+      "active": true
+    },
+    {
+      "id": 1,
+      "support": false,
+      "active": true
+    },
+    {
+      "id": 2,
+      "support": false,
+      "active": true
+    },
+    {
+      "id": 3,
+      "support": false,
+      "active": true
+    }
+  ],
+  "bonds": [
+    {
+      "a": 0,
+      "b": 1,
+      "health": 100,
+      "seam_y": -6,
+      "broken": false
+    },
+    {
+      "a": 1,
+      "b": 2,
+      "health": 100,
+      "seam_y": 0,
+      "broken": false
+    },
+    {
+      "a": 2,
+      "b": 3,
+      "health": 100,
+      "seam_y": 6,
+      "broken": false
+    }
+  ],
+  "panels": [
+    {
+      "id": 0,
+      "chunk_id": 0,
+      "position": [
+        -7,
+        -11,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        1,
+        8,
+        295
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 1,
+      "chunk_id": 0,
+      "position": [
+        -5,
+        -11,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        0,
+        2,
+        9
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 2,
+      "chunk_id": 0,
+      "position": [
+        -3,
+        -11,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        1,
+        3,
+        10
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 3,
+      "chunk_id": 0,
+      "position": [
+        -1,
+        -11,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        2,
+        4,
+        11
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 4,
+      "chunk_id": 0,
+      "position": [
+        1,
+        -11,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        3,
+        5,
+        12
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 5,
+      "chunk_id": 0,
+      "position": [
+        3,
+        -11,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        4,
+        6,
+        13
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 6,
+      "chunk_id": 0,
+      "position": [
+        5,
+        -11,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        5,
+        7,
+        14
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 7,
+      "chunk_id": 0,
+      "position": [
+        7,
+        -11,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        6,
+        15,
+        199
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 8,
+      "chunk_id": 0,
+      "position": [
+        -7,
+        -9,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        0,
+        9,
+        16,
+        303
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 9,
+      "chunk_id": 0,
+      "position": [
+        -5,
+        -9,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        1,
+        8,
+        10,
+        17
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 10,
+      "chunk_id": 0,
+      "position": [
+        -3,
+        -9,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        2,
+        9,
+        11,
+        18
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 11,
+      "chunk_id": 0,
+      "position": [
+        -1,
+        -9,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        3,
+        10,
+        12,
+        19
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 12,
+      "chunk_id": 0,
+      "position": [
+        1,
+        -9,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        4,
+        11,
+        13,
+        20
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 13,
+      "chunk_id": 0,
+      "position": [
+        3,
+        -9,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        5,
+        12,
+        14,
+        21
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 14,
+      "chunk_id": 0,
+      "position": [
+        5,
+        -9,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        6,
+        13,
+        15,
+        22
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 15,
+      "chunk_id": 0,
+      "position": [
+        7,
+        -9,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        7,
+        14,
+        23,
+        207
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 16,
+      "chunk_id": 0,
+      "position": [
+        -7,
+        -7,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        8,
+        17,
+        24,
+        311
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 17,
+      "chunk_id": 0,
+      "position": [
+        -5,
+        -7,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        9,
+        16,
+        18,
+        25
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 18,
+      "chunk_id": 0,
+      "position": [
+        -3,
+        -7,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        10,
+        17,
+        19,
+        26
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 19,
+      "chunk_id": 0,
+      "position": [
+        -1,
+        -7,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        11,
+        18,
+        20,
+        27
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 20,
+      "chunk_id": 0,
+      "position": [
+        1,
+        -7,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        12,
+        19,
+        21,
+        28
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 21,
+      "chunk_id": 0,
+      "position": [
+        3,
+        -7,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        13,
+        20,
+        22,
+        29
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 22,
+      "chunk_id": 0,
+      "position": [
+        5,
+        -7,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        14,
+        21,
+        23,
+        30
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 23,
+      "chunk_id": 0,
+      "position": [
+        7,
+        -7,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        15,
+        22,
+        31,
+        215
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 24,
+      "chunk_id": 1,
+      "position": [
+        -7,
+        -5,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        16,
+        25,
+        32,
+        319
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 25,
+      "chunk_id": 1,
+      "position": [
+        -5,
+        -5,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        17,
+        24,
+        26,
+        33
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 26,
+      "chunk_id": 1,
+      "position": [
+        -3,
+        -5,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        18,
+        25,
+        27,
+        34
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 27,
+      "chunk_id": 1,
+      "position": [
+        -1,
+        -5,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        19,
+        26,
+        28,
+        35
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 28,
+      "chunk_id": 1,
+      "position": [
+        1,
+        -5,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        20,
+        27,
+        29,
+        36
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 29,
+      "chunk_id": 1,
+      "position": [
+        3,
+        -5,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        21,
+        28,
+        30,
+        37
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 30,
+      "chunk_id": 1,
+      "position": [
+        5,
+        -5,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        22,
+        29,
+        31,
+        38
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 31,
+      "chunk_id": 1,
+      "position": [
+        7,
+        -5,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        23,
+        30,
+        39,
+        223
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 32,
+      "chunk_id": 1,
+      "position": [
+        -7,
+        -3,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        24,
+        33,
+        40,
+        327
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 33,
+      "chunk_id": 1,
+      "position": [
+        -5,
+        -3,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        25,
+        32,
+        34,
+        41
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 34,
+      "chunk_id": 1,
+      "position": [
+        -3,
+        -3,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        26,
+        33,
+        35,
+        42
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 35,
+      "chunk_id": 1,
+      "position": [
+        -1,
+        -3,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        27,
+        34,
+        36,
+        43
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 36,
+      "chunk_id": 1,
+      "position": [
+        1,
+        -3,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        28,
+        35,
+        37,
+        44
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 37,
+      "chunk_id": 1,
+      "position": [
+        3,
+        -3,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        29,
+        36,
+        38,
+        45
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 38,
+      "chunk_id": 1,
+      "position": [
+        5,
+        -3,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        30,
+        37,
+        39,
+        46
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 39,
+      "chunk_id": 1,
+      "position": [
+        7,
+        -3,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        31,
+        38,
+        47,
+        231
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 40,
+      "chunk_id": 1,
+      "position": [
+        -7,
+        -1,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        32,
+        41,
+        48,
+        335
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 41,
+      "chunk_id": 1,
+      "position": [
+        -5,
+        -1,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        33,
+        40,
+        42,
+        49
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 42,
+      "chunk_id": 1,
+      "position": [
+        -3,
+        -1,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        34,
+        41,
+        43,
+        50
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 43,
+      "chunk_id": 1,
+      "position": [
+        -1,
+        -1,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        35,
+        42,
+        44,
+        51
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 44,
+      "chunk_id": 1,
+      "position": [
+        1,
+        -1,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        36,
+        43,
+        45,
+        52
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 45,
+      "chunk_id": 1,
+      "position": [
+        3,
+        -1,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        37,
+        44,
+        46,
+        53
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 46,
+      "chunk_id": 1,
+      "position": [
+        5,
+        -1,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        38,
+        45,
+        47,
+        54
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 47,
+      "chunk_id": 1,
+      "position": [
+        7,
+        -1,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        39,
+        46,
+        55,
+        239
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 48,
+      "chunk_id": 2,
+      "position": [
+        -7,
+        1,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        40,
+        49,
+        56,
+        343
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 49,
+      "chunk_id": 2,
+      "position": [
+        -5,
+        1,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        41,
+        48,
+        50,
+        57
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 50,
+      "chunk_id": 2,
+      "position": [
+        -3,
+        1,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        42,
+        49,
+        51,
+        58
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 51,
+      "chunk_id": 2,
+      "position": [
+        -1,
+        1,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        43,
+        50,
+        52,
+        59
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 52,
+      "chunk_id": 2,
+      "position": [
+        1,
+        1,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        44,
+        51,
+        53,
+        60
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 53,
+      "chunk_id": 2,
+      "position": [
+        3,
+        1,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        45,
+        52,
+        54,
+        61
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 54,
+      "chunk_id": 2,
+      "position": [
+        5,
+        1,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        46,
+        53,
+        55,
+        62
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 55,
+      "chunk_id": 2,
+      "position": [
+        7,
+        1,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        47,
+        54,
+        63,
+        247
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 56,
+      "chunk_id": 2,
+      "position": [
+        -7,
+        3,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        48,
+        57,
+        64,
+        351
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 57,
+      "chunk_id": 2,
+      "position": [
+        -5,
+        3,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        49,
+        56,
+        58,
+        65
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 58,
+      "chunk_id": 2,
+      "position": [
+        -3,
+        3,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        50,
+        57,
+        59,
+        66
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 59,
+      "chunk_id": 2,
+      "position": [
+        -1,
+        3,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        51,
+        58,
+        60,
+        67
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 60,
+      "chunk_id": 2,
+      "position": [
+        1,
+        3,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        52,
+        59,
+        61,
+        68
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 61,
+      "chunk_id": 2,
+      "position": [
+        3,
+        3,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        53,
+        60,
+        62,
+        69
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 62,
+      "chunk_id": 2,
+      "position": [
+        5,
+        3,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        54,
+        61,
+        63,
+        70
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 63,
+      "chunk_id": 2,
+      "position": [
+        7,
+        3,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        55,
+        62,
+        71,
+        255
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 64,
+      "chunk_id": 2,
+      "position": [
+        -7,
+        5,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        56,
+        65,
+        72,
+        359
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 65,
+      "chunk_id": 2,
+      "position": [
+        -5,
+        5,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        57,
+        64,
+        66,
+        73
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 66,
+      "chunk_id": 2,
+      "position": [
+        -3,
+        5,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        58,
+        65,
+        67,
+        74
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 67,
+      "chunk_id": 2,
+      "position": [
+        -1,
+        5,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        59,
+        66,
+        68,
+        75
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 68,
+      "chunk_id": 2,
+      "position": [
+        1,
+        5,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        60,
+        67,
+        69,
+        76
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 69,
+      "chunk_id": 2,
+      "position": [
+        3,
+        5,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        61,
+        68,
+        70,
+        77
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 70,
+      "chunk_id": 2,
+      "position": [
+        5,
+        5,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        62,
+        69,
+        71,
+        78
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 71,
+      "chunk_id": 2,
+      "position": [
+        7,
+        5,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        63,
+        70,
+        79,
+        263
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 72,
+      "chunk_id": 3,
+      "position": [
+        -7,
+        7,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        64,
+        73,
+        80,
+        367
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 73,
+      "chunk_id": 3,
+      "position": [
+        -5,
+        7,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        65,
+        72,
+        74,
+        81
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 74,
+      "chunk_id": 3,
+      "position": [
+        -3,
+        7,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        66,
+        73,
+        75,
+        82
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 75,
+      "chunk_id": 3,
+      "position": [
+        -1,
+        7,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        67,
+        74,
+        76,
+        83
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 76,
+      "chunk_id": 3,
+      "position": [
+        1,
+        7,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        68,
+        75,
+        77,
+        84
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 77,
+      "chunk_id": 3,
+      "position": [
+        3,
+        7,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        69,
+        76,
+        78,
+        85
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 78,
+      "chunk_id": 3,
+      "position": [
+        5,
+        7,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        70,
+        77,
+        79,
+        86
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 79,
+      "chunk_id": 3,
+      "position": [
+        7,
+        7,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        71,
+        78,
+        87,
+        271
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 80,
+      "chunk_id": 3,
+      "position": [
+        -7,
+        9,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        72,
+        81,
+        88,
+        375
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 81,
+      "chunk_id": 3,
+      "position": [
+        -5,
+        9,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        73,
+        80,
+        82,
+        89
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 82,
+      "chunk_id": 3,
+      "position": [
+        -3,
+        9,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        74,
+        81,
+        83,
+        90
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 83,
+      "chunk_id": 3,
+      "position": [
+        -1,
+        9,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        75,
+        82,
+        84,
+        91
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 84,
+      "chunk_id": 3,
+      "position": [
+        1,
+        9,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        76,
+        83,
+        85,
+        92
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 85,
+      "chunk_id": 3,
+      "position": [
+        3,
+        9,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        77,
+        84,
+        86,
+        93
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 86,
+      "chunk_id": 3,
+      "position": [
+        5,
+        9,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        78,
+        85,
+        87,
+        94
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 87,
+      "chunk_id": 3,
+      "position": [
+        7,
+        9,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        79,
+        86,
+        95,
+        279
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 88,
+      "chunk_id": 3,
+      "position": [
+        -7,
+        11,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        80,
+        89,
+        383
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 89,
+      "chunk_id": 3,
+      "position": [
+        -5,
+        11,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        81,
+        88,
+        90
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 90,
+      "chunk_id": 3,
+      "position": [
+        -3,
+        11,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        82,
+        89,
+        91
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 91,
+      "chunk_id": 3,
+      "position": [
+        -1,
+        11,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        83,
+        90,
+        92
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 92,
+      "chunk_id": 3,
+      "position": [
+        1,
+        11,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        84,
+        91,
+        93
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 93,
+      "chunk_id": 3,
+      "position": [
+        3,
+        11,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        85,
+        92,
+        94
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 94,
+      "chunk_id": 3,
+      "position": [
+        5,
+        11,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        86,
+        93,
+        95
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 95,
+      "chunk_id": 3,
+      "position": [
+        7,
+        11,
+        8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "neighbors": [
+        87,
+        94,
+        287
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 96,
+      "chunk_id": 0,
+      "position": [
+        -7,
+        -11,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        97,
+        104,
+        288
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 97,
+      "chunk_id": 0,
+      "position": [
+        -5,
+        -11,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        96,
+        98,
+        105
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 98,
+      "chunk_id": 0,
+      "position": [
+        -3,
+        -11,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        97,
+        99,
+        106
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 99,
+      "chunk_id": 0,
+      "position": [
+        -1,
+        -11,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        98,
+        100,
+        107
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 100,
+      "chunk_id": 0,
+      "position": [
+        1,
+        -11,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        99,
+        101,
+        108
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 101,
+      "chunk_id": 0,
+      "position": [
+        3,
+        -11,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        100,
+        102,
+        109
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 102,
+      "chunk_id": 0,
+      "position": [
+        5,
+        -11,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        101,
+        103,
+        110
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 103,
+      "chunk_id": 0,
+      "position": [
+        7,
+        -11,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        102,
+        111,
+        192
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 104,
+      "chunk_id": 0,
+      "position": [
+        -7,
+        -9,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        96,
+        105,
+        112,
+        296
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 105,
+      "chunk_id": 0,
+      "position": [
+        -5,
+        -9,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        97,
+        104,
+        106,
+        113
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 106,
+      "chunk_id": 0,
+      "position": [
+        -3,
+        -9,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        98,
+        105,
+        107,
+        114
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 107,
+      "chunk_id": 0,
+      "position": [
+        -1,
+        -9,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        99,
+        106,
+        108,
+        115
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 108,
+      "chunk_id": 0,
+      "position": [
+        1,
+        -9,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        100,
+        107,
+        109,
+        116
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 109,
+      "chunk_id": 0,
+      "position": [
+        3,
+        -9,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        101,
+        108,
+        110,
+        117
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 110,
+      "chunk_id": 0,
+      "position": [
+        5,
+        -9,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        102,
+        109,
+        111,
+        118
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 111,
+      "chunk_id": 0,
+      "position": [
+        7,
+        -9,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        103,
+        110,
+        119,
+        200
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 112,
+      "chunk_id": 0,
+      "position": [
+        -7,
+        -7,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        104,
+        113,
+        120,
+        304
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 113,
+      "chunk_id": 0,
+      "position": [
+        -5,
+        -7,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        105,
+        112,
+        114,
+        121
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 114,
+      "chunk_id": 0,
+      "position": [
+        -3,
+        -7,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        106,
+        113,
+        115,
+        122
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 115,
+      "chunk_id": 0,
+      "position": [
+        -1,
+        -7,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        107,
+        114,
+        116,
+        123
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 116,
+      "chunk_id": 0,
+      "position": [
+        1,
+        -7,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        108,
+        115,
+        117,
+        124
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 117,
+      "chunk_id": 0,
+      "position": [
+        3,
+        -7,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        109,
+        116,
+        118,
+        125
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 118,
+      "chunk_id": 0,
+      "position": [
+        5,
+        -7,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        110,
+        117,
+        119,
+        126
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 119,
+      "chunk_id": 0,
+      "position": [
+        7,
+        -7,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        111,
+        118,
+        127,
+        208
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 120,
+      "chunk_id": 1,
+      "position": [
+        -7,
+        -5,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        112,
+        121,
+        128,
+        312
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 121,
+      "chunk_id": 1,
+      "position": [
+        -5,
+        -5,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        113,
+        120,
+        122,
+        129
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 122,
+      "chunk_id": 1,
+      "position": [
+        -3,
+        -5,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        114,
+        121,
+        123,
+        130
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 123,
+      "chunk_id": 1,
+      "position": [
+        -1,
+        -5,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        115,
+        122,
+        124,
+        131
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 124,
+      "chunk_id": 1,
+      "position": [
+        1,
+        -5,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        116,
+        123,
+        125,
+        132
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 125,
+      "chunk_id": 1,
+      "position": [
+        3,
+        -5,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        117,
+        124,
+        126,
+        133
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 126,
+      "chunk_id": 1,
+      "position": [
+        5,
+        -5,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        118,
+        125,
+        127,
+        134
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 127,
+      "chunk_id": 1,
+      "position": [
+        7,
+        -5,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        119,
+        126,
+        135,
+        216
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 128,
+      "chunk_id": 1,
+      "position": [
+        -7,
+        -3,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        120,
+        129,
+        136,
+        320
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 129,
+      "chunk_id": 1,
+      "position": [
+        -5,
+        -3,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        121,
+        128,
+        130,
+        137
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 130,
+      "chunk_id": 1,
+      "position": [
+        -3,
+        -3,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        122,
+        129,
+        131,
+        138
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 131,
+      "chunk_id": 1,
+      "position": [
+        -1,
+        -3,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        123,
+        130,
+        132,
+        139
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 132,
+      "chunk_id": 1,
+      "position": [
+        1,
+        -3,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        124,
+        131,
+        133,
+        140
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 133,
+      "chunk_id": 1,
+      "position": [
+        3,
+        -3,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        125,
+        132,
+        134,
+        141
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 134,
+      "chunk_id": 1,
+      "position": [
+        5,
+        -3,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        126,
+        133,
+        135,
+        142
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 135,
+      "chunk_id": 1,
+      "position": [
+        7,
+        -3,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        127,
+        134,
+        143,
+        224
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 136,
+      "chunk_id": 1,
+      "position": [
+        -7,
+        -1,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        128,
+        137,
+        144,
+        328
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 137,
+      "chunk_id": 1,
+      "position": [
+        -5,
+        -1,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        129,
+        136,
+        138,
+        145
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 138,
+      "chunk_id": 1,
+      "position": [
+        -3,
+        -1,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        130,
+        137,
+        139,
+        146
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 139,
+      "chunk_id": 1,
+      "position": [
+        -1,
+        -1,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        131,
+        138,
+        140,
+        147
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 140,
+      "chunk_id": 1,
+      "position": [
+        1,
+        -1,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        132,
+        139,
+        141,
+        148
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 141,
+      "chunk_id": 1,
+      "position": [
+        3,
+        -1,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        133,
+        140,
+        142,
+        149
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 142,
+      "chunk_id": 1,
+      "position": [
+        5,
+        -1,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        134,
+        141,
+        143,
+        150
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 143,
+      "chunk_id": 1,
+      "position": [
+        7,
+        -1,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        135,
+        142,
+        151,
+        232
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 144,
+      "chunk_id": 2,
+      "position": [
+        -7,
+        1,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        136,
+        145,
+        152,
+        336
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 145,
+      "chunk_id": 2,
+      "position": [
+        -5,
+        1,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        137,
+        144,
+        146,
+        153
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 146,
+      "chunk_id": 2,
+      "position": [
+        -3,
+        1,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        138,
+        145,
+        147,
+        154
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 147,
+      "chunk_id": 2,
+      "position": [
+        -1,
+        1,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        139,
+        146,
+        148,
+        155
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 148,
+      "chunk_id": 2,
+      "position": [
+        1,
+        1,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        140,
+        147,
+        149,
+        156
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 149,
+      "chunk_id": 2,
+      "position": [
+        3,
+        1,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        141,
+        148,
+        150,
+        157
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 150,
+      "chunk_id": 2,
+      "position": [
+        5,
+        1,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        142,
+        149,
+        151,
+        158
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 151,
+      "chunk_id": 2,
+      "position": [
+        7,
+        1,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        143,
+        150,
+        159,
+        240
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 152,
+      "chunk_id": 2,
+      "position": [
+        -7,
+        3,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        144,
+        153,
+        160,
+        344
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 153,
+      "chunk_id": 2,
+      "position": [
+        -5,
+        3,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        145,
+        152,
+        154,
+        161
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 154,
+      "chunk_id": 2,
+      "position": [
+        -3,
+        3,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        146,
+        153,
+        155,
+        162
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 155,
+      "chunk_id": 2,
+      "position": [
+        -1,
+        3,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        147,
+        154,
+        156,
+        163
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 156,
+      "chunk_id": 2,
+      "position": [
+        1,
+        3,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        148,
+        155,
+        157,
+        164
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 157,
+      "chunk_id": 2,
+      "position": [
+        3,
+        3,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        149,
+        156,
+        158,
+        165
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 158,
+      "chunk_id": 2,
+      "position": [
+        5,
+        3,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        150,
+        157,
+        159,
+        166
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 159,
+      "chunk_id": 2,
+      "position": [
+        7,
+        3,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        151,
+        158,
+        167,
+        248
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 160,
+      "chunk_id": 2,
+      "position": [
+        -7,
+        5,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        152,
+        161,
+        168,
+        352
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 161,
+      "chunk_id": 2,
+      "position": [
+        -5,
+        5,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        153,
+        160,
+        162,
+        169
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 162,
+      "chunk_id": 2,
+      "position": [
+        -3,
+        5,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        154,
+        161,
+        163,
+        170
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 163,
+      "chunk_id": 2,
+      "position": [
+        -1,
+        5,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        155,
+        162,
+        164,
+        171
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 164,
+      "chunk_id": 2,
+      "position": [
+        1,
+        5,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        156,
+        163,
+        165,
+        172
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 165,
+      "chunk_id": 2,
+      "position": [
+        3,
+        5,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        157,
+        164,
+        166,
+        173
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 166,
+      "chunk_id": 2,
+      "position": [
+        5,
+        5,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        158,
+        165,
+        167,
+        174
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 167,
+      "chunk_id": 2,
+      "position": [
+        7,
+        5,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        159,
+        166,
+        175,
+        256
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 168,
+      "chunk_id": 3,
+      "position": [
+        -7,
+        7,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        160,
+        169,
+        176,
+        360
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 169,
+      "chunk_id": 3,
+      "position": [
+        -5,
+        7,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        161,
+        168,
+        170,
+        177
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 170,
+      "chunk_id": 3,
+      "position": [
+        -3,
+        7,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        162,
+        169,
+        171,
+        178
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 171,
+      "chunk_id": 3,
+      "position": [
+        -1,
+        7,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        163,
+        170,
+        172,
+        179
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 172,
+      "chunk_id": 3,
+      "position": [
+        1,
+        7,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        164,
+        171,
+        173,
+        180
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 173,
+      "chunk_id": 3,
+      "position": [
+        3,
+        7,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        165,
+        172,
+        174,
+        181
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 174,
+      "chunk_id": 3,
+      "position": [
+        5,
+        7,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        166,
+        173,
+        175,
+        182
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 175,
+      "chunk_id": 3,
+      "position": [
+        7,
+        7,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        167,
+        174,
+        183,
+        264
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 176,
+      "chunk_id": 3,
+      "position": [
+        -7,
+        9,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        168,
+        177,
+        184,
+        368
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 177,
+      "chunk_id": 3,
+      "position": [
+        -5,
+        9,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        169,
+        176,
+        178,
+        185
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 178,
+      "chunk_id": 3,
+      "position": [
+        -3,
+        9,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        170,
+        177,
+        179,
+        186
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 179,
+      "chunk_id": 3,
+      "position": [
+        -1,
+        9,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        171,
+        178,
+        180,
+        187
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 180,
+      "chunk_id": 3,
+      "position": [
+        1,
+        9,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        172,
+        179,
+        181,
+        188
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 181,
+      "chunk_id": 3,
+      "position": [
+        3,
+        9,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        173,
+        180,
+        182,
+        189
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 182,
+      "chunk_id": 3,
+      "position": [
+        5,
+        9,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        174,
+        181,
+        183,
+        190
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 183,
+      "chunk_id": 3,
+      "position": [
+        7,
+        9,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        175,
+        182,
+        191,
+        272
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 184,
+      "chunk_id": 3,
+      "position": [
+        -7,
+        11,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        176,
+        185,
+        376
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 185,
+      "chunk_id": 3,
+      "position": [
+        -5,
+        11,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        177,
+        184,
+        186
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 186,
+      "chunk_id": 3,
+      "position": [
+        -3,
+        11,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        178,
+        185,
+        187
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 187,
+      "chunk_id": 3,
+      "position": [
+        -1,
+        11,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        179,
+        186,
+        188
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 188,
+      "chunk_id": 3,
+      "position": [
+        1,
+        11,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        180,
+        187,
+        189
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 189,
+      "chunk_id": 3,
+      "position": [
+        3,
+        11,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        181,
+        188,
+        190
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 190,
+      "chunk_id": 3,
+      "position": [
+        5,
+        11,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        182,
+        189,
+        191
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 191,
+      "chunk_id": 3,
+      "position": [
+        7,
+        11,
+        -8
+      ],
+      "size": [
+        2,
+        2,
+        0.8
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "neighbors": [
+        183,
+        190,
+        280
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 192,
+      "chunk_id": 0,
+      "position": [
+        8,
+        -11,
+        -7
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        103,
+        193,
+        200
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 193,
+      "chunk_id": 0,
+      "position": [
+        8,
+        -11,
+        -5
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        192,
+        194,
+        201
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 194,
+      "chunk_id": 0,
+      "position": [
+        8,
+        -11,
+        -3
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        193,
+        195,
+        202
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 195,
+      "chunk_id": 0,
+      "position": [
+        8,
+        -11,
+        -1
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        194,
+        196,
+        203
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 196,
+      "chunk_id": 0,
+      "position": [
+        8,
+        -11,
+        1
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        195,
+        197,
+        204
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 197,
+      "chunk_id": 0,
+      "position": [
+        8,
+        -11,
+        3
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        196,
+        198,
+        205
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 198,
+      "chunk_id": 0,
+      "position": [
+        8,
+        -11,
+        5
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        197,
+        199,
+        206
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 199,
+      "chunk_id": 0,
+      "position": [
+        8,
+        -11,
+        7
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        7,
+        198,
+        207
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 200,
+      "chunk_id": 0,
+      "position": [
+        8,
+        -9,
+        -7
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        111,
+        192,
+        201,
+        208
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 201,
+      "chunk_id": 0,
+      "position": [
+        8,
+        -9,
+        -5
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        193,
+        200,
+        202,
+        209
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 202,
+      "chunk_id": 0,
+      "position": [
+        8,
+        -9,
+        -3
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        194,
+        201,
+        203,
+        210
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 203,
+      "chunk_id": 0,
+      "position": [
+        8,
+        -9,
+        -1
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        195,
+        202,
+        204,
+        211
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 204,
+      "chunk_id": 0,
+      "position": [
+        8,
+        -9,
+        1
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        196,
+        203,
+        205,
+        212
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 205,
+      "chunk_id": 0,
+      "position": [
+        8,
+        -9,
+        3
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        197,
+        204,
+        206,
+        213
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 206,
+      "chunk_id": 0,
+      "position": [
+        8,
+        -9,
+        5
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        198,
+        205,
+        207,
+        214
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 207,
+      "chunk_id": 0,
+      "position": [
+        8,
+        -9,
+        7
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        15,
+        199,
+        206,
+        215
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 208,
+      "chunk_id": 0,
+      "position": [
+        8,
+        -7,
+        -7
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        119,
+        200,
+        209,
+        216
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 209,
+      "chunk_id": 0,
+      "position": [
+        8,
+        -7,
+        -5
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        201,
+        208,
+        210,
+        217
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 210,
+      "chunk_id": 0,
+      "position": [
+        8,
+        -7,
+        -3
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        202,
+        209,
+        211,
+        218
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 211,
+      "chunk_id": 0,
+      "position": [
+        8,
+        -7,
+        -1
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        203,
+        210,
+        212,
+        219
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 212,
+      "chunk_id": 0,
+      "position": [
+        8,
+        -7,
+        1
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        204,
+        211,
+        213,
+        220
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 213,
+      "chunk_id": 0,
+      "position": [
+        8,
+        -7,
+        3
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        205,
+        212,
+        214,
+        221
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 214,
+      "chunk_id": 0,
+      "position": [
+        8,
+        -7,
+        5
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        206,
+        213,
+        215,
+        222
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 215,
+      "chunk_id": 0,
+      "position": [
+        8,
+        -7,
+        7
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        23,
+        207,
+        214,
+        223
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 216,
+      "chunk_id": 1,
+      "position": [
+        8,
+        -5,
+        -7
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        127,
+        208,
+        217,
+        224
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 217,
+      "chunk_id": 1,
+      "position": [
+        8,
+        -5,
+        -5
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        209,
+        216,
+        218,
+        225
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 218,
+      "chunk_id": 1,
+      "position": [
+        8,
+        -5,
+        -3
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        210,
+        217,
+        219,
+        226
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 219,
+      "chunk_id": 1,
+      "position": [
+        8,
+        -5,
+        -1
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        211,
+        218,
+        220,
+        227
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 220,
+      "chunk_id": 1,
+      "position": [
+        8,
+        -5,
+        1
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        212,
+        219,
+        221,
+        228
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 221,
+      "chunk_id": 1,
+      "position": [
+        8,
+        -5,
+        3
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        213,
+        220,
+        222,
+        229
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 222,
+      "chunk_id": 1,
+      "position": [
+        8,
+        -5,
+        5
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        214,
+        221,
+        223,
+        230
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 223,
+      "chunk_id": 1,
+      "position": [
+        8,
+        -5,
+        7
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        31,
+        215,
+        222,
+        231
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 224,
+      "chunk_id": 1,
+      "position": [
+        8,
+        -3,
+        -7
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        135,
+        216,
+        225,
+        232
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 225,
+      "chunk_id": 1,
+      "position": [
+        8,
+        -3,
+        -5
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        217,
+        224,
+        226,
+        233
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 226,
+      "chunk_id": 1,
+      "position": [
+        8,
+        -3,
+        -3
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        218,
+        225,
+        227,
+        234
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 227,
+      "chunk_id": 1,
+      "position": [
+        8,
+        -3,
+        -1
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        219,
+        226,
+        228,
+        235
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 228,
+      "chunk_id": 1,
+      "position": [
+        8,
+        -3,
+        1
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        220,
+        227,
+        229,
+        236
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 229,
+      "chunk_id": 1,
+      "position": [
+        8,
+        -3,
+        3
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        221,
+        228,
+        230,
+        237
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 230,
+      "chunk_id": 1,
+      "position": [
+        8,
+        -3,
+        5
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        222,
+        229,
+        231,
+        238
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 231,
+      "chunk_id": 1,
+      "position": [
+        8,
+        -3,
+        7
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        39,
+        223,
+        230,
+        239
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 232,
+      "chunk_id": 1,
+      "position": [
+        8,
+        -1,
+        -7
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        143,
+        224,
+        233,
+        240
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 233,
+      "chunk_id": 1,
+      "position": [
+        8,
+        -1,
+        -5
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        225,
+        232,
+        234,
+        241
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 234,
+      "chunk_id": 1,
+      "position": [
+        8,
+        -1,
+        -3
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        226,
+        233,
+        235,
+        242
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 235,
+      "chunk_id": 1,
+      "position": [
+        8,
+        -1,
+        -1
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        227,
+        234,
+        236,
+        243
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 236,
+      "chunk_id": 1,
+      "position": [
+        8,
+        -1,
+        1
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        228,
+        235,
+        237,
+        244
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 237,
+      "chunk_id": 1,
+      "position": [
+        8,
+        -1,
+        3
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        229,
+        236,
+        238,
+        245
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 238,
+      "chunk_id": 1,
+      "position": [
+        8,
+        -1,
+        5
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        230,
+        237,
+        239,
+        246
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 239,
+      "chunk_id": 1,
+      "position": [
+        8,
+        -1,
+        7
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        47,
+        231,
+        238,
+        247
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 240,
+      "chunk_id": 2,
+      "position": [
+        8,
+        1,
+        -7
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        151,
+        232,
+        241,
+        248
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 241,
+      "chunk_id": 2,
+      "position": [
+        8,
+        1,
+        -5
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        233,
+        240,
+        242,
+        249
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 242,
+      "chunk_id": 2,
+      "position": [
+        8,
+        1,
+        -3
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        234,
+        241,
+        243,
+        250
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 243,
+      "chunk_id": 2,
+      "position": [
+        8,
+        1,
+        -1
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        235,
+        242,
+        244,
+        251
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 244,
+      "chunk_id": 2,
+      "position": [
+        8,
+        1,
+        1
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        236,
+        243,
+        245,
+        252
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 245,
+      "chunk_id": 2,
+      "position": [
+        8,
+        1,
+        3
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        237,
+        244,
+        246,
+        253
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 246,
+      "chunk_id": 2,
+      "position": [
+        8,
+        1,
+        5
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        238,
+        245,
+        247,
+        254
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 247,
+      "chunk_id": 2,
+      "position": [
+        8,
+        1,
+        7
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        55,
+        239,
+        246,
+        255
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 248,
+      "chunk_id": 2,
+      "position": [
+        8,
+        3,
+        -7
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        159,
+        240,
+        249,
+        256
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 249,
+      "chunk_id": 2,
+      "position": [
+        8,
+        3,
+        -5
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        241,
+        248,
+        250,
+        257
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 250,
+      "chunk_id": 2,
+      "position": [
+        8,
+        3,
+        -3
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        242,
+        249,
+        251,
+        258
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 251,
+      "chunk_id": 2,
+      "position": [
+        8,
+        3,
+        -1
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        243,
+        250,
+        252,
+        259
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 252,
+      "chunk_id": 2,
+      "position": [
+        8,
+        3,
+        1
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        244,
+        251,
+        253,
+        260
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 253,
+      "chunk_id": 2,
+      "position": [
+        8,
+        3,
+        3
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        245,
+        252,
+        254,
+        261
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 254,
+      "chunk_id": 2,
+      "position": [
+        8,
+        3,
+        5
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        246,
+        253,
+        255,
+        262
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 255,
+      "chunk_id": 2,
+      "position": [
+        8,
+        3,
+        7
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        63,
+        247,
+        254,
+        263
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 256,
+      "chunk_id": 2,
+      "position": [
+        8,
+        5,
+        -7
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        167,
+        248,
+        257,
+        264
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 257,
+      "chunk_id": 2,
+      "position": [
+        8,
+        5,
+        -5
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        249,
+        256,
+        258,
+        265
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 258,
+      "chunk_id": 2,
+      "position": [
+        8,
+        5,
+        -3
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        250,
+        257,
+        259,
+        266
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 259,
+      "chunk_id": 2,
+      "position": [
+        8,
+        5,
+        -1
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        251,
+        258,
+        260,
+        267
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 260,
+      "chunk_id": 2,
+      "position": [
+        8,
+        5,
+        1
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        252,
+        259,
+        261,
+        268
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 261,
+      "chunk_id": 2,
+      "position": [
+        8,
+        5,
+        3
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        253,
+        260,
+        262,
+        269
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 262,
+      "chunk_id": 2,
+      "position": [
+        8,
+        5,
+        5
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        254,
+        261,
+        263,
+        270
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 263,
+      "chunk_id": 2,
+      "position": [
+        8,
+        5,
+        7
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        71,
+        255,
+        262,
+        271
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 264,
+      "chunk_id": 3,
+      "position": [
+        8,
+        7,
+        -7
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        175,
+        256,
+        265,
+        272
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 265,
+      "chunk_id": 3,
+      "position": [
+        8,
+        7,
+        -5
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        257,
+        264,
+        266,
+        273
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 266,
+      "chunk_id": 3,
+      "position": [
+        8,
+        7,
+        -3
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        258,
+        265,
+        267,
+        274
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 267,
+      "chunk_id": 3,
+      "position": [
+        8,
+        7,
+        -1
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        259,
+        266,
+        268,
+        275
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 268,
+      "chunk_id": 3,
+      "position": [
+        8,
+        7,
+        1
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        260,
+        267,
+        269,
+        276
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 269,
+      "chunk_id": 3,
+      "position": [
+        8,
+        7,
+        3
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        261,
+        268,
+        270,
+        277
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 270,
+      "chunk_id": 3,
+      "position": [
+        8,
+        7,
+        5
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        262,
+        269,
+        271,
+        278
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 271,
+      "chunk_id": 3,
+      "position": [
+        8,
+        7,
+        7
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        79,
+        263,
+        270,
+        279
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 272,
+      "chunk_id": 3,
+      "position": [
+        8,
+        9,
+        -7
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        183,
+        264,
+        273,
+        280
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 273,
+      "chunk_id": 3,
+      "position": [
+        8,
+        9,
+        -5
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        265,
+        272,
+        274,
+        281
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 274,
+      "chunk_id": 3,
+      "position": [
+        8,
+        9,
+        -3
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        266,
+        273,
+        275,
+        282
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 275,
+      "chunk_id": 3,
+      "position": [
+        8,
+        9,
+        -1
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        267,
+        274,
+        276,
+        283
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 276,
+      "chunk_id": 3,
+      "position": [
+        8,
+        9,
+        1
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        268,
+        275,
+        277,
+        284
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 277,
+      "chunk_id": 3,
+      "position": [
+        8,
+        9,
+        3
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        269,
+        276,
+        278,
+        285
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 278,
+      "chunk_id": 3,
+      "position": [
+        8,
+        9,
+        5
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        270,
+        277,
+        279,
+        286
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 279,
+      "chunk_id": 3,
+      "position": [
+        8,
+        9,
+        7
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        87,
+        271,
+        278,
+        287
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 280,
+      "chunk_id": 3,
+      "position": [
+        8,
+        11,
+        -7
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        191,
+        272,
+        281
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 281,
+      "chunk_id": 3,
+      "position": [
+        8,
+        11,
+        -5
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        273,
+        280,
+        282
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 282,
+      "chunk_id": 3,
+      "position": [
+        8,
+        11,
+        -3
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        274,
+        281,
+        283
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 283,
+      "chunk_id": 3,
+      "position": [
+        8,
+        11,
+        -1
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        275,
+        282,
+        284
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 284,
+      "chunk_id": 3,
+      "position": [
+        8,
+        11,
+        1
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        276,
+        283,
+        285
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 285,
+      "chunk_id": 3,
+      "position": [
+        8,
+        11,
+        3
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        277,
+        284,
+        286
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 286,
+      "chunk_id": 3,
+      "position": [
+        8,
+        11,
+        5
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        278,
+        285,
+        287
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 287,
+      "chunk_id": 3,
+      "position": [
+        8,
+        11,
+        7
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "neighbors": [
+        95,
+        279,
+        286
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 288,
+      "chunk_id": 0,
+      "position": [
+        -8,
+        -11,
+        -7
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        96,
+        289,
+        296
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 289,
+      "chunk_id": 0,
+      "position": [
+        -8,
+        -11,
+        -5
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        288,
+        290,
+        297
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 290,
+      "chunk_id": 0,
+      "position": [
+        -8,
+        -11,
+        -3
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        289,
+        291,
+        298
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 291,
+      "chunk_id": 0,
+      "position": [
+        -8,
+        -11,
+        -1
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        290,
+        292,
+        299
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 292,
+      "chunk_id": 0,
+      "position": [
+        -8,
+        -11,
+        1
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        291,
+        293,
+        300
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 293,
+      "chunk_id": 0,
+      "position": [
+        -8,
+        -11,
+        3
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        292,
+        294,
+        301
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 294,
+      "chunk_id": 0,
+      "position": [
+        -8,
+        -11,
+        5
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        293,
+        295,
+        302
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 295,
+      "chunk_id": 0,
+      "position": [
+        -8,
+        -11,
+        7
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        0,
+        294,
+        303
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 296,
+      "chunk_id": 0,
+      "position": [
+        -8,
+        -9,
+        -7
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        104,
+        288,
+        297,
+        304
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 297,
+      "chunk_id": 0,
+      "position": [
+        -8,
+        -9,
+        -5
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        289,
+        296,
+        298,
+        305
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 298,
+      "chunk_id": 0,
+      "position": [
+        -8,
+        -9,
+        -3
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        290,
+        297,
+        299,
+        306
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 299,
+      "chunk_id": 0,
+      "position": [
+        -8,
+        -9,
+        -1
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        291,
+        298,
+        300,
+        307
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 300,
+      "chunk_id": 0,
+      "position": [
+        -8,
+        -9,
+        1
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        292,
+        299,
+        301,
+        308
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 301,
+      "chunk_id": 0,
+      "position": [
+        -8,
+        -9,
+        3
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        293,
+        300,
+        302,
+        309
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 302,
+      "chunk_id": 0,
+      "position": [
+        -8,
+        -9,
+        5
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        294,
+        301,
+        303,
+        310
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 303,
+      "chunk_id": 0,
+      "position": [
+        -8,
+        -9,
+        7
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        8,
+        295,
+        302,
+        311
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 304,
+      "chunk_id": 0,
+      "position": [
+        -8,
+        -7,
+        -7
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        112,
+        296,
+        305,
+        312
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 305,
+      "chunk_id": 0,
+      "position": [
+        -8,
+        -7,
+        -5
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        297,
+        304,
+        306,
+        313
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 306,
+      "chunk_id": 0,
+      "position": [
+        -8,
+        -7,
+        -3
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        298,
+        305,
+        307,
+        314
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 307,
+      "chunk_id": 0,
+      "position": [
+        -8,
+        -7,
+        -1
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        299,
+        306,
+        308,
+        315
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 308,
+      "chunk_id": 0,
+      "position": [
+        -8,
+        -7,
+        1
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        300,
+        307,
+        309,
+        316
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 309,
+      "chunk_id": 0,
+      "position": [
+        -8,
+        -7,
+        3
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        301,
+        308,
+        310,
+        317
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 310,
+      "chunk_id": 0,
+      "position": [
+        -8,
+        -7,
+        5
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        302,
+        309,
+        311,
+        318
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 311,
+      "chunk_id": 0,
+      "position": [
+        -8,
+        -7,
+        7
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        16,
+        303,
+        310,
+        319
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 312,
+      "chunk_id": 1,
+      "position": [
+        -8,
+        -5,
+        -7
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        120,
+        304,
+        313,
+        320
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 313,
+      "chunk_id": 1,
+      "position": [
+        -8,
+        -5,
+        -5
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        305,
+        312,
+        314,
+        321
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 314,
+      "chunk_id": 1,
+      "position": [
+        -8,
+        -5,
+        -3
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        306,
+        313,
+        315,
+        322
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 315,
+      "chunk_id": 1,
+      "position": [
+        -8,
+        -5,
+        -1
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        307,
+        314,
+        316,
+        323
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 316,
+      "chunk_id": 1,
+      "position": [
+        -8,
+        -5,
+        1
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        308,
+        315,
+        317,
+        324
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 317,
+      "chunk_id": 1,
+      "position": [
+        -8,
+        -5,
+        3
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        309,
+        316,
+        318,
+        325
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 318,
+      "chunk_id": 1,
+      "position": [
+        -8,
+        -5,
+        5
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        310,
+        317,
+        319,
+        326
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 319,
+      "chunk_id": 1,
+      "position": [
+        -8,
+        -5,
+        7
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        24,
+        311,
+        318,
+        327
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 320,
+      "chunk_id": 1,
+      "position": [
+        -8,
+        -3,
+        -7
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        128,
+        312,
+        321,
+        328
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 321,
+      "chunk_id": 1,
+      "position": [
+        -8,
+        -3,
+        -5
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        313,
+        320,
+        322,
+        329
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 322,
+      "chunk_id": 1,
+      "position": [
+        -8,
+        -3,
+        -3
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        314,
+        321,
+        323,
+        330
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 323,
+      "chunk_id": 1,
+      "position": [
+        -8,
+        -3,
+        -1
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        315,
+        322,
+        324,
+        331
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 324,
+      "chunk_id": 1,
+      "position": [
+        -8,
+        -3,
+        1
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        316,
+        323,
+        325,
+        332
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 325,
+      "chunk_id": 1,
+      "position": [
+        -8,
+        -3,
+        3
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        317,
+        324,
+        326,
+        333
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 326,
+      "chunk_id": 1,
+      "position": [
+        -8,
+        -3,
+        5
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        318,
+        325,
+        327,
+        334
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 327,
+      "chunk_id": 1,
+      "position": [
+        -8,
+        -3,
+        7
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        32,
+        319,
+        326,
+        335
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 328,
+      "chunk_id": 1,
+      "position": [
+        -8,
+        -1,
+        -7
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        136,
+        320,
+        329,
+        336
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 329,
+      "chunk_id": 1,
+      "position": [
+        -8,
+        -1,
+        -5
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        321,
+        328,
+        330,
+        337
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 330,
+      "chunk_id": 1,
+      "position": [
+        -8,
+        -1,
+        -3
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        322,
+        329,
+        331,
+        338
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 331,
+      "chunk_id": 1,
+      "position": [
+        -8,
+        -1,
+        -1
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        323,
+        330,
+        332,
+        339
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 332,
+      "chunk_id": 1,
+      "position": [
+        -8,
+        -1,
+        1
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        324,
+        331,
+        333,
+        340
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 333,
+      "chunk_id": 1,
+      "position": [
+        -8,
+        -1,
+        3
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        325,
+        332,
+        334,
+        341
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 334,
+      "chunk_id": 1,
+      "position": [
+        -8,
+        -1,
+        5
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        326,
+        333,
+        335,
+        342
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 335,
+      "chunk_id": 1,
+      "position": [
+        -8,
+        -1,
+        7
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        40,
+        327,
+        334,
+        343
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 336,
+      "chunk_id": 2,
+      "position": [
+        -8,
+        1,
+        -7
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        144,
+        328,
+        337,
+        344
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 337,
+      "chunk_id": 2,
+      "position": [
+        -8,
+        1,
+        -5
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        329,
+        336,
+        338,
+        345
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 338,
+      "chunk_id": 2,
+      "position": [
+        -8,
+        1,
+        -3
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        330,
+        337,
+        339,
+        346
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 339,
+      "chunk_id": 2,
+      "position": [
+        -8,
+        1,
+        -1
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        331,
+        338,
+        340,
+        347
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 340,
+      "chunk_id": 2,
+      "position": [
+        -8,
+        1,
+        1
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        332,
+        339,
+        341,
+        348
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 341,
+      "chunk_id": 2,
+      "position": [
+        -8,
+        1,
+        3
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        333,
+        340,
+        342,
+        349
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 342,
+      "chunk_id": 2,
+      "position": [
+        -8,
+        1,
+        5
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        334,
+        341,
+        343,
+        350
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 343,
+      "chunk_id": 2,
+      "position": [
+        -8,
+        1,
+        7
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        48,
+        335,
+        342,
+        351
+      ],
+      "weak_seam": true
+    },
+    {
+      "id": 344,
+      "chunk_id": 2,
+      "position": [
+        -8,
+        3,
+        -7
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        152,
+        336,
+        345,
+        352
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 345,
+      "chunk_id": 2,
+      "position": [
+        -8,
+        3,
+        -5
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        337,
+        344,
+        346,
+        353
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 346,
+      "chunk_id": 2,
+      "position": [
+        -8,
+        3,
+        -3
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        338,
+        345,
+        347,
+        354
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 347,
+      "chunk_id": 2,
+      "position": [
+        -8,
+        3,
+        -1
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        339,
+        346,
+        348,
+        355
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 348,
+      "chunk_id": 2,
+      "position": [
+        -8,
+        3,
+        1
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        340,
+        347,
+        349,
+        356
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 349,
+      "chunk_id": 2,
+      "position": [
+        -8,
+        3,
+        3
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        341,
+        348,
+        350,
+        357
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 350,
+      "chunk_id": 2,
+      "position": [
+        -8,
+        3,
+        5
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        342,
+        349,
+        351,
+        358
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 351,
+      "chunk_id": 2,
+      "position": [
+        -8,
+        3,
+        7
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        56,
+        343,
+        350,
+        359
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 352,
+      "chunk_id": 2,
+      "position": [
+        -8,
+        5,
+        -7
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        160,
+        344,
+        353,
+        360
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 353,
+      "chunk_id": 2,
+      "position": [
+        -8,
+        5,
+        -5
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        345,
+        352,
+        354,
+        361
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 354,
+      "chunk_id": 2,
+      "position": [
+        -8,
+        5,
+        -3
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        346,
+        353,
+        355,
+        362
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 355,
+      "chunk_id": 2,
+      "position": [
+        -8,
+        5,
+        -1
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        347,
+        354,
+        356,
+        363
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 356,
+      "chunk_id": 2,
+      "position": [
+        -8,
+        5,
+        1
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        348,
+        355,
+        357,
+        364
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 357,
+      "chunk_id": 2,
+      "position": [
+        -8,
+        5,
+        3
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        349,
+        356,
+        358,
+        365
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 358,
+      "chunk_id": 2,
+      "position": [
+        -8,
+        5,
+        5
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        350,
+        357,
+        359,
+        366
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 359,
+      "chunk_id": 2,
+      "position": [
+        -8,
+        5,
+        7
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        64,
+        351,
+        358,
+        367
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 360,
+      "chunk_id": 3,
+      "position": [
+        -8,
+        7,
+        -7
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        168,
+        352,
+        361,
+        368
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 361,
+      "chunk_id": 3,
+      "position": [
+        -8,
+        7,
+        -5
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        353,
+        360,
+        362,
+        369
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 362,
+      "chunk_id": 3,
+      "position": [
+        -8,
+        7,
+        -3
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        354,
+        361,
+        363,
+        370
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 363,
+      "chunk_id": 3,
+      "position": [
+        -8,
+        7,
+        -1
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        355,
+        362,
+        364,
+        371
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 364,
+      "chunk_id": 3,
+      "position": [
+        -8,
+        7,
+        1
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        356,
+        363,
+        365,
+        372
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 365,
+      "chunk_id": 3,
+      "position": [
+        -8,
+        7,
+        3
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        357,
+        364,
+        366,
+        373
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 366,
+      "chunk_id": 3,
+      "position": [
+        -8,
+        7,
+        5
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        358,
+        365,
+        367,
+        374
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 367,
+      "chunk_id": 3,
+      "position": [
+        -8,
+        7,
+        7
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        72,
+        359,
+        366,
+        375
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 368,
+      "chunk_id": 3,
+      "position": [
+        -8,
+        9,
+        -7
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        176,
+        360,
+        369,
+        376
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 369,
+      "chunk_id": 3,
+      "position": [
+        -8,
+        9,
+        -5
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        361,
+        368,
+        370,
+        377
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 370,
+      "chunk_id": 3,
+      "position": [
+        -8,
+        9,
+        -3
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        362,
+        369,
+        371,
+        378
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 371,
+      "chunk_id": 3,
+      "position": [
+        -8,
+        9,
+        -1
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        363,
+        370,
+        372,
+        379
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 372,
+      "chunk_id": 3,
+      "position": [
+        -8,
+        9,
+        1
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        364,
+        371,
+        373,
+        380
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 373,
+      "chunk_id": 3,
+      "position": [
+        -8,
+        9,
+        3
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        365,
+        372,
+        374,
+        381
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 374,
+      "chunk_id": 3,
+      "position": [
+        -8,
+        9,
+        5
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        366,
+        373,
+        375,
+        382
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 375,
+      "chunk_id": 3,
+      "position": [
+        -8,
+        9,
+        7
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        80,
+        367,
+        374,
+        383
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 376,
+      "chunk_id": 3,
+      "position": [
+        -8,
+        11,
+        -7
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        184,
+        368,
+        377
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 377,
+      "chunk_id": 3,
+      "position": [
+        -8,
+        11,
+        -5
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        369,
+        376,
+        378
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 378,
+      "chunk_id": 3,
+      "position": [
+        -8,
+        11,
+        -3
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        370,
+        377,
+        379
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 379,
+      "chunk_id": 3,
+      "position": [
+        -8,
+        11,
+        -1
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        371,
+        378,
+        380
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 380,
+      "chunk_id": 3,
+      "position": [
+        -8,
+        11,
+        1
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        372,
+        379,
+        381
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 381,
+      "chunk_id": 3,
+      "position": [
+        -8,
+        11,
+        3
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        373,
+        380,
+        382
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 382,
+      "chunk_id": 3,
+      "position": [
+        -8,
+        11,
+        5
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        374,
+        381,
+        383
+      ],
+      "weak_seam": false
+    },
+    {
+      "id": 383,
+      "chunk_id": 3,
+      "position": [
+        -8,
+        11,
+        7
+      ],
+      "size": [
+        0.8,
+        2,
+        2
+      ],
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "neighbors": [
+        88,
+        375,
+        382
+      ],
+      "weak_seam": false
+    }
+  ]
+}

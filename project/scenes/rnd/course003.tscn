@@ -1,0 +1,437 @@
+[gd_scene format=3]
+[ext_resource type="Script" path="res://scripts/rnd/course_controller.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/destruction/destructible_segment.gd" id="2"]
+[ext_resource type="PackedScene" path="res://scenes/destruction/ink_rubble.scn" id="3"]
+[ext_resource type="Material" path="res://assets/placeholders/paper.tres" id="4"]
+[ext_resource type="Material" path="res://assets/placeholders/cut_ink.tres" id="5"]
+[ext_resource type="Font" path="res://assets/placeholders/ui_zh.tres" id="6"]
+[sub_resource type="BoxMesh" id="M_GateA"]
+size = Vector3(25, 22, 2)
+material = ExtResource("4")
+[sub_resource type="BoxShape3D" id="S_GateA"]
+size = Vector3(25, 22, 2)
+[sub_resource type="BoxMesh" id="M_LandingA"]
+size = Vector3(14, 1, 12)
+material = ExtResource("4")
+[sub_resource type="BoxShape3D" id="S_LandingA"]
+size = Vector3(14, 1, 12)
+[sub_resource type="BoxMesh" id="M_GateB"]
+size = Vector3(25, 3, 3)
+material = ExtResource("4")
+[sub_resource type="BoxShape3D" id="S_GateB"]
+size = Vector3(25, 3, 3)
+[sub_resource type="BoxMesh" id="M_CanopyB"]
+size = Vector3(18, 1, 8)
+material = ExtResource("4")
+[sub_resource type="BoxShape3D" id="S_CanopyB"]
+size = Vector3(18, 1, 8)
+[sub_resource type="BoxMesh" id="M_ShellFront"]
+size = Vector3(16, 18, 2)
+material = ExtResource("4")
+[sub_resource type="BoxShape3D" id="S_ShellFront"]
+size = Vector3(16, 18, 2)
+[sub_resource type="BoxMesh" id="M_RoomFloor"]
+size = Vector3(16, 1, 22)
+material = ExtResource("4")
+[sub_resource type="BoxShape3D" id="S_RoomFloor"]
+size = Vector3(16, 1, 22)
+[sub_resource type="BoxMesh" id="M_RoomLeft"]
+size = Vector3(1, 20, 22)
+material = ExtResource("4")
+[sub_resource type="BoxShape3D" id="S_RoomLeft"]
+size = Vector3(1, 20, 22)
+[sub_resource type="BoxMesh" id="M_RoomRight"]
+size = Vector3(1, 20, 22)
+material = ExtResource("4")
+[sub_resource type="BoxShape3D" id="S_RoomRight"]
+size = Vector3(1, 20, 22)
+[sub_resource type="BoxMesh" id="M_RoomRoof"]
+size = Vector3(16, 1, 22)
+material = ExtResource("4")
+[sub_resource type="BoxShape3D" id="S_RoomRoof"]
+size = Vector3(16, 1, 22)
+[sub_resource type="BoxMesh" id="M_WallLab"]
+size = Vector3(2, 26, 20)
+material = ExtResource("4")
+[sub_resource type="BoxShape3D" id="S_WallLab"]
+size = Vector3(2, 26, 20)
+[sub_resource type="BoxMesh" id="M_RecoveryDeck"]
+size = Vector3(14, 1, 12)
+material = ExtResource("4")
+[sub_resource type="BoxShape3D" id="S_RecoveryDeck"]
+size = Vector3(14, 1, 12)
+[sub_resource type="BoxMesh" id="M_FinalGate"]
+size = Vector3(24, 23, 3)
+material = ExtResource("4")
+[sub_resource type="BoxShape3D" id="S_FinalGate"]
+size = Vector3(24, 23, 3)
+[sub_resource type="TorusMesh" id="M_AnchorStart"]
+inner_radius = 1.25
+outer_radius = 1.65
+rings = 24
+ring_segments = 8
+material = ExtResource("5")
+[sub_resource type="SphereShape3D" id="S_AnchorStart"]
+radius = 1.65
+[sub_resource type="TorusMesh" id="M_AnchorA"]
+inner_radius = 1.25
+outer_radius = 1.65
+rings = 24
+ring_segments = 8
+material = ExtResource("5")
+[sub_resource type="SphereShape3D" id="S_AnchorA"]
+radius = 1.65
+[sub_resource type="TorusMesh" id="M_AnchorChainL"]
+inner_radius = 1.25
+outer_radius = 1.65
+rings = 24
+ring_segments = 8
+material = ExtResource("5")
+[sub_resource type="SphereShape3D" id="S_AnchorChainL"]
+radius = 1.65
+[sub_resource type="TorusMesh" id="M_AnchorChainR"]
+inner_radius = 1.25
+outer_radius = 1.65
+rings = 24
+ring_segments = 8
+material = ExtResource("5")
+[sub_resource type="SphereShape3D" id="S_AnchorChainR"]
+radius = 1.65
+[sub_resource type="TorusMesh" id="M_AnchorSweep"]
+inner_radius = 1.25
+outer_radius = 1.65
+rings = 24
+ring_segments = 8
+material = ExtResource("5")
+[sub_resource type="SphereShape3D" id="S_AnchorSweep"]
+radius = 1.65
+[sub_resource type="TorusMesh" id="M_AnchorInner"]
+inner_radius = 1.25
+outer_radius = 1.65
+rings = 24
+ring_segments = 8
+material = ExtResource("5")
+[sub_resource type="SphereShape3D" id="S_AnchorInner"]
+radius = 1.65
+[sub_resource type="TorusMesh" id="M_AnchorDive"]
+inner_radius = 1.25
+outer_radius = 1.65
+rings = 24
+ring_segments = 8
+material = ExtResource("5")
+[sub_resource type="SphereShape3D" id="S_AnchorDive"]
+radius = 1.65
+[sub_resource type="TorusMesh" id="M_AnchorRescue"]
+inner_radius = 1.25
+outer_radius = 1.65
+rings = 24
+ring_segments = 8
+material = ExtResource("5")
+[sub_resource type="SphereShape3D" id="S_AnchorRescue"]
+radius = 1.65
+[sub_resource type="TorusMesh" id="M_AnchorExit"]
+inner_radius = 1.25
+outer_radius = 1.65
+rings = 24
+ring_segments = 8
+material = ExtResource("5")
+[sub_resource type="SphereShape3D" id="S_AnchorExit"]
+radius = 1.65
+[sub_resource type="TorusMesh" id="M_AnchorFinish"]
+inner_radius = 1.25
+outer_radius = 1.65
+rings = 24
+ring_segments = 8
+material = ExtResource("5")
+[sub_resource type="SphereShape3D" id="S_AnchorFinish"]
+radius = 1.65
+[node name="Course003" type="Node3D"]
+script = ExtResource("1")
+[node name="GateA" type="StaticBody3D" parent="."]
+position = Vector3(0, 53, -65)
+script = ExtResource("2")
+broken_scene = ExtResource("3")
+debris_at_hit = true
+structure_weight = 1
+local_bounds = AABB(-12.5, -11.0, -1.0, 25, 22, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="GateA"]
+mesh = SubResource("M_GateA")
+[node name="Guide" type="Label3D" parent="GateA/IntactVisual"]
+position = Vector3(0, 4, 1.06)
+text = "02 / 撞开"
+font = ExtResource("6")
+font_size = 64
+pixel_size = 0.022
+outline_size = 0
+modulate = Color(0.02, 0.02, 0.02, 1)
+no_depth_test = false
+[node name="Collision" type="CollisionShape3D" parent="GateA"]
+shape = SubResource("S_GateA")
+[node name="LandingA" type="StaticBody3D" parent="."]
+position = Vector3(0, 39, -83)
+script = ExtResource("2")
+broken_scene = ExtResource("3")
+debris_at_hit = true
+structure_weight = 0
+local_bounds = AABB(-7.0, -0.5, -6.0, 14, 1, 12)
+[node name="IntactVisual" type="MeshInstance3D" parent="LandingA"]
+mesh = SubResource("M_LandingA")
+[node name="Collision" type="CollisionShape3D" parent="LandingA"]
+shape = SubResource("S_LandingA")
+[node name="GateB" type="StaticBody3D" parent="."]
+position = Vector3(0, 55, -127)
+script = ExtResource("2")
+broken_scene = ExtResource("3")
+debris_at_hit = true
+structure_weight = 0
+local_bounds = AABB(-12.5, -1.5, -1.5, 25, 3, 3)
+[node name="IntactVisual" type="MeshInstance3D" parent="GateB"]
+mesh = SubResource("M_GateB")
+[node name="Guide" type="Label3D" parent="GateB/IntactVisual"]
+position = Vector3(0, 0.75, 1.56)
+text = "04 / 切断"
+font = ExtResource("6")
+font_size = 64
+pixel_size = 0.022
+outline_size = 0
+modulate = Color(0.02, 0.02, 0.02, 1)
+no_depth_test = false
+[node name="Collision" type="CollisionShape3D" parent="GateB"]
+shape = SubResource("S_GateB")
+[node name="CanopyB" type="StaticBody3D" parent="."]
+position = Vector3(0, 65, -129)
+script = ExtResource("2")
+broken_scene = ExtResource("3")
+debris_at_hit = true
+structure_weight = 0
+local_bounds = AABB(-9.0, -0.5, -4.0, 18, 1, 8)
+[node name="IntactVisual" type="MeshInstance3D" parent="CanopyB"]
+mesh = SubResource("M_CanopyB")
+[node name="Collision" type="CollisionShape3D" parent="CanopyB"]
+shape = SubResource("S_CanopyB")
+[node name="ShellFront" type="StaticBody3D" parent="."]
+position = Vector3(0, 48, -173)
+script = ExtResource("2")
+broken_scene = ExtResource("3")
+debris_at_hit = true
+structure_weight = 1
+local_bounds = AABB(-8.0, -9.0, -1.0, 16, 18, 2)
+[node name="IntactVisual" type="MeshInstance3D" parent="ShellFront"]
+mesh = SubResource("M_ShellFront")
+[node name="Guide" type="Label3D" parent="ShellFront/IntactVisual"]
+position = Vector3(0, 4, 1.06)
+text = "05 / 通道"
+font = ExtResource("6")
+font_size = 64
+pixel_size = 0.022
+outline_size = 0
+modulate = Color(0.02, 0.02, 0.02, 1)
+no_depth_test = false
+[node name="Collision" type="CollisionShape3D" parent="ShellFront"]
+shape = SubResource("S_ShellFront")
+[node name="RoomFloor" type="StaticBody3D" parent="."]
+position = Vector3(0, 38, -183)
+script = ExtResource("2")
+broken_scene = ExtResource("3")
+debris_at_hit = true
+structure_weight = 1
+local_bounds = AABB(-8.0, -0.5, -11.0, 16, 1, 22)
+[node name="IntactVisual" type="MeshInstance3D" parent="RoomFloor"]
+mesh = SubResource("M_RoomFloor")
+[node name="Collision" type="CollisionShape3D" parent="RoomFloor"]
+shape = SubResource("S_RoomFloor")
+[node name="RoomLeft" type="StaticBody3D" parent="."]
+position = Vector3(-8.5, 48, -183)
+script = ExtResource("2")
+broken_scene = ExtResource("3")
+debris_at_hit = true
+structure_weight = 1
+local_bounds = AABB(-0.5, -10.0, -11.0, 1, 20, 22)
+[node name="IntactVisual" type="MeshInstance3D" parent="RoomLeft"]
+mesh = SubResource("M_RoomLeft")
+[node name="Collision" type="CollisionShape3D" parent="RoomLeft"]
+shape = SubResource("S_RoomLeft")
+[node name="RoomRight" type="StaticBody3D" parent="."]
+position = Vector3(8.5, 48, -183)
+script = ExtResource("2")
+broken_scene = ExtResource("3")
+debris_at_hit = true
+structure_weight = 1
+local_bounds = AABB(-0.5, -10.0, -11.0, 1, 20, 22)
+[node name="IntactVisual" type="MeshInstance3D" parent="RoomRight"]
+mesh = SubResource("M_RoomRight")
+[node name="Collision" type="CollisionShape3D" parent="RoomRight"]
+shape = SubResource("S_RoomRight")
+[node name="RoomRoof" type="StaticBody3D" parent="."]
+position = Vector3(0, 58, -183)
+script = ExtResource("2")
+broken_scene = ExtResource("3")
+debris_at_hit = true
+structure_weight = 1
+local_bounds = AABB(-8.0, -0.5, -11.0, 16, 1, 22)
+[node name="IntactVisual" type="MeshInstance3D" parent="RoomRoof"]
+mesh = SubResource("M_RoomRoof")
+[node name="Collision" type="CollisionShape3D" parent="RoomRoof"]
+shape = SubResource("S_RoomRoof")
+[node name="WallLab" type="StaticBody3D" parent="."]
+position = Vector3(12, -60, -220)
+script = ExtResource("2")
+broken_scene = ExtResource("3")
+debris_at_hit = true
+structure_weight = 1
+local_bounds = AABB(-1.0, -13.0, -10.0, 2, 26, 20)
+[node name="IntactVisual" type="MeshInstance3D" parent="WallLab"]
+mesh = SubResource("M_WallLab")
+[node name="Collision" type="CollisionShape3D" parent="WallLab"]
+shape = SubResource("S_WallLab")
+[node name="RecoveryDeck" type="StaticBody3D" parent="."]
+position = Vector3(0, -68, -222)
+script = ExtResource("2")
+broken_scene = ExtResource("3")
+debris_at_hit = true
+structure_weight = 0
+local_bounds = AABB(-7.0, -0.5, -6.0, 14, 1, 12)
+[node name="IntactVisual" type="MeshInstance3D" parent="RecoveryDeck"]
+mesh = SubResource("M_RecoveryDeck")
+[node name="Collision" type="CollisionShape3D" parent="RecoveryDeck"]
+shape = SubResource("S_RecoveryDeck")
+[node name="FinalGate" type="StaticBody3D" parent="."]
+position = Vector3(0, -53, -246)
+script = ExtResource("2")
+broken_scene = ExtResource("3")
+debris_at_hit = true
+structure_weight = 2
+local_bounds = AABB(-12.0, -11.5, -1.5, 24, 23, 3)
+[node name="IntactVisual" type="MeshInstance3D" parent="FinalGate"]
+mesh = SubResource("M_FinalGate")
+[node name="Guide" type="Label3D" parent="FinalGate/IntactVisual"]
+position = Vector3(0, 4, 1.56)
+text = "08 / 重击"
+font = ExtResource("6")
+font_size = 64
+pixel_size = 0.022
+outline_size = 0
+modulate = Color(0.02, 0.02, 0.02, 1)
+no_depth_test = false
+[node name="Collision" type="CollisionShape3D" parent="FinalGate"]
+shape = SubResource("S_FinalGate")
+[node name="AnchorStart" type="StaticBody3D" parent="."]
+position = Vector3(0, 70, -24)
+script = ExtResource("2")
+broken_scene = ExtResource("3")
+debris_at_hit = true
+structure_weight = 0
+local_bounds = AABB(-1.65, -1.65, -1.65, 3.3, 3.3, 3.3)
+[node name="IntactVisual" type="MeshInstance3D" parent="AnchorStart"]
+rotation_degrees = Vector3(90, 0, 0)
+mesh = SubResource("M_AnchorStart")
+[node name="Collision" type="CollisionShape3D" parent="AnchorStart"]
+shape = SubResource("S_AnchorStart")
+[node name="AnchorA" type="StaticBody3D" parent="."]
+position = Vector3(0, 63, -89)
+script = ExtResource("2")
+broken_scene = ExtResource("3")
+debris_at_hit = true
+structure_weight = 0
+local_bounds = AABB(-1.65, -1.65, -1.65, 3.3, 3.3, 3.3)
+[node name="IntactVisual" type="MeshInstance3D" parent="AnchorA"]
+rotation_degrees = Vector3(90, 0, 0)
+mesh = SubResource("M_AnchorA")
+[node name="Collision" type="CollisionShape3D" parent="AnchorA"]
+shape = SubResource("S_AnchorA")
+[node name="AnchorChainL" type="StaticBody3D" parent="."]
+position = Vector3(-12, 78, -102)
+script = ExtResource("2")
+broken_scene = ExtResource("3")
+debris_at_hit = true
+structure_weight = 0
+local_bounds = AABB(-1.65, -1.65, -1.65, 3.3, 3.3, 3.3)
+[node name="IntactVisual" type="MeshInstance3D" parent="AnchorChainL"]
+rotation_degrees = Vector3(90, 0, 0)
+mesh = SubResource("M_AnchorChainL")
+[node name="Collision" type="CollisionShape3D" parent="AnchorChainL"]
+shape = SubResource("S_AnchorChainL")
+[node name="AnchorChainR" type="StaticBody3D" parent="."]
+position = Vector3(12, 76, -117)
+script = ExtResource("2")
+broken_scene = ExtResource("3")
+debris_at_hit = true
+structure_weight = 0
+local_bounds = AABB(-1.65, -1.65, -1.65, 3.3, 3.3, 3.3)
+[node name="IntactVisual" type="MeshInstance3D" parent="AnchorChainR"]
+rotation_degrees = Vector3(90, 0, 0)
+mesh = SubResource("M_AnchorChainR")
+[node name="Collision" type="CollisionShape3D" parent="AnchorChainR"]
+shape = SubResource("S_AnchorChainR")
+[node name="AnchorSweep" type="StaticBody3D" parent="."]
+position = Vector3(14, 77, -143)
+script = ExtResource("2")
+broken_scene = ExtResource("3")
+debris_at_hit = true
+structure_weight = 0
+local_bounds = AABB(-1.65, -1.65, -1.65, 3.3, 3.3, 3.3)
+[node name="IntactVisual" type="MeshInstance3D" parent="AnchorSweep"]
+rotation_degrees = Vector3(90, 0, 0)
+mesh = SubResource("M_AnchorSweep")
+[node name="Collision" type="CollisionShape3D" parent="AnchorSweep"]
+shape = SubResource("S_AnchorSweep")
+[node name="AnchorInner" type="StaticBody3D" parent="."]
+position = Vector3(0, 49, -188)
+script = ExtResource("2")
+broken_scene = ExtResource("3")
+debris_at_hit = true
+structure_weight = 0
+local_bounds = AABB(-1.65, -1.65, -1.65, 3.3, 3.3, 3.3)
+[node name="IntactVisual" type="MeshInstance3D" parent="AnchorInner"]
+rotation_degrees = Vector3(90, 0, 0)
+mesh = SubResource("M_AnchorInner")
+[node name="Collision" type="CollisionShape3D" parent="AnchorInner"]
+shape = SubResource("S_AnchorInner")
+[node name="AnchorDive" type="StaticBody3D" parent="."]
+position = Vector3(0, -65, -202)
+script = ExtResource("2")
+broken_scene = ExtResource("3")
+debris_at_hit = true
+structure_weight = 0
+local_bounds = AABB(-1.65, -1.65, -1.65, 3.3, 3.3, 3.3)
+[node name="IntactVisual" type="MeshInstance3D" parent="AnchorDive"]
+rotation_degrees = Vector3(90, 0, 0)
+mesh = SubResource("M_AnchorDive")
+[node name="Collision" type="CollisionShape3D" parent="AnchorDive"]
+shape = SubResource("S_AnchorDive")
+[node name="AnchorRescue" type="StaticBody3D" parent="."]
+position = Vector3(9, -62, -213)
+script = ExtResource("2")
+broken_scene = ExtResource("3")
+debris_at_hit = true
+structure_weight = 0
+local_bounds = AABB(-1.65, -1.65, -1.65, 3.3, 3.3, 3.3)
+[node name="IntactVisual" type="MeshInstance3D" parent="AnchorRescue"]
+rotation_degrees = Vector3(90, 0, 0)
+mesh = SubResource("M_AnchorRescue")
+[node name="Collision" type="CollisionShape3D" parent="AnchorRescue"]
+shape = SubResource("S_AnchorRescue")
+[node name="AnchorExit" type="StaticBody3D" parent="."]
+position = Vector3(-9, -27, -239)
+script = ExtResource("2")
+broken_scene = ExtResource("3")
+debris_at_hit = true
+structure_weight = 0
+local_bounds = AABB(-1.65, -1.65, -1.65, 3.3, 3.3, 3.3)
+[node name="IntactVisual" type="MeshInstance3D" parent="AnchorExit"]
+rotation_degrees = Vector3(90, 0, 0)
+mesh = SubResource("M_AnchorExit")
+[node name="Collision" type="CollisionShape3D" parent="AnchorExit"]
+shape = SubResource("S_AnchorExit")
+[node name="AnchorFinish" type="StaticBody3D" parent="."]
+position = Vector3(0, -29, -268)
+script = ExtResource("2")
+broken_scene = ExtResource("3")
+debris_at_hit = true
+structure_weight = 0
+local_bounds = AABB(-1.65, -1.65, -1.65, 3.3, 3.3, 3.3)
+[node name="IntactVisual" type="MeshInstance3D" parent="AnchorFinish"]
+rotation_degrees = Vector3(90, 0, 0)
+mesh = SubResource("M_AnchorFinish")
+[node name="Collision" type="CollisionShape3D" parent="AnchorFinish"]
+shape = SubResource("S_AnchorFinish")

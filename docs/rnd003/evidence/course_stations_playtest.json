@@ -1,0 +1,273 @@
+{
+	"events": [
+		{
+			"event": "course_start",
+			"position": [
+				0.0,
+				48.0,
+				12.0
+			],
+			"seconds": 0.0
+		},
+		{
+			"event": "scripted_station_setup",
+			"position": [
+				-18.0,
+				55.0,
+				-108.0
+			],
+			"seconds": 0.0,
+			"stage": 4
+		},
+		{
+			"distance": 50.628734588623,
+			"event": "attach",
+			"position": [
+				-18.0,
+				55.0,
+				-108.0
+			],
+			"seconds": 0.0,
+			"selection": "CENTER / VISIBLE",
+			"speed": 60.6045188903809
+		},
+		{
+			"event": "fire",
+			"position": [
+				-18.0,
+				55.0,
+				-108.0
+			],
+			"seconds": 0.0,
+			"success": true
+		},
+		{
+			"after": 61.0425758361816,
+			"before": 61.0425758361816,
+			"event": "slash",
+			"normal_speed": 0.0,
+			"position": [
+				-17.2255744934082,
+				54.3773002624512,
+				-108.209465026855
+			],
+			"seconds": 0.00833333333333333
+		},
+		{
+			"after": 61.0425758361816,
+			"before": 61.0425758361816,
+			"event": "slash",
+			"normal_speed": 0.0,
+			"position": [
+				-17.2255744934082,
+				54.3773002624512,
+				-108.209465026855
+			],
+			"seconds": 0.00833333333333333
+		},
+		{
+			"after": 61.2578277587891,
+			"before": 61.2578277587891,
+			"event": "slash",
+			"normal_speed": 0.0,
+			"position": [
+				-16.835994720459,
+				54.0654602050781,
+				-108.317054748535
+			],
+			"seconds": 0.0166666666666667
+		},
+		{
+			"after": 63.0209350585938,
+			"before": 63.0209350585938,
+			"event": "slash",
+			"normal_speed": 0.0,
+			"position": [
+				-13.3754453659058,
+				51.3362846374512,
+				-109.335136413574
+			],
+			"seconds": 0.0893333333333333
+		},
+		{
+			"after": 67.1490859985352,
+			"before": 67.1490859985352,
+			"event": "slash",
+			"normal_speed": 0.0,
+			"position": [
+				-1.41379415988922,
+				42.4511909484863,
+				-113.64476776123
+			],
+			"seconds": 0.326666666666667
+		},
+		{
+			"action": "RELEASE",
+			"charge": 0.0,
+			"event": "release",
+			"position": [
+				16.3958950042725,
+				33.5608329772949,
+				-123.460372924805
+			],
+			"seconds": 0.664,
+			"speed": 68.6622848510742
+		},
+		{
+			"event": "scripted_station_setup",
+			"position": [
+				0.0,
+				48.0,
+				-160.0
+			],
+			"seconds": 0.664,
+			"stage": 5
+		},
+		{
+			"after": 40.8816947937012,
+			"before": 49.7013778686523,
+			"event": "body",
+			"normal_speed": 49.3624153137207,
+			"position": [
+				0.0,
+				47.3466529846191,
+				-171.178115844727
+			],
+			"seconds": 0.888999999999999
+		},
+		{
+			"event": "scripted_station_setup",
+			"position": [
+				5.0,
+				-121.0,
+				-199.0
+			],
+			"seconds": 1.08033333333333,
+			"stage": 6
+		},
+		{
+			"distance": 59.1200904846191,
+			"event": "attach",
+			"position": [
+				5.0,
+				-121.0,
+				-199.0
+			],
+			"seconds": 1.08033333333333,
+			"selection": "CENTER / VISIBLE",
+			"speed": 7.17815494537354
+		},
+		{
+			"event": "fire",
+			"position": [
+				5.0,
+				-121.0,
+				-199.0
+			],
+			"seconds": 1.08033333333333,
+			"success": true
+		},
+		{
+			"event": "recovery",
+			"position": [
+				5.19593286514282,
+				-120.849166870117,
+				-199.685775756836
+			],
+			"seconds": 1.18866666666667
+		},
+		{
+			"event": "course_stage",
+			"position": [
+				5.19593286514282,
+				-120.849166870117,
+				-199.685775756836
+			],
+			"seconds": 1.18866666666667,
+			"stage": 6,
+			"time": 1.38644236
+		},
+		{
+			"action": "RELEASE",
+			"charge": 0.0,
+			"event": "release",
+			"position": [
+				9.9473123550415,
+				-95.2185363769531,
+				-216.315612792969
+			],
+			"seconds": 2.58866666666666,
+			"speed": 32.0685081481934
+		},
+		{
+			"event": "scripted_station_setup",
+			"position": [
+				0.0,
+				-53.0,
+				-232.0
+			],
+			"seconds": 2.58866666666666,
+			"stage": 8
+		},
+		{
+			"after": 37.339225769043,
+			"before": 54.6143836975098,
+			"event": "body",
+			"normal_speed": 54.3484230041504,
+			"position": [
+				0.0,
+				-53.5619125366211,
+				-243.390350341797
+			],
+			"seconds": 2.79699999999999
+		},
+		{
+			"event": "course_stage",
+			"position": [
+				0.0,
+				-55.0118560791016,
+				-250.426025390625
+			],
+			"seconds": 2.98833333333332,
+			"stage": 8,
+			"time": 3.21177102666666
+		},
+		{
+			"assisted": true,
+			"course_seconds": 3.21177102666666,
+			"event": "course_complete",
+			"position": [
+				0.0,
+				-55.0118560791016,
+				-250.426025390625
+			],
+			"seconds": 2.98833333333332
+		}
+	],
+	"summary": {
+		"average_grapple_distance": 54.8744125366211,
+		"average_impact_speed": 52.1578807830811,
+		"average_impact_speed_loss": 13.047420501709,
+		"average_speed": 38.0011625333707,
+		"body_impacts": 2,
+		"fall_recoveries": 1,
+		"first_grapple_time": 0.0,
+		"miss_rate": 0.0,
+		"model": 3,
+		"peak_speed": 68.6622848510742,
+		"physics_hz": 120,
+		"release_speeds": [
+			68.6622848510742,
+			32.0685081481934
+		],
+		"resets": 0,
+		"seconds": 3.12166666666666,
+		"shots": 2,
+		"successful_grapples": 2,
+		"tentacle_sweeps": 5,
+		"time_above_30": 1.78833333333333,
+		"time_to_20_after_first_grapple": 0.00833333333333333,
+		"time_to_30_after_first_grapple": 0.00833333333333333,
+		"version": "0.03"
+	}
+}

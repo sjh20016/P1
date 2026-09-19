@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="GrappleProfile" load_steps=2 format=3]
+[ext_resource type="Script" path="res://scripts/player/grapple_profile.gd" id="1"]
+[resource]
+script = ExtResource("1")
+movement_model = 1
+targeting_model = 2
+rest_ratio = 1.0
+spring_strength = 0.0
+damping = 0.0
+radial_correction = 1.0

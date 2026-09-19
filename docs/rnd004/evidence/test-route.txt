@@ -1,0 +1,9 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS D01 normal targeting finds intact breach tower
+ROUTE METRICS position=(0.0, -11.56076, -12.04238) speed=37.4930038452148 events=2
+PASS D01 M03 motor and actual body impact open entry and enter cavity
+PASS D01 player breaches exit with retained momentum
+PASS D01 normal targeting can acquire exit structure after breach
+PASS M03 remains default without grapple algorithm changes
+CONSEQUENCE ROUTE RESULT failures=0

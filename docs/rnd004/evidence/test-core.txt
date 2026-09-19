@@ -1,0 +1,14 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS D01 panels remain lazy before first real damage
+PASS D01 RAM removes local panels while retaining surrounding shell
+PASS D01 breached opening has no leftover collider
+PASS D01 wall beside opening remains solid
+PASS D02 surviving rim receives permanent radial scars
+PASS D02 scar follows owner rotation and translation in local space
+PASS D01 face-center chip keeps a nondegenerate 3D convex collider
+PASS D01 60 percent collider enters, traverses cavity and exits at an edge approach
+PASS D05 SLASH leaves displaced lips and a narrow seam rather than RAM holes
+PASS D03 broken middle bond detaches C+D and retains supported A+B
+PASS D05 secondary damage above chain depth is rejected
+CONSEQUENCE CORE RESULT failures=0
