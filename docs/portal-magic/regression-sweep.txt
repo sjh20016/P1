@@ -1,0 +1,11 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+PASS thin target between frames detected
+PASS out of plane target rejected
+PASS slow tentacle cannot cut
+PASS slack tentacle cannot cut
+PASS new attachment cannot fabricate sweep
+PASS fast taut tentacle sweep breaks independent segment
+PASS same segment breaks once
+PASS target cooldown suppresses repeat
+SWEEP RESULT failures=0

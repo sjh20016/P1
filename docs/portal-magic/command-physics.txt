@@ -1,0 +1,46 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+PASS magic controls are the default
+PASS no manual anchors required at start
+PASS no hidden grapple nodes or rope constraints
+PASS guided preview sweeps into and stops on building
+PASS mouse release casts automatic foot-to-exit dash
+PASS automatic entry is created at feet
+PASS ordinary quick movement already has destructive launch speed
+PASS quick magic dash drives an actual collision into existing destruction
+PASS airborne fast motion redirects towards chosen exit
+PASS airborne exit needs no supporting surface
+PASS early repeat release respects cooldown without leaving aim stuck
+PASS head and feet loop portals exist during acceleration
+PASS spatial acceleration reaches but cannot exceed speed cap
+PASS charging loop does not jitter/teleport the camera repeatedly
+PASS second Shift launches and cleans up acceleration loop
+PASS stored momentum is released at high speed
+PASS charged launch physically damages building
+PASS blocked exit preserves stored charge
+PASS blocked magic destination does not move player into solid
+PASS cancel clears acceleration and preview state
+PASS short Space does not enter cut editor
+PASS long Space gives brief mid-air hover
+PASS mouse motion steers travelling cut marker
+PASS release Space locks even an empty-air cut point
+PASS locked marker remains fixed as player descends
+PASS after locking marker player descends slowly
+PASS right hold expands cut diameter to bounded maximum
+PASS release creates two overlapping portals for slice
+PASS slice portals move apart after cast
+PASS slice portal effects expire with no accumulated nodes
+PASS building hit automatically locks editor marker
+PASS charged volume cut damages real tower shells
+PASS charged seam slice reuses tower-collapse system
+PASS cut cooldown cannot be bypassed while prior effect plays
+PASS small cut affects only targets inside small radius
+PASS charged radius has larger actual damage footprint, not only larger VFX
+PASS R cancels boost, hover and effects without restoring stale velocity
+PASS debug focus cancels held magic state
+PASS F4 restores classic manual A/B controls
+PASS F4 returns cleanly to action controls
+PASS destruction budgets remain bounded
+PASS F5 rebuild preserves classic controls and recreates anchors
+PASS F5 rebuild preserves magic controls and clears spells
+RESULT portal_magic {"audio":"Dummy","charged_slice_hits":1,"checks":43,"cut_footprint":{"charged":2,"small":1},"engine":"4.7.1-stable (official)","failures":[],"magic_casts":3,"mode":"command_physics","quick_launch_speed":41.6254615783691,"screenshots":[],"stored_speed":100.0}

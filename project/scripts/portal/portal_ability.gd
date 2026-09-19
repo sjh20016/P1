@@ -8,6 +8,7 @@ var emergency_left: float = 0
 var preview_clock: float = 0
 var preview: MeshInstance3D
 var preview_text: String = ""
+var magic: PortalMagic
 
 func _ready() -> void:
 	player.motion_requested.connect(before_motion)
@@ -24,6 +25,8 @@ func _physics_process(delta: float) -> void:
 	portals.impact.threshold = portals.profile.high_speed_impact_threshold
 	if not player.controls_enabled: preview.hide(); return
 	if portals.profile.emergency_portal_enabled and player.global_position.y < -28 and player.velocity.y < -20: emergency()
+	if portals.profile.magic_enabled:
+		preview.hide(); preview_text = magic.hint() if is_instance_valid(magic) else ""; return
 	preview_clock -= delta
 	if preview_clock <= 0:
 		preview_clock = 0.08
@@ -37,6 +40,9 @@ func _physics_process(delta: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not player.controls_enabled or Input.mouse_mode != Input.MOUSE_MODE_CAPTURED: return
+	if portals.profile.magic_enabled:
+		if event is InputEventKey and event.pressed and not event.echo and event.physical_keycode == KEY_E: emergency()
+		return
 	if event is InputEventMouseButton and event.pressed and event.button_index in [MOUSE_BUTTON_LEFT, MOUSE_BUTTON_RIGHT]:
 		var camera: Camera3D = player.camera_rig.camera
 		portals.place(camera.global_position, -camera.global_basis.z, 0 if event.button_index == MOUSE_BUTTON_LEFT else 1)
@@ -47,6 +53,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func before_motion(motion: Vector3, incoming: Vector3) -> void:
 	var delta := motion.length() / maxf(incoming.length(), 0.001)
+	if is_instance_valid(magic): magic.filter_motion(delta)
 	var result := portals.travel(player, player.global_transform, player.velocity, 0.72, delta)
 	if not result.is_empty():
 		player.global_position = result.transform.origin; player.velocity = result.velocity

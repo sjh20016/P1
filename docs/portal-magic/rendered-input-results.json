@@ -1,0 +1,26 @@
+{
+	"audio": "WASAPI",
+	"charged_slice_hits": 1,
+	"checks": 43,
+	"cut_footprint": {
+		"charged": 2,
+		"small": 1
+	},
+	"engine": "4.7.1-stable (official)",
+	"failures": [],
+	"frames": 2057,
+	"magic_casts": 3,
+	"max_ms": 61.307,
+	"mode": "rendered_input",
+	"p95_ms": 6.336,
+	"quick_launch_speed": 41.1936531066895,
+	"screenshots": [
+		"01-action-start",
+		"02-guided-exit",
+		"03-acceleration-loop",
+		"04-cut-locked",
+		"05-cut-charge",
+		"06-cut-separation"
+	],
+	"stored_speed": 100.0
+}

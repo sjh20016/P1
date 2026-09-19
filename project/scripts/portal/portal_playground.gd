@@ -13,10 +13,14 @@ var station: int = 0
 var projectiles: Array = []
 var impact_vfx: Node3D
 var hud: CanvasLayer
+var magic: PortalMagic
 var frame_ms: Array[float] = []
 var last_frame_us: int = 0
 
 func _ready() -> void:
+	if get_tree().has_meta("portal_reload_magic"):
+		profile.magic_enabled = get_tree().get_meta("portal_reload_magic")
+		get_tree().remove_meta("portal_reload_magic")
 	preload("res://scripts/debug/input_setup.gd").install()
 	manager = DestructionManager.new(); add_child(manager)
 	var kinetic := KineticImpact.new(); kinetic.manager = manager; add_child(kinetic)
@@ -33,10 +37,13 @@ func _ready() -> void:
 	var shake := preload("res://scripts/camera/camera_shake.gd").new(); shake.name = "CameraShake"; player.add_child(shake)
 	cut = SpatialCutAbility.new(); cut.portals = portals; cut.manager = manager; add_child(cut)
 	ability = PortalAbility.new(); ability.player = player; ability.portals = portals; ability.cut = cut; add_child(ability)
+	magic = PortalMagic.new(); magic.player = player; magic.portals = portals; magic.legacy = cut; add_child(magic)
+	ability.magic = magic
 	var feedback := preload("res://scripts/portal/portal_feedback.gd").new(); feedback.player = player; feedback.portals = portals; add_child(feedback)
 	impact_vfx = preload("res://scripts/vfx/impact_vfx.gd").new(); add_child(impact_vfx)
 	hud = preload("res://scripts/portal/portal_debug_hud.gd").new(); hud.game = self; add_child(hud)
-	call_deferred("select_station", 0)
+	if profile.magic_enabled: call_deferred("start_magic")
+	else: call_deferred("select_station", 0)
 
 func build_world() -> void:
 	var world := WorldEnvironment.new(); var env := Environment.new()
@@ -52,7 +59,7 @@ func build_world() -> void:
 		var p: Vector3 = BASES[i]
 		box(p + Vector3(0,10,-17), Vector3(16,20,1))
 		box(p + Vector3(0,47.5 if i == 0 else 25.5,10), Vector3(10,1,8))
-		box(p + Vector3(0,-0.5,29), Vector3(25,1,24))
+		box(p + Vector3(0,-0.5,29), Vector3(30,1,48))
 		tower(p + Vector3(0,18,28), 0)
 	box(BASES[1] + Vector3(0,7,-12), Vector3(16,14,1))
 	box(BASES[1] + Vector3(0,7,12), Vector3(16,14,1))
@@ -122,6 +129,19 @@ func select_station(index: int) -> void:
 	player.spawn_position = spawn; player.reset_player("station")
 	player.camera_rig.rotation = Vector3(-0.95 if index in [0,3] else -0.08, 0, 0)
 	portals.status = STATIONS[index] + "  /  可重新放置两门；F6 高差落下演示"
+	if profile.magic_enabled: portals.status = STATIONS[index] + " · 左键突进 / Shift 蓄速 / 长按空格切割"
+
+func start_magic() -> void:
+	select_station(0); portals.clear()
+	player.spawn_position = Vector3(0,2,48); player.reset_player("magic_yard")
+	player.camera_rig.rotation = Vector3(0.30,0,0)
+	portals.status = "瞄准前方建筑 · Shift 蓄速，再按发射 · 长按空格选切割点"
+
+func toggle_magic() -> void:
+	magic.reset(); cut.cancel()
+	profile.magic_enabled = not profile.magic_enabled
+	if profile.magic_enabled: start_magic()
+	else: select_station(station)
 
 func drop_trial() -> void:
 	select_station(0)
@@ -149,9 +169,11 @@ func spawn_projectile(loop: bool = false) -> RigidBody3D:
 func _unhandled_input(event: InputEvent) -> void:
 	if not event is InputEventKey or not event.pressed or event.echo: return
 	if event.physical_keycode == KEY_F5:
-		Engine.time_scale = 1; get_tree().reload_current_scene(); return
+		reload_playground(); return
 	if event.physical_keycode == KEY_F3:
 		hud.toggle_debug(); return
+	if event.physical_keycode == KEY_F4:
+		toggle_magic(); return
 	if event.physical_keycode == KEY_ESCAPE:
 		player.controls_enabled = Input.mouse_mode == Input.MOUSE_MODE_CAPTURED
 		return
@@ -161,6 +183,10 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.physical_keycode == KEY_T: spawn_projectile()
 	if event.physical_keycode == KEY_L:
 		select_station(4); spawn_projectile(true)
+
+func reload_playground() -> void:
+	get_tree().set_meta("portal_reload_magic",profile.magic_enabled)
+	Engine.time_scale = 1; get_tree().reload_current_scene()
 
 func _process(_delta: float) -> void:
 	var now := Time.get_ticks_usec()

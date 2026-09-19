@@ -59,6 +59,9 @@ func apply(point:Vector3,event) -> Dictionary:
 		var in_wound:bool=index==nearest or point.distance_to(point.clamp(bounds.position,bounds.end))<event.radius*0.65
 		if slash:
 			in_wound=(index%24)/4==row and delta.slide(normal(face)).length()<6.5
+			if event.context.has("slice_span"):
+				var tangent := Vector3.RIGHT if face < 2 else Vector3.BACK
+				in_wound = (index%24)/4 == row and absf(delta.dot(tangent)) < float(event.context.slice_span)
 			if in_wound and cells[index]==0:
 				cells[index]=2;cut_offsets[index]=clampf(point.y-center(index).y,-2.8,2.8);severed+=1
 		elif event.type!=RavageDamageEvent.Type.PULL and in_wound:

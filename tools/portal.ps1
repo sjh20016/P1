@@ -1,4 +1,4 @@
-param([string]$Engine = $env:GODOT_EXE, [switch]$Check, [switch]$Tour)
+param([string]$Engine = $env:GODOT_EXE, [switch]$Check, [switch]$Tour, [switch]$Classic)
 $ErrorActionPreference = 'Stop'
 $repo = Split-Path $PSScriptRoot -Parent
 if (-not $Engine) {
@@ -16,15 +16,23 @@ Write-Output ('Engine: ' + (& $Engine --version))
 if ($Check -or $Tour) {
     & $Engine --headless --path $project --editor --import --quit *> (Join-Path $logs 'portal-import.log')
     if ($LASTEXITCODE -ne 0 -or (Select-String -LiteralPath (Join-Path $logs 'portal-import.log') -Pattern 'SCRIPT ERROR|^ERROR:')) { throw 'Import failed. Read build/portal-import.log.' }
-    $arguments = @('--path',$project,'--script','res://scripts/debug/playtest_portal001.gd')
-    $log = Join-Path $logs 'portal-tour.log'
+    $runs = @(@{ Script = 'test_portal_magic'; Log = 'portal-magic-tour'; Headless = $false })
+    if ($Classic) { $runs = @(@{ Script = 'playtest_portal001'; Log = 'portal-tour'; Headless = $false }) }
     if ($Check) {
-        $arguments = @('--headless','--path',$project,'--fixed-fps','120','--script','res://scripts/debug/test_portal001.gd')
-        $log = Join-Path $logs 'portal-tests.log'
+        $runs = @(
+            @{ Script = 'test_portal001'; Log = 'portal-tests'; Headless = $true },
+            @{ Script = 'test_portal_magic'; Log = 'portal-magic-tests'; Headless = $true }
+        )
     }
-    & $Engine @arguments *> $log
-    if ($LASTEXITCODE -ne 0 -or (Select-String -LiteralPath $log -Pattern '^FAIL|SCRIPT ERROR|^ERROR:|WARNING:.*leak')) { throw "Portal validation failed. Read $log" }
-    Select-String -LiteralPath $log -Pattern '^RESULT' | ForEach-Object { $_.Line }
+    foreach ($run in $runs) {
+        $arguments = @('--path',$project,'--quit-after','16000','--script',('res://scripts/debug/' + $run.Script + '.gd'))
+        if ($run.Headless) { $arguments += @('--headless','--fixed-fps','120') }
+        $log = Join-Path $logs ($run.Log + '.log')
+        & $Engine @arguments *> $log
+        $result = Select-String -LiteralPath $log -Pattern '^RESULT'
+        if ($LASTEXITCODE -ne 0 -or -not $result -or (Select-String -LiteralPath $log -Pattern '^FAIL|SCRIPT ERROR|^ERROR:|WARNING:.*leak')) { throw "Portal validation failed or incomplete. Read $log" }
+        $result | ForEach-Object { $_.Line }
+    }
 } else {
     & $Engine --path $project 'res://scenes/portal/Portal_Playground.tscn'
 }

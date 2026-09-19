@@ -14,6 +14,7 @@ var blocked_count: int = 0
 var detection_checks: int = 0
 var status: String = "左键 A / 右键 B：瞄准平整的大型表面"
 var validation_clock: float = 0
+var magic_casts: int = 0
 
 func _ready() -> void:
 	add_to_group("portal_manager")
@@ -116,6 +117,44 @@ func safe_exit(body: PhysicsBody3D, exit_gate: PortalComponent, tangent: Vector3
 			sweep.motion = point - start
 			if space.cast_motion(sweep)[0] >= 0.999: return point
 	return null
+
+func magic_destination(body: PhysicsBody3D, target: Dictionary) -> Variant:
+	if target.is_empty(): return null
+	var direction: Vector3 = target.direction.normalized()
+	if not direction.is_finite() or direction.length_squared() < 0.9: return null
+	var desired: Vector3 = target.point - direction * (profile.impact_runup if target.surface else 0.0)
+	var space := get_world_3d().direct_space_state
+	# Surface casts stop on the approach side, with a runway for an actual impact.
+	# Each fallback is checked from the same free point; never hop through a wall.
+	for back in [0.0,1.5,3.0,5.0]:
+		var candidate: Vector3 = desired - direction * float(back)
+		if body.global_position.distance_to(candidate) < 2.0: continue
+		if not space.intersect_shape(sphere_query(body,candidate,0.76),1).is_empty(): continue
+		var path := PhysicsRayQueryParameters3D.create(candidate,target.point - direction * 0.1,3 | 16,[body.get_rid()])
+		var obstruction := space.intersect_ray(path)
+		if not obstruction.is_empty(): continue
+		return candidate
+	return null
+
+func magic_dash(player: RavagePlayer, target: Dictionary, requested_speed: float) -> bool:
+	var destination: Variant = magic_destination(player,target)
+	if destination == null:
+		blocked_count += 1; status = "出口空间不足 · 换个方向再释放"; return false
+	var direction: Vector3 = target.direction.normalized()
+	var speed := clampf(requested_speed,profile.dash_min_speed,profile.max_portal_velocity)
+	var origin := player.global_position
+	# Visual foot entrance is automatic. Magic exits can exist in open air.
+	install_gate(0,origin + Vector3.DOWN * 0.73,PortalPhysics.frame(Vector3.UP))
+	install_gate(1,destination - direction * 1.0,PortalPhysics.frame(direction))
+	for gate in gates: gate.lifetime = 0.48
+	last_portal_time[player.get_instance_id()] = clock
+	player.global_position = destination; player.previous_position = destination
+	player.velocity = direction * speed
+	var facing: Vector3 = -player.camera_rig.global_basis.z
+	traversed.emit(player,Basis(Quaternion(facing.normalized(),direction)),speed)
+	traversal_count += 1; magic_casts += 1
+	status = "空间突进 · %.0f m/s" % speed
+	return true
 
 func travel(body: PhysicsBody3D, transform: Transform3D, velocity: Vector3, radius: float, delta: float) -> Dictionary:
 	if gates[0] == null or gates[1] == null: return {}

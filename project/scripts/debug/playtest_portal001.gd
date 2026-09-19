@@ -35,7 +35,7 @@ func note(name: String) -> void:
 	print("TOUR ",JSON.stringify(observations.back()))
 
 func run() -> void:
-	game = load("res://scenes/portal/Portal_Playground.tscn").instantiate(); root.add_child(game); current_scene = game
+	game = load("res://scenes/portal/Portal_Playground.tscn").instantiate(); game.profile.magic_enabled = false; root.add_child(game); current_scene = game
 	await frames(180); await capture("01-start")
 	await key(KEY_F6)
 	for i in 500:

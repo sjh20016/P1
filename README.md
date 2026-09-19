@@ -1,5 +1,7 @@
 # RAVAGE · OPEN DESTRUCTION · 0.07
 
+**独立 Portal 原型：** 双击 `开始传送门原型.cmd`，默认进入新版空间破坏操作。左键快速突进、Shift 蓄速、长按空格选点后右键蓄力切割；完整操作与验证见 [PORTAL-MAGIC.md](PORTAL-MAGIC.md)。下文仍为原触手游戏说明。
+
 Godot 4.7.2 Stable / Windows x64 / Compatibility。黑色生物在白色塔林中高速抓取、撞穿墙面、切断弱缝；本版加入双塔牵引和大块互撞。
 
 ## 直接游玩
