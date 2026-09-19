@@ -1,0 +1,8 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+PASS gravity / stable freefall
+PASS wall blocks high speed CharacterBody
+PASS maximum speed bound
+PASS void resets safely
+PASS player uses fake physics
+MOVEMENT RESULT failures=0

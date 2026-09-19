@@ -1,0 +1,21 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+PASS 36 reachable buildings use independent damage states
+PASS open startup does not preload legacy city
+PASS actual targeting acquires the open entry wall
+PASS intact tower has four merged collision walls
+PASS grapple stores stable building identity
+PASS first body breach consumes the energy reward
+PASS unaffected grapple survives collision rebuilding
+PASS RAM opens collision through actual center of impact
+PASS leaving removes distant collision bodies
+PASS return restores exact opening and state without healing
+PASS destroying the actual anchor releases the hook
+PASS actual swept movement breaches entry and exit walls
+PASS marked weak seam breaks with one strong slash
+PASS swept falling shell really strikes the receiver tower
+PASS macro settles through contact into compact persistent ruin
+PASS ruin retains state across exit and return
+OPEN006 METRICS {"activation_max_us":164,"build_max_us":56,"buildings":36,"chains":1,"clashes":0,"complete":false,"debris":22,"draw_calls":0.0,"macros":0,"memory":62357441,"near":24,"nodes":769.0,"pending":0,"physics_ms":1.129,"pull_actions":0,"ruins":1,"scar_instances":35,"seams":1,"seconds":2.91166666666666,"surfaces":111,"visited":4}
+PASS F5 resets contract, world state and reward
+OPEN006 RESULT failures=0

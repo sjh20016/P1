@@ -1,0 +1,20 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+PASS actual left targeting acquires the first pull core
+PASS actual right targeting acquires the second pull core
+PASS same building cannot trigger a dual pull
+PASS both sides must have real tension
+PASS charge preview does not damage or award points
+PASS releasing Q cancels charge without damage
+PASS held Q and actual hook forces sever both marked bonds
+PASS detachment releases both hooks while retaining movement
+PASS one action creates exactly two moving chunks within budget
+PASS another pair cannot exceed the three-macro limit
+PASS two independently moving chunks generate one real mutual collision
+PASS mutual collision damages shell and settles both pieces as ruins
+PASS clash fragments stay within the shared budget
+PASS continued contact cannot repeat the clash reward
+PASS clash ruins preserve their damaged state across revisit
+DUAL007 METRICS {"activation_max_us":664,"build_max_us":66,"buildings":36,"chains":2,"clashes":1,"complete":false,"debris":28,"draw_calls":0.0,"macros":0,"memory":62468374,"near":16,"nodes":784.0,"pending":0,"physics_ms":1.745,"pull_actions":1,"ruins":2,"scar_instances":34,"seams":2,"seconds":4.175,"surfaces":104,"visited":2} score=5543
+PASS F5 clears action, pairing, reward and preview state
+DUAL007 RESULT failures=0

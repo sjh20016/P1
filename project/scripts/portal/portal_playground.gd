@@ -1,0 +1,171 @@
+extends Node3D
+
+const STATIONS := ["A · 高差弹射", "B · 水平穿越", "C · 90° 转向", "D · 高速撞墙", "E · 碎块循环", "F · 空间切割", "G · 连续组合", "H · 可破坏塔"]
+const BASES := [Vector3(0,0,0), Vector3(65,0,0), Vector3(125,0,0), Vector3(0,0,100), Vector3(65,0,100), Vector3(125,0,100), Vector3(0,0,180), Vector3(65,0,180)]
+var player: RavagePlayer
+var manager: DestructionManager
+var portals: PortalManager
+var ability: PortalAbility
+var cut: SpatialCutAbility
+var zone: Node3D
+var profile := PortalProfile.new()
+var station: int = 0
+var projectiles: Array = []
+var impact_vfx: Node3D
+var hud: CanvasLayer
+var frame_ms: Array[float] = []
+var last_frame_us: int = 0
+
+func _ready() -> void:
+	preload("res://scripts/debug/input_setup.gd").install()
+	manager = DestructionManager.new(); add_child(manager)
+	var kinetic := KineticImpact.new(); kinetic.manager = manager; add_child(kinetic)
+	portals = PortalManager.new(); portals.profile = profile; portals.impact = kinetic; add_child(portals)
+	zone = preload("res://scripts/portal/portal_destruction_zone.gd").new(); zone.session = self; add_child(zone)
+	build_world()
+	player = preload("res://scenes/player/player.tscn").instantiate()
+	# Compose a separate ability loadout before entering the scene tree.
+	player.get_node("LeftHook").free(); player.get_node("RightHook").free()
+	player.profile = player.profile.duplicate(); player.profile.reset_depth = -80
+	player.profile.max_speed = profile.max_portal_velocity
+	player.spawn_position = Vector3(0,49,10); add_child(player)
+	player.collision_mask = 3 | 16
+	var shake := preload("res://scripts/camera/camera_shake.gd").new(); shake.name = "CameraShake"; player.add_child(shake)
+	cut = SpatialCutAbility.new(); cut.portals = portals; cut.manager = manager; add_child(cut)
+	ability = PortalAbility.new(); ability.player = player; ability.portals = portals; ability.cut = cut; add_child(ability)
+	var feedback := preload("res://scripts/portal/portal_feedback.gd").new(); feedback.player = player; feedback.portals = portals; add_child(feedback)
+	impact_vfx = preload("res://scripts/vfx/impact_vfx.gd").new(); add_child(impact_vfx)
+	hud = preload("res://scripts/portal/portal_debug_hud.gd").new(); hud.game = self; add_child(hud)
+	call_deferred("select_station", 0)
+
+func build_world() -> void:
+	var world := WorldEnvironment.new(); var env := Environment.new()
+	env.background_mode = Environment.BG_COLOR; env.background_color = Color(0.73,0.75,0.77)
+	env.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR; env.ambient_light_color = Color.WHITE; env.ambient_light_energy = 0.7
+	world.environment = env; add_child(world)
+	var sun := DirectionalLight3D.new(); sun.rotation_degrees = Vector3(-50,-30,0); sun.light_energy = 1.5; sun.shadow_enabled = true; add_child(sun)
+	for i in 8:
+		var p: Vector3 = BASES[i]
+		box(p + Vector3(0,-0.5,0), Vector3(38,1,44))
+		label(STATIONS[i], p + Vector3(-15,2,19))
+	for i in [0,3]:
+		var p: Vector3 = BASES[i]
+		box(p + Vector3(0,10,-17), Vector3(16,20,1))
+		box(p + Vector3(0,47.5 if i == 0 else 25.5,10), Vector3(10,1,8))
+		box(p + Vector3(0,-0.5,29), Vector3(25,1,24))
+		tower(p + Vector3(0,18,28), 0)
+	box(BASES[1] + Vector3(0,7,-12), Vector3(16,14,1))
+	box(BASES[1] + Vector3(0,7,12), Vector3(16,14,1))
+	box(BASES[2] + Vector3(0,7,-12), Vector3(16,14,1))
+	box(BASES[2] + Vector3(13,7,0), Vector3(1,14,16))
+	box(BASES[4] + Vector3(0,32.5,0), Vector3(12,1,12))
+	label("L：投放循环块  /  左键改 A 出口释放弹丸", BASES[4] + Vector3(0,5,12))
+	tower(BASES[5] + Vector3(0,18,0), 3)
+	box(BASES[5] + Vector3(-16,12,0), Vector3(1,18,16))
+	box(BASES[5] + Vector3(16,12,0), Vector3(1,18,16))
+	box(BASES[6] + Vector3(0,16,-16), Vector3(16,32,1))
+	box(BASES[6] + Vector3(-16,16,0), Vector3(1,32,16))
+	box(BASES[6] + Vector3(10,20,0), Vector3(10,1,10))
+	tower(BASES[7] + Vector3(0,18,0), 3)
+	box(BASES[7] + Vector3(0,12,-19), Vector3(16,24,1))
+
+func box(where: Vector3, size: Vector3) -> StaticBody3D:
+	var body := StaticBody3D.new(); body.position = where; body.collision_layer = 1; body.collision_mask = 0
+	var shape := CollisionShape3D.new(); var geometry := BoxShape3D.new(); geometry.size = size; shape.shape = geometry; body.add_child(shape)
+	var visual := MeshInstance3D.new(); var mesh := BoxMesh.new(); mesh.size = size
+	var material := StandardMaterial3D.new(); material.albedo_color = Color(0.87,0.87,0.84); material.roughness = 0.95
+	mesh.material = material; visual.mesh = mesh; body.add_child(visual); add_child(body)
+	return body
+
+func tower(where: Vector3, kind: int) -> void:
+	var building = preload("res://scripts/open/open_tower.gd").new()
+	building.state = OpenDamageState.new(); building.state.kind = kind; building.state.id = zone.towers.size()
+	building.zone = zone; building.position = where; zone.add_child(building); building.set_near(true)
+	zone.towers.append(building); zone.states.append(building.state)
+
+func label(text: String, where: Vector3) -> void:
+	var sign := Label3D.new(); sign.text = text; sign.position = where
+	sign.font = preload("res://assets/placeholders/ui_zh.tres"); sign.font_size = 48; sign.pixel_size = 0.024
+	sign.modulate = Color(0.03,0.03,0.035); sign.outline_size = 0; sign.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	add_child(sign)
+
+func select_station(index: int) -> void:
+	station = index; portals.clear(); cut.cancel()
+	var p: Vector3 = BASES[index]
+	var spawn := p + Vector3(0,2,7)
+	match index:
+		0,3:
+			portals.place(p + Vector3(0,8,0), Vector3.DOWN, 0)
+			portals.place(p + Vector3(0,10,-10), Vector3.FORWARD, 1)
+			spawn = p + Vector3(0,49 if index == 0 else 27,10)
+		1:
+			portals.place(p + Vector3(0,4,0), Vector3.FORWARD, 0)
+			portals.place(p + Vector3(0,4,0), Vector3.BACK, 1)
+		2:
+			portals.place(p + Vector3(0,4,0), Vector3.FORWARD, 0)
+			portals.place(p + Vector3(0,4,0), Vector3.RIGHT, 1)
+		4:
+			portals.place(p + Vector3(0,28,0), Vector3.UP, 0)
+			portals.place(p + Vector3(0,5,0), Vector3.DOWN, 1)
+			spawn = p + Vector3(10,2,10)
+		5:
+			portals.place(p + Vector3(-12,12,0), Vector3.LEFT, 0)
+			portals.place(p + Vector3(12,12,0), Vector3.RIGHT, 1)
+			spawn = p + Vector3(0,2,19)
+		6:
+			portals.place(p + Vector3(0,5,0), Vector3.DOWN, 0)
+			portals.place(p + Vector3(0,24,-10), Vector3.FORWARD, 1)
+			spawn = p + Vector3(10,22,0)
+		7:
+			portals.place(p + Vector3(0,12,-13), Vector3.FORWARD, 1)
+			spawn = p + Vector3(0,2,19)
+	player.spawn_position = spawn; player.reset_player("station")
+	player.camera_rig.rotation = Vector3(-0.95 if index in [0,3] else -0.08, 0, 0)
+	portals.status = STATIONS[index] + "  /  可重新放置两门；F6 高差落下演示"
+
+func drop_trial() -> void:
+	select_station(0)
+	player.global_position = Vector3(0,48,0); player.velocity = Vector3.ZERO
+	player.camera_rig.rotation = Vector3(-1.15, 0, 0)
+
+func spawn_projectile(loop: bool = false) -> RigidBody3D:
+	projectiles = projectiles.filter(func(body): return is_instance_valid(body) and not body.is_queued_for_deletion())
+	if projectiles.size() >= 8:
+		var old: RigidBody3D = projectiles.pop_front(); old.freeze = true; old.collision_layer = 0; old.queue_free()
+	var body := preload("res://scripts/portal/portal_projectile.gd").new(); body.portals = portals
+	var shape := CollisionShape3D.new(); var sphere := SphereShape3D.new(); sphere.radius = 0.45; shape.shape = sphere; body.add_child(shape)
+	var visual := MeshInstance3D.new(); var mesh := SphereMesh.new(); mesh.radius = 0.45; mesh.height = 0.9
+	var material := StandardMaterial3D.new(); material.albedo_color = Color(0.10,0.11,0.13); mesh.material = material
+	visual.mesh = mesh; body.add_child(visual); add_child(body)
+	if loop:
+		body.global_position = BASES[4] + Vector3(0,25,0); body.linear_velocity = Vector3.DOWN * 3
+	else:
+		var camera: Camera3D = player.camera_rig.camera
+		var direction: Vector3 = -camera.global_basis.z
+		body.global_position = player.global_position + Vector3.UP + direction * 1.5
+		body.linear_velocity = direction * 28 + player.velocity
+	body.angular_velocity = Vector3(1,2,3); projectiles.append(body); return body
+
+func _unhandled_input(event: InputEvent) -> void:
+	if not event is InputEventKey or not event.pressed or event.echo: return
+	if event.physical_keycode == KEY_F5:
+		Engine.time_scale = 1; get_tree().reload_current_scene(); return
+	if event.physical_keycode == KEY_F3:
+		hud.toggle_debug(); return
+	if event.physical_keycode == KEY_ESCAPE:
+		player.controls_enabled = Input.mouse_mode == Input.MOUSE_MODE_CAPTURED
+		return
+	if not player.controls_enabled: return
+	if event.physical_keycode >= KEY_1 and event.physical_keycode <= KEY_8: select_station(event.physical_keycode - KEY_1)
+	if event.physical_keycode == KEY_F6: drop_trial()
+	if event.physical_keycode == KEY_T: spawn_projectile()
+	if event.physical_keycode == KEY_L:
+		select_station(4); spawn_projectile(true)
+
+func _process(_delta: float) -> void:
+	var now := Time.get_ticks_usec()
+	if last_frame_us > 0 and frame_ms.size() < 36000: frame_ms.append((now - last_frame_us) / 1000.0)
+	last_frame_us = now
+
+func _exit_tree() -> void:
+	Engine.time_scale = 1.0

@@ -1,0 +1,23 @@
+{
+	"drop": {
+		"damage_events": 2,
+		"horizontal_exit_speed": 46.7769813537598,
+		"peak_speed": 48.3862266540527,
+		"traversals": 1
+	},
+	"fast_60hz": {
+		"traversals": 1,
+		"velocity": "(-139.2321, -2.491995, 0.000012)"
+	},
+	"final": {
+		"checks": 48,
+		"damage_events": 5,
+		"detection_checks": 19945,
+		"failures": [],
+		"peak_debris": 10
+	},
+	"loop": {
+		"peak_speed": 100.0,
+		"traversals": 27
+	}
+}

@@ -5,9 +5,12 @@ extends RigidBody3D
 var age: float = 0.0
 var visual: Node3D
 var visual_scale := Vector3.ONE
+var physics_extension: WeakRef
 
 func _ready() -> void:
 	add_to_group("debris")
+	var extension := get_tree().get_first_node_in_group("rigidbody_motion_extension")
+	if extension != null: physics_extension = weakref(extension)
 	continuous_cd = true
 	contact_monitor = false
 	collision_layer = 8
@@ -22,3 +25,8 @@ func _physics_process(delta: float) -> void:
 		visual.scale = visual_scale * maxf(0.01, (lifetime - age) / 0.65)
 	if age >= lifetime or global_position.y < -160:
 		queue_free()
+
+# Optional physics extension; no dependency on a character ability.
+func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
+	var extension = physics_extension.get_ref() if physics_extension else null
+	if is_instance_valid(extension): extension.integrate_body(self, state)

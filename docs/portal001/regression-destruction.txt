@@ -1,0 +1,15 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+PASS low speed selects small response
+PASS medium speed response
+PASS high speed selects stronger response
+PASS low speed cannot break
+PASS medium speed swaps intact for prefab
+PASS exactly four rigid fragments
+PASS duplicate break suppressed
+PASS intact visual and collision disabled
+PASS swept high speed player impact breaks target
+PASS player continues moving through broken target
+PASS oldest fragments recycled within budget
+PASS fragments expire within six seconds
+DESTRUCTION RESULT failures=0

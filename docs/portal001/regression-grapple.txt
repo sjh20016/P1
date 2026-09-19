@@ -1,0 +1,12 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+PASS single hook attaches to StaticBody
+PASS spring redirects falling player toward anchor
+PASS spring force stays bounded
+PASS release retains flight momentum
+PASS zero length rejected
+PASS out of range rejected
+PASS dual hooks stable for five seconds
+PASS independent anchors remain attached
+PASS rapid reattachment stays finite
+GRAPPLE RESULT failures=0
