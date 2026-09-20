@@ -1,0 +1,11 @@
+{
+	"checks": 34,
+	"dives": 2,
+	"engine": "4.7.1-stable (official)",
+	"failures": [],
+	"loop_redirect_status": "已放置 B",
+	"loop_speed": 100.0,
+	"mode": "command_physics",
+	"objects": 9,
+	"screenshots": []
+}

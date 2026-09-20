@@ -81,7 +81,7 @@ func run() -> void:
 	var source: Vector3 = game.player.global_position
 	await click(MOUSE_BUTTON_LEFT,false)
 	check(game.portals.magic_casts == 1,"mouse release casts automatic foot-to-exit dash")
-	check(game.portals.gates[0] != null and game.portals.gates[0].global_position.distance_to(source + Vector3.DOWN * 0.73) < 0.2,"automatic entry is created at feet")
+	check(game.portals.dash_gates.size() == 2 and game.portals.dash_gates[0].global_position.distance_to(source + Vector3.DOWN * 0.73) < 0.2,"automatic entry is created at feet")
 	check(game.player.velocity.length() > 38,"ordinary quick movement already has destructive launch speed")
 	metrics["quick_launch_speed"] = game.player.velocity.length()
 	await frames(110)

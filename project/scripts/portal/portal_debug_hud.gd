@@ -10,8 +10,8 @@ func _ready() -> void:
 	var root := Control.new(); root.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT); root.mouse_filter = Control.MOUSE_FILTER_IGNORE; add_child(root)
 	var heading := Label.new(); heading.position = Vector2(26,20); heading.text = "RAVAGE / 空间破坏 · 魔法操作"; heading.add_theme_font_size_override("font_size", 26); root.add_child(heading)
 	readout = Label.new(); readout.position = Vector2(26,60); root.add_child(readout)
-	status = Label.new(); status.position = Vector2(26,730); status.add_theme_font_size_override("font_size",18); root.add_child(status)
-	instructions = Label.new(); instructions.position = Vector2(26,780)
+	status = Label.new(); status.position = Vector2(26,690); status.add_theme_font_size_override("font_size",18); root.add_child(status)
+	instructions = Label.new(); instructions.position = Vector2(26,750)
 	instructions.text = "WASD 移动 · 空格 跳跃 · 左 / 右键 A / B · Q 切割 · E 紧急入口 · T 投块\n1–8 测试区 · F6 高差试跳 · L 循环实验 · R 回起点 · F5 全重置 · X 清门 · F3 参数 · Esc 鼠标"
 	root.add_child(instructions)
 	var cross := Label.new(); cross.text = "+"; cross.set_anchors_and_offsets_preset(Control.PRESET_CENTER); cross.position -= Vector2(7,15); cross.add_theme_font_size_override("font_size",24); root.add_child(cross)
@@ -35,7 +35,9 @@ func _ready() -> void:
 		"boost_acceleration": [10,120,2], "boost_start_speed": [0,100,1],
 		"space_hold_delay": [0.12,0.4,0.02], "edit_hover_duration": [0.2,2,0.1],
 		"slow_fall_duration": [0.5,5,0.1], "slow_fall_speed": [1,8,0.5],
-		"cut_min_radius": [1,6,0.2], "cut_max_radius": [6,18,0.5], "cut_charge_time": [0.3,3,0.1]}
+		"cut_min_radius": [1,6,0.2], "cut_max_radius": [6,18,0.5], "cut_charge_time": [0.3,3,0.1],
+		"link_dive_range": [8,45,1], "link_dive_speed": [35,100,1],
+		"portal_view_resolution": [128,1024,128], "portal_view_fps": [10,60,5], "portal_view_distance": [20,160,5]}
 	for key: String in fields:
 		var row := HBoxContainer.new(); rows.add_child(row)
 		var label := Label.new(); label.text = key; label.custom_minimum_size.x = 260; row.add_child(label)
@@ -45,6 +47,8 @@ func _ready() -> void:
 			if key == "portal_size": game.portals.clear())
 	var check := CheckButton.new(); check.text = "Emergency Portal (auto / experimental)"; rows.add_child(check)
 	check.toggled.connect(func(value): game.profile.emergency_portal_enabled = value)
+	var views := CheckButton.new(); views.text = "Live portal windows"; views.button_pressed = game.profile.portal_view_enabled; rows.add_child(views)
+	views.toggled.connect(func(value): game.profile.portal_view_enabled = value)
 	debug_panel.hide()
 
 func toggle_debug() -> void:
@@ -55,7 +59,8 @@ func toggle_debug() -> void:
 func _process(_delta: float) -> void:
 	readout.text = "%s\n速度  %05.1f m/s    穿越 %d / 物体 %d    破坏 %d\n碎块 %d / 48    宏块 %d / 3    切割冷却 %.1f s\nFPS %d    物理 %.2f ms    出口受阻 %d" % [game.STATIONS[game.station], game.player.velocity.length(), game.portals.traversal_count, game.portals.object_traversals, game.manager.damage_events, game.manager.active_debris.size(), game.zone.active.size(), game.cut.cooldown, Engine.get_frames_per_second(), Performance.get_monitor(Performance.TIME_PHYSICS_PROCESS) * 1000, game.portals.blocked_count]
 	status.text = game.portals.status + "\n" + game.ability.preview_text
+	readout.text += "\n实体门 %d / 2 · 门内视野 %d / 2" % [int(game.portals.gates[0] != null) + int(game.portals.gates[1] != null),game.windows.active_views]
 	if game.profile.magic_enabled:
-		instructions.text = "按住左键选出口 → 松开发射 · Shift 头脚蓄速 / 再按发射 · 短按空格跳跃\n长按空格选点 → 松开锁定 → 按住右键扩大、松开切断 · X 取消 · F4 旧双门 · F3 参数 · R 复位 · F5 重建"
+		instructions.text = "左键突进 · Shift 蓄速 / 再按发射 · 长按空格选点 → 右键蓄力切割\n按住 Q + 左 / 右键放实体 A / B · F 冲门 · G 改出口 · C 收门 · F7 投送试验 · T 投块\nX 取消技能 · F4 旧操作 · F3 参数 · R 复位 · F5 重建 · Esc 鼠标"
 	else:
 		instructions.text = "WASD 移动 · 空格 跳跃 · 左 / 右键 A / B · Q 切割 · E 紧急入口 · T 投块\n1–8 测试区 · F6 高差试跳 · L 循环实验 · R 回起点 · F5 全重置 · X 清门 · F4 魔法操作 · F3 参数"

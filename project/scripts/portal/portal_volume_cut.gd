@@ -19,6 +19,7 @@ func request(point: Vector3, size: float) -> bool:
 	center = point; radius = clampf(size, portals.profile.cut_min_radius, portals.profile.cut_max_radius)
 	age = 0; dealt = false; active = true; casts += 1
 	legacy.cooldown = portals.profile.spatial_cut_cooldown
+	portals.cue("cut_release",{"point":center,"radius":radius,"impact_delay":0.08})
 	for i in 2:
 		var gate := PortalComponent.new(); gate.slot = i; gate.radius = radius
 		add_child(gate); gate.global_transform = Transform3D(PortalPhysics.frame(Vector3.UP),center)

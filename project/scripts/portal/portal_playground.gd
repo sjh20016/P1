@@ -14,6 +14,9 @@ var projectiles: Array = []
 var impact_vfx: Node3D
 var hud: CanvasLayer
 var magic: PortalMagic
+var links: PortalLinkAbility
+var windows: PortalWindowRenderer
+var presentation: PortalPresentation
 var frame_ms: Array[float] = []
 var last_frame_us: int = 0
 
@@ -38,9 +41,12 @@ func _ready() -> void:
 	cut = SpatialCutAbility.new(); cut.portals = portals; cut.manager = manager; add_child(cut)
 	ability = PortalAbility.new(); ability.player = player; ability.portals = portals; ability.cut = cut; add_child(ability)
 	magic = PortalMagic.new(); magic.player = player; magic.portals = portals; magic.legacy = cut; add_child(magic)
+	links = PortalLinkAbility.new(); links.player = player; links.portals = portals; add_child(links); magic.links = links
 	ability.magic = magic
 	var feedback := preload("res://scripts/portal/portal_feedback.gd").new(); feedback.player = player; feedback.portals = portals; add_child(feedback)
 	impact_vfx = preload("res://scripts/vfx/impact_vfx.gd").new(); add_child(impact_vfx)
+	windows = PortalWindowRenderer.new(); windows.portals = portals; windows.viewer = player.camera_rig.camera; add_child(windows)
+	presentation = PortalPresentation.new(); presentation.portals = portals; presentation.player = player; add_child(presentation)
 	hud = preload("res://scripts/portal/portal_debug_hud.gd").new(); hud.game = self; add_child(hud)
 	if profile.magic_enabled: call_deferred("start_magic")
 	else: call_deferred("select_station", 0)
@@ -66,7 +72,7 @@ func build_world() -> void:
 	box(BASES[2] + Vector3(0,7,-12), Vector3(16,14,1))
 	box(BASES[2] + Vector3(13,7,0), Vector3(1,14,16))
 	box(BASES[4] + Vector3(0,32.5,0), Vector3(12,1,12))
-	label("L：投放循环块  /  左键改 A 出口释放弹丸", BASES[4] + Vector3(0,5,12))
+	label("L：投放循环块 / 修改高处出口释放动能", BASES[4] + Vector3(0,5,12))
 	tower(BASES[5] + Vector3(0,18,0), 3)
 	box(BASES[5] + Vector3(-16,12,0), Vector3(1,18,16))
 	box(BASES[5] + Vector3(16,12,0), Vector3(1,18,16))
@@ -112,8 +118,10 @@ func select_station(index: int) -> void:
 			portals.place(p + Vector3(0,4,0), Vector3.FORWARD, 0)
 			portals.place(p + Vector3(0,4,0), Vector3.RIGHT, 1)
 		4:
-			portals.place(p + Vector3(0,28,0), Vector3.UP, 0)
-			portals.place(p + Vector3(0,5,0), Vector3.DOWN, 1)
+			# In the action loadout B remains the replaceable output, including
+			# the gravity loop. Keep classic station ordering for old controls.
+			portals.place(p + Vector3(0,28,0), Vector3.UP, 1 if profile.magic_enabled else 0)
+			portals.place(p + Vector3(0,5,0), Vector3.DOWN, 0 if profile.magic_enabled else 1)
 			spawn = p + Vector3(10,2,10)
 		5:
 			portals.place(p + Vector3(-12,12,0), Vector3.LEFT, 0)
@@ -148,6 +156,14 @@ func drop_trial() -> void:
 	player.global_position = Vector3(0,48,0); player.velocity = Vector3.ZERO
 	player.camera_rig.rotation = Vector3(-1.15, 0, 0)
 
+func link_trial() -> void:
+	select_station(1)
+	portals.place(Vector3(65,7,0),Vector3.FORWARD,0)
+	portals.place(Vector3(69,18,168),Vector3.FORWARD,1)
+	player.spawn_position = Vector3(65,5,-4); player.reset_player("link_trial")
+	player.camera_rig.rotation = Vector3(0.10,0,0)
+	portals.status = "实体投送 · 门内看远方塔 · F 冲门 / T 投块 / G 改出口 · Shift 可先蓄速"
+
 func spawn_projectile(loop: bool = false) -> RigidBody3D:
 	projectiles = projectiles.filter(func(body): return is_instance_valid(body) and not body.is_queued_for_deletion())
 	if projectiles.size() >= 8:
@@ -164,6 +180,7 @@ func spawn_projectile(loop: bool = false) -> RigidBody3D:
 		var direction: Vector3 = -camera.global_basis.z
 		body.global_position = player.global_position + Vector3.UP + direction * 1.5
 		body.linear_velocity = direction * 28 + player.velocity
+		if profile.magic_enabled: body.linear_velocity = links.throw_velocity(body.global_position,28) + player.velocity
 	body.angular_velocity = Vector3(1,2,3); projectiles.append(body); return body
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -180,6 +197,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if not player.controls_enabled: return
 	if event.physical_keycode >= KEY_1 and event.physical_keycode <= KEY_8: select_station(event.physical_keycode - KEY_1)
 	if event.physical_keycode == KEY_F6: drop_trial()
+	if event.physical_keycode == KEY_F7: link_trial()
 	if event.physical_keycode == KEY_T: spawn_projectile()
 	if event.physical_keycode == KEY_L:
 		select_station(4); spawn_projectile(true)

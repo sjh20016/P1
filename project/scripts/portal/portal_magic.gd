@@ -6,6 +6,7 @@ var mode: Mode = Mode.FREE
 var player: RavagePlayer
 var portals: PortalManager
 var legacy: SpatialCutAbility
+var links: PortalLinkAbility
 var guide: PortalGuide
 var volume: PortalVolumeCut
 var boost_speed: float = 0
@@ -34,8 +35,14 @@ func _ready() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if not portals.profile.magic_enabled: return
 	if event is InputEventKey and event.pressed and event.physical_keycode in [KEY_ESCAPE,KEY_F3]:
-		cancel(); return
+		cancel()
+		if is_instance_valid(links): links.cancel_edit()
+		return
 	if not player.controls_enabled or Input.mouse_mode != Input.MOUSE_MODE_CAPTURED: return
+	if is_instance_valid(links) and links.handle_input(event):
+		if links.editing and mode != Mode.FREE: cancel()
+		return
+	if is_instance_valid(links) and links.editing: return
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT: queue_command("aim" if event.pressed else "fire")
 		if event.button_index == MOUSE_BUTTON_RIGHT: queue_command("charge" if event.pressed else "cut")
@@ -44,6 +51,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			queue_command("space_down" if event.pressed else "space_up")
 		if event.pressed and event.physical_keycode == KEY_SHIFT: queue_command("boost")
 		if event.pressed and event.physical_keycode == KEY_X: queue_command("cancel")
+		if event.pressed and event.physical_keycode == KEY_F: queue_command("dive")
 
 func queue_command(command: String) -> void:
 	# Mutations and world queries are executed on the physics tick, not in input.
@@ -80,11 +88,18 @@ func handle(command: String) -> void:
 			if mode == Mode.EDITING or mode == Mode.CUT_CHARGE: return
 			mode = Mode.BOOST_AIM if mode in [Mode.BOOSTING,Mode.BOOST_AIM] else Mode.AIMING
 			guide.begin(false)
+			portals.cue("dash_aim")
 		"fire":
 			if mode in [Mode.AIMING,Mode.BOOST_AIM]: launch(guide.snapshot())
 		"boost":
 			if mode in [Mode.BOOSTING,Mode.BOOST_AIM]: launch(guide.snapshot() if mode == Mode.BOOST_AIM else guide.quick_target())
 			else: begin_boost()
+		"dive":
+			if dash_left > 0 or not is_instance_valid(links): return
+			var speed := boost_speed if mode in [Mode.BOOSTING,Mode.BOOST_AIM] else player.velocity.length()
+			if links.dive(speed):
+				mode = Mode.FREE; slow_left = 0; hover_left = 0; boost_speed = 0
+				space_down = false; guide.cancel(); clear_loop(); dash_left = portals.profile.dash_cooldown
 		"space_down":
 			space_down = true; space_age = 0; space_consumed = false
 		"space_up":
@@ -96,6 +111,7 @@ func handle(command: String) -> void:
 			if legacy.cooldown > 0:
 				portals.status = "空间切割冷却中"; return
 			mode = Mode.CUT_CHARGE; charge = 0; cut_radius = portals.profile.cut_min_radius
+			portals.cue("cut_charge",{"point":cut_point})
 		"cut":
 			if mode == Mode.CUT_CHARGE:
 				if volume.request(cut_point,cut_radius):
@@ -108,6 +124,7 @@ func begin_boost() -> void:
 	boost_velocity = player.velocity
 	boost_speed = clampf(maxf(player.velocity.length(),portals.profile.boost_start_speed),0,portals.profile.max_portal_velocity)
 	boost_time = 0; mode = Mode.BOOSTING
+	portals.cue("boost_start",{"speed":boost_speed})
 	for i in 2:
 		var gate := PortalComponent.new(); gate.radius = 1.35; gate.slot = i
 		portals.add_child(gate); gate.build_visual(); loop_visuals.append(gate)
@@ -142,12 +159,14 @@ func begin_edit() -> void:
 	if mode in [Mode.BOOSTING,Mode.BOOST_AIM]: clear_loop(); boost_speed = 0
 	mode = Mode.EDITING; hover_left = portals.profile.edit_hover_duration
 	slow_left = portals.profile.slow_fall_duration; guide.begin(true)
+	portals.cue("cut_edit")
 	portals.status = "悬浮选点 · 鼠标引导 · 松空格锁点"
 
 func lock_cut() -> void:
 	guide.lock(); cut_point = guide.point
 	cut_radius = portals.profile.cut_min_radius; mode = Mode.MARKED
 	hover_left = 0; slow_left = portals.profile.slow_fall_duration
+	portals.cue("cut_lock",{"point":cut_point})
 	portals.status = "切割点已锁定 · 按住右键扩大直径，松开切断"
 
 func filter_motion(delta: float) -> void:
@@ -171,6 +190,7 @@ func hint() -> String:
 	return "左键按住选出口、松开发射 · Shift 蓄速 · 长按空格选切割点"
 
 func cancel() -> void:
+	if mode != Mode.FREE: portals.cue("cancel")
 	if mode in [Mode.BOOSTING,Mode.BOOST_AIM]: player.velocity = boost_velocity
 	mode = Mode.FREE; space_down = false; space_consumed = false; space_age = 0
 	slow_left = 0; hover_left = 0; charge = 0; boost_speed = 0; commands.clear()
@@ -179,3 +199,5 @@ func cancel() -> void:
 func reset() -> void:
 	# Reset owns the motion state: never restore pre-loop velocity on an R reset.
 	mode = Mode.FREE; cancel(); dash_left = 0; volume.cancel()
+	portals.clear_dash_visuals()
+	if is_instance_valid(links): links.cancel_edit()

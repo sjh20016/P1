@@ -1,4 +1,4 @@
-param([string]$Engine = $env:GODOT_EXE, [switch]$Check, [switch]$Tour, [switch]$Classic)
+param([string]$Engine = $env:GODOT_EXE, [switch]$Check, [switch]$Tour, [switch]$Classic, [switch]$Hybrid)
 $ErrorActionPreference = 'Stop'
 $repo = Split-Path $PSScriptRoot -Parent
 if (-not $Engine) {
@@ -18,10 +18,12 @@ if ($Check -or $Tour) {
     if ($LASTEXITCODE -ne 0 -or (Select-String -LiteralPath (Join-Path $logs 'portal-import.log') -Pattern 'SCRIPT ERROR|^ERROR:')) { throw 'Import failed. Read build/portal-import.log.' }
     $runs = @(@{ Script = 'test_portal_magic'; Log = 'portal-magic-tour'; Headless = $false })
     if ($Classic) { $runs = @(@{ Script = 'playtest_portal001'; Log = 'portal-tour'; Headless = $false }) }
+    if ($Hybrid) { $runs = @(@{ Script = 'test_portal_hybrid'; Log = 'portal-hybrid-rendered'; Headless = $false }) }
     if ($Check) {
         $runs = @(
             @{ Script = 'test_portal001'; Log = 'portal-tests'; Headless = $true },
-            @{ Script = 'test_portal_magic'; Log = 'portal-magic-tests'; Headless = $true }
+            @{ Script = 'test_portal_magic'; Log = 'portal-magic-tests'; Headless = $true },
+            @{ Script = 'test_portal_hybrid'; Log = 'portal-hybrid-test'; Headless = $true }
         )
     }
     foreach ($run in $runs) {

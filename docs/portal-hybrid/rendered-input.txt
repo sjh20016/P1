@@ -1,0 +1,46 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.88 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 5060 Laptop GPU
+
+PASS F7 supplies physical A/B without leaving action controls
+PASS physical links persist on static surfaces
+PASS front side provides off-axis window projection
+PASS projection returns a finite mapped eye
+PASS render eye uses exactly the traveller frame transform
+PASS window near plane is just beyond the exit surface
+PASS back face does not expose the destination scene
+PASS only two pooled live views serve the physical pair
+PASS mapped aperture corners match texture corners without camera-feed stretching
+PASS exit wall is clipped while destination geometry remains visible
+PASS remote views exclude portal surfaces to prevent recursion
+PASS moving destination object changes the live portal image
+PASS observer lateral motion produces parallax
+PASS view switch stops render updates without closing portals
+PASS Q plus left places A while preserving B
+PASS Q release before mouse release cannot accidentally cast a dash
+PASS placement exposes an animation cue
+PASS Q plus right places B without entering cut charge
+PASS G redirects B while leaving the physical entrance untouched
+PASS invalid redirect keeps the working route
+PASS instant dash no longer replaces physical A/B
+PASS dash visuals and passage animation data remain independent
+PASS spell visuals expire while the route remains
+PASS T throws a real rigid body through the persistent route
+PASS transported small projectile physically damages the destination tower
+PASS F starts a physical lunge instead of teleporting to the gate
+PASS charged speed can be committed to a physical route
+PASS charged lunge crosses actual aperture and exposes paired animation poses
+PASS physical route turns charged lunge into tower impact
+PASS lunge and kinetic impact feed the same presentation adapter
+PASS action gravity loop consistently uses A as entrance and B as output
+PASS physical debris repeatedly accelerates through gravity loop under speed cap
+PASS G turns the existing gravity loop into an aimed exit
+PASS released loop projectile strikes and damages another tower
+PASS ordinary blocker stops F before entry instead of being teleported through
+PASS player reset cancels editing while preserving permanent links
+PASS moving a supporting surface invalidates its physical gate
+PASS losing one physical gate stops both live windows
+PASS C recalls both physical portals
+PASS repeated rebuild/close reuses two views and leaves no window meshes
+PASS presentation telemetry is bounded
+PASS hybrid combos keep destruction budgets
+RESULT portal_hybrid {"checks":42,"dives":2,"engine":"4.7.1-stable (official)","failures":[],"frames":2323,"loop_redirect_status":"已放置 B","loop_speed":100.0,"max_ms":61.85,"mode":"rendered_input","objects":9,"p95_ms":6.326,"screenshots":["01-live-window","02-parallax","03-object-route","04-physical-impact","05-loop-release"]}

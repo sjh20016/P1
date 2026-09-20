@@ -1,0 +1,51 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+PASS frame maps inward to outward: (0.0, 1.0, 0.0) -> (0.0, 1.0, 0.0)
+PASS frame maps inward to outward: (0.0, 1.0, 0.0) -> (1.0, 0.0, 0.0)
+PASS frame maps inward to outward: (0.0, 1.0, 0.0) -> (0.0, 0.0, -1.0)
+PASS frame maps inward to outward: (0.0, -1.0, 0.0) -> (0.0, 1.0, 0.0)
+PASS frame maps inward to outward: (0.0, -1.0, 0.0) -> (1.0, 0.0, 0.0)
+PASS frame maps inward to outward: (0.0, -1.0, 0.0) -> (0.0, 0.0, -1.0)
+PASS frame maps inward to outward: (-1.0, 0.0, 0.0) -> (0.0, 1.0, 0.0)
+PASS frame maps inward to outward: (-1.0, 0.0, 0.0) -> (1.0, 0.0, 0.0)
+PASS frame maps inward to outward: (-1.0, 0.0, 0.0) -> (0.0, 0.0, -1.0)
+PASS frame maps inward to outward: (1.0, 0.0, 0.0) -> (0.0, 1.0, 0.0)
+PASS frame maps inward to outward: (1.0, 0.0, 0.0) -> (1.0, 0.0, 0.0)
+PASS frame maps inward to outward: (1.0, 0.0, 0.0) -> (0.0, 0.0, -1.0)
+PASS frame maps inward to outward: (0.0, 0.0, -1.0) -> (0.0, 1.0, 0.0)
+PASS frame maps inward to outward: (0.0, 0.0, -1.0) -> (1.0, 0.0, 0.0)
+PASS frame maps inward to outward: (0.0, 0.0, -1.0) -> (0.0, 0.0, -1.0)
+PASS frame maps inward to outward: (0.0, 0.0, 1.0) -> (0.0, 1.0, 0.0)
+PASS frame maps inward to outward: (0.0, 0.0, 1.0) -> (1.0, 0.0, 0.0)
+PASS frame maps inward to outward: (0.0, 0.0, 1.0) -> (0.0, 0.0, -1.0)
+PASS velocity cap
+PASS edge traveller cannot clip rim
+PASS backside cannot enter a portal
+PASS independent Portal loadout has no tentacles
+PASS automatic rescue defaults off
+PASS A playground presets use validated ray placement
+PASS overlapping portals rejected
+PASS small surface cannot support portal aperture
+PASS gravity fall crosses A and exits B
+PASS fall becomes horizontal launch above 40 m/s
+PASS launch breaches entrance and rear building walls
+PASS debris respects existing budget
+PASS physical wall entry turns 90 degrees
+PASS 140 m/s traversal remains swept at 60 Hz
+PASS fully blocked exit safely rejects traversal
+PASS blocked traveller pushed back at entry
+PASS rigidbody gravity loop repeats without same-frame recursion
+PASS angular speed retained through loop
+PASS loop remains below velocity limit (one gravity step tolerance)
+PASS loop projectile release damages a building
+PASS spatial cut accepts connected anchors
+PASS spatial cut cooldown prevents duplicate casting
+PASS slice reaches existing building damage state
+PASS seam cut activates existing collapse machinery
+PASS macro budget remains bounded
+PASS moved supporting surface invalidates portal
+PASS destroyed supporting surface invalidates portal
+PASS manual falling rescue creates temporary entrance
+PASS temporary entrance redirects falling player to prepared exit
+PASS overweight object cannot traverse
+RESULT portal001 checks=48 failures=0 METRICS {"drop":{"damage_events":2,"horizontal_exit_speed":46.7769813537598,"peak_speed":48.3862266540527,"traversals":1},"fast_60hz":{"traversals":1,"velocity":"(-139.2321, -2.491995, 0.000012)"},"final":{"checks":48,"damage_events":5,"detection_checks":19945,"failures":[],"peak_debris":10},"loop":{"peak_speed":100.0,"traversals":27}}

@@ -7,6 +7,9 @@ var slot: int = 0
 var radius: float = 3.2
 var temporary: bool = false
 var lifetime: float = 2.0
+var disk: MeshInstance3D
+# Only the portal camera excludes this render layer. Physics masks are separate.
+const VIEW_LAYER: int = 1 << 19
 
 func valid_surface() -> bool:
 	if temporary: return lifetime > 0
@@ -20,7 +23,7 @@ func build_visual() -> void:
 	var white := StandardMaterial3D.new()
 	white.albedo_color = Color(0.95, 0.95, 0.92)
 	white.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	var disk := MeshInstance3D.new()
+	disk = MeshInstance3D.new(); disk.layers = VIEW_LAYER
 	var cylinder := CylinderMesh.new()
 	cylinder.top_radius = radius; cylinder.bottom_radius = radius; cylinder.height = 0.018
 	cylinder.radial_segments = 48; cylinder.material = black

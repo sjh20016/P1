@@ -3,6 +3,7 @@ extends Node3D
 
 signal traversed(body: Node3D, rotation: Basis, speed: float)
 signal placement_changed
+signal action_cue(action: String, data: Dictionary)
 var profile: PortalProfile
 var gates: Array = [null, null]
 var impact: KineticImpact
@@ -15,6 +16,7 @@ var detection_checks: int = 0
 var status: String = "左键 A / 右键 B：瞄准平整的大型表面"
 var validation_clock: float = 0
 var magic_casts: int = 0
+var dash_gates: Array[PortalComponent] = []
 
 func _ready() -> void:
 	add_to_group("portal_manager")
@@ -23,6 +25,9 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	clock += delta
+	for gate in dash_gates:
+		gate.lifetime -= delta
+	if not dash_gates.is_empty() and dash_gates[0].lifetime <= 0: clear_dash_visuals()
 	for i in 2:
 		if gates[i] == null: continue
 		if gates[i].temporary: gates[i].lifetime -= delta
@@ -44,6 +49,23 @@ func close(slot: int) -> void:
 
 func clear() -> void:
 	close(0); close(1); last_portal_time.clear()
+	clear_dash_visuals()
+
+func cue(action: String, data: Dictionary = {}) -> void:
+	var payload := data.duplicate(); payload["time"] = clock
+	action_cue.emit(action,payload)
+
+func clear_dash_visuals() -> void:
+	for gate in dash_gates:
+		if is_instance_valid(gate): gate.queue_free()
+	dash_gates.clear()
+
+func show_dash(entry: Transform3D, exit: Transform3D) -> void:
+	clear_dash_visuals()
+	for pose in [entry,exit]:
+		var gate := PortalComponent.new(); gate.slot = dash_gates.size()
+		gate.radius = profile.portal_size; gate.temporary = true; gate.lifetime = 0.48
+		add_child(gate); gate.global_transform = pose; gate.build_visual(); dash_gates.append(gate)
 
 func ray_hit(origin: Vector3, end: Vector3, exclude: Array[RID] = []) -> Dictionary:
 	var query := PhysicsRayQueryParameters3D.create(origin, end, 3, exclude)
@@ -143,13 +165,17 @@ func magic_dash(player: RavagePlayer, target: Dictionary, requested_speed: float
 	var direction: Vector3 = target.direction.normalized()
 	var speed := clampf(requested_speed,profile.dash_min_speed,profile.max_portal_velocity)
 	var origin := player.global_position
-	# Visual foot entrance is automatic. Magic exits can exist in open air.
-	install_gate(0,origin + Vector3.DOWN * 0.73,PortalPhysics.frame(Vector3.UP))
-	install_gate(1,destination - direction * 1.0,PortalPhysics.frame(direction))
-	for gate in gates: gate.lifetime = 0.48
+	# Instant spells have their own short-lived visuals. They never overwrite the
+	# physical A/B route, and are not extra recursive traveller detectors.
+	var entry := Transform3D(PortalPhysics.frame(Vector3.UP),origin + Vector3.DOWN * 0.73)
+	var exit := Transform3D(PortalPhysics.frame(direction),destination - direction * 1.0)
+	show_dash(entry,exit)
 	last_portal_time[player.get_instance_id()] = clock
 	player.global_position = destination; player.previous_position = destination
 	player.velocity = direction * speed
+	cue("passage",{"kind":"dash","body_id":player.get_instance_id(),"entry":entry,"exit":exit,
+		"from":origin,"to":destination,"velocity_out":player.velocity,"speed":speed,
+		"input_pose":Transform3D(player.global_basis,origin),"mapped_pose":player.global_transform})
 	var facing: Vector3 = -player.camera_rig.global_basis.z
 	traversed.emit(player,Basis(Quaternion(facing.normalized(),direction)),speed)
 	traversal_count += 1; magic_casts += 1
@@ -180,8 +206,12 @@ func travel(body: PhysicsBody3D, transform: Transform3D, velocity: Vector3, radi
 		last_portal_time[id] = clock
 		if destination == null:
 			blocked_count += 1; status = "出口受阻：已在入口弹回，请调整 B / A"
+			cue("exit_blocked",{"body_id":id,"entry":entry.global_transform,"exit":exit_gate.global_transform})
 			return {"blocked": true, "transform": Transform3D(transform.basis, at + entry.global_basis.z * 0.16), "velocity": velocity.bounce(entry.global_basis.z) * 0.5}
 		var out := PortalPhysics.velocity_out(velocity, rotation, profile.momentum_multiplier, profile.max_portal_velocity)
+		cue("passage",{"kind":"physical","body_id":id,"entry":entry.global_transform,"exit":exit_gate.global_transform,
+			"from":at,"to":destination,"velocity_in":velocity,"velocity_out":out,"rotation":rotation,"speed":out.length(),
+			"input_pose":transform,"mapped_pose":Transform3D(rotation * transform.basis,destination)})
 		traversal_count += 1
 		if body is RigidBody3D:
 			object_traversals += 1

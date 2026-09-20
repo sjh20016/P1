@@ -38,6 +38,14 @@ extends Resource
 @export var cut_charge_time: float = 1.4
 @export var cut_separation: float = 2.8
 
+@export_group("Physical links and windows")
+@export var link_dive_range: float = 30.0
+@export var link_dive_speed: float = 60.0
+@export var portal_view_enabled: bool = true
+@export var portal_view_resolution: int = 512
+@export var portal_view_fps: float = 30.0
+@export var portal_view_distance: float = 90.0
+
 func sanitize() -> void:
 	placement_range = clampf(placement_range, 10, 220)
 	portal_size = clampf(portal_size, 1.2, 5)
@@ -67,3 +75,8 @@ func sanitize() -> void:
 	cut_max_radius = clampf(cut_max_radius, cut_min_radius, 18)
 	cut_charge_time = clampf(cut_charge_time, 0.3, 3)
 	cut_separation = clampf(cut_separation, 0.5, 5)
+	link_dive_range = clampf(link_dive_range, 8, 45)
+	link_dive_speed = clampf(link_dive_speed, 35, max_portal_velocity)
+	portal_view_resolution = clampi(portal_view_resolution, 128, 1024)
+	portal_view_fps = clampf(portal_view_fps, 10, 60)
+	portal_view_distance = clampf(portal_view_distance, 20, 160)

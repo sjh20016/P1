@@ -1,0 +1,20 @@
+{
+	"checks": 42,
+	"dives": 2,
+	"engine": "4.7.1-stable (official)",
+	"failures": [],
+	"frames": 2323,
+	"loop_redirect_status": "已放置 B",
+	"loop_speed": 100.0,
+	"max_ms": 61.85,
+	"mode": "rendered_input",
+	"objects": 9,
+	"p95_ms": 6.326,
+	"screenshots": [
+		"01-live-window",
+		"02-parallax",
+		"03-object-route",
+		"04-physical-impact",
+		"05-loop-release"
+	]
+}

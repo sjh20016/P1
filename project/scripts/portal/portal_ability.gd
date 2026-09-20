@@ -26,7 +26,9 @@ func _physics_process(delta: float) -> void:
 	if not player.controls_enabled: preview.hide(); return
 	if portals.profile.emergency_portal_enabled and player.global_position.y < -28 and player.velocity.y < -20: emergency()
 	if portals.profile.magic_enabled:
-		preview.hide(); preview_text = magic.hint() if is_instance_valid(magic) else ""; return
+		preview.hide(); preview_text = magic.hint() if is_instance_valid(magic) else ""
+		if is_instance_valid(magic) and is_instance_valid(magic.links) and magic.links.editing: preview_text = magic.links.preview_text
+		return
 	preview_clock -= delta
 	if preview_clock <= 0:
 		preview_clock = 0.08
