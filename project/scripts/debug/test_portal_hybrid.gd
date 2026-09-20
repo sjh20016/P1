@@ -60,7 +60,7 @@ func has_cue(action: String, kind: String = "") -> bool:
 
 func run() -> void:
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path("res://../docs/portal-hybrid").simplify_path())
-	game = load("res://scenes/portal/Portal_Playground.tscn").instantiate(); root.add_child(game); current_scene = game
+	game = load("res://scenes/portal/Portal_Playground.tscn").instantiate(); game.forest_enabled = false; root.add_child(game); current_scene = game
 	await frames(150)
 	if not rendered: game.impact_vfx.stop_enabled = false
 	await tap(KEY_F7); await frames(3)
@@ -129,10 +129,11 @@ func run() -> void:
 	check(game.portals.gates[1].get_instance_id() == b_id,"invalid redirect keeps the working route")
 	game.player.global_position = Vector3(100,35,10); game.player.velocity = Vector3.ZERO; aim(Vector3(100,35,-60)); await frames(2)
 	await mouse(MOUSE_BUTTON_LEFT,true); await mouse(MOUSE_BUTTON_LEFT,false)
+	await frames(109)
 	check(game.portals.gates[0].get_instance_id() == a_id and game.portals.gates[1].get_instance_id() == b_id,"instant dash no longer replaces physical A/B")
 	check(game.portals.dash_gates.size() == 2 and has_cue("passage","dash"),"dash visuals and passage animation data remain independent")
 	await frames(65)
-	check(game.portals.dash_gates.is_empty() and game.portals.gates[0] != null,"spell visuals expire while the route remains")
+	check(game.portals.dash_gates.size() == 2 and game.portals.dash_gates[0].traversal_enabled and game.portals.gates[0] != null,"spell route persists alongside physical A/B")
 	await tap(KEY_F7); aim(game.portals.gates[0].global_position); await frames(2)
 	var objects: int = game.portals.object_traversals
 	var projectile_damage: int = game.manager.damage_events

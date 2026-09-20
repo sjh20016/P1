@@ -1,0 +1,25 @@
+{
+	"anchors": [
+		"FX_Cape",
+		"FX_CastHand",
+		"FX_Chest",
+		"FX_Foot_L",
+		"FX_Foot_R",
+		"FX_Waist"
+	],
+	"bones": 21,
+	"checks": 25,
+	"clips": [
+		"Cast",
+		"Cut",
+		"Dash",
+		"Fall",
+		"Idle",
+		"Jump",
+		"Land",
+		"Run"
+	],
+	"failures": [],
+	"rendered": true,
+	"triangles": 2520
+}

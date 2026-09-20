@@ -1,7 +1,7 @@
 {
 	"audio": "Dummy",
 	"charged_slice_hits": 1,
-	"checks": 43,
+	"checks": 44,
 	"cut_footprint": {
 		"charged": 2,
 		"small": 1
@@ -10,7 +10,7 @@
 	"failures": [],
 	"magic_casts": 3,
 	"mode": "command_physics",
-	"quick_launch_speed": 41.6254615783691,
+	"quick_launch_speed": 41.839282989502,
 	"screenshots": [],
 	"stored_speed": 100.0
 }

@@ -27,7 +27,7 @@ func run() -> void:
 	check(PortalPhysics.velocity_out(Vector3(0,-200,0), Basis.IDENTITY, 1.2, 100).length() <= 100.001, "velocity cap")
 	check(PortalPhysics.crossing(Transform3D.IDENTITY, Vector3(3,0,2), Vector3(0,0,-4), 0.72, 3.2) < 0, "edge traveller cannot clip rim")
 	check(PortalPhysics.crossing(Transform3D.IDENTITY, Vector3(0,0,-2), Vector3(0,0,4), 0.72, 3.2) < 0, "backside cannot enter a portal")
-	game = load("res://scenes/portal/Portal_Playground.tscn").instantiate(); game.profile.magic_enabled = false; root.add_child(game); current_scene = game
+	game = load("res://scenes/portal/Portal_Playground.tscn").instantiate(); game.profile.magic_enabled = false; game.forest_enabled = false; root.add_child(game); current_scene = game
 	await frames(8)
 	game.impact_vfx.stop_enabled = false
 	check(game.player.hooks.is_empty(), "independent Portal loadout has no tentacles")

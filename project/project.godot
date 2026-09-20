@@ -4,7 +4,7 @@ config_version=5
 [application]
 config/name="RAVAGE — OPEN DESTRUCTION"
 config/version="0.0.7"
-run/main_scene="res://scenes/maps/open_main.tscn"
+run/main_scene="res://scenes/portal/Portal_Playground.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://assets/placeholders/icon.svg"
 

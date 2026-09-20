@@ -1,0 +1,11 @@
+{
+	"audio": "WASAPI",
+	"checks": 33,
+	"damaged_towers": 81,
+	"engine": "4.7.1-stable (official)",
+	"failures": [],
+	"rendered": true,
+	"route_frames": 1349,
+	"route_max_ms": 7.982,
+	"route_p95_ms": 6.395
+}

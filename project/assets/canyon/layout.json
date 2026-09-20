@@ -1,0 +1,2042 @@
+{
+  "source": "资产模型/VerticalCanyon.blend",
+  "source_sha256": "271c3f5154385f6193a697aa8583385c0f5a03411e385710503f79820eea3310",
+  "cell_size_m": 8,
+  "objects": [
+    {
+      "name": "Backdrop_Copy_00",
+      "cells": 927,
+      "triangles": 9215
+    },
+    {
+      "name": "Backdrop_Copy_01",
+      "cells": 510,
+      "triangles": 6187
+    },
+    {
+      "name": "Backdrop_Copy_02",
+      "cells": 576,
+      "triangles": 9137
+    },
+    {
+      "name": "Backdrop_Copy_03",
+      "cells": 560,
+      "triangles": 9668
+    },
+    {
+      "name": "Backdrop_Copy_04",
+      "cells": 1365,
+      "triangles": 13791
+    },
+    {
+      "name": "Backdrop_Copy_05",
+      "cells": 1059,
+      "triangles": 15027
+    },
+    {
+      "name": "Backdrop_Copy_06",
+      "cells": 1138,
+      "triangles": 15577
+    },
+    {
+      "name": "Backdrop_Copy_07",
+      "cells": 567,
+      "triangles": 6611
+    },
+    {
+      "name": "Backdrop_Copy_08",
+      "cells": 1026,
+      "triangles": 11239
+    },
+    {
+      "name": "Backdrop_Copy_09",
+      "cells": 994,
+      "triangles": 11450
+    },
+    {
+      "name": "Backdrop_Copy_10",
+      "cells": 585,
+      "triangles": 8536
+    },
+    {
+      "name": "Backdrop_Copy_11",
+      "cells": 1719,
+      "triangles": 17455
+    },
+    {
+      "name": "Backdrop_Copy_12",
+      "cells": 716,
+      "triangles": 11925
+    },
+    {
+      "name": "Backdrop_Copy_13",
+      "cells": 708,
+      "triangles": 10739
+    },
+    {
+      "name": "Backdrop_Copy_14",
+      "cells": 551,
+      "triangles": 6732
+    },
+    {
+      "name": "Backdrop_Copy_15",
+      "cells": 1466,
+      "triangles": 13391
+    },
+    {
+      "name": "Backdrop_Copy_16",
+      "cells": 533,
+      "triangles": 6491
+    },
+    {
+      "name": "Backdrop_Copy_17",
+      "cells": 798,
+      "triangles": 11022
+    },
+    {
+      "name": "Backdrop_Copy_18",
+      "cells": 1536,
+      "triangles": 17002
+    },
+    {
+      "name": "Backdrop_Copy_19",
+      "cells": 1155,
+      "triangles": 13666
+    },
+    {
+      "name": "Backdrop_Copy_20",
+      "cells": 783,
+      "triangles": 12796
+    },
+    {
+      "name": "Backdrop_Copy_21",
+      "cells": 798,
+      "triangles": 8706
+    },
+    {
+      "name": "Backdrop_Copy_22",
+      "cells": 567,
+      "triangles": 6835
+    },
+    {
+      "name": "Backdrop_Copy_23",
+      "cells": 492,
+      "triangles": 8436
+    },
+    {
+      "name": "D01_CantileverRoot",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "D01_INTACT",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "D01_Socket",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "D02_CantileverRoot",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "D02_INTACT",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "D02_Socket",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "D03_CantileverRoot",
+      "cells": 12,
+      "triangles": 104
+    },
+    {
+      "name": "D03_INTACT",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "D03_Socket",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "D04_CantileverRoot",
+      "cells": 16,
+      "triangles": 141
+    },
+    {
+      "name": "D04_INTACT",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "D04_Socket",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "D05_CantileverRoot",
+      "cells": 12,
+      "triangles": 104
+    },
+    {
+      "name": "D05_INTACT",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "D05_Socket",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "D06_CantileverRoot",
+      "cells": 12,
+      "triangles": 104
+    },
+    {
+      "name": "D06_INTACT",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "D06_Socket",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "D07_CantileverRoot",
+      "cells": 12,
+      "triangles": 104
+    },
+    {
+      "name": "D07_INTACT",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "D07_Socket",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "D08_CantileverRoot",
+      "cells": 12,
+      "triangles": 101
+    },
+    {
+      "name": "D08_INTACT",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "D08_Socket",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "D09_CantileverRoot",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "D09_INTACT",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "D09_Socket",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "D10_CantileverRoot",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "D10_INTACT",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "D10_Socket",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "D11_CantileverRoot",
+      "cells": 12,
+      "triangles": 104
+    },
+    {
+      "name": "D11_INTACT",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "D11_Socket",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "D12_CantileverRoot",
+      "cells": 12,
+      "triangles": 104
+    },
+    {
+      "name": "D12_INTACT",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "D12_Socket",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "FINISH_Observatory",
+      "cells": 16,
+      "triangles": 96
+    },
+    {
+      "name": "FINISH_Observatory_Brace",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "FINISH_Observatory_Lintel",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "FINISH_Observatory_Pier",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "FINISH_Observatory_Pier.001",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "GRAPPLE_00_Beam",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "GRAPPLE_00_Support",
+      "cells": 8,
+      "triangles": 72
+    },
+    {
+      "name": "GRAPPLE_01_Beam",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "GRAPPLE_01_Support",
+      "cells": 8,
+      "triangles": 72
+    },
+    {
+      "name": "GRAPPLE_02_Beam",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "GRAPPLE_02_Support",
+      "cells": 8,
+      "triangles": 72
+    },
+    {
+      "name": "GRAPPLE_03_Beam",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "GRAPPLE_03_Support",
+      "cells": 8,
+      "triangles": 72
+    },
+    {
+      "name": "GRAPPLE_04_Beam",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "GRAPPLE_04_Support",
+      "cells": 8,
+      "triangles": 72
+    },
+    {
+      "name": "GRAPPLE_05_Beam",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "GRAPPLE_05_Support",
+      "cells": 8,
+      "triangles": 72
+    },
+    {
+      "name": "GRAPPLE_06_Beam",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "GRAPPLE_06_Support",
+      "cells": 10,
+      "triangles": 104
+    },
+    {
+      "name": "GRAPPLE_07_Beam",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "GRAPPLE_07_Support",
+      "cells": 10,
+      "triangles": 90
+    },
+    {
+      "name": "GRAPPLE_08_Beam",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "GRAPPLE_08_Support",
+      "cells": 10,
+      "triangles": 104
+    },
+    {
+      "name": "GRAPPLE_09_Beam",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "GRAPPLE_09_Support",
+      "cells": 10,
+      "triangles": 104
+    },
+    {
+      "name": "GRAPPLE_10_Beam",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "GRAPPLE_10_Support",
+      "cells": 8,
+      "triangles": 72
+    },
+    {
+      "name": "GRAPPLE_11_Beam",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "GRAPPLE_11_Support",
+      "cells": 8,
+      "triangles": 72
+    },
+    {
+      "name": "LOW_RETURN_Arch_0",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "LOW_RETURN_Arch_0.001",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "LOW_RETURN_Arch_1",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "LOW_RETURN_Arch_1.001",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "LOW_RETURN_Arch_10",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "LOW_RETURN_Arch_10.001",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "LOW_RETURN_Arch_11",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "LOW_RETURN_Arch_11.001",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "LOW_RETURN_Arch_12",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "LOW_RETURN_Arch_12.001",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "LOW_RETURN_Arch_13",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "LOW_RETURN_Arch_13.001",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "LOW_RETURN_Arch_14",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "LOW_RETURN_Arch_14.001",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "LOW_RETURN_Arch_15",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "LOW_RETURN_Arch_15.001",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "LOW_RETURN_Arch_16",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "LOW_RETURN_Arch_16.001",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "LOW_RETURN_Arch_17",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "LOW_RETURN_Arch_17.001",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "LOW_RETURN_Arch_18",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "LOW_RETURN_Arch_18.001",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "LOW_RETURN_Arch_19",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "LOW_RETURN_Arch_19.001",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "LOW_RETURN_Arch_2",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "LOW_RETURN_Arch_2.001",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "LOW_RETURN_Arch_3",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "LOW_RETURN_Arch_3.001",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "LOW_RETURN_Arch_4",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "LOW_RETURN_Arch_4.001",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "LOW_RETURN_Arch_5",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "LOW_RETURN_Arch_5.001",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "LOW_RETURN_Arch_6",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "LOW_RETURN_Arch_6.001",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "LOW_RETURN_Arch_7",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "LOW_RETURN_Arch_7.001",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "LOW_RETURN_Arch_8",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "LOW_RETURN_Arch_8.001",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "LOW_RETURN_Arch_9",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "LOW_RETURN_Arch_9.001",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "LOW_RETURN_Deck",
+      "cells": 32,
+      "triangles": 192
+    },
+    {
+      "name": "LOW_RETURN_GateLintel",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "LOW_RETURN_GateLintel.001",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "LOW_RETURN_GatePier",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "LOW_RETURN_GatePier.001",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "LOW_RETURN_GatePier.002",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "LOW_RETURN_GatePier.003",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "LOW_RETURN_Head",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "LOW_RETURN_Head.001",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "LOW_RETURN_Spandrel",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "LOW_RETURN_Spandrel.001",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "LOW_RETURN_Spandrel.002",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "LOW_RETURN_Spandrel.003",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "LOW_RETURN_Spandrel.004",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "LOW_RETURN_Spandrel.005",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "LOW_RETURN_Spandrel.006",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "LOW_RETURN_Spandrel.007",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "LOW_RETURN_Spandrel.008",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "LOW_RETURN_Spandrel.009",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "LOW_RETURN_Spandrel.010",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "LOW_RETURN_Spandrel.011",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "OCULUS_Buttress",
+      "cells": 12,
+      "triangles": 118
+    },
+    {
+      "name": "OCULUS_Buttress.001",
+      "cells": 12,
+      "triangles": 118
+    },
+    {
+      "name": "OCULUS_Dark_Slit",
+      "cells": 16,
+      "triangles": 96
+    },
+    {
+      "name": "OCULUS_UpperTie",
+      "cells": 14,
+      "triangles": 140
+    },
+    {
+      "name": "OCULUS_UpperTie.001",
+      "cells": 14,
+      "triangles": 140
+    },
+    {
+      "name": "REST_01",
+      "cells": 16,
+      "triangles": 96
+    },
+    {
+      "name": "REST_01_Brace",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "REST_01_Lintel",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "REST_01_Pier",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "REST_01_Pier.001",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "REST_02",
+      "cells": 16,
+      "triangles": 96
+    },
+    {
+      "name": "REST_02_Brace",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "REST_02_Lintel",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "REST_02_Pier",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "REST_02_Pier.001",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "START_Porch",
+      "cells": 16,
+      "triangles": 96
+    },
+    {
+      "name": "START_Porch_Brace",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "START_Porch_Lintel",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "START_Porch_Pier",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "START_Porch_Pier.001",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "STONE_ARCH_Arch_0",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "STONE_ARCH_Arch_0.001",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "STONE_ARCH_Arch_1",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "STONE_ARCH_Arch_1.001",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "STONE_ARCH_Arch_10",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "STONE_ARCH_Arch_10.001",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "STONE_ARCH_Arch_11",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "STONE_ARCH_Arch_11.001",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "STONE_ARCH_Arch_12",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "STONE_ARCH_Arch_12.001",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "STONE_ARCH_Arch_13",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "STONE_ARCH_Arch_13.001",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "STONE_ARCH_Arch_14",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "STONE_ARCH_Arch_14.001",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "STONE_ARCH_Arch_15",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "STONE_ARCH_Arch_15.001",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "STONE_ARCH_Arch_16",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "STONE_ARCH_Arch_16.001",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "STONE_ARCH_Arch_17",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "STONE_ARCH_Arch_17.001",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "STONE_ARCH_Arch_18",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "STONE_ARCH_Arch_18.001",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "STONE_ARCH_Arch_19",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "STONE_ARCH_Arch_19.001",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "STONE_ARCH_Arch_2",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "STONE_ARCH_Arch_2.001",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "STONE_ARCH_Arch_3",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "STONE_ARCH_Arch_3.001",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "STONE_ARCH_Arch_4",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "STONE_ARCH_Arch_4.001",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "STONE_ARCH_Arch_5",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "STONE_ARCH_Arch_5.001",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "STONE_ARCH_Arch_6",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "STONE_ARCH_Arch_6.001",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "STONE_ARCH_Arch_7",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "STONE_ARCH_Arch_7.001",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "STONE_ARCH_Arch_8",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "STONE_ARCH_Arch_8.001",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "STONE_ARCH_Arch_9",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "STONE_ARCH_Arch_9.001",
+      "cells": 8,
+      "triangles": 64
+    },
+    {
+      "name": "STONE_ARCH_Deck",
+      "cells": 32,
+      "triangles": 192
+    },
+    {
+      "name": "STONE_ARCH_GateLintel",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "STONE_ARCH_GateLintel.001",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "STONE_ARCH_GatePier",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "STONE_ARCH_GatePier.001",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "STONE_ARCH_GatePier.002",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "STONE_ARCH_GatePier.003",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "STONE_ARCH_Head",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "STONE_ARCH_Head.001",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "STONE_ARCH_Spandrel",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "STONE_ARCH_Spandrel.001",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "STONE_ARCH_Spandrel.002",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "STONE_ARCH_Spandrel.003",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "STONE_ARCH_Spandrel.004",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "STONE_ARCH_Spandrel.005",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "STONE_ARCH_Spandrel.006",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "STONE_ARCH_Spandrel.007",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "STONE_ARCH_Spandrel.008",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "STONE_ARCH_Spandrel.009",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "STONE_ARCH_Spandrel.010",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "STONE_ARCH_Spandrel.011",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "SUSPENSION_Deck",
+      "cells": 32,
+      "triangles": 192
+    },
+    {
+      "name": "SUSPENSION_GateLintel",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "SUSPENSION_GateLintel.001",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "SUSPENSION_GatePier",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "SUSPENSION_GatePier.001",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "SUSPENSION_GatePier.002",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "SUSPENSION_GatePier.003",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "SUSPENSION_Hanger",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "SUSPENSION_Hanger.001",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "SUSPENSION_Hanger.002",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "SUSPENSION_Hanger.003",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "SUSPENSION_Hanger.004",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "SUSPENSION_Hanger.005",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "SUSPENSION_Hanger.006",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "SUSPENSION_Hanger.007",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "SUSPENSION_Hanger.008",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "SUSPENSION_Hanger.009",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "SUSPENSION_Hanger.010",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "SUSPENSION_Hanger.011",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "SUSPENSION_Hanger.012",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "SUSPENSION_Hanger.013",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "SUSPENSION_Hanger.014",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "SUSPENSION_Hanger.015",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "SUSPENSION_Hanger.016",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "SUSPENSION_Hanger.017",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "SUSPENSION_Hanger.018",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "SUSPENSION_Hanger.019",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "SUSPENSION_Hanger.020",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "SUSPENSION_Hanger.021",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "SUSPENSION_Head",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "SUSPENSION_Head.001",
+      "cells": 8,
+      "triangles": 48
+    },
+    {
+      "name": "Tower_00_STRAIGHT_SHAFT",
+      "cells": 456,
+      "triangles": 16108
+    },
+    {
+      "name": "Tower_01_NEEDLE_SHAFT",
+      "cells": 432,
+      "triangles": 8494
+    },
+    {
+      "name": "Tower_02_BULGED_SHAFT",
+      "cells": 1010,
+      "triangles": 11908
+    },
+    {
+      "name": "Tower_03_DRUM_STACK",
+      "cells": 782,
+      "triangles": 24946
+    },
+    {
+      "name": "Tower_04_STEPPED_SHAFT",
+      "cells": 512,
+      "triangles": 14743
+    },
+    {
+      "name": "Tower_05_OPEN_FRAME",
+      "cells": 500,
+      "triangles": 13603
+    },
+    {
+      "name": "Tower_06_ASYMMETRIC_SHAFT",
+      "cells": 688,
+      "triangles": 30458
+    },
+    {
+      "name": "Tower_07_STRAIGHT_SHAFT",
+      "cells": 394,
+      "triangles": 10412
+    },
+    {
+      "name": "Tower_08_NEEDLE_SHAFT",
+      "cells": 504,
+      "triangles": 4604
+    },
+    {
+      "name": "Tower_09_BULGED_SHAFT",
+      "cells": 634,
+      "triangles": 18748
+    },
+    {
+      "name": "Tower_100_BULGED_SHAFT",
+      "cells": 1207,
+      "triangles": 12520
+    },
+    {
+      "name": "Tower_101_DRUM_STACK",
+      "cells": 1401,
+      "triangles": 10745
+    },
+    {
+      "name": "Tower_102_STEPPED_SHAFT",
+      "cells": 452,
+      "triangles": 7849
+    },
+    {
+      "name": "Tower_103_OPEN_FRAME",
+      "cells": 908,
+      "triangles": 7644
+    },
+    {
+      "name": "Tower_104_ASYMMETRIC_SHAFT",
+      "cells": 717,
+      "triangles": 7391
+    },
+    {
+      "name": "Tower_105_STRAIGHT_SHAFT",
+      "cells": 1176,
+      "triangles": 10406
+    },
+    {
+      "name": "Tower_106_NEEDLE_SHAFT",
+      "cells": 392,
+      "triangles": 6327
+    },
+    {
+      "name": "Tower_107_BULGED_SHAFT",
+      "cells": 452,
+      "triangles": 4120
+    },
+    {
+      "name": "Tower_10_DRUM_STACK",
+      "cells": 823,
+      "triangles": 18506
+    },
+    {
+      "name": "Tower_11_STEPPED_SHAFT",
+      "cells": 655,
+      "triangles": 10948
+    },
+    {
+      "name": "Tower_12_OPEN_FRAME",
+      "cells": 410,
+      "triangles": 22832
+    },
+    {
+      "name": "Tower_13_ASYMMETRIC_SHAFT",
+      "cells": 652,
+      "triangles": 24962
+    },
+    {
+      "name": "Tower_14_STRAIGHT_SHAFT",
+      "cells": 608,
+      "triangles": 7572
+    },
+    {
+      "name": "Tower_15_NEEDLE_SHAFT",
+      "cells": 396,
+      "triangles": 12072
+    },
+    {
+      "name": "Tower_16_BULGED_SHAFT",
+      "cells": 782,
+      "triangles": 14820
+    },
+    {
+      "name": "Tower_17_DRUM_STACK",
+      "cells": 1238,
+      "triangles": 18048
+    },
+    {
+      "name": "Tower_18_STEPPED_SHAFT",
+      "cells": 509,
+      "triangles": 20756
+    },
+    {
+      "name": "Tower_19_OPEN_FRAME",
+      "cells": 446,
+      "triangles": 18724
+    },
+    {
+      "name": "Tower_20_ASYMMETRIC_SHAFT",
+      "cells": 874,
+      "triangles": 22046
+    },
+    {
+      "name": "Tower_21_STRAIGHT_SHAFT",
+      "cells": 408,
+      "triangles": 15100
+    },
+    {
+      "name": "Tower_22_NEEDLE_SHAFT",
+      "cells": 392,
+      "triangles": 8000
+    },
+    {
+      "name": "Tower_23_BULGED_SHAFT",
+      "cells": 996,
+      "triangles": 11511
+    },
+    {
+      "name": "Tower_24_DRUM_STACK",
+      "cells": 689,
+      "triangles": 22904
+    },
+    {
+      "name": "Tower_25_STEPPED_SHAFT",
+      "cells": 532,
+      "triangles": 15290
+    },
+    {
+      "name": "Tower_26_OPEN_FRAME",
+      "cells": 528,
+      "triangles": 14010
+    },
+    {
+      "name": "Tower_27_ASYMMETRIC_SHAFT",
+      "cells": 656,
+      "triangles": 29652
+    },
+    {
+      "name": "Tower_28_STRAIGHT_SHAFT",
+      "cells": 471,
+      "triangles": 11908
+    },
+    {
+      "name": "Tower_29_NEEDLE_SHAFT",
+      "cells": 358,
+      "triangles": 3690
+    },
+    {
+      "name": "Tower_30_BULGED_SHAFT",
+      "cells": 549,
+      "triangles": 16836
+    },
+    {
+      "name": "Tower_31_DRUM_STACK",
+      "cells": 1015,
+      "triangles": 21373
+    },
+    {
+      "name": "Tower_32_STEPPED_SHAFT",
+      "cells": 811,
+      "triangles": 11924
+    },
+    {
+      "name": "Tower_33_OPEN_FRAME",
+      "cells": 380,
+      "triangles": 22164
+    },
+    {
+      "name": "Tower_34_ASYMMETRIC_SHAFT",
+      "cells": 704,
+      "triangles": 25578
+    },
+    {
+      "name": "Tower_35_STRAIGHT_SHAFT",
+      "cells": 596,
+      "triangles": 7206
+    },
+    {
+      "name": "Tower_36_NEEDLE_SHAFT",
+      "cells": 464,
+      "triangles": 13728
+    },
+    {
+      "name": "Tower_37_BULGED_SHAFT",
+      "cells": 782,
+      "triangles": 15590
+    },
+    {
+      "name": "Tower_38_DRUM_STACK",
+      "cells": 811,
+      "triangles": 13360
+    },
+    {
+      "name": "Tower_39_STEPPED_SHAFT",
+      "cells": 388,
+      "triangles": 17952
+    },
+    {
+      "name": "Tower_40_OPEN_FRAME",
+      "cells": 944,
+      "triangles": 7880
+    },
+    {
+      "name": "Tower_41_ASYMMETRIC_SHAFT",
+      "cells": 465,
+      "triangles": 5707
+    },
+    {
+      "name": "Tower_42_STRAIGHT_SHAFT",
+      "cells": 402,
+      "triangles": 5992
+    },
+    {
+      "name": "Tower_43_NEEDLE_SHAFT",
+      "cells": 496,
+      "triangles": 7384
+    },
+    {
+      "name": "Tower_44_BULGED_SHAFT",
+      "cells": 1232,
+      "triangles": 9096
+    },
+    {
+      "name": "Tower_45_DRUM_STACK",
+      "cells": 592,
+      "triangles": 8825
+    },
+    {
+      "name": "Tower_46_STEPPED_SHAFT",
+      "cells": 900,
+      "triangles": 12114
+    },
+    {
+      "name": "Tower_47_OPEN_FRAME",
+      "cells": 384,
+      "triangles": 2976
+    },
+    {
+      "name": "Tower_48_ASYMMETRIC_SHAFT",
+      "cells": 670,
+      "triangles": 8175
+    },
+    {
+      "name": "Tower_49_STRAIGHT_SHAFT",
+      "cells": 410,
+      "triangles": 5984
+    },
+    {
+      "name": "Tower_50_NEEDLE_SHAFT",
+      "cells": 468,
+      "triangles": 4256
+    },
+    {
+      "name": "Tower_51_BULGED_SHAFT",
+      "cells": 926,
+      "triangles": 10619
+    },
+    {
+      "name": "Tower_52_DRUM_STACK",
+      "cells": 916,
+      "triangles": 11295
+    },
+    {
+      "name": "Tower_53_STEPPED_SHAFT",
+      "cells": 654,
+      "triangles": 5747
+    },
+    {
+      "name": "Tower_54_OPEN_FRAME",
+      "cells": 458,
+      "triangles": 4630
+    },
+    {
+      "name": "Tower_55_ASYMMETRIC_SHAFT",
+      "cells": 898,
+      "triangles": 9244
+    },
+    {
+      "name": "Tower_56_STRAIGHT_SHAFT",
+      "cells": 503,
+      "triangles": 3574
+    },
+    {
+      "name": "Tower_57_NEEDLE_SHAFT",
+      "cells": 658,
+      "triangles": 8168
+    },
+    {
+      "name": "Tower_58_BULGED_SHAFT",
+      "cells": 1241,
+      "triangles": 12409
+    },
+    {
+      "name": "Tower_59_DRUM_STACK",
+      "cells": 1270,
+      "triangles": 9699
+    },
+    {
+      "name": "Tower_60_STEPPED_SHAFT",
+      "cells": 674,
+      "triangles": 9588
+    },
+    {
+      "name": "Tower_61_OPEN_FRAME",
+      "cells": 447,
+      "triangles": 5280
+    },
+    {
+      "name": "Tower_62_ASYMMETRIC_SHAFT",
+      "cells": 607,
+      "triangles": 6946
+    },
+    {
+      "name": "Tower_63_STRAIGHT_SHAFT",
+      "cells": 586,
+      "triangles": 6925
+    },
+    {
+      "name": "Tower_64_NEEDLE_SHAFT",
+      "cells": 400,
+      "triangles": 6904
+    },
+    {
+      "name": "Tower_65_BULGED_SHAFT",
+      "cells": 1280,
+      "triangles": 9545
+    },
+    {
+      "name": "Tower_66_DRUM_STACK",
+      "cells": 1400,
+      "triangles": 15084
+    },
+    {
+      "name": "Tower_67_STEPPED_SHAFT",
+      "cells": 708,
+      "triangles": 10128
+    },
+    {
+      "name": "Tower_68_OPEN_FRAME",
+      "cells": 304,
+      "triangles": 2336
+    },
+    {
+      "name": "Tower_69_ASYMMETRIC_SHAFT",
+      "cells": 918,
+      "triangles": 9406
+    },
+    {
+      "name": "Tower_70_STRAIGHT_SHAFT",
+      "cells": 613,
+      "triangles": 7110
+    },
+    {
+      "name": "Tower_71_NEEDLE_SHAFT",
+      "cells": 670,
+      "triangles": 5204
+    },
+    {
+      "name": "Tower_72_BULGED_SHAFT",
+      "cells": 1184,
+      "triangles": 12166
+    },
+    {
+      "name": "Tower_73_DRUM_STACK",
+      "cells": 1314,
+      "triangles": 14204
+    },
+    {
+      "name": "Tower_74_STEPPED_SHAFT",
+      "cells": 676,
+      "triangles": 6132
+    },
+    {
+      "name": "Tower_75_OPEN_FRAME",
+      "cells": 894,
+      "triangles": 7560
+    },
+    {
+      "name": "Tower_76_ASYMMETRIC_SHAFT",
+      "cells": 704,
+      "triangles": 8641
+    },
+    {
+      "name": "Tower_77_STRAIGHT_SHAFT",
+      "cells": 322,
+      "triangles": 2832
+    },
+    {
+      "name": "Tower_78_NEEDLE_SHAFT",
+      "cells": 374,
+      "triangles": 6256
+    },
+    {
+      "name": "Tower_79_BULGED_SHAFT",
+      "cells": 645,
+      "triangles": 8811
+    },
+    {
+      "name": "Tower_80_DRUM_STACK",
+      "cells": 1531,
+      "triangles": 11898
+    },
+    {
+      "name": "Tower_81_STEPPED_SHAFT",
+      "cells": 466,
+      "triangles": 7904
+    },
+    {
+      "name": "Tower_82_OPEN_FRAME",
+      "cells": 336,
+      "triangles": 4704
+    },
+    {
+      "name": "Tower_83_ASYMMETRIC_SHAFT",
+      "cells": 603,
+      "triangles": 6758
+    },
+    {
+      "name": "Tower_84_STRAIGHT_SHAFT",
+      "cells": 652,
+      "triangles": 6952
+    },
+    {
+      "name": "Tower_85_NEEDLE_SHAFT",
+      "cells": 656,
+      "triangles": 8506
+    },
+    {
+      "name": "Tower_86_BULGED_SHAFT",
+      "cells": 908,
+      "triangles": 6782
+    },
+    {
+      "name": "Tower_87_DRUM_STACK",
+      "cells": 630,
+      "triangles": 9084
+    },
+    {
+      "name": "Tower_88_STEPPED_SHAFT",
+      "cells": 682,
+      "triangles": 9670
+    },
+    {
+      "name": "Tower_89_OPEN_FRAME",
+      "cells": 498,
+      "triangles": 2912
+    },
+    {
+      "name": "Tower_90_ASYMMETRIC_SHAFT",
+      "cells": 442,
+      "triangles": 6741
+    },
+    {
+      "name": "Tower_91_STRAIGHT_SHAFT",
+      "cells": 1139,
+      "triangles": 10069
+    },
+    {
+      "name": "Tower_92_NEEDLE_SHAFT",
+      "cells": 436,
+      "triangles": 3992
+    },
+    {
+      "name": "Tower_93_BULGED_SHAFT",
+      "cells": 950,
+      "triangles": 10260
+    },
+    {
+      "name": "Tower_94_DRUM_STACK",
+      "cells": 1284,
+      "triangles": 14299
+    },
+    {
+      "name": "Tower_95_STEPPED_SHAFT",
+      "cells": 953,
+      "triangles": 8962
+    },
+    {
+      "name": "Tower_96_OPEN_FRAME",
+      "cells": 288,
+      "triangles": 4032
+    },
+    {
+      "name": "Tower_97_ASYMMETRIC_SHAFT",
+      "cells": 745,
+      "triangles": 8431
+    },
+    {
+      "name": "Tower_98_STRAIGHT_SHAFT",
+      "cells": 746,
+      "triangles": 4463
+    },
+    {
+      "name": "Tower_99_NEEDLE_SHAFT",
+      "cells": 422,
+      "triangles": 6835
+    }
+  ],
+  "markers": {
+    "D01_ImpactCenter": [
+      -20.712432861328125,
+      20.030475616455078,
+      -30.507598876953125
+    ],
+    "D02_ImpactCenter": [
+      20.647268295288086,
+      24.495445251464844,
+      -27.468231201171875
+    ],
+    "D03_ImpactCenter": [
+      -19.800735473632812,
+      33.36112976074219,
+      -65.54741668701172
+    ],
+    "D04_ImpactCenter": [
+      20.299560546875,
+      33.075714111328125,
+      -58.38166427612305
+    ],
+    "D05_ImpactCenter": [
+      -16.54437828063965,
+      19.170692443847656,
+      -96.29071044921875
+    ],
+    "D06_ImpactCenter": [
+      17.610443115234375,
+      17.9078311920166,
+      -97.88530731201172
+    ],
+    "D07_ImpactCenter": [
+      -17.161128997802734,
+      24.69761085510254,
+      -135.29345703125
+    ],
+    "D08_ImpactCenter": [
+      16.48814582824707,
+      23.840808868408203,
+      -135.44053649902344
+    ],
+    "D09_ImpactCenter": [
+      -17.55027961730957,
+      8.501296997070312,
+      -169.79351806640625
+    ],
+    "D10_ImpactCenter": [
+      17.235057830810547,
+      11.499164581298828,
+      -167.9612274169922
+    ],
+    "D11_ImpactCenter": [
+      -16.855621337890625,
+      21.719871520996094,
+      -202.03768920898438
+    ],
+    "D12_ImpactCenter": [
+      16.486196517944336,
+      24.769092559814453,
+      -202.47669982910156
+    ],
+    "ROUTE_00": [
+      -21.0,
+      36.0,
+      -0.0
+    ],
+    "ROUTE_01": [
+      -8.0,
+      25.0,
+      -24.0
+    ],
+    "ROUTE_02": [
+      10.0,
+      21.0,
+      -48.0
+    ],
+    "ROUTE_03": [
+      -9.0,
+      25.0,
+      -79.0
+    ],
+    "ROUTE_04": [
+      8.0,
+      18.0,
+      -112.0
+    ],
+    "ROUTE_05": [
+      -6.0,
+      20.0,
+      -143.0
+    ],
+    "ROUTE_06": [
+      8.0,
+      12.0,
+      -177.0
+    ],
+    "ROUTE_07": [
+      0.0,
+      26.0,
+      -210.0
+    ],
+    "ROUTE_08": [
+      0.0,
+      42.0,
+      -230.0
+    ],
+    "PLAYER_SPAWN": [
+      -21.0,
+      36.0,
+      -0.0
+    ],
+    "FALL_RESET_BELOW_Z_MINUS_65": [
+      0.0,
+      -65.0,
+      -110.0
+    ],
+    "PLAYABLE_BOUND_CENTER": [
+      0.0,
+      25.0,
+      -110.0
+    ],
+    "GRAPPLE_00": [
+      -25.0,
+      37.03047561645508,
+      -39.507598876953125
+    ],
+    "GRAPPLE_01": [
+      25.0,
+      41.495445251464844,
+      -36.468231201171875
+    ],
+    "GRAPPLE_02": [
+      -25.0,
+      50.36112976074219,
+      -74.54741668701172
+    ],
+    "GRAPPLE_03": [
+      25.0,
+      50.075714111328125,
+      -67.38166809082031
+    ],
+    "GRAPPLE_04": [
+      -25.0,
+      36.170692443847656,
+      -105.29071044921875
+    ],
+    "GRAPPLE_05": [
+      25.0,
+      34.90782928466797,
+      -106.88530731201172
+    ],
+    "GRAPPLE_06": [
+      -25.0,
+      41.697608947753906,
+      -144.29345703125
+    ],
+    "GRAPPLE_07": [
+      25.0,
+      40.8408088684082,
+      -144.44053649902344
+    ],
+    "GRAPPLE_08": [
+      -25.0,
+      25.501296997070312,
+      -178.79351806640625
+    ],
+    "GRAPPLE_09": [
+      25.0,
+      28.499164581298828,
+      -176.9612274169922
+    ],
+    "GRAPPLE_10": [
+      -25.0,
+      38.719871520996094,
+      -211.03768920898438
+    ],
+    "GRAPPLE_11": [
+      25.0,
+      41.76909255981445,
+      -211.47669982910156
+    ]
+  },
+  "basis": "Blender (X,Y,Z) -> Godot (X,Z,-Y); triangle winding reversed",
+  "total_cells": 98323,
+  "total_triangles": 1454520
+}

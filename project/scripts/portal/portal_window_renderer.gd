@@ -56,14 +56,22 @@ func _process(delta: float) -> void:
 	if clock > 0: return
 	clock = 1.0 / portals.profile.portal_view_fps
 	active_views = 0
+	var pair: Array = portals.gates
+	if portals.dash_gates.size() == 2:
+		var physical_distance := INF
+		for gate in portals.gates:
+			if is_instance_valid(gate): physical_distance = minf(physical_distance,viewer.global_position.distance_to(gate.global_position))
+		var dash_distance := minf(viewer.global_position.distance_to(portals.dash_gates[0].global_position),viewer.global_position.distance_to(portals.dash_gates[1].global_position))
+		if dash_distance < physical_distance: pair = portals.dash_gates
 	for i in 2:
 		views[i].render_target_update_mode = SubViewport.UPDATE_DISABLED
-		var gate: PortalComponent = portals.gates[i]
-		var remote: PortalComponent = portals.gates[1-i]
+		var gate: PortalComponent = pair[i]
+		var remote: PortalComponent = pair[1-i]
 		if gate == null or remote == null or not gate.valid_surface() or not remote.valid_surface():
 			release_window(i); continue
 		if hosts[i] == null or hosts[i].get_ref() != gate: bind_window(i,gate)
 		windows[i].visible = false
+		if not gate.traversal_enabled or not remote.traversal_enabled: continue
 		if not portals.profile.portal_view_enabled: continue
 		if viewer.global_position.distance_to(gate.global_position) > portals.profile.portal_view_distance: continue
 		var in_frame: bool = false

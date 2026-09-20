@@ -8,6 +8,7 @@ var id:int=0
 var kind:int=0 # shell, resistant, energy, structural, pull core
 var cells:=PackedByteArray()
 var cut_offsets:=PackedFloat32Array()
+var cut_axes:=PackedByteArray() # 0 horizontal, 1 vertical in the wall plane
 var scars:Array[Dictionary]=[]
 var bond:float=100.0
 var detached:bool=false
@@ -17,6 +18,7 @@ var revision:int=0
 func _init() -> void:
 	cells.resize(96);cells.fill(0)
 	cut_offsets.resize(96);cut_offsets.fill(0.0)
+	cut_axes.resize(96);cut_axes.fill(0)
 
 func center(index:int) -> Vector3:
 	var face:=index/24
@@ -31,6 +33,7 @@ func face_at(point:Vector3) -> int:
 	return (0 if point.z>=0 else 1) if absf(point.z)>=absf(point.x) else (2 if point.x>=0 else 3)
 
 func apply(point:Vector3,event) -> Dictionary:
+	if event.context.has("portal_cells"): return apply_portal_cells(point,event)
 	var face:=face_at(point)
 	if event.type==RavageDamageEvent.Type.PULL:
 		# Tension acts on the marked bond, even if a nearby shell panel is missing.
@@ -80,6 +83,27 @@ func apply(point:Vector3,event) -> Dictionary:
 		scars.append({"point":point,"face":face,"slash":slash})
 	return {"changed":changed,"removed":removed,"severed":severed,"bond_broken":broken,"boost":boost,"local_scars":true}
 
+func apply_portal_cells(point:Vector3,event) -> Dictionary:
+	var severed := 0
+	var seam: bool = event.context.get("portal_seam",false)
+	for hit: Dictionary in event.context.portal_cells:
+		var index: int = hit.index
+		if index < 0 or index >= 96 or cells[index] in [1,3]: continue
+		var axis: int = hit.axis
+		var offset := clampf(float(hit.offset),-1.8 if axis == 1 else -2.8,1.8 if axis == 1 else 2.8)
+		if cells[index] == 2 and cut_axes[index] == axis and is_equal_approx(cut_offsets[index],offset) and not hit.remove: continue
+		# A second distinct cut removes the remaining cell, rather than healing its old slit.
+		cells[index] = 1 if hit.remove or cells[index] == 2 else 2
+		cut_axes[index] = axis; cut_offsets[index] = offset; severed += 1
+	var previous := bond
+	if seam and kind in [3,4] and not detached: bond = maxf(0,bond - event.energy * 2.4)
+	var changed := severed > 0 or previous > bond
+	if changed:
+		revision += 1
+		if scars.size() >= 8: scars.pop_front()
+		scars.append({"point":point,"face":face_at(point),"slash":true})
+	return {"changed":changed,"removed":0,"severed":severed,"bond_broken":previous > 0 and bond == 0,"boost":false,"local_scars":true}
+
 func boxes() -> Array[AABB]:
 	var result:Array[AABB]=[]
 	# Greedy rectangles combine intact cells; cuts retain two thin-separated lips.
@@ -91,6 +115,12 @@ func boxes() -> Array[AABB]:
 				if used[index]==1 or cells[index]==1 or cells[index]==3: continue
 				if cells[index]==2:
 					var cut:=cut_offsets[index]
+					if cut_axes[index] == 1:
+						var left := cut + 2.0 - 0.24; var right := 2.0 - cut - 0.24
+						var tangent := Vector3.RIGHT if face < 2 else Vector3.BACK
+						if left > 0.05: result.append(box(face,center(index)+tangent*(-2+left*0.5),Vector2(left,6)))
+						if right > 0.05: result.append(box(face,center(index)+tangent*(2-right*0.5),Vector2(right,6)))
+						used[index]=1;continue
 					var lower:=cut+3.0-0.24;var upper:=3.0-cut-0.24
 					if lower>0.05: result.append(box(face,center(index)+Vector3.UP*(-3+lower*0.5),Vector2(4,lower)))
 					if upper>0.05: result.append(box(face,center(index)+Vector3.UP*(3-upper*0.5),Vector2(4,upper)))
@@ -119,7 +149,7 @@ func take_upper() -> OpenDamageState:
 	var part:=OpenDamageState.new();part.id=id+1000;part.kind=0;part.cells.fill(1)
 	for i in 96:
 		if (i%24)/4>=2:
-			part.cells[i]=cells[i];part.cut_offsets[i]=cut_offsets[i];cells[i]=3
+			part.cells[i]=cells[i];part.cut_offsets[i]=cut_offsets[i];part.cut_axes[i]=cut_axes[i];cells[i]=3
 	for scar in scars:
 		if scar.point.y>=-6: part.scars.append(scar.duplicate(true))
 	scars=scars.filter(func(s):return s.point.y < -6)
@@ -127,4 +157,4 @@ func take_upper() -> OpenDamageState:
 	return part
 
 func signature() -> String:
-	return str(id)+":"+str(cells.hex_encode())+":"+str(cut_offsets)+":"+str(bond)+":"+str(boost_used)
+	return str(id)+":"+str(cells.hex_encode())+":"+str(cut_offsets)+":"+str(cut_axes)+":"+str(bond)+":"+str(boost_used)

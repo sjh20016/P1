@@ -1,6 +1,10 @@
 # RAVAGE · OPEN DESTRUCTION · 0.07
 
-**独立 Portal 原型：** 双击 `开始传送门原型.cmd`。技能突进与实体 A/B 已可共存，实体门支持单层实时视野；建议先按 F7，尝试 T 投块或 Shift 蓄速后 F 冲门。操作、组合动作设计和动画方案见 [PORTAL-HYBRID.md](PORTAL-HYBRID.md)。下文仍为原触手游戏说明。
+**空间技能表现 0.02：** 左/右键选出口，松开后用约 0.9 秒展示入口形成、角色沉入和出口显形，再释放移动速度。移动双门保留、可再次穿越和移动；统一黑色裂隙、冷白边缘与几何碎片。详见 [PORTAL-SKILLS.md](PORTAL-SKILLS.md)。
+
+**Portal 角色 0.1：** 默认传送门原型已接入可动画的浅蓝短发像素角色，含薄片披风、8 个基础动作、6 个特效锚点。模型源文件、GLB 与运行说明见 [PORTAL-CHARACTER.md](PORTAL-CHARACTER.md)。
+
+**当前 Portal 原型：** 双击 `开始传送门原型.cmd`，默认进入 `资产模型/VerticalCanyon.blend` 导入的垂直峡谷。132 个塔体均支持局部破坏；空格锁定后可用鼠标旋转切割面，切割双门持久保留、可穿越并可按住 V 移动；Shift 蓄速有循环下坠表现。操作与验证见 [PORTAL-CANYON.md](PORTAL-CANYON.md)。下文仍为原触手游戏历史说明。
 
 Godot 4.7.2 Stable / Windows x64 / Compatibility。黑色生物在白色塔林中高速抓取、撞穿墙面、切断弱缝；本版加入双塔牵引和大块互撞。
 

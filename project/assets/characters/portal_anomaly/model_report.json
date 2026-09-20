@@ -1,0 +1,434 @@
+{
+  "name": "Portal Anomaly 0.1 - slender cloth revision",
+  "triangles": 2520,
+  "vertices": 1542,
+  "materials": 1,
+  "atlas": [
+    128,
+    128
+  ],
+  "palette": {
+    "void": "10121D",
+    "ink": "1B2030",
+    "ink_light": "323A50",
+    "slate": "515B72",
+    "white": "E7EBF0",
+    "white_shade": "BAC6D4",
+    "white_high": "F7F9FC",
+    "hair": "A9CBE8",
+    "hair_shade": "7195BA",
+    "hair_light": "CFE5F4",
+    "skin": "E8D8D3",
+    "skin_shade": "C3AAAE",
+    "eye": "527FA8",
+    "steel": "869BAF"
+  },
+  "bones": 21,
+  "height_m": 1.969,
+  "head_ratio": "approximately 3.8 heads",
+  "forward": "Blender -Y; glTF +Z",
+  "root": "soles / meters",
+  "actions": {
+    "Idle": {
+      "seconds": 2.0,
+      "loop": true
+    },
+    "Run": {
+      "seconds": 0.8,
+      "loop": true
+    },
+    "Jump": {
+      "seconds": 0.6,
+      "loop": false
+    },
+    "Fall": {
+      "seconds": 1.0,
+      "loop": true
+    },
+    "Land": {
+      "seconds": 0.4,
+      "loop": false
+    },
+    "Cast": {
+      "seconds": 0.8,
+      "loop": false
+    },
+    "Cut": {
+      "seconds": 0.8,
+      "loop": false
+    },
+    "Dash": {
+      "seconds": 0.6,
+      "loop": true
+    }
+  },
+  "anchors": {
+    "FX_CastHand": [
+      "hand_R",
+      [
+        0.455,
+        -0.09,
+        0.735
+      ]
+    ],
+    "FX_Chest": [
+      "spine",
+      [
+        0,
+        -0.21,
+        1.2
+      ]
+    ],
+    "FX_Waist": [
+      "pelvis",
+      [
+        0,
+        -0.18,
+        0.87
+      ]
+    ],
+    "FX_Foot_L": [
+      "foot_L",
+      [
+        -0.13,
+        -0.045,
+        0.012
+      ]
+    ],
+    "FX_Foot_R": [
+      "foot_R",
+      [
+        0.13,
+        -0.045,
+        0.012
+      ]
+    ],
+    "FX_Cape": [
+      "cape_C",
+      [
+        0,
+        0.23,
+        0.83
+      ]
+    ]
+  },
+  "parts": {
+    "White_Tunic": {
+      "vertices": 48,
+      "bone": "spine",
+      "start": 0
+    },
+    "Hip_Waist": {
+      "vertices": 20,
+      "bone": "pelvis",
+      "start": 48
+    },
+    "Tunic_Split_L": {
+      "vertices": 10,
+      "bone": "pelvis",
+      "start": 68
+    },
+    "Tunic_Split_R": {
+      "vertices": 10,
+      "bone": "pelvis",
+      "start": 78
+    },
+    "Trouser_Upper_L": {
+      "vertices": 40,
+      "bone": "thigh_L",
+      "start": 88
+    },
+    "Trouser_Lower_L": {
+      "vertices": 40,
+      "bone": "shin_L",
+      "start": 128
+    },
+    "Boot_L": {
+      "vertices": 32,
+      "bone": "foot_L",
+      "start": 168
+    },
+    "Boot_Sole_L": {
+      "vertices": 32,
+      "bone": "foot_L",
+      "start": 200
+    },
+    "Boot_Cuff_L": {
+      "vertices": 32,
+      "bone": "shin_L",
+      "start": 232
+    },
+    "Sleeve_Upper_L": {
+      "vertices": 24,
+      "bone": "upper_arm_L",
+      "start": 264
+    },
+    "Sleeve_Lower_L": {
+      "vertices": 24,
+      "bone": "forearm_L",
+      "start": 288
+    },
+    "Cuff_L": {
+      "vertices": 32,
+      "bone": "forearm_L",
+      "start": 312
+    },
+    "Hand_L": {
+      "vertices": 32,
+      "bone": "hand_L",
+      "start": 344
+    },
+    "Thumb_L": {
+      "vertices": 32,
+      "bone": "hand_L",
+      "start": 376
+    },
+    "Trouser_Upper_R": {
+      "vertices": 40,
+      "bone": "thigh_R",
+      "start": 408
+    },
+    "Trouser_Lower_R": {
+      "vertices": 40,
+      "bone": "shin_R",
+      "start": 448
+    },
+    "Boot_R": {
+      "vertices": 32,
+      "bone": "foot_R",
+      "start": 488
+    },
+    "Boot_Sole_R": {
+      "vertices": 32,
+      "bone": "foot_R",
+      "start": 520
+    },
+    "Boot_Cuff_R": {
+      "vertices": 32,
+      "bone": "shin_R",
+      "start": 552
+    },
+    "Sleeve_Upper_R": {
+      "vertices": 24,
+      "bone": "upper_arm_R",
+      "start": 584
+    },
+    "Sleeve_Lower_R": {
+      "vertices": 24,
+      "bone": "forearm_R",
+      "start": 608
+    },
+    "Cuff_R": {
+      "vertices": 32,
+      "bone": "forearm_R",
+      "start": 632
+    },
+    "Hand_R": {
+      "vertices": 32,
+      "bone": "hand_R",
+      "start": 664
+    },
+    "Thumb_R": {
+      "vertices": 32,
+      "bone": "hand_R",
+      "start": 696
+    },
+    "Glove_Rune": {
+      "vertices": 8,
+      "bone": "hand_R",
+      "start": 728
+    },
+    "Glove_Cut_Cuff": {
+      "vertices": 8,
+      "bone": "forearm_R",
+      "start": 736
+    },
+    "Neck": {
+      "vertices": 16,
+      "bone": "head",
+      "start": 744
+    },
+    "Head": {
+      "vertices": 80,
+      "bone": "head",
+      "start": 760
+    },
+    "Face": {
+      "vertices": 8,
+      "bone": "head",
+      "start": 840
+    },
+    "Ear_-1": {
+      "vertices": 32,
+      "bone": "head",
+      "start": 848
+    },
+    "Ear_1": {
+      "vertices": 32,
+      "bone": "head",
+      "start": 880
+    },
+    "Hair_Crown": {
+      "vertices": 48,
+      "bone": "head",
+      "start": 912
+    },
+    "Bang_0": {
+      "vertices": 12,
+      "bone": "head",
+      "start": 960
+    },
+    "Bang_1": {
+      "vertices": 12,
+      "bone": "head",
+      "start": 972
+    },
+    "Bang_2": {
+      "vertices": 10,
+      "bone": "head",
+      "start": 984
+    },
+    "Side_Hair_-1": {
+      "vertices": 12,
+      "bone": "head",
+      "start": 994
+    },
+    "Side_Hair_1": {
+      "vertices": 12,
+      "bone": "head",
+      "start": 1006
+    },
+    "Rear_Hair_-1": {
+      "vertices": 12,
+      "bone": "hair_back",
+      "start": 1018
+    },
+    "Rear_Hair_0": {
+      "vertices": 12,
+      "bone": "hair_back",
+      "start": 1030
+    },
+    "Rear_Hair_1": {
+      "vertices": 12,
+      "bone": "hair_back",
+      "start": 1042
+    },
+    "Crown_Tuft_0": {
+      "vertices": 8,
+      "bone": "head",
+      "start": 1054
+    },
+    "Crown_Tuft_1": {
+      "vertices": 8,
+      "bone": "head",
+      "start": 1062
+    },
+    "Crown_Tuft_2": {
+      "vertices": 8,
+      "bone": "head",
+      "start": 1070
+    },
+    "Crown_Tuft_3": {
+      "vertices": 8,
+      "bone": "head",
+      "start": 1078
+    },
+    "High_Collar": {
+      "vertices": 64,
+      "bone": "spine",
+      "start": 1086
+    },
+    "Shoulder_Mantle_-1": {
+      "vertices": 20,
+      "bone": "spine",
+      "start": 1150
+    },
+    "Shoulder_Mantle_-1_Hem": {
+      "vertices": 28,
+      "bone": "spine",
+      "start": 1170
+    },
+    "Mantle_Bridge_-1": {
+      "vertices": 9,
+      "bone": "spine",
+      "start": 1198
+    },
+    "Shoulder_Mantle_1": {
+      "vertices": 20,
+      "bone": "spine",
+      "start": 1207
+    },
+    "Shoulder_Mantle_1_Hem": {
+      "vertices": 28,
+      "bone": "spine",
+      "start": 1227
+    },
+    "Mantle_Bridge_1": {
+      "vertices": 9,
+      "bone": "spine",
+      "start": 1255
+    },
+    "Back_Yoke": {
+      "vertices": 20,
+      "bone": "spine",
+      "start": 1264
+    },
+    "Back_Yoke_Hem": {
+      "vertices": 28,
+      "bone": "spine",
+      "start": 1284
+    },
+    "Cape_Tail_L": {
+      "vertices": 25,
+      "bone": "cape_L",
+      "start": 1312
+    },
+    "Cape_Tail_L_Hem": {
+      "vertices": 32,
+      "bone": "cape_L",
+      "start": 1337
+    },
+    "Cape_Tail_R": {
+      "vertices": 25,
+      "bone": "cape_R",
+      "start": 1369
+    },
+    "Cape_Tail_R_Hem": {
+      "vertices": 32,
+      "bone": "cape_R",
+      "start": 1394
+    },
+    "Cape_Tail_C": {
+      "vertices": 20,
+      "bone": "cape_C",
+      "start": 1426
+    },
+    "Cape_Tail_C_Hem": {
+      "vertices": 28,
+      "bone": "cape_C",
+      "start": 1446
+    },
+    "Back_Diamond": {
+      "vertices": 4,
+      "bone": "spine",
+      "start": 1474
+    },
+    "Chest_Ring": {
+      "vertices": 24,
+      "bone": "spine",
+      "start": 1478
+    },
+    "Collar_Clasp": {
+      "vertices": 32,
+      "bone": "spine",
+      "start": 1502
+    },
+    "Pendant": {
+      "vertices": 8,
+      "bone": "pendant",
+      "start": 1534
+    }
+  },
+  "weights_max": 2,
+  "physics": "Visual-only skin; no cloth simulation; game owns collision and root movement"
+}

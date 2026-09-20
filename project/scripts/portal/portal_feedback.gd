@@ -30,7 +30,7 @@ func on_traverse(body: Node3D, rotation: Basis, _speed: float) -> void:
 	player.camera_rig.rotation.y = target_angles.y
 	player.camera_rig.rotation.x = target_angles.x
 	# The old third-person boom would briefly put the camera inside the exit wall.
-	player.camera_rig.get_node("SpringArm3D").spring_length = 0.0
+	player.camera_rig.get_node("SpringArm3D").spring_length = 3.5 if not portals.pending_dash.is_empty() else 0.0
 	player.camera_rig.camera.position = Vector3.ZERO
 	pulse = 1; stabilization = portals.profile.exit_camera_stabilization
 
@@ -42,9 +42,12 @@ func _process(delta: float) -> void:
 	var arm: SpringArm3D = player.camera_rig.get_node("SpringArm3D")
 	arm.spring_length = lerpf(arm.spring_length, 7.2, 1 - exp(-delta / maxf(0.001, portals.profile.camera_blend)))
 	var camera: Camera3D = player.camera_rig.camera
-	var base := lerpf(76, portals.profile.high_speed_fov, clampf(player.velocity.length() / 90, 0, 1))
+	var perceived_speed := player.velocity.length()
+	var game := get_parent()
+	if game.magic.mode in [PortalMagic.Mode.BOOSTING,PortalMagic.Mode.BOOST_AIM]: perceived_speed = game.magic.boost_speed
+	var base := lerpf(76, portals.profile.high_speed_fov, clampf(perceived_speed / 90, 0, 1))
 	camera.fov = lerpf(camera.fov, base + pulse * portals.profile.fov_boost, 1 - exp(-14 * delta))
-	wind.volume_db = lerpf(-60, -17, clampf((player.velocity.length() - 15) / 70, 0, 1))
+	wind.volume_db = lerpf(-60, -17, clampf((perceived_speed - 15) / 70, 0, 1))
 	wind.stream_paused = not player.controls_enabled
 
 func _exit_tree() -> void:

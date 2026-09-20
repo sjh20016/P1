@@ -12,6 +12,10 @@ var preview: MeshInstance3D
 var preview_clock: float = 0
 var preview_text: String = ""
 var dives: int = 0
+var dragged: PortalComponent
+var drag_distance: float = 12
+var drag_offset := Vector3.ZERO
+var drag_request: int = 0
 
 func _ready() -> void:
 	process_physics_priority = -6
@@ -24,6 +28,10 @@ func _ready() -> void:
 
 func handle_input(event: InputEvent) -> bool:
 	if event is InputEventKey and not event.echo:
+		if event.physical_keycode == KEY_V:
+			drag_request = 1 if event.pressed else -1
+			return true
+		if is_instance_valid(dragged): return true
 		if event.physical_keycode == KEY_Q:
 			editing = event.pressed
 			if editing: portals.cue("link_aim")
@@ -36,6 +44,10 @@ func handle_input(event: InputEvent) -> bool:
 			portals.clear(); portals.status = "实体连接已收回"; return true
 	if event is InputEventMouseButton:
 		var button: int = event.button_index
+		if is_instance_valid(dragged):
+			if event.pressed and button in [MOUSE_BUTTON_WHEEL_UP,MOUSE_BUTTON_WHEEL_DOWN]:
+				drag_distance = clampf(drag_distance + (-2 if button == MOUSE_BUTTON_WHEEL_UP else 2),6,110)
+			return true
 		if not event.pressed and held_buttons.has(button):
 			held_buttons.erase(button); return true
 		if editing and button in [MOUSE_BUTTON_LEFT,MOUSE_BUTTON_RIGHT]:
@@ -50,6 +62,16 @@ func queue_place(slot: int) -> void:
 func _physics_process(delta: float) -> void:
 	if not portals.profile.magic_enabled or not player.controls_enabled:
 		cancel_edit(); return
+	if drag_request != 0:
+		if drag_request > 0: begin_drag()
+		else: finish_drag()
+		drag_request = 0
+	if is_instance_valid(dragged):
+		if dragged.is_queued_for_deletion() or not portals.contains_gate(dragged):
+			finish_drag(); return
+		var camera: Camera3D = player.camera_rig.camera
+		dragged.global_position = camera.global_position - camera.global_basis.z * drag_distance + drag_offset
+		preview.hide(); return
 	var queued := commands.duplicate(); commands.clear()
 	for slot in queued:
 		var camera: Camera3D = player.camera_rig.camera
@@ -72,12 +94,36 @@ func _physics_process(delta: float) -> void:
 			preview.scale = Vector3.ONE * portals.profile.portal_size
 	preview.visible = preview.get_meta("valid",false)
 
+func begin_drag() -> bool:
+	finish_drag()
+	var camera: Camera3D = player.camera_rig.camera
+	var direction := -camera.global_basis.z
+	var best := 110.0
+	for gate: PortalComponent in portals.all_gates():
+		if gate == null or not gate.free_floating or not gate.traversal_enabled: continue
+		var denominator := direction.dot(gate.global_basis.z)
+		if absf(denominator) < 0.01: continue
+		var distance := (gate.global_position - camera.global_position).dot(gate.global_basis.z) / denominator
+		if distance < 1 or distance > best: continue
+		var hit := camera.global_position + direction * distance
+		if hit.distance_to(gate.global_position) > gate.radius: continue
+		dragged = gate; best = distance; drag_offset = gate.global_position - hit
+	if dragged == null:
+		portals.status = "瞄准已分离完成的切割门，再按住 V 移动"; return false
+	drag_distance = best; dragged.traversal_enabled = false; editing = true
+	portals.status = "正在移动门 · 鼠标调整位置 · 滚轮远近 · 松 V 固定"
+	return true
+
+func finish_drag() -> void:
+	if is_instance_valid(dragged): dragged.traversal_enabled = true
+	dragged = null; editing = false
+
 func aimed_gate(min_alignment: float = 0.65) -> PortalComponent:
-	if portals.gates[0] == null or portals.gates[1] == null: return null
 	var gate: PortalComponent = null
 	var best: float = -1
 	var aim: Vector3 = -player.camera_rig.global_basis.z
-	for candidate: PortalComponent in portals.gates:
+	for candidate: PortalComponent in portals.all_gates():
+		if candidate == null or not portals.gate_is_paired(candidate): continue
 		var offset: Vector3 = candidate.global_position - player.global_position
 		if offset.length() > portals.profile.link_dive_range or offset.length() < 1.0: continue
 		if candidate.to_local(player.global_position).z < 0.75 or not candidate.valid_surface(): continue
@@ -108,5 +154,6 @@ func dive(speed: float) -> bool:
 	return true
 
 func cancel_edit() -> void:
+	finish_drag(); drag_request = 0
 	editing = false; held_buttons.clear(); commands.clear(); preview_clock = 0
 	if is_instance_valid(preview): preview.hide()

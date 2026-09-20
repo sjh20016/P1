@@ -59,8 +59,11 @@ func toggle_debug() -> void:
 func _process(_delta: float) -> void:
 	readout.text = "%s\n速度  %05.1f m/s    穿越 %d / 物体 %d    破坏 %d\n碎块 %d / 48    宏块 %d / 3    切割冷却 %.1f s\nFPS %d    物理 %.2f ms    出口受阻 %d" % [game.STATIONS[game.station], game.player.velocity.length(), game.portals.traversal_count, game.portals.object_traversals, game.manager.damage_events, game.manager.active_debris.size(), game.zone.active.size(), game.cut.cooldown, Engine.get_frames_per_second(), Performance.get_monitor(Performance.TIME_PHYSICS_PROCESS) * 1000, game.portals.blocked_count]
 	status.text = game.portals.status + "\n" + game.ability.preview_text
-	readout.text += "\n实体门 %d / 2 · 门内视野 %d / 2" % [int(game.portals.gates[0] != null) + int(game.portals.gates[1] != null),game.windows.active_views]
+	readout.text += "\n布置/切割门 %d / 2 · 移动残留门 %d / 2 · 门内视野 %d / 2" % [int(game.portals.gates[0] != null) + int(game.portals.gates[1] != null),game.portals.dash_gates.size(),game.windows.active_views]
+	if game.forest_enabled:
+		readout.text = readout.text.replace(game.STATIONS[game.station],"开放塔林 · 81 座可破坏塔")
+		if is_instance_valid(game.canyon): readout.text = readout.text.replace("开放塔林 · 81 座可破坏塔","垂直峡谷 · 132 座可破坏塔 / 370 个场景物件")
 	if game.profile.magic_enabled:
-		instructions.text = "左键突进 · Shift 蓄速 / 再按发射 · 长按空格选点 → 右键蓄力切割\n按住 Q + 左 / 右键放实体 A / B · F 冲门 · G 改出口 · C 收门 · F7 投送试验 · T 投块\nX 取消技能 · F4 旧操作 · F3 参数 · R 复位 · F5 重建 · Esc 鼠标"
+		instructions.text = "左 / 右键选出口，松开穿门（双门保留）· Shift 蓄速 / 再按穿门\n长按空格选点 → 松开 → 鼠标旋转 / 右键蓄力切割 · V 移动残留门 / 滚轮远近\nQ + 左 / 右键放 A / B · F 冲门 · G 改 B · C 收门 · WASD 移动 · X 取消 · R 复位 · F5 重建"
 	else:
 		instructions.text = "WASD 移动 · 空格 跳跃 · 左 / 右键 A / B · Q 切割 · E 紧急入口 · T 投块\n1–8 测试区 · F6 高差试跳 · L 循环实验 · R 回起点 · F5 全重置 · X 清门 · F4 魔法操作 · F3 参数"

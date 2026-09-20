@@ -17,6 +17,10 @@ var status: String = "左键 A / 右键 B：瞄准平整的大型表面"
 var validation_clock: float = 0
 var magic_casts: int = 0
 var dash_gates: Array[PortalComponent] = []
+var pending_dash: Dictionary = {}
+const DASH_FORM_TIME := 0.22
+const DASH_ENTER_TIME := 0.48
+const DASH_EXIT_TIME := 0.20
 
 func _ready() -> void:
 	add_to_group("portal_manager")
@@ -25,9 +29,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	clock += delta
-	for gate in dash_gates:
-		gate.lifetime -= delta
-	if not dash_gates.is_empty() and dash_gates[0].lifetime <= 0: clear_dash_visuals()
+	advance_dash(delta)
 	for i in 2:
 		if gates[i] == null: continue
 		if gates[i].temporary: gates[i].lifetime -= delta
@@ -37,7 +39,7 @@ func _physics_process(delta: float) -> void:
 		validation_clock = 0.15
 		for i in 2:
 			var gate = gates[i]
-			if gate != null and not gate.temporary and not support_valid(gate.global_position, gate.global_basis, gate.host.get_ref(), gate.radius):
+			if gate != null and not gate.temporary and not gate.free_floating and not support_valid(gate.global_position, gate.global_basis, gate.host.get_ref(), gate.radius):
 				close(i)
 		for id in last_portal_time.keys():
 			if clock - float(last_portal_time[id]) > 2: last_portal_time.erase(id)
@@ -56,6 +58,7 @@ func cue(action: String, data: Dictionary = {}) -> void:
 	action_cue.emit(action,payload)
 
 func clear_dash_visuals() -> void:
+	cancel_dash()
 	for gate in dash_gates:
 		if is_instance_valid(gate): gate.queue_free()
 	dash_gates.clear()
@@ -64,7 +67,8 @@ func show_dash(entry: Transform3D, exit: Transform3D) -> void:
 	clear_dash_visuals()
 	for pose in [entry,exit]:
 		var gate := PortalComponent.new(); gate.slot = dash_gates.size()
-		gate.radius = profile.portal_size; gate.temporary = true; gate.lifetime = 0.48
+		gate.radius = profile.portal_size; gate.free_floating = true; gate.traversal_enabled = false
+		gate.label_text = "入口" if gate.slot == 0 else "出口"
 		add_child(gate); gate.global_transform = pose; gate.build_visual(); dash_gates.append(gate)
 
 func ray_hit(origin: Vector3, end: Vector3, exclude: Array[RID] = []) -> Dictionary:
@@ -115,6 +119,16 @@ func install_gate(slot: int, point: Vector3, basis: Basis, body = null) -> void:
 	gate.build_visual(); gates[slot] = gate
 	placement_changed.emit()
 
+func install_cut_pair(point: Vector3, normal: Vector3, radius: float) -> void:
+	close(0); close(1)
+	for i in 2:
+		var gate := PortalComponent.new()
+		gate.slot = i; gate.radius = radius; gate.free_floating = true; gate.traversal_enabled = false
+		add_child(gate)
+		gate.global_transform = Transform3D(PortalPhysics.frame(normal if i == 0 else -normal),point)
+		gate.build_visual(); gates[i] = gate
+	placement_changed.emit()
+
 func sphere_query(body: PhysicsBody3D, center: Vector3, radius: float) -> PhysicsShapeQueryParameters3D:
 	var query := PhysicsShapeQueryParameters3D.new()
 	var sphere := SphereShape3D.new(); sphere.radius = radius
@@ -159,38 +173,99 @@ func magic_destination(body: PhysicsBody3D, target: Dictionary) -> Variant:
 	return null
 
 func magic_dash(player: RavagePlayer, target: Dictionary, requested_speed: float) -> bool:
+	if not pending_dash.is_empty(): return false
 	var destination: Variant = magic_destination(player,target)
 	if destination == null:
 		blocked_count += 1; status = "出口空间不足 · 换个方向再释放"; return false
 	var direction: Vector3 = target.direction.normalized()
 	var speed := clampf(requested_speed,profile.dash_min_speed,profile.max_portal_velocity)
 	var origin := player.global_position
-	# Instant spells have their own short-lived visuals. They never overwrite the
-	# physical A/B route, and are not extra recursive traveller detectors.
+	# Keep a bounded second route. Formation and entry happen before relocation.
 	var entry := Transform3D(PortalPhysics.frame(Vector3.UP),origin + Vector3.DOWN * 0.73)
 	var exit := Transform3D(PortalPhysics.frame(direction),destination - direction * 1.0)
 	show_dash(entry,exit)
+	pending_dash = {"player":weakref(player),"target":target.duplicate(),"speed":speed,"age":0.0,
+		"origin":origin,"destination":destination,"entry":entry,"exit":exit,"velocity":player.velocity}
+	player.velocity = Vector3.ZERO
+	cue("transit_start",{"body_id":player.get_instance_id(),"entry":entry,"exit":exit,"duration":DASH_FORM_TIME + DASH_ENTER_TIME})
+	status = "空间入口形成 · 正在穿门 · 出口与入口将保留"
+	return true
+
+func cancel_dash(restore_velocity: bool = true) -> void:
+	if pending_dash.is_empty(): return
+	var player = pending_dash.player.get_ref()
+	if is_instance_valid(player) and restore_velocity: player.velocity = pending_dash.velocity
+	pending_dash.clear()
+	for gate in dash_gates:
+		if is_instance_valid(gate): gate.traversal_enabled = true
+	cue("transit_cancel")
+
+func advance_dash(delta: float) -> void:
+	if pending_dash.is_empty(): return
+	var player: RavagePlayer = pending_dash.player.get_ref()
+	if not is_instance_valid(player) or not player.controls_enabled:
+		cancel_dash(); return
+	pending_dash.age += delta
+	if pending_dash.get("stage", "entry") == "exit":
+		if pending_dash.age >= DASH_EXIT_TIME:
+			player.velocity = pending_dash.output_velocity
+			pending_dash.clear()
+			for gate in dash_gates: gate.traversal_enabled = true
+			cue("transit_release",{"body_id":player.get_instance_id(),"point":player.global_position,"velocity":player.velocity})
+		return
+	if pending_dash.age < DASH_FORM_TIME + DASH_ENTER_TIME: return
+	var destination: Vector3 = pending_dash.destination
+	var target: Dictionary = pending_dash.target
+	# Recheck at the commit tick: a falling chunk may have blocked the shown exit.
+	var validated: Variant = magic_destination(player,target)
+	if validated == null or Vector3(validated).distance_to(destination) > 0.1:
+		blocked_count += 1; cancel_dash(); status = "出口被遮挡 · 已取消穿门并保留入口"; return
+	var speed: float = pending_dash.speed
+	var direction: Vector3 = target.direction.normalized()
+	var origin: Vector3 = pending_dash.origin
+	var entry: Transform3D = pending_dash.entry
+	var exit: Transform3D = pending_dash.exit
+	pending_dash.stage = "exit"; pending_dash.age = 0.0
+	pending_dash.output_velocity = direction * speed
 	last_portal_time[player.get_instance_id()] = clock
 	player.global_position = destination; player.previous_position = destination
-	player.velocity = direction * speed
+	player.velocity = Vector3.ZERO
 	cue("passage",{"kind":"dash","body_id":player.get_instance_id(),"entry":entry,"exit":exit,
-		"from":origin,"to":destination,"velocity_out":player.velocity,"speed":speed,
+		"from":origin,"to":destination,"velocity_out":direction * speed,"speed":speed,
 		"input_pose":Transform3D(player.global_basis,origin),"mapped_pose":player.global_transform})
 	var facing: Vector3 = -player.camera_rig.global_basis.z
 	traversed.emit(player,Basis(Quaternion(facing.normalized(),direction)),speed)
 	traversal_count += 1; magic_casts += 1
 	status = "空间突进 · %.0f m/s" % speed
-	return true
+
+func all_gates() -> Array:
+	return gates + dash_gates
+
+func contains_gate(gate: PortalComponent) -> bool:
+	return all_gates().has(gate)
+
+func gate_is_paired(gate: PortalComponent) -> bool:
+	for pair in [gates,dash_gates]:
+		if pair.size() != 2 or not pair.has(gate): continue
+		return is_instance_valid(pair[0]) and is_instance_valid(pair[1]) and pair[0].valid_surface() and pair[1].valid_surface() and pair[0].traversal_enabled and pair[1].traversal_enabled
+	return false
 
 func travel(body: PhysicsBody3D, transform: Transform3D, velocity: Vector3, radius: float, delta: float) -> Dictionary:
-	if gates[0] == null or gates[1] == null: return {}
-	if not gates[0].valid_surface() or not gates[1].valid_surface(): return {}
+	for pair in [gates,dash_gates]:
+		var result := travel_pair(pair,body,transform,velocity,radius,delta)
+		if not result.is_empty(): return result
+	return {}
+
+func travel_pair(pair: Array, body: PhysicsBody3D, transform: Transform3D, velocity: Vector3, radius: float, delta: float) -> Dictionary:
+	if pair.size() != 2 or pair[0] == null or pair[1] == null: return {}
+	if not pair[0].valid_surface() or not pair[1].valid_surface(): return {}
+	if not pair[0].traversal_enabled or not pair[1].traversal_enabled: return {}
 	var id := body.get_instance_id()
 	if clock - float(last_portal_time.get(id, -100.0)) < profile.portal_cooldown: return {}
 	for i in 2:
 		detection_checks += 1
-		var entry: PortalComponent = gates[i]
-		var exit_gate: PortalComponent = gates[1 - i]
+		var entry: PortalComponent = pair[i]
+		var exit_gate: PortalComponent = pair[1 - i]
 		var motion := velocity * delta
 		var fraction := PortalPhysics.crossing(entry.global_transform, transform.origin, motion, radius, entry.radius)
 		if fraction < 0: continue

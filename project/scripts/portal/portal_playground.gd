@@ -1,5 +1,9 @@
 extends Node3D
 
+@export var forest_enabled: bool = true
+@export var canyon_enabled: bool = true
+var canyon: PortalCanyon
+
 const STATIONS := ["A · 高差弹射", "B · 水平穿越", "C · 90° 转向", "D · 高速撞墙", "E · 碎块循环", "F · 空间切割", "G · 连续组合", "H · 可破坏塔"]
 const BASES := [Vector3(0,0,0), Vector3(65,0,0), Vector3(125,0,0), Vector3(0,0,100), Vector3(65,0,100), Vector3(125,0,100), Vector3(0,0,180), Vector3(65,0,180)]
 var player: RavagePlayer
@@ -17,10 +21,18 @@ var magic: PortalMagic
 var links: PortalLinkAbility
 var windows: PortalWindowRenderer
 var presentation: PortalPresentation
+var character: PortalCharacter
+var skill_vfx: PortalSkillVFX
 var frame_ms: Array[float] = []
 var last_frame_us: int = 0
 
 func _ready() -> void:
+	if get_tree().has_meta("portal_reload_canyon"):
+		canyon_enabled = get_tree().get_meta("portal_reload_canyon")
+		get_tree().remove_meta("portal_reload_canyon")
+	if get_tree().has_meta("portal_reload_forest"):
+		forest_enabled = get_tree().get_meta("portal_reload_forest")
+		get_tree().remove_meta("portal_reload_forest")
 	if get_tree().has_meta("portal_reload_magic"):
 		profile.magic_enabled = get_tree().get_meta("portal_reload_magic")
 		get_tree().remove_meta("portal_reload_magic")
@@ -34,6 +46,7 @@ func _ready() -> void:
 	# Compose a separate ability loadout before entering the scene tree.
 	player.get_node("LeftHook").free(); player.get_node("RightHook").free()
 	player.profile = player.profile.duplicate(); player.profile.reset_depth = -80
+	if forest_enabled and canyon_enabled: player.profile.reset_depth = -65
 	player.profile.max_speed = profile.max_portal_velocity
 	player.spawn_position = Vector3(0,49,10); add_child(player)
 	player.collision_mask = 3 | 16
@@ -47,6 +60,14 @@ func _ready() -> void:
 	impact_vfx = preload("res://scripts/vfx/impact_vfx.gd").new(); add_child(impact_vfx)
 	windows = PortalWindowRenderer.new(); windows.portals = portals; windows.viewer = player.camera_rig.camera; add_child(windows)
 	presentation = PortalPresentation.new(); presentation.portals = portals; presentation.player = player; add_child(presentation)
+	character = PortalCharacter.new(); character.name = "PortalCharacter"
+	character.player = player; character.magic = magic; character.presentation = presentation
+	character.position.y = -0.72; player.add_child(character)
+	player.camera_rig.position.y = 0.6
+	player.get_node("Core").hide()
+	magic.loop_actor.character = character
+	skill_vfx = PortalSkillVFX.new(); skill_vfx.player = player; skill_vfx.character = character
+	skill_vfx.magic = magic; skill_vfx.presentation = presentation; add_child(skill_vfx)
 	hud = preload("res://scripts/portal/portal_debug_hud.gd").new(); hud.game = self; add_child(hud)
 	if profile.magic_enabled: call_deferred("start_magic")
 	else: call_deferred("select_station", 0)
@@ -57,6 +78,11 @@ func build_world() -> void:
 	env.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR; env.ambient_light_color = Color.WHITE; env.ambient_light_energy = 0.7
 	world.environment = env; add_child(world)
 	var sun := DirectionalLight3D.new(); sun.rotation_degrees = Vector3(-50,-30,0); sun.light_energy = 1.5; sun.shadow_enabled = true; add_child(sun)
+	if forest_enabled:
+		if canyon_enabled:
+			env.ambient_light_energy = 0.5; sun.light_energy = 0.8
+			canyon = PortalCanyon.new(); canyon.game = self; add_child(canyon); return
+		build_forest(); return
 	for i in 8:
 		var p: Vector3 = BASES[i]
 		box(p + Vector3(0,-0.5,0), Vector3(38,1,44))
@@ -82,6 +108,16 @@ func build_world() -> void:
 	tower(BASES[7] + Vector3(0,18,0), 3)
 	box(BASES[7] + Vector3(0,12,-19), Vector3(16,24,1))
 
+func build_forest() -> void:
+	box(Vector3(0,-0.5,-145),Vector3(410,1,410))
+	for row in 9:
+		for column in 9:
+			var kind := 3 if row % 3 == 0 and column % 3 == 1 else (2 if (row + column) % 7 == 0 else 0)
+			tower(Vector3((column - 4) * 38,18,-row * 38),kind)
+
+func forest_spawn(index: int) -> Vector3:
+	return Vector3(((index % 3) - 1) * 114,2,-int(index / 3) * 114 + 30) if index > 0 else Vector3(0,2,34)
+
 func box(where: Vector3, size: Vector3) -> StaticBody3D:
 	var body := StaticBody3D.new(); body.position = where; body.collision_layer = 1; body.collision_mask = 0
 	var shape := CollisionShape3D.new(); var geometry := BoxShape3D.new(); geometry.size = size; shape.shape = geometry; body.add_child(shape)
@@ -93,7 +129,8 @@ func box(where: Vector3, size: Vector3) -> StaticBody3D:
 func tower(where: Vector3, kind: int) -> void:
 	var building = preload("res://scripts/open/open_tower.gd").new()
 	building.state = OpenDamageState.new(); building.state.kind = kind; building.state.id = zone.towers.size()
-	building.zone = zone; building.position = where; zone.add_child(building); building.set_near(true)
+	building.zone = zone; building.position = where; zone.add_child(building)
+	building.set_near(not forest_enabled or where.distance_to(Vector3(0,2,34)) < 150)
 	zone.towers.append(building); zone.states.append(building.state)
 
 func label(text: String, where: Vector3) -> void:
@@ -104,6 +141,18 @@ func label(text: String, where: Vector3) -> void:
 
 func select_station(index: int) -> void:
 	station = index; portals.clear(); cut.cancel()
+	if is_instance_valid(canyon):
+		player.spawn_position = canyon.spawn_point(index); player.reset_player("vertical_canyon")
+		canyon.refresh_interest(player.global_position)
+		player.camera_rig.rotation = Vector3(-0.16,-0.23,0)
+		portals.status = "垂直峡谷 · 原始资产场景 · 132 座塔均支持局部破坏 · V 移动切割门"
+		return
+	if forest_enabled:
+		player.spawn_position = forest_spawn(index); player.reset_player("forest_sector")
+		zone.refresh_interest()
+		player.camera_rig.rotation = Vector3(0.22,0,0)
+		portals.status = "塔林区域 %d / 8 · 81 座可破坏塔 · 鼠标旋转切面 · V 移动切割门" % (index + 1)
+		return
 	var p: Vector3 = BASES[index]
 	var spawn := p + Vector3(0,2,7)
 	match index:
@@ -141,6 +190,7 @@ func select_station(index: int) -> void:
 
 func start_magic() -> void:
 	select_station(0); portals.clear()
+	if forest_enabled: return
 	player.spawn_position = Vector3(0,2,48); player.reset_player("magic_yard")
 	player.camera_rig.rotation = Vector3(0.30,0,0)
 	portals.status = "瞄准前方建筑 · Shift 蓄速，再按发射 · 长按空格选切割点"
@@ -153,11 +203,27 @@ func toggle_magic() -> void:
 
 func drop_trial() -> void:
 	select_station(0)
+	if is_instance_valid(canyon):
+		player.global_position += Vector3.UP * 35; player.camera_rig.rotation = Vector3(-1.15,0,0); return
+	if forest_enabled:
+		player.global_position = Vector3(19,48,20); player.camera_rig.rotation = Vector3(-1.15,0,0); return
 	player.global_position = Vector3(0,48,0); player.velocity = Vector3.ZERO
 	player.camera_rig.rotation = Vector3(-1.15, 0, 0)
 
 func link_trial() -> void:
 	select_station(1)
+	if is_instance_valid(canyon):
+		portals.install_cut_pair(canyon.markers.ROUTE_01,Vector3.BACK,3.2)
+		portals.gates[0].global_position = canyon.markers.ROUTE_01
+		portals.gates[1].global_position = canyon.markers.ROUTE_05
+		for gate in portals.gates: gate.traversal_enabled = true
+		player.global_position = canyon.markers.ROUTE_01 + Vector3.BACK * 10
+		player.camera_rig.rotation = Vector3.ZERO; canyon.refresh_interest(player.global_position); return
+	if forest_enabled:
+		portals.place(Vector3(0,12,20),Vector3.FORWARD,0)
+		portals.place(Vector3(38,12,-90),Vector3.FORWARD,1)
+		player.spawn_position = Vector3(0,7,25); player.reset_player("forest_links")
+		player.camera_rig.rotation = Vector3(0.22,0,0); zone.refresh_interest(); return
 	portals.place(Vector3(65,7,0),Vector3.FORWARD,0)
 	portals.place(Vector3(69,18,168),Vector3.FORWARD,1)
 	player.spawn_position = Vector3(65,5,-4); player.reset_player("link_trial")
@@ -173,7 +239,7 @@ func spawn_projectile(loop: bool = false) -> RigidBody3D:
 	var visual := MeshInstance3D.new(); var mesh := SphereMesh.new(); mesh.radius = 0.45; mesh.height = 0.9
 	var material := StandardMaterial3D.new(); material.albedo_color = Color(0.10,0.11,0.13); mesh.material = material
 	visual.mesh = mesh; body.add_child(visual); add_child(body)
-	if loop:
+	if loop and not forest_enabled:
 		body.global_position = BASES[4] + Vector3(0,25,0); body.linear_velocity = Vector3.DOWN * 3
 	else:
 		var camera: Camera3D = player.camera_rig.camera
@@ -203,6 +269,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		select_station(4); spawn_projectile(true)
 
 func reload_playground() -> void:
+	get_tree().set_meta("portal_reload_canyon",canyon_enabled)
+	get_tree().set_meta("portal_reload_forest",forest_enabled)
 	get_tree().set_meta("portal_reload_magic",profile.magic_enabled)
 	Engine.time_scale = 1; get_tree().reload_current_scene()
 

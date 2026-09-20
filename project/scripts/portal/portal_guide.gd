@@ -13,6 +13,7 @@ var active: bool = false
 var stopped: bool = false
 var hit_surface: bool = false
 var for_cut: bool = false
+var cut_normal := Vector3.UP
 var ring: MeshInstance3D
 var material: StandardMaterial3D
 var travel_trace: ImmediateMesh
@@ -21,16 +22,23 @@ func _ready() -> void:
 	ring = MeshInstance3D.new()
 	var mesh := TorusMesh.new(); mesh.inner_radius = 0.92; mesh.outer_radius = 1.0
 	mesh.rings = 40; mesh.ring_segments = 6
-	material = StandardMaterial3D.new(); material.albedo_color = Color(0.08,0.07,0.12,0.65)
-	material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	material = StandardMaterial3D.new(); material.albedo_color = Color(0.02,0.025,0.035)
 	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 	mesh.material = material; ring.mesh = mesh; add_child(ring)
+	var edge := MeshInstance3D.new(); var outline := TorusMesh.new()
+	outline.inner_radius = 1.01; outline.outer_radius = 1.035; outline.rings = 32; outline.ring_segments = 4
+	var white := StandardMaterial3D.new(); white.albedo_color = Color(0.94,0.96,1)
+	white.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED; outline.material = white
+	edge.mesh = outline; ring.add_child(edge)
+	var marker := MeshInstance3D.new(); var prism := PrismMesh.new(); prism.size = Vector3(.22,.02,.42)
+	prism.material = material; marker.mesh = prism; ring.add_child(marker)
 	travel_trace = ImmediateMesh.new()
 	var trace := MeshInstance3D.new(); trace.mesh = travel_trace; trace.material_override = material; add_child(trace)
 	hide()
 
 func begin(cut_mode: bool) -> void:
 	for_cut = cut_mode; active = true; stopped = false; hit_surface = false; distance = 0
+	cut_normal = Vector3.UP
 	point = player.global_position + Vector3.UP * 0.5
 	direction = -player.camera_rig.global_basis.z
 	normal = Vector3.UP; show(); update_visual(1.5)
@@ -80,7 +88,7 @@ func update_visual(radius: float) -> void:
 	# with enough runway to strike it. The cut marker stays on its hit plane.
 	if hit_surface and not for_cut:
 		ring.global_position = point - direction * portals.profile.impact_runup
-	var axis := Vector3.UP if for_cut else direction
+	var axis := cut_normal if for_cut else direction
 	ring.global_basis = PortalPhysics.frame(axis) * Basis(Vector3.RIGHT, PI / 2)
 	ring.scale = Vector3.ONE * radius
 	travel_trace.clear_surfaces()

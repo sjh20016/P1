@@ -67,7 +67,7 @@ func relocate(position: Vector3, target: Vector3) -> void:
 
 func run() -> void:
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path("res://../docs/portal-magic").simplify_path())
-	game = load("res://scenes/portal/Portal_Playground.tscn").instantiate(); root.add_child(game); current_scene = game
+	game = load("res://scenes/portal/Portal_Playground.tscn").instantiate(); game.forest_enabled = false; root.add_child(game); current_scene = game
 	await frames(150)
 	if DisplayServer.get_name() == "headless": game.impact_vfx.stop_enabled = false
 	await capture("01-action-start")
@@ -80,6 +80,8 @@ func run() -> void:
 	await capture("02-guided-exit")
 	var source: Vector3 = game.player.global_position
 	await click(MOUSE_BUTTON_LEFT,false)
+	check(game.magic.mode == PortalMagic.Mode.TRANSIT and game.player.global_position.distance_to(source) < 0.1,"release first opens an entry without instant relocation")
+	await frames(109)
 	check(game.portals.magic_casts == 1,"mouse release casts automatic foot-to-exit dash")
 	check(game.portals.dash_gates.size() == 2 and game.portals.dash_gates[0].global_position.distance_to(source + Vector3.DOWN * 0.73) < 0.2,"automatic entry is created at feet")
 	check(game.player.velocity.length() > 38,"ordinary quick movement already has destructive launch speed")
@@ -90,6 +92,7 @@ func run() -> void:
 	game.player.velocity = Vector3(70,-20,0)
 	await click(MOUSE_BUTTON_LEFT,true); await frames(16)
 	await click(MOUSE_BUTTON_LEFT,false)
+	await frames(109)
 	check(game.player.velocity.z < -60 and absf(game.player.velocity.x) < 2,"airborne fast motion redirects towards chosen exit")
 	check(game.player.global_position.y > 25,"airborne exit needs no supporting surface")
 	var count: int = game.portals.magic_casts
@@ -104,6 +107,7 @@ func run() -> void:
 	await capture("03-acceleration-loop")
 	metrics["stored_speed"] = game.magic.boost_speed
 	await tap(KEY_SHIFT)
+	await frames(109)
 	check(game.magic.mode == PortalMagic.Mode.FREE and game.magic.loop_visuals.is_empty(),"second Shift launches and cleans up acceleration loop")
 	check(game.magic.last_launch_speed >= 99,"stored momentum is released at high speed")
 	var before: int = game.manager.damage_events; await frames(100)
@@ -140,8 +144,8 @@ func run() -> void:
 	await click(MOUSE_BUTTON_RIGHT,false); await frames(15)
 	check(game.magic.volume.active and game.magic.volume.effects.size() == 2,"release creates two overlapping portals for slice")
 	check(game.magic.volume.effects.size() == 2 and game.magic.volume.effects[0].global_position.y > game.magic.volume.effects[1].global_position.y,"slice portals move apart after cast")
-	await frames(110)
-	check(not game.magic.volume.active and game.magic.volume.effects.is_empty(),"slice portal effects expire with no accumulated nodes")
+	await frames(240)
+	check(not game.magic.volume.active and game.magic.volume.effects.is_empty() and game.portals.gates[0] != null and game.portals.gates[1] != null,"separation animation finishes without deleting the persistent pair")
 	# Real building interception and charged area comparison use the same input path.
 	relocate(Vector3(65,16,206),Vector3(65,12,188.4)); await frames(3)
 	await key(KEY_SPACE,true); await frames(60); await key(KEY_SPACE,false)
@@ -155,7 +159,7 @@ func run() -> void:
 	var casts: int = game.magic.volume.casts
 	check(not game.magic.volume.request(locked,10) and game.magic.volume.casts == casts,"cut cooldown cannot be bypassed while prior effect plays")
 	# Deterministic disk-size footprint comparison on two freshly made small shell targets.
-	await frames(110); game.cut.cooldown = 0
+	await frames(240); game.cut.cooldown = 0
 	var fixture: Array = []
 	for x in [250.0,260.0]:
 		var target := DestructibleSegment.new(); target.position = Vector3(x,12,0)
