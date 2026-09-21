@@ -21,7 +21,7 @@ if ($Check -or $Tour -or $Character -or $Skills -or $Fracture) {
     if ($Hybrid) { $runs = @(@{ Script = 'test_portal_hybrid'; Log = 'portal-hybrid-rendered'; Headless = $false }) }
     if ($Character) { $runs = @(@{ Script = 'preview_portal_character'; Log = 'portal-character-preview'; Headless = $false }, @{ Script = 'test_portal_character'; Log = 'portal-character-rendered'; Headless = $false }) }
     if ($Skills) { $runs = @(@{ Script = 'test_portal_skill_flow'; Log = 'portal-skills-rendered'; Headless = $false }) }
-    if ($Fracture) { $runs = @(@{ Script = 'test_portal_fracture'; Log = 'portal-fracture-rendered'; Headless = $false }) }
+    if ($Fracture) { $runs = @(@{ Script = 'test_portal_fracture'; Log = 'portal-fracture-rendered'; Headless = $false }, @{ Script = 'test_portal_fracture_integrity'; Log = 'portal-fracture-integrity-rendered'; Headless = $false }) }
     if ($Check) {
         $runs = @(
             @{ Script = 'test_portal001'; Log = 'portal-tests'; Headless = $true },
@@ -31,7 +31,8 @@ if ($Check -or $Tour -or $Character -or $Skills -or $Fracture) {
             @{ Script = 'test_portal_canyon'; Log = 'portal-canyon-test'; Headless = $true },
             @{ Script = 'test_portal_character'; Log = 'portal-character-test'; Headless = $true },
             @{ Script = 'test_portal_skill_flow'; Log = 'portal-skills-test'; Headless = $true },
-            @{ Script = 'test_portal_fracture'; Log = 'portal-fracture-test'; Headless = $true }
+            @{ Script = 'test_portal_fracture'; Log = 'portal-fracture-test'; Headless = $true },
+            @{ Script = 'test_portal_fracture_integrity'; Log = 'portal-fracture-integrity-test'; Headless = $true }
         )
     }
     foreach ($run in $runs) {

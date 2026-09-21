@@ -1,0 +1,44 @@
+[
+  {
+    "cue": "ram_body",
+    "source": "560510__nox_sound__explosion_debris_short_stereo.wav",
+    "sha256": "b541738cfaa0a0331c534fdcafcae257ce84a95bf0502a0d17939c8e1c4954ca",
+    "start": 0,
+    "duration": 1.7
+  },
+  {
+    "cue": "stone_tail",
+    "source": "567249__iwanplays__bricksstonesrocksgravel-falling.wav",
+    "sha256": "14b0c74bde31906bfaafa13546e7deb521d9540e7bb8572ba1b4ae51f216889c",
+    "start": 0,
+    "duration": 2.5
+  },
+  {
+    "cue": "cut_shear",
+    "source": "321488__dslrguide__scraping-stone.wav",
+    "sha256": "5b73e7ab216fca7258b080e21cba7256666c350db9ef1e018f5e751f607a6117",
+    "start": 0,
+    "duration": 1.15
+  },
+  {
+    "cue": "cut_air",
+    "source": "389590__jofae__swing-woosh.wav",
+    "sha256": "1129b35e6cfea802fc835f8404693d57ca9f3a53e068396c61e8b41891d68fc6",
+    "start": 0,
+    "duration": 0.315
+  },
+  {
+    "cue": "concrete_a",
+    "source": "843339__loganzsound__concrete-breaks-several-denoised.wav",
+    "sha256": "9d96fdc971c2ba562a915d20e974b45c6bcd0d333e148e56956cedccca9c2e10",
+    "start": 3.185,
+    "duration": 0.8
+  },
+  {
+    "cue": "concrete_b",
+    "source": "843339__loganzsound__concrete-breaks-several-denoised.wav",
+    "sha256": "9d96fdc971c2ba562a915d20e974b45c6bcd0d333e148e56956cedccca9c2e10",
+    "start": 1.405,
+    "duration": 0.8
+  }
+]

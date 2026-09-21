@@ -4,8 +4,8 @@
 	"damaged_towers": 132,
 	"engine": "4.7.1-stable (official)",
 	"failures": [],
-	"load_ms": 276.097,
+	"load_ms": 585.892,
 	"rendered": false,
 	"source_meshes": 370,
-	"worst_rebuild_ms": 12.27
+	"worst_rebuild_ms": 14.594
 }

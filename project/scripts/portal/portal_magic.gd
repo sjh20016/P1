@@ -203,6 +203,10 @@ func rotate_cut(motion: Vector2) -> void:
 
 func filter_motion(delta: float) -> void:
 	if not portals.profile.magic_enabled: return
+	# Manager releases velocity before the player's motion signal. Do not let the
+	# still-pending animation mode erase that velocity before our own next tick.
+	if mode == Mode.TRANSIT and portals.pending_dash.is_empty():
+		mode = Mode.FREE; dash_left = portals.profile.dash_cooldown
 	if mode in [Mode.BOOSTING,Mode.BOOST_AIM,Mode.TRANSIT]:
 		# Store bounded kinetic speed in the spatial loop instead of repeatedly
 		# teleporting the camera between two coincident colliders every frame.

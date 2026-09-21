@@ -10,6 +10,27 @@ var contact_delay := .35
 var last_speed := 0.0
 var reactivations := 0
 var local_bounds: AABB
+var precise_collision: CollisionShape3D
+var moving_collisions: Array[CollisionShape3D] = []
+var maximum_speed := 42.0
+
+func prepare_collision(mesh: ArrayMesh, offset: Vector3, patches: Array) -> void:
+	for points: PackedVector3Array in patches:
+		var centered := PackedVector3Array()
+		for point in points: centered.append(point+offset)
+		var shape := ConvexPolygonShape3D.new(); shape.points = centered; shape.margin = .008
+		var collider := CollisionShape3D.new(); collider.shape = shape
+		add_child(collider); moving_collisions.append(collider)
+	var faces := mesh.get_faces()
+	var surface := ConcavePolygonShape3D.new(); surface.backface_collision = true; surface.set_faces(faces)
+	precise_collision = CollisionShape3D.new(); precise_collision.shape = surface
+	precise_collision.position = offset; precise_collision.disabled = true; add_child(precise_collision)
+
+func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
+	# Thin adjacent shells can briefly overlap at separation. Bound solver energy
+	# so a contact correction cannot fling an entire wall hundreds of metres.
+	state.linear_velocity = state.linear_velocity.limit_length(maximum_speed)
+	state.angular_velocity = state.angular_velocity.limit_length(2.4)
 
 func _ready() -> void:
 	add_to_group("destructible")
@@ -38,12 +59,18 @@ func lock_in_space() -> void:
 	if settled: return
 	settled = true; freeze_mode = RigidBody3D.FREEZE_MODE_STATIC
 	linear_velocity = Vector3.ZERO; angular_velocity = Vector3.ZERO; freeze = true
+	if is_instance_valid(precise_collision):
+		for collider in moving_collisions: collider.disabled = true
+		precise_collision.disabled = false
 	contact_monitor = false; max_contacts_reported = 0
 	field.on_lock(self)
 	set_physics_process(false)
 
 func receive_damage(event) -> Dictionary:
 	if event.energy < 26 or not settled or not field.can_wake(): return {"changed":false}
+	if is_instance_valid(precise_collision):
+		precise_collision.disabled = true
+		for collider in moving_collisions: collider.disabled = false
 	age = 0; settled = false; freeze = false; gravity_scale = 1
 	collision_layer = 16
 	linear_damp = .18; angular_damp = .7; reactivations += 1

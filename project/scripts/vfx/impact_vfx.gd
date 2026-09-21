@@ -117,11 +117,11 @@ func play_impact(hit: Vector3, direction: Vector3, strength: float) -> void:
 	audio.pitch_scale = 0.48 if clash else (0.56 if collapse else (0.68 if pull else (1.25 if slash else clampf(1.08-strength*0.004,0.72,1.0))))
 	if DisplayServer.get_name() == "headless":
 		return
-	audio.play()
+	if not beat_context.get("asset_fracture",false): audio.play()
 	crack_audio.stream=preload("res://assets/placeholders/tentacle_slash.wav") if slash else preload("res://assets/placeholders/impact_crack.wav")
 	crack_audio.volume_db=-7 if slash else -9
 	crack_audio.pitch_scale=0.62 if beat_context.get("asset_fracture",false) else (0.55 if pull else (0.65 if collapse else (1.12 if slash else 0.85)))
-	crack_audio.play()
+	if not beat_context.get("asset_fracture",false): crack_audio.play()
 	effect_roots = effect_roots.filter(func(v): return is_instance_valid(v) and not v.is_queued_for_deletion())
 	while effect_roots.size() >= max_effects:
 		var oldest: Node3D = effect_roots.pop_front()

@@ -112,8 +112,19 @@ func detach(indices: Array[int], event, structural: bool) -> int:
 		if not groups.has(key): groups[key] = []
 		groups[key].append(index)
 	for group: Array in groups.values():
-		for start in range(0,group.size(),8):
-			var batch: Array[int] = []; batch.assign(group.slice(start,mini(group.size(),start+8)))
+		var remaining: Dictionary = {}
+		for index in group: remaining[index] = true
+		while not remaining.is_empty():
+			var seed_index: int = remaining.keys()[0]
+			var limit := (5+seed_index%4) if structural else ((3+seed_index%3) if event.type == RavageDamageEvent.Type.SLASH else 1+seed_index%2)
+			var batch: Array[int] = [seed_index]; remaining.erase(seed_index)
+			var cursor := 0
+			while cursor < batch.size() and batch.size() < limit:
+				for neighbor in neighbors[batch[cursor]]:
+					if remaining.has(neighbor):
+						batch.append(neighbor); remaining.erase(neighbor)
+						if batch.size() >= limit: break
+				cursor += 1
 			if is_instance_valid(fracture_field) and not fracture_field.enqueue(self,batch,event,structural):
 				# Simulation saturation must never make a newly hit wall invulnerable.
 				# Secondary structure stays static until the next damage evaluation.
@@ -148,13 +159,16 @@ func receive_damage(event) -> Dictionary:
 	rebuild_us = Time.get_ticks_usec() - started
 	var manager: DestructionManager = get_tree().get_first_node_in_group("destruction_manager")
 	manager.emit_broken(broken_scene,Transform3D(Basis.IDENTITY,event.position),event.position,event.direction,event.energy)
+	if is_instance_valid(fracture_field) and event.depth == 0: fracture_field.schedule_landings(event)
 	return {"changed":true,"removed":count,"severed":severed,"bond_broken":severed>0,"boost":false,"asset_fracture":true}
 
 func fragment_mesh(indices: Array[int]) -> Dictionary:
 	var vertices := PackedVector3Array(); var normals := PackedVector3Array(); var colors := PackedColorArray()
 	var inner := PackedVector3Array(); var inner_normals := PackedVector3Array()
 	var edges: Dictionary = {}; var bounds: AABB = cells[indices[0]].bounds
+	var patches: Array = []
 	for index in indices:
+		var planes: Dictionary = {}
 		bounds = bounds.merge(cells[index].bounds)
 		for start in range(cells[index].start,cells[index].start+cells[index].count,3):
 			var tri: Array[Vector3] = []; var ns: Array[Vector3] = []
@@ -162,12 +176,27 @@ func fragment_mesh(indices: Array[int]) -> Dictionary:
 				var v: Vector3 = arrays[Mesh.ARRAY_VERTEX][start+k]; var n: Vector3 = arrays[Mesh.ARRAY_NORMAL][start+k]
 				tri.append(v); ns.append(n); vertices.append(v); normals.append(n); colors.append(arrays[Mesh.ARRAY_COLOR][start+k])
 			for k in [2,1,0]: inner.append(tri[k]-ns[k]*.22); inner_normals.append(-ns[k])
+			# A hull per local planar patch follows the actual wall, never its AABB.
+			var plane_key := str(Vector3i((ns[0]*1000).round()))+":"+str(roundi(ns[0].dot(tri[0])*100))
+			if not planes.has(plane_key): planes[plane_key] = {"points":PackedVector3Array(),"prisms":[],"area":0.0,"normal":ns[0]}
+			var patch: Dictionary = planes[plane_key]; var prism := PackedVector3Array()
+			for k in 3: prism.append(tri[k]); prism.append(tri[k]-ns[k]*.22)
+			patch.points.append_array(prism); patch.prisms.append(prism)
+			patch.area += (tri[1]-tri[0]).cross(tri[2]-tri[0]).length()*.5
 			for k in 3:
 				var a := tri[k]; var b := tri[(k+1)%3]
 				var ka := str(Vector3i((a*1000).round())); var kb := str(Vector3i((b*1000).round()))
 				var key := ka+":"+kb if ka<kb else kb+":"+ka
 				if edges.has(key): edges.erase(key)
 				else: edges[key] = [a,b,ns[k],ns[(k+1)%3]]
+		for patch: Dictionary in planes.values():
+			var basis := PortalPhysics.frame(patch.normal); var flat := PackedVector2Array()
+			for v: Vector3 in patch.points: flat.append(Vector2(v.dot(basis.x),v.dot(basis.y)))
+			var hull := Geometry2D.convex_hull(flat); var hull_area := 0.0
+			for k in hull.size(): hull_area += hull[k].cross(hull[(k+1)%hull.size()])*.5
+			# Never bridge a concave patch or a gap between coplanar surfaces.
+			if absf(hull_area) <= patch.area*1.001+.001: patches.append(patch.points)
+			else: patches.append_array(patch.prisms)
 	for edge: Array in edges.values():
 		var a: Vector3 = edge[0]; var b: Vector3 = edge[1]; var c: Vector3 = b-edge[3]*.22; var d: Vector3 = a-edge[2]*.22
 		var n := (b-a).cross(d-a).normalized()
@@ -177,7 +206,7 @@ func fragment_mesh(indices: Array[int]) -> Dictionary:
 	var core: Array = []; core.resize(Mesh.ARRAY_MAX); core[Mesh.ARRAY_VERTEX] = inner; core[Mesh.ARRAY_NORMAL] = inner_normals
 	var mesh := ArrayMesh.new(); mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES,outer); mesh.surface_set_material(0,material)
 	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES,core); mesh.surface_set_material(1,fracture_field.core_material)
-	return {"mesh":mesh,"bounds":bounds}
+	return {"mesh":mesh,"bounds":bounds,"patches":patches}
 
 func surviving_arrays() -> Array:
 	var result: Array = []; result.resize(Mesh.ARRAY_MAX)

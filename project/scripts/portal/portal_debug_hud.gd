@@ -59,7 +59,7 @@ func toggle_debug() -> void:
 func _process(_delta: float) -> void:
 	readout.text = "%s\n速度  %05.1f m/s    穿越 %d / 物体 %d    破坏 %d\n碎块 %d / 48    宏块 %d / 3    切割冷却 %.1f s\nFPS %d    物理 %.2f ms    出口受阻 %d" % [game.STATIONS[game.station], game.player.velocity.length(), game.portals.traversal_count, game.portals.object_traversals, game.manager.damage_events, game.manager.active_debris.size(), game.zone.active.size(), game.cut.cooldown, Engine.get_frames_per_second(), Performance.get_monitor(Performance.TIME_PHYSICS_PROCESS) * 1000, game.portals.blocked_count]
 	status.text = game.portals.status + "\n" + game.ability.preview_text
-	readout.text += "\n建筑碎块：运动 %d / 24 · 悬空 %d · 待分离 %d" % [game.fracture_field.active_count(),game.fracture_field.pieces.size()-game.fracture_field.active_count(),game.fracture_field.pending.size()]
+	readout.text += "\n建筑碎块：运动 %d / 48 · 悬空 %d · 站立碎岛 %d · 待分离 %d" % [game.fracture_field.active_count(),game.fracture_field.pieces.size()-game.fracture_field.active_count(),game.fracture_field.landings.size(),game.fracture_field.pending.size()]
 	readout.text += "\n布置/切割门 %d / 2 · 移动残留门 %d / 2 · 门内视野 %d / 2" % [int(game.portals.gates[0] != null) + int(game.portals.gates[1] != null),game.portals.dash_gates.size(),game.windows.active_views]
 	if game.forest_enabled:
 		readout.text = readout.text.replace(game.STATIONS[game.station],"开放塔林 · 81 座可破坏塔")

@@ -19,7 +19,7 @@ func apply(target, point: Vector3, normal: Vector3, velocity: Vector3, mass: flo
 	impact_event.emit(data)
 	return manager.break_with_context(target, point, velocity.normalized(), strength,
 		{"kind": "BODY", "normal": normal, "before": velocity.length(), "physical_energy": joules,
-		"source_id": source.get_instance_id(), "radius": 2.6, "portal": true})
+		"source_id": source.get_instance_id(), "radius": clampf(normal_speed*.065,2.6,6.5), "portal": true})
 
 func check_player(player: RavagePlayer, delta: float) -> void:
 	for attempt in 4:

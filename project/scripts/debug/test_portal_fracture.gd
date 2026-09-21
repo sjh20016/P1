@@ -81,9 +81,10 @@ func run() -> void:
 		await frames(5); await capture("04-isolated-geometry-inspection")
 		for structure in game.canyon.structures: structure.visible = true
 	var shape_query := PhysicsShapeQueryParameters3D.new(); var sphere := SphereShape3D.new(); sphere.radius = .25
+	game.player.global_position = piece.global_position+Vector3(0,4,8); await frames(20)
 	shape_query.shape = sphere; shape_query.collision_mask = 16
-	var collider: CollisionShape3D = piece.get_child(1)
-	shape_query.transform.origin = collider.global_position
+	var faces: PackedVector3Array = piece.precise_collision.shape.get_faces()
+	shape_query.transform.origin = piece.precise_collision.to_global((faces[0]+faces[1]+faces[2])/3)
 	check(not game.get_world_3d().direct_space_state.intersect_shape(shape_query).is_empty(),"frozen wreckage retains usable collision")
 	var hit := RavageDamageEvent.new(); hit.type = RavageDamageEvent.Type.RAM; hit.energy = 65
 	hit.position = piece.global_position; hit.direction = Vector3.UP; hit.radius = 2
@@ -92,7 +93,7 @@ func run() -> void:
 	await frames(550); check(piece.settled,"reactivated debris freezes again")
 	var mask := tower.removed.duplicate(); tower.set_near(false); tower.set_near(true)
 	check(tower.removed == mask,"interest sleep preserves missing structural cells")
-	check(game.fracture_field.peak_active<=24 and game.fracture_field.pending.size()<=64,"physics and conversion budgets are bounded")
+	check(game.fracture_field.peak_active<=PortalFractureField.ACTIVE_LIMIT and game.fracture_field.pending.size()<=PortalFractureField.QUEUE_LIMIT,"physics and conversion budgets are bounded")
 	check(Engine.time_scale == 1,"building stasis never freezes player or world time")
 	# A real moving collision must cause secondary damage; invoking the queue alone
 	# would miss solver/contact reporting regressions.
