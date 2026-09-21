@@ -1,4 +1,4 @@
-param([string]$Engine = $env:GODOT_EXE, [switch]$Check, [switch]$Tour, [switch]$Classic, [switch]$Hybrid, [switch]$Character, [switch]$Skills)
+param([string]$Engine = $env:GODOT_EXE, [switch]$Check, [switch]$Tour, [switch]$Classic, [switch]$Hybrid, [switch]$Character, [switch]$Skills, [switch]$Fracture)
 $ErrorActionPreference = 'Stop'
 $repo = Split-Path $PSScriptRoot -Parent
 if (-not $Engine) {
@@ -13,7 +13,7 @@ $project = Join-Path $repo 'project'
 $logs = Join-Path $repo 'build'
 New-Item -ItemType Directory -Force $logs | Out-Null
 Write-Output ('Engine: ' + (& $Engine --version))
-if ($Check -or $Tour -or $Character -or $Skills) {
+if ($Check -or $Tour -or $Character -or $Skills -or $Fracture) {
     & $Engine --headless --path $project --editor --import --quit *> (Join-Path $logs 'portal-import.log')
     if ($LASTEXITCODE -ne 0 -or (Select-String -LiteralPath (Join-Path $logs 'portal-import.log') -Pattern 'SCRIPT ERROR|^ERROR:')) { throw 'Import failed. Read build/portal-import.log.' }
     $runs = @(@{ Script = 'test_portal_canyon'; Log = 'portal-canyon-tour'; Headless = $false })
@@ -21,6 +21,7 @@ if ($Check -or $Tour -or $Character -or $Skills) {
     if ($Hybrid) { $runs = @(@{ Script = 'test_portal_hybrid'; Log = 'portal-hybrid-rendered'; Headless = $false }) }
     if ($Character) { $runs = @(@{ Script = 'preview_portal_character'; Log = 'portal-character-preview'; Headless = $false }, @{ Script = 'test_portal_character'; Log = 'portal-character-rendered'; Headless = $false }) }
     if ($Skills) { $runs = @(@{ Script = 'test_portal_skill_flow'; Log = 'portal-skills-rendered'; Headless = $false }) }
+    if ($Fracture) { $runs = @(@{ Script = 'test_portal_fracture'; Log = 'portal-fracture-rendered'; Headless = $false }) }
     if ($Check) {
         $runs = @(
             @{ Script = 'test_portal001'; Log = 'portal-tests'; Headless = $true },
@@ -29,7 +30,8 @@ if ($Check -or $Tour -or $Character -or $Skills) {
             @{ Script = 'test_portal_forest'; Log = 'portal-forest-test'; Headless = $true },
             @{ Script = 'test_portal_canyon'; Log = 'portal-canyon-test'; Headless = $true },
             @{ Script = 'test_portal_character'; Log = 'portal-character-test'; Headless = $true },
-            @{ Script = 'test_portal_skill_flow'; Log = 'portal-skills-test'; Headless = $true }
+            @{ Script = 'test_portal_skill_flow'; Log = 'portal-skills-test'; Headless = $true },
+            @{ Script = 'test_portal_fracture'; Log = 'portal-fracture-test'; Headless = $true }
         )
     }
     foreach ($run in $runs) {

@@ -23,6 +23,7 @@ var windows: PortalWindowRenderer
 var presentation: PortalPresentation
 var character: PortalCharacter
 var skill_vfx: PortalSkillVFX
+var fracture_field: PortalFractureField
 var frame_ms: Array[float] = []
 var last_frame_us: int = 0
 
@@ -38,6 +39,7 @@ func _ready() -> void:
 		get_tree().remove_meta("portal_reload_magic")
 	preload("res://scripts/debug/input_setup.gd").install()
 	manager = DestructionManager.new(); add_child(manager)
+	fracture_field = PortalFractureField.new(); add_child(fracture_field)
 	var kinetic := KineticImpact.new(); kinetic.manager = manager; add_child(kinetic)
 	portals = PortalManager.new(); portals.profile = profile; portals.impact = kinetic; add_child(portals)
 	zone = preload("res://scripts/portal/portal_destruction_zone.gd").new(); zone.session = self; add_child(zone)

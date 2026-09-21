@@ -37,8 +37,11 @@ func refresh_interest(point: Vector3) -> void:
 	var focus: Array[Vector3] = [point]
 	if is_instance_valid(game.player): focus.append(point + game.player.velocity * 0.8)
 	if is_instance_valid(game.portals):
-		for gate in game.portals.gates:
+		for gate in game.portals.all_gates():
 			if is_instance_valid(gate): focus.append(gate.global_position)
+	if is_instance_valid(game.fracture_field):
+		for piece in game.fracture_field.pieces:
+			if is_instance_valid(piece) and not piece.settled: focus.append(piece.global_position)
 	for body in structures:
 		var wanted := false
 		var reach := 170.0 if body.near else 150.0

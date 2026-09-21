@@ -1,0 +1,11 @@
+{
+	"chain_hits": 1,
+	"checks": 22,
+	"detached": 40,
+	"failures": [],
+	"fragments": 9,
+	"frozen": 8,
+	"peak_active": 7,
+	"peak_build_ms": 4.047,
+	"rendered": false
+}

@@ -1,0 +1,13 @@
+{
+	"chain_hits": 1,
+	"checks": 22,
+	"collapse_max_ms": 14.607,
+	"collapse_p95_ms": 6.308,
+	"detached": 40,
+	"failures": [],
+	"fragments": 9,
+	"frozen": 8,
+	"peak_active": 7,
+	"peak_build_ms": 4.404,
+	"rendered": true
+}

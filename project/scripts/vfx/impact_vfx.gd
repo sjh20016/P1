@@ -80,6 +80,12 @@ func play_impact(hit: Vector3, direction: Vector3, strength: float) -> void:
 		profile.dust_count=8
 		profile.chip_count=18
 		profile.sound_volume_db-=4
+	if beat_context.get("asset_fracture",false):
+		profile.dust_count = 20 if beat_context.get("bond_broken",false) else 12
+		profile.chip_count = 26
+		profile.hit_stop_duration = 0
+		profile.camera_shake = .12 if beat_context.get("bond_broken",false) else .06
+		profile.flash_opacity = .025
 	if collapse:
 		# The world keeps falling while the player flies; secondary contacts never retrigger global hit stop.
 		profile.hit_stop_duration=0
@@ -114,7 +120,7 @@ func play_impact(hit: Vector3, direction: Vector3, strength: float) -> void:
 	audio.play()
 	crack_audio.stream=preload("res://assets/placeholders/tentacle_slash.wav") if slash else preload("res://assets/placeholders/impact_crack.wav")
 	crack_audio.volume_db=-7 if slash else -9
-	crack_audio.pitch_scale=0.55 if pull else (0.65 if collapse else (1.12 if slash else 0.85))
+	crack_audio.pitch_scale=0.62 if beat_context.get("asset_fracture",false) else (0.55 if pull else (0.65 if collapse else (1.12 if slash else 0.85)))
 	crack_audio.play()
 	effect_roots = effect_roots.filter(func(v): return is_instance_valid(v) and not v.is_queued_for_deletion())
 	while effect_roots.size() >= max_effects:

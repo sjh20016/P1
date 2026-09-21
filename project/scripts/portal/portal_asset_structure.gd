@@ -17,6 +17,10 @@ var damage_revision := 0
 var cell_count_removed := 0
 var material: StandardMaterial3D
 var rebuild_us := 0
+var neighbors: Array = []
+var grounded := PackedByteArray()
+var anchors: Array[int] = []
+var fracture_field: PortalFractureField
 
 static func vector_array(bytes: PackedByteArray) -> PackedVector3Array:
 	var data := bytes.to_float32_array()
@@ -42,6 +46,7 @@ func _ready() -> void:
 	var mesh := ArrayMesh.new(); mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES,original_arrays)
 	mesh.surface_set_material(0,material); visual.mesh = mesh; local_bounds = mesh.get_aabb()
 	collision_layer = 0; collision_mask = 0
+	fracture_field = get_tree().get_first_node_in_group("portal_fracture_field")
 
 func bounds_distance(point: Vector3) -> float:
 	var p := to_local(point)
@@ -66,13 +71,63 @@ func decode_cells() -> void:
 		var hi := Vector3(stream.get_float(),stream.get_float(),stream.get_float())
 		cells.append({"bounds":AABB(lo,hi - lo),"start":stream.get_u32(),"count":stream.get_u32()})
 	removed.resize(count); removed.fill(0); encoded.clear()
+	build_support()
+
+func build_support() -> void:
+	var bins: Dictionary = {}; neighbors.resize(cells.size())
+	var bottom := INF
+	for i in cells.size():
+		var bounds: AABB = cells[i].bounds; bottom = minf(bottom,bounds.position.y)
+		var key := Vector3i((bounds.get_center()/8).floor())
+		if not bins.has(key): bins[key] = []
+		bins[key].append(i); neighbors[i] = []
+	for i in cells.size():
+		var bounds: AABB = cells[i].bounds
+		if bounds.position.y <= bottom+.25: anchors.append(i)
+		var key := Vector3i((bounds.get_center()/8).floor())
+		for x in range(-1,2):
+			for y in range(-1,2):
+				for z in range(-1,2):
+					for j in bins.get(key+Vector3i(x,y,z),[]):
+						if j != i and bounds.grow(.10).intersects(cells[j].bounds.grow(.10)): neighbors[i].append(j)
+	grounded = supported_cells()
+
+func supported_cells() -> PackedByteArray:
+	var seen := PackedByteArray(); seen.resize(cells.size()); seen.fill(0)
+	var queue: Array[int] = []
+	for index in anchors:
+		if removed[index] == 0: queue.append(index); seen[index] = 1
+	var at := 0
+	while at < queue.size():
+		var index: int = queue[at]; at += 1
+		for j in neighbors[index]:
+			if removed[j] == 0 and seen[j] == 0: seen[j] = 1; queue.append(j)
+	return seen
+
+func detach(indices: Array[int], event, structural: bool) -> int:
+	var accepted := 0; var groups: Dictionary = {}
+	for index in indices:
+		var span := Vector3(64,32,64) if structural else Vector3(16,16,16)
+		var key := Vector3i(((cells[index].bounds.get_center()+Vector3(span.x*.5,0,span.z*.5))/span).floor())
+		if not groups.has(key): groups[key] = []
+		groups[key].append(index)
+	for group: Array in groups.values():
+		for start in range(0,group.size(),8):
+			var batch: Array[int] = []; batch.assign(group.slice(start,mini(group.size(),start+8)))
+			if is_instance_valid(fracture_field) and not fracture_field.enqueue(self,batch,event,structural):
+				# Simulation saturation must never make a newly hit wall invulnerable.
+				# Secondary structure stays static until the next damage evaluation.
+				if structural: continue
+				fracture_field.visual_fallbacks += batch.size()
+			for index in batch: removed[index] = 2 if structural else 1; accepted += 1
+	return accepted
 
 func receive_damage(event) -> Dictionary:
 	if event.energy < destruction_threshold: return {"changed":false}
 	var started := Time.get_ticks_usec()
 	decode_cells()
 	var point := to_local(event.position)
-	var count := 0
+	var selected: Array[int] = []
 	for i in cells.size():
 		if removed[i] != 0: continue
 		var b: AABB = cells[i].bounds
@@ -81,14 +136,48 @@ func receive_damage(event) -> Dictionary:
 			hit = PortalCutGeometry.contact(b,global_transform,event.context.asset_center,event.normal,event.context.asset_radius,event.radius) != null
 		else:
 			hit = point.distance_to(point.clamp(b.position,b.end)) <= maxf(1.8,event.radius)
-		if hit: removed[i] = 1; count += 1
+		if hit: selected.append(i)
+	var count := detach(selected,event,false)
 	if count == 0: return {"changed":false}
-	cell_count_removed += count; damage_revision += 1
+	var supported := supported_cells(); var loose: Array[int] = []
+	for i in cells.size():
+		if removed[i] == 0 and grounded[i] != 0 and supported[i] == 0: loose.append(i)
+	var severed := detach(loose,event,true)
+	cell_count_removed += count+severed; damage_revision += 1
 	rebuild_visual(); rebuild_collision()
 	rebuild_us = Time.get_ticks_usec() - started
 	var manager: DestructionManager = get_tree().get_first_node_in_group("destruction_manager")
 	manager.emit_broken(broken_scene,Transform3D(Basis.IDENTITY,event.position),event.position,event.direction,event.energy)
-	return {"changed":true,"removed":count,"severed":0,"bond_broken":false,"boost":false}
+	return {"changed":true,"removed":count,"severed":severed,"bond_broken":severed>0,"boost":false,"asset_fracture":true}
+
+func fragment_mesh(indices: Array[int]) -> Dictionary:
+	var vertices := PackedVector3Array(); var normals := PackedVector3Array(); var colors := PackedColorArray()
+	var inner := PackedVector3Array(); var inner_normals := PackedVector3Array()
+	var edges: Dictionary = {}; var bounds: AABB = cells[indices[0]].bounds
+	for index in indices:
+		bounds = bounds.merge(cells[index].bounds)
+		for start in range(cells[index].start,cells[index].start+cells[index].count,3):
+			var tri: Array[Vector3] = []; var ns: Array[Vector3] = []
+			for k in 3:
+				var v: Vector3 = arrays[Mesh.ARRAY_VERTEX][start+k]; var n: Vector3 = arrays[Mesh.ARRAY_NORMAL][start+k]
+				tri.append(v); ns.append(n); vertices.append(v); normals.append(n); colors.append(arrays[Mesh.ARRAY_COLOR][start+k])
+			for k in [2,1,0]: inner.append(tri[k]-ns[k]*.22); inner_normals.append(-ns[k])
+			for k in 3:
+				var a := tri[k]; var b := tri[(k+1)%3]
+				var ka := str(Vector3i((a*1000).round())); var kb := str(Vector3i((b*1000).round()))
+				var key := ka+":"+kb if ka<kb else kb+":"+ka
+				if edges.has(key): edges.erase(key)
+				else: edges[key] = [a,b,ns[k],ns[(k+1)%3]]
+	for edge: Array in edges.values():
+		var a: Vector3 = edge[0]; var b: Vector3 = edge[1]; var c: Vector3 = b-edge[3]*.22; var d: Vector3 = a-edge[2]*.22
+		var n := (b-a).cross(d-a).normalized()
+		for v in [a,b,c,a,c,d]: inner.append(v); inner_normals.append(n)
+	var outer: Array = []; outer.resize(Mesh.ARRAY_MAX)
+	outer[Mesh.ARRAY_VERTEX] = vertices; outer[Mesh.ARRAY_NORMAL] = normals; outer[Mesh.ARRAY_COLOR] = colors
+	var core: Array = []; core.resize(Mesh.ARRAY_MAX); core[Mesh.ARRAY_VERTEX] = inner; core[Mesh.ARRAY_NORMAL] = inner_normals
+	var mesh := ArrayMesh.new(); mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES,outer); mesh.surface_set_material(0,material)
+	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES,core); mesh.surface_set_material(1,fracture_field.core_material)
+	return {"mesh":mesh,"bounds":bounds}
 
 func surviving_arrays() -> Array:
 	var result: Array = []; result.resize(Mesh.ARRAY_MAX)
